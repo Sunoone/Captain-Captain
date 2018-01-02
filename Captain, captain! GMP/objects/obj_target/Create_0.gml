@@ -1,5 +1,7 @@
 /// @description Ini vars
 
+type = -1; // Do noit register with the interface
+
 direction = 30;
 
 speed = 2;

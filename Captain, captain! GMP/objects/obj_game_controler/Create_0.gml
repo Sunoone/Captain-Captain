@@ -23,7 +23,8 @@ player[p,1] = scr_create_interface( 0, room_height * 0.5, room_height * 0.5, roo
 player[p,c] = scr_create_object( obj_ship, 0, 250, 250, 1 ); 
 var player_ship = player[0,c]; c++;
 
-player[p,c] = scr_create_object( obj_fire_control, 0, 0, 0, -1, player_ship ); c++;
+player[p,c] = scr_create_object( obj_software_targeting, 0, 0, 0, 0, player_ship ); c++;
+
 player[p,c] = scr_create_object( obj_fire_control, 0, 0, 0, -1, player_ship ); c++;
 
 player[p,c] = scr_create_object( obj_turret_1, 0, -20, 30, -1, player_ship ); c++;
@@ -38,5 +39,11 @@ player[p,c] = scr_create_object( obj_truster_1, 0, -45, -50, 2, player_ship, 180
 player[1,0] = 1; 
 player[1,1] = scr_create_interface( 0, 0, room_height * 0.5, room_height * 0.5 );
 player[1,2] = scr_create_object( obj_target, 1, 100, 100, 100 );
+
+player[1,3] = scr_create_object( obj_fire_control, 1, 0, 0, 99, player[1,2] );
+player[1,4] = scr_create_object( obj_turret_1, 1, 0, 0, 98, player[1,2] );
+player[1,5] = scr_create_object( obj_software_targeting, 1, 0, 0, 0, player[1,2] );
+
+
 
 depth = -100;
