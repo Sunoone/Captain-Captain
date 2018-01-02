@@ -3,6 +3,8 @@
 /// @param object
 
 // this script checks if the given id is of the type object or has the object as one of it's parents
+// not sure if this script is working properly
+
 var index = argument0.object_index;
 
 if( index == argument1 ) return true;

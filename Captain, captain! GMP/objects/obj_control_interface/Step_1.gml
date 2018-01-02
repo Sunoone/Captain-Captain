@@ -24,12 +24,31 @@ if( list_count != list_c || update == true )
 		
 			for( var j = 0; j<l_size; j++ )
 			{
+					// update position
 				var e_rot = r_rot * j;
 				
 				ds_list_set( ring[i,2], j, e_rot); // rotation
-				
 				ds_list_set( ring[i,6], j, s_width + lengthdir_x( p_len, e_rot ) ); // x
 				ds_list_set( ring[i,7], j, s_height + lengthdir_y( p_len, e_rot ) ); // y
+			}
+		}
+	}
+	
+	// inefficient way to update the stored link x and y components, maybe thing about reading the x and y directly in the draw event?
+	for( var i = 1; i<max_rings; i++ )
+	{
+		for( var j = 0; j<l_size; j++ )
+		{
+			var p = ds_list_find_value( ring[i,5], j );
+			var p_index = ds_list_find_index( ring[ i-1, 1], p )
+			if( p_index >= 0 )
+			{
+					// find and store parent x,y
+				var p_x = ds_list_find_value( ring[i-1, 6], p_index );
+				ds_list_set( ring[i,8], j, p_x ) // store parent x
+				
+				var p_y = ds_list_find_value( ring[i-1, 7], p_index );
+				ds_list_set( ring[i,9], j, p_y ) // store parent y
 			}
 		}
 	}
