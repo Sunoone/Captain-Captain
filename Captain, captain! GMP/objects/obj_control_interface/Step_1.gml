@@ -10,7 +10,7 @@ for( var i = 0; i<max_rings; i++ )
 
 if( list_count != list_c || update == true )
 {
-	/*
+	
 	for( var i = 0; i<max_rings; i++ )
 	{
 		var l_size, r_rot, p_len;
@@ -32,8 +32,8 @@ if( list_count != list_c || update == true )
 			}
 		}
 	}
-	*/
 	
+	/*
 	var grouping;
 	grouping[max_rings] = -4;
 	
@@ -94,7 +94,8 @@ if( list_count != list_c || update == true )
 		}
 		
 	}
-		
+	*/
+	
 	//clean ds_gid && array
 	//for( var i = max_rings-1; i>=0; i-- ) { ds_grid_destroy(grouping[i]); }
 	//grouping = 0;
