@@ -151,6 +151,14 @@
             }
         },
         {
+            "Key": "4680e2e6-9bee-42e1-8920-c6835ec47e26",
+            "Value": {
+                "id": "03600339-9848-40ea-9046-13290aca45d8",
+                "resourcePath": "rooms\\LeroysRoom\\LeroysRoom.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "4c41fe43-ec03-468f-a5f8-f55866b3b09d",
             "Value": {
                 "id": "d3ac8db9-9cc6-4237-a3ca-c98368805a2b",
