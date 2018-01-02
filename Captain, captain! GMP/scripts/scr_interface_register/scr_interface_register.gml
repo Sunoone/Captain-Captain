@@ -30,7 +30,7 @@ var pos, obj_type, base_rot;
 
 obj_type = object_get_name(argument1);
 pos = ds_list_find_index( list_obj, obj_type );
-if( pos < 0 ) pos = size;
+pos = size;
 base_rot = 360 / argument0.ring[argument2,0];
 
 // Add index number and rotation to the lists
