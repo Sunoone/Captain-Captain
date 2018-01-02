@@ -64,20 +64,16 @@ if( instance_exists(select_id))
 							{
 									
 									// Remove old link
-								var old_parent = ds_list_find_index( ring[select_ring_2,5], select_pos_2 );
+								var old_parent = ds_list_find_value( ring[select_ring_2,5], select_pos_2 );
 								
 								if( instance_exists( old_parent ) )
 								{
-									if( scr_obj_check_parentage( old_parent, obj_base_combat ) )
+									var old_index = ds_list_find_index( old_parent.children, select_id_2 );
+									if( old_index >= 0 ) 
 									{
-										var old_index = ds_list_find_value( old_parent.children, select_id_2 );
-										if( old_index >= 0 ) 
-										{
-											ds_list_delete( old_parent.children, old_index );
-										}
+										ds_list_delete( old_parent.children, old_index );
 									}
 								}
-								
 									
 									// Link Interface element to parent
 								if( ds_list_find_index(select_id.children, select_id_2) == -1 )
