@@ -23,6 +23,7 @@ i.interface = game_controler.player[ argument[1], 1 ]; // id of interface object
 if(!variable_instance_exists(i,"type")) i.type = 2; // set type of object, THIS SHOULD BE OVERWRITTEN FOR NON-COMPONENT OBJECTS!
 
 // Find me!
+// Again!
 
 	//register object with interface
 if( scr_interface_register( i.interface, i, i.type ) == false )
