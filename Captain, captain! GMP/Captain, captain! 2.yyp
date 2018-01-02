@@ -525,14 +525,6 @@
                 "resourcePath": "scripts\\scr_screen_surface_get_x\\scr_screen_surface_get_x.yy",
                 "resourceType": "GMScript"
             }
-        },
-        {
-            "Key": "fbd526c3-5f27-4a11-b3e1-c3fca8aff927",
-            "Value": {
-                "id": "62f05f0e-fa6e-40dc-8db9-2092b1472fbf",
-                "resourcePath": "scripts\\DELETEME\\DELETEME.yy",
-                "resourceType": "GMScript"
-            }
         }
     ],
     "script_order": [
@@ -553,8 +545,7 @@
         "4c41fe43-ec03-468f-a5f8-f55866b3b09d",
         "6d400e64-81fb-4c4f-a84e-33f33ac268a1",
         "64d05447-25d4-48e1-bc4a-f7e01695584b",
-        "4f1d81db-61e4-4ccf-8624-c7d4f1cb08f8",
-        "fbd526c3-5f27-4a11-b3e1-c3fca8aff927"
+        "4f1d81db-61e4-4ccf-8624-c7d4f1cb08f8"
     ],
     "tutorial": ""
 }
