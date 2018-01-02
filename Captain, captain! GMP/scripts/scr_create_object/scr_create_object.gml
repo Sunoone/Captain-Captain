@@ -46,7 +46,6 @@ if(argument_count >= 6)
 		i.off_l = sqrt( sqr(i.off_x) + sqr(i.off_y) )
 		
 		i.parent_direction = p.direction;
-		
 		i.x = p.x + argument[2];
 		i.y = p.y + argument[3];
 	}
@@ -59,11 +58,11 @@ if(argument_count >= 7)
 	i.self_direction = argument[6];	
 }
 
-
 // Add all standard variables if they are not overwritten by the object's create event
 if(!variable_instance_exists(i,"parent")) i.parent = -4;
 if(!variable_instance_exists(i,"animation_speed")) i.animation_speed = 0; // animation speed
 if(!variable_instance_exists(i,"animation_count")) i.animation_count = 0; //subimage
+if(!variable_instance_exists(i,"parent_direction")) i.parent_direction = 0; //direction from parent
 if(!variable_instance_exists(i,"self_direction")) i.self_direction = 0;	//direction offset from parent
 if(!variable_instance_exists(i,"hp")) i.hp = 100;
 if(!variable_instance_exists(i,"mass")) i.mass = 1;
@@ -72,6 +71,8 @@ if(!variable_instance_exists(i,"rotation_lock")) i.rotation_lock = true; //overw
 if(!variable_instance_exists(i,"active")) i.active = true; //is the object active? 
 if(!variable_instance_exists(i,"max_children")) i.max_children = 0;
 if(!variable_instance_exists(i,"children")) i.children = ds_list_create();
+
+i.direction = i.parent_direction + i.self_direction;
 
 //draw sprite_index
 if(!variable_instance_exists(i,"object_surface")) 
