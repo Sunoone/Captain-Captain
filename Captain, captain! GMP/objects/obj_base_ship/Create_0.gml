@@ -2,60 +2,41 @@
 
 // This builds in the core
 
+type = -1;
+
 // ---------------------------------Temporary location ----------------------------------
 // The center of the grid that will be used to create the ship
 // -> Currently using hardcoded position
-globalvar xgridcenter;
-globalvar ygridcenter;
-xgridcenter = 400;
-ygridcenter = 400;
+globalvar xgridlocation;
+globalvar ygridlocation;
+xgridlocation = 0;
+ygridlocation = 0;
 
-// The size of a single gridspace
-
-//cellsize = 63;
-
-// Makes sure there is a cap to the grid
-// Even gridsizes work, but will make you unable to place a single cell core in the exact center
-// -> It will place it as close to the center as possible, but favors north-west.
+// Uneven sizes are recommended when you want the core to be centered
 globalvar xgridsize, ygridsize;
-xgridsize = 11;
-ygridsize = 11;
+xgridsize = 5;
+ygridsize = 5;
 
-globalvar xgridmax, ygridmax, xgridmin, ygridmin;
-
-var xboundaries = (xgridsize - 1) / 2;
-xgridmax = ceil(xboundaries);
-xgridmin = -floor(xboundaries);
-
-var yboundaries = (ygridsize - 1) / 2;
-ygridmax = ceil(yboundaries);
-ygridmin = -floor(yboundaries);
 // ---------------------------------Temporary location ----------------------------------
 
-
 var core;
-var coreX = 0;
-var coreY = 0;
-
-
-core = scr_create_ship_object(obj_core, 0, coreX, coreY, 0, id, 0);
+var coreX = floor((xgridsize - 1) / 2);
+var coreY = floor((ygridsize - 1) / 2);
 
 var hulls;
+hulls[xgridsize, ygridsize] = 0;
+
 var objects;
-
-//hulls[0] = scr_create_ship_object(obj_core, 0, 1, 0, 1, id);
-
+objects[xgridsize, ygridsize] = 0;
 
 
-//var gridposition = ds_grid_create(xgridsize, ygridsize);
-// 0 = ship_part
-// 1 = controller
-// 2 = component
+var bShowGrid;
+bShowGrid = true;
 
-var objects = ds_list_create();
+if (!bShowGrid)
+	return;
 
-// Player will always be the owner
-//scr_create_ship_object(obj_core, 0, coreX, coreY, id);
-
-scr_create_ship_object(obj_hull, 0, 1, 1, -1, id, 0);
-scr_create_ship_object(obj_hull, 0, -1, 1, -1, id, 0);
+for (i = 0; i < xgridsize; i += 1)
+	   for (e = 0; e < ygridsize; e += 1)	   
+			//if (i == coreX && e == coreY) continue;	   
+			hulls[i, e] = scr_create_grid_object(obj_cell, 0, 0, i, e, 5, id, 0);

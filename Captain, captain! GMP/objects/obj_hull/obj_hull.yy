@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_hull",
     "eventList": [
-        
+        {
+            "id": "ed7abbc3-dd45-44b6-9bfd-c47ce4c43874",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "01a10f29-f535-4c06-aa5f-7581d0d4b586"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
