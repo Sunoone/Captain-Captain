@@ -14,12 +14,13 @@
 if( argument_count < 5 || argument_count > 7 ) show_error("scr_create_object argument count is incorrect", true)
 
 globalvar game_controler;
+globalvar owned_interface;
 
 	// create the object
 var i = instance_create_depth( argument[2], argument[3], argument[4], argument[0] );
 
 i.owner = argument[1]; // index of owner
-i.interface = game_controler.player[ argument[1], 1 ]; // id of interface object;
+i.interface = owned_interface[ argument[1] ]; // id of interface object;
 if(!variable_instance_exists(i,"type")) i.type = 2; // set type of object, THIS SHOULD BE OVERWRITTEN FOR NON-COMPONENT OBJECTS!
 
 // Find me!
@@ -73,6 +74,7 @@ if(!variable_instance_exists(i,"rotation_lock")) i.rotation_lock = true; //overw
 if(!variable_instance_exists(i,"active")) i.active = true; //is the object active? 
 if(!variable_instance_exists(i,"max_children")) i.max_children = 0;
 if(!variable_instance_exists(i,"children")) i.children = ds_list_create();
+if(!variable_instance_exists(i,"interface_width")) i.interface_width = 1; // the width of the interface element for the object
 
 i.direction = i.parent_direction + i.self_direction;
 
