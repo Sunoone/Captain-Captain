@@ -21,7 +21,7 @@ if( surface_exists( object_surface ) )
 	var len = sqrt( sqr(h_width) + sqr(h_height) );
 	var dir = point_direction(0,0,h_width,h_height);
 	
-	inherent_direction = self_direction + direction;
+	inherent_direction = direction;
 	
 	rotate_x = lengthdir_x(len, inherent_direction + dir);
 	rotate_y = lengthdir_y(len, inherent_direction + dir);

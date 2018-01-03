@@ -1,5 +1,8 @@
 /// @description Ini vars
 
+// Inherit the parent event
+event_inherited();
+
 type = -1; // Do noit register with the interface
 
 direction = 30;

@@ -21,10 +21,6 @@ var i = instance_create_depth( argument[2], argument[3], argument[4], argument[0
 
 i.owner = argument[1]; // index of owner
 i.interface = owned_interface[ argument[1] ]; // id of interface object;
-if(!variable_instance_exists(i,"type")) i.type = 2; // set type of object, THIS SHOULD BE OVERWRITTEN FOR NON-COMPONENT OBJECTS!
-
-// Find me!
-// Again!
 
 	//register object with interface
 if( scr_interface_register( i.interface, i, i.type ) == false )
@@ -60,21 +56,6 @@ if(argument_count >= 7)
 {
 	i.self_direction = argument[6];	
 }
-
-// Add all standard variables if they are not overwritten by the object's create event
-if(!variable_instance_exists(i,"parent")) i.parent = -4;
-if(!variable_instance_exists(i,"animation_speed")) i.animation_speed = 0; // animation speed
-if(!variable_instance_exists(i,"animation_count")) i.animation_count = 0; //subimage
-if(!variable_instance_exists(i,"parent_direction")) i.parent_direction = 0; //direction from parent
-if(!variable_instance_exists(i,"self_direction")) i.self_direction = 0;	//direction offset from parent
-if(!variable_instance_exists(i,"hp")) i.hp = 100;
-if(!variable_instance_exists(i,"mass")) i.mass = 1;
-if(!variable_instance_exists(i,"armor")) i.armor = 0;
-if(!variable_instance_exists(i,"rotation_lock")) i.rotation_lock = true; //overwite with false if the object does not rotate with it's parent
-if(!variable_instance_exists(i,"active")) i.active = true; //is the object active? 
-if(!variable_instance_exists(i,"max_children")) i.max_children = 0;
-if(!variable_instance_exists(i,"children")) i.children = ds_list_create();
-if(!variable_instance_exists(i,"interface_width")) i.interface_width = 1; // the width of the interface element for the object
 
 i.direction = i.parent_direction + i.self_direction;
 

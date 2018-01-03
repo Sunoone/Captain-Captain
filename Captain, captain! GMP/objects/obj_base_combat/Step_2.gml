@@ -6,7 +6,7 @@ if( instance_exists( parent ) )
 	// rotate with parent
 	
 		// if the rotation of the component is locked, rotate with parent
-	if(rotation_lock) direction = parent.direction;
+	if(rotation_lock) direction = self_direction + parent.direction;
 	else direction += parent.direction - parent_direction;
 	parent_direction = parent.direction;
 	//move with parent	

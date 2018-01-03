@@ -1,6 +1,8 @@
 /// @description Remove Destroyed Children
 // You can write your code in this editor
 
+// Inherit the parent event
+event_inherited();
 
 // remove destroyed children
 var size;

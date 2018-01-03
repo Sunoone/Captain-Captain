@@ -39,6 +39,14 @@
             }
         },
         {
+            "Key": "0288a303-7ca6-432c-973e-bf60e56563ce",
+            "Value": {
+                "id": "b83e4817-63d7-41e4-a97b-ccf3cc9d008b",
+                "resourcePath": "objects\\obj_base_turret_controler\\obj_base_turret_controler.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "08694852-4c14-4293-9ac8-3c58a9a9c39c",
             "Value": {
                 "id": "92f40483-c663-4914-95d2-467a4a7b16a4",
@@ -343,6 +351,14 @@
             }
         },
         {
+            "Key": "79b4a2c5-d6e2-4025-9086-ea5b2e3c4ef4",
+            "Value": {
+                "id": "8c6cf370-75fa-4491-8230-72faf78a15c7",
+                "resourcePath": "views\\79b4a2c5-d6e2-4025-9086-ea5b2e3c4ef4.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "9c727715-2c57-4a6e-afdb-a3c476e88382",
             "Value": {
                 "id": "020077b1-300a-456a-a2c4-15b132127d62",
@@ -380,6 +396,14 @@
                 "id": "3b92a805-1220-4781-bcde-7e642ceb7747",
                 "resourcePath": "views\\a69f6d7e-2e50-4e15-ad23-041347c9206a.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "a74c77d3-d18a-4399-94eb-e6f10adf950c",
+            "Value": {
+                "id": "2bb8213c-a659-4e06-ab1f-43aed8a993a5",
+                "resourcePath": "objects\\obj_base_turret_component\\obj_base_turret_component.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -431,6 +455,14 @@
             }
         },
         {
+            "Key": "c2dab58a-9051-4438-9051-051a9a4b29ba",
+            "Value": {
+                "id": "5bc0fabb-e152-40f5-a2ec-8d35f812be87",
+                "resourcePath": "scripts\\scr_min_angle\\scr_min_angle.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "c407c6f9-2984-4fa1-8936-241a54d4907b",
             "Value": {
                 "id": "2b9a29f5-8a66-4c32-81b7-15025fa45128",
@@ -479,6 +511,14 @@
             }
         },
         {
+            "Key": "ea4b2f04-00dd-4dc3-b608-40e39648b128",
+            "Value": {
+                "id": "2344d96c-7a79-4038-bc12-1689c59fe0a3",
+                "resourcePath": "objects\\obj_base_turret_software\\obj_base_turret_software.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "f418569b-3bdd-4706-a0e4-364317f54032",
             "Value": {
                 "id": "a33dba6d-b2b4-4a87-ab3c-77ca05770abc",
@@ -501,6 +541,7 @@
         "562e0ab3-bc1e-4e44-9fbe-c647e077efd8",
         "3c9d1917-303a-46fb-ba3e-2dbfda4d338f",
         "d3fcc866-9438-4222-af22-38cfda30d4cd",
+        "c2dab58a-9051-4438-9051-051a9a4b29ba",
         "08694852-4c14-4293-9ac8-3c58a9a9c39c",
         "71d2a6aa-c70b-48e3-923c-803da6740cdc",
         "746cfa39-d794-495d-a8dd-0de6ad32f3f9",

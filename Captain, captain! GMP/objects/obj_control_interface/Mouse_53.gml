@@ -1,6 +1,7 @@
 /// @description Search for interface elements
 // Does the mouse click on an interface element?
 
+/*
 if( mouse_x > f_x && mouse_x < f_x + f_width && mouse_y > f_y && mouse_y < f_y + f_height)
 {
 	select_id = -4;

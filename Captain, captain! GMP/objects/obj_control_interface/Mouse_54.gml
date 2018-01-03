@@ -1,6 +1,7 @@
 /// @description Prep clear
 // 
 
+/*
 if( mouse_x > f_x && mouse_x < f_x + f_width && mouse_y > f_y && mouse_y < f_y + f_height)
 {
 	clear_id = -4;
