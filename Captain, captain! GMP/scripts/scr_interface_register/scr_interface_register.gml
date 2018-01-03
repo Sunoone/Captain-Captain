@@ -6,42 +6,170 @@
 // This script registers an new interface element with the interface controler
 if(argument2 < 0) return true;
 
+var type, int, obj, grid, pos, obj_width, obj_type, free;
+int = argument0;
+obj = argument1;
+type = argument2;
 
-var j,w,h, list_rot, list_obj, list_id, list_spr, list_link, list_link_x, list_link_y, list_x, list_y, size;
+grid = int.ring[ type, 0 ];
+obj_width = obj.interface_width;
+obj_type = object_get_parent(obj.object_index);
 
-list_id = argument0.ring[argument2,1];
-list_rot = argument0.ring[argument2,2];
-list_obj = argument0.ring[argument2,3];
-list_spr = argument0.ring[argument2,4];
-list_link = argument0.ring[argument2,5];
-list_x = argument0.ring[argument2,6];
-list_y = argument0.ring[argument2,7];
-list_link_x = argument0.ring[argument2,8];
-list_link_y = argument0.ring[argument2,9];
+free = false;
 
-size = ds_list_size(list_id);
+pos = -1;
+
+// find a position
+var p, w, c;
+
+if( type != 0)
+{
+	w = 0;
+	p = -4;
+	c = -1;
+	
+	// loop trough grid in search of a position with an parent that accepts the object type
+	for( var j = 0; j < int.grid_width; j++)
+	{
+		if( grid[# j, int.g_free ] == true )
+		{
+			if( grid[# j, int.g_type ] == obj_type )
+			{
+				var par = grid[# j, int.g_parent ];
+				
+				if( instance_exists(par) )
+				{
+					if( par == p ) w += 1;
+					else
+					{
+						w = 1;
+						c = j;
+						p = par;
+					}
+				}
+			}
+		}
+		else
+		{
+			w = 0; 
+			p = -4;
+			c = -1;
+		}
+		
+		if( w == obj_width )
+		{
+			pos = c;
+			break;
+		}
+	}
+}
+
+// find free space
+if( pos == -1 )
+{
+	w = 0;
+	c = -1;
+	p = -4;
+	free = true;
+	
+	// loop trough grid in search of a free position
+	for( var j = 0; j < int.grid_width; j++)
+	{
+		if( grid[# j, int.g_free ] == true )
+		{
+			if( grid[# j, int.g_type ] == -4 )
+			{
+				if( w = 0 )
+				{
+					w = 1;
+					c = j;
+				}
+				else 
+				{
+					w += 1;
+				}
+			}
+		}
+		else
+		{
+			w = 0; 
+			c = -1;
+		}
+		
+		if( w == obj_width )
+		{
+			pos = c;
+			break;
+		}
+	}
+}
 
 
-// check if there is space for the new interface element
-if( size +1 >= argument0.ring[argument2,0] ) return false;
+// there is no space for the object
+if( pos == -1 ) return false;
 
-// find a position in the list
-var pos, obj_type, base_rot;
 
-obj_type = object_get_name(argument1);
-pos = ds_list_find_index( list_obj, obj_type );
-pos = size;
-base_rot = 360 / argument0.ring[argument2,0];
+// reserve space
+for( var j = 0; j < obj_width; j++ )
+{
+	grid[# pos + j, int.g_free] = false;
+}
 
-// Add index number and rotation to the lists
-ds_list_insert( list_id, pos, argument1 ); // write the combat object id
-ds_list_insert( list_rot, pos, base_rot * pos ); // insert a standart rotation in the list
-ds_list_insert( list_obj, pos, obj_type ); // write the name of the combat object
-ds_list_insert( list_spr, pos, argument1.sprite_index ); // write the sprite of the combat object
-ds_list_insert( list_link, pos, -100 ); // write the link of the element
-ds_list_insert( list_x, pos, -100 ); // bogus data in x
-ds_list_insert( list_y, pos, -100 ); // bogus data in y
-ds_list_insert( list_link_x, pos, -100 ); // bogus data in link x
-ds_list_insert( list_link_y, pos, -100 ); // bogus data in link y
+// parent underlying spaces or forbid them
+for( var i = type + 1; i<int.max_rings; i++ )
+{
+	for( var j = 0; j < obj_width; j++ )
+	{
+		ds_grid_set( int.ring[ i, 0 ], pos + j, int.g_parent, obj );
+		
+		var obj_allowed_list = obj.allowed_type;
+		
+		if( ds_list_size(obj_allowed_list) > 0 )
+		{
+			ds_grid_set( int.ring[ i, 0 ], pos + j, int.g_free, true );
+			ds_grid_set( int.ring[ i, 0 ], pos + j, int.g_type, obj_allowed_list[|0] );
+		}
+		else
+		{
+			ds_grid_set( int.ring[ i, 0 ], pos + j, int.g_free, false );
+			ds_grid_set( int.ring[ i, 0 ], pos + j, int.g_type, -4 );
+		}
+	}
+}
+
+// if free, forbid space above element
+if( free )
+{
+	for( var i = type; i >= 0; i-- )
+	{
+		for( var j = 0; j < obj_width; j++ )
+		{
+			ds_grid_set( int.ring[ i, 0 ], pos + j, int.g_free, false );
+		}
+	}
+}
+
+// calculate pos
+var ele_x, ele_y, ele_rot, r_rot, p_len;
+
+r_rot = 360 / int.grid_width;
+p_len = (int.rad_0*0.5) - (int.r_dist*0.5) + (int.r_dist*type);
+
+ele_rot = r_rot * pos;
+ele_x = int.s_width + lengthdir_x( p_len, ele_rot );
+ele_y = int.s_height + lengthdir_y( p_len, ele_rot );
+
+// declare vars
+grid[# pos, int.e_id ] = obj;
+grid[# pos, int.e_spr ] = obj.sprite_index;
+grid[# pos, int.e_link ] = p;
+grid[# pos, int.e_x ] = ele_x;
+grid[# pos, int.e_y ] = ele_y;
+grid[# pos, int.e_width ] = obj_width;
+
+if( instance_exists( p ) )
+{
+	ds_list_add( p.children, obj );
+}
 
 return true;

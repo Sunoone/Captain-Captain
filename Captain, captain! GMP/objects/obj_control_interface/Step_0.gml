@@ -11,26 +11,49 @@ draw_circle_color( s_width, s_height, rad_0 - r_dist*2, c_ltgray, c_ltgray, fals
 draw_circle_color( s_width, s_height, rad_0 - r_dist*3, c_dkgray, c_dkgray, false );
 
 
+// draw lines
+for( var j = 0; j < grid_width; j++ )
+{
+	var x1, x2, y1, y2, dir;
+	
+	dir = (360 / grid_width) * (j + 0.5);
+	
+	x1 = s_width + lengthdir_x(  rad_0 - r_dist*3, dir );
+	y1 = s_height + lengthdir_y( rad_0 - r_dist*3, dir );
+	
+	x2 = s_width + lengthdir_x(  rad_0, dir );
+	y2 = s_height + lengthdir_y( rad_0, dir );
+	
+	draw_line_color(x1,y1,x2,y2,c_black,c_black);
+}
+
 // draw links
 for( var i = 0; i<max_rings; i++)
 {
-	var l_size = ds_list_size( ring[i,1] );
-	for( var j = 0; j<l_size; j++ )
+	var grid = ring[i,0];
+	for( var j = 0; j<grid_width; j++ )
 	{
-		if( instance_exists( ds_list_find_value( ring[i,5], j ) ) )
+		var o = grid[# j, e_id ];
+		var p = grid[# j, e_link ];
+		
+		if( instance_exists( o ) && instance_exists( p ) )
 		{
 			var x1, x2, y1, y2;
-			x1 =  ds_list_find_value( ring[i,6], j );
-			y1 =  ds_list_find_value( ring[i,7], j );
-			x2 =  ds_list_find_value( ring[i,8], j );
-			y2 =  ds_list_find_value( ring[i,9], j );
+			x1 =  grid[# j, e_x ];
+			y1 =  grid[# j, e_y ];
+			
+			var grid_above = ring[i - 1, 0];
+			var parent_index = ds_grid_value_x( grid_above, 0, e_id, grid_width - 1, e_id, p );
+			
+			x2 =  grid_above[# parent_index, e_x ];
+			y2 =  grid_above[# parent_index, e_y ];
 			
 			draw_line_width_color( x1, y1, x2, y2, 3, c_white, c_white );
 		}
 	}
 }
 
-
+/*
 // draw connection line
 if( instance_exists(select_id) )
 {
@@ -43,56 +66,34 @@ if( instance_exists(select_id) )
 	
 	draw_line_width_color( mouse_x - f_x, mouse_y - f_y, ls_x, ls_y, 3, c_yellow, c_yellow );
 }
-
+*/
 
 
 // draw interface icons
 for( var i = 0; i<max_rings; i++)
 {
-	var p_len, l_size;
+	var grid = ring[i,0];
+	p_len = (rad_0*0.5) - (r_dist*0.5) + (r_dist*i); // distance from the center based on the ring number
 	
-	l_size = ds_list_size( ring[i,1] );
-	
-	//debug
-	//draw_text_colour( 10, 10 + 20 * i, "Ring " + string(i) + " size: " + string( l_size ) , c_red,c_red,c_red,c_red,1);
-	
-	if( l_size > 0 )
+	for( var j = 0; j<grid_width; j++ )
 	{
-		p_len = (rad_0*0.5) - (r_dist*0.5) + (r_dist*i); // distance from the center based on the ring number
-		
-		for( var j = 0; j<l_size; j++ )
+		var ele_id, ele_x, ele_y, ele_spr;
+			
+		ele_id =  grid[# j, e_id]; // object id
+			
+		if( instance_exists( ele_id ) )
 		{
-			var e_spr, e_rot, e_x, e_y, e_id;
-			
-			e_id =  ds_list_find_value( ring[i,1], j ); // object id
-			
-			if( instance_exists( e_id ) )
-			{
-				e_x = ds_list_find_value( ring[i,6], j ); // element x
-				e_y = ds_list_find_value( ring[i,7], j ); // element y
-				e_spr = ds_list_find_value( ring[i,4], j ); // element sprite
+			ele_x = grid[# j, e_x]; // element x
+			ele_y = grid[# j, e_y]; // element y
+			ele_spr = grid[# j, e_spr]; // element sprite
 				
-				draw_sprite( spr_baseNode, 0, e_x, e_y);
-				draw_sprite( e_spr, 0, e_x, e_y );		
-			}
-			else
-			{
-				// reference does no longer exist, remove from list
-				var r_length = array_length_2d(ring, i);
-				for( var c = 0; c<r_length; c++ )
-				{
-					if( ds_exists( ring[i,c], ds_type_list ) )
-					{
-						ds_list_delete( ring[i,c], j );
-					}
-				}
-				
-				j--;
-				l_size--;
-			}
-			
-		}
+			draw_sprite( spr_baseNode, 0, ele_x, ele_y);
+			draw_sprite( ele_spr, 0, ele_x, ele_y );		
+		}			
 	}
+	
 }
+
+
 
 surface_reset_target();

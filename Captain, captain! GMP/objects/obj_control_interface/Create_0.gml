@@ -1,20 +1,8 @@
 /// @description Ini vars
 
 // This objects projects the control circle for ship objects
+
 list_count = 0;
-
-	// Get a private screen from the screen controler
-//screen_index = scr_screen_surface_create( round(room_width / 3), round(room_height / 2), 0, round(room_height / 2), true );
-//screen_id = scr_screen_surface_get_id( screen_index );
-
-	// graphics
-//f_width = surface_get_width(screen_id);
-//f_height = surface_get_height(screen_id);
-//f_x = scr_screen_surface_get_x(screen_index);
-//f_y = scr_screen_surface_get_y(screen_index);
-//s_width = round( 0.5 * f_width );
-//s_height = round( 0.5 * f_height );
-//rad_0 = min(s_width,s_height) - 5;
 r_dist = 65;
 
 	//interface
@@ -34,23 +22,33 @@ update = false;
 		// This database needs to hold all interface elements for components, controlers and software
 		// This database needs to hold the position of those elements
 		// This database needs to hold the links between elements
-max_rings = 3;
-grid_width = 3;
+
 
 ring[0,0] = 0;
 
+	// ring index
+g_type = 0;		// what type does this space holds?
+g_free = 1;		// can this space be used?
+g_parent = 2;	// what is this space it's parent, if any?
+e_id = 3;		// list element id
+e_rot = 4;		// list element rotation
+e_spr = 5;		// list element sprite
+e_link = 6;		// list element link
+e_x = 7;		// list element x
+e_y = 8;		// list element y
+e_width = 9;	// list element width
+
+grid_width = 24;
+grid_height = 10;
+max_rings = 3;
+
 for( var i = 0; i<max_rings; i++)
 {
-	//ring[i,0] = ds_list_create(); // the list
-	ring[i,0] = 8*(i+1); //max interface elements
-	
-	ring[i,1] = ds_list_create(); // interface_element reference
-	ring[i,2] = ds_list_create(); // element rotation
-	ring[i,3] = ds_list_create(); // element object type
-	ring[i,4] = ds_list_create(); // element object sprite
-	ring[i,5] = ds_list_create(); // element link id
-	ring[i,6] = ds_list_create(); // element x
-	ring[i,7] = ds_list_create(); // element y
-	ring[i,8] = ds_list_create(); // element link x
-	ring[i,9] = ds_list_create(); // element link y
+	ring[i,0] = ds_grid_create( grid_width, grid_height );
+	ds_grid_set_region( ring[i,0], 0, 0, grid_width -1, grid_height -1, -4 );
+	ds_grid_set_region( ring[i,0], 0, g_free, grid_width -1, g_free, true );
 }
+
+
+
+

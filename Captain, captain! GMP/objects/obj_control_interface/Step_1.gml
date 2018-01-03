@@ -1,6 +1,7 @@
 /// @description Rebalance Nodes
 // This piece of code rebalances the nodes on the wheel
 
+/*
 var list_c = 0;
 
 for( var i = 0; i<max_rings; i++ )

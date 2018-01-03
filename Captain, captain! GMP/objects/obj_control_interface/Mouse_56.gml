@@ -1,6 +1,7 @@
 /// @description Link interface elements
 // Does the mouse click on an interface element?
 
+/*
 if( instance_exists(select_id))
 {
 	if( mouse_x > f_x && mouse_x < f_x + f_width && mouse_y > f_y && mouse_y < f_y + f_height)
@@ -40,7 +41,7 @@ if( instance_exists(select_id))
 							
 							if( i == select_ring) 
 							{ 
-								/* equal ring, not implemented */
+								// equal ring, not implemented
 								update = true;
 								break;  
 							}
