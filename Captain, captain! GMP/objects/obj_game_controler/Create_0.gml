@@ -36,7 +36,8 @@ player[p,c] = scr_create_object( obj_turret_1, 0, -20, -30, -1, player_ship ); c
 player[p,c] = scr_create_object( obj_truster_1, 0, -45, 50, 2, player_ship, 180 ); c++;
 player[p,c] = scr_create_object( obj_truster_1, 0, -45, -50, 2, player_ship, 180 ); c++;
 
-scr_create_object(obj_base_ship, 0, 500, 500, 1);
+// This creates the ship now
+scr_create_object(obj_custom_ship, 0, 500, 500, 1);
 
 //debug
 ds_list_add(player[p,3].children, player[p,4], player[p,5]);

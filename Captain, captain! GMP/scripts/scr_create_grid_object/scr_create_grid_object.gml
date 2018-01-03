@@ -21,8 +21,8 @@ if (argument[3] > /*argument[1].*/xgridsize || argument[3] < 0 || argument[4] > 
 //var yposition = xgridlocation - (floor((ygridsize - 1) / 2) * cellsize) + argument[3] * cellsize;
 var xdifference = floor((xgridsize - 1) / 2) * cellsize;
 var ydifference = floor((ygridsize - 1) / 2) * cellsize
-var xposition = xgridlocation /*argument[6].x*/ - xdifference + argument[3] * cellsize;
-var yposition = ygridlocation /*argument[6].y*/ - ydifference + argument[4] * cellsize;
+var xposition = 0 /*argument[6].x*/ - xdifference + argument[3] * cellsize;
+var yposition = 0 /*argument[6].y*/ - ydifference + argument[4] * cellsize;
 
 if(argument_count >= 7) 
 {	

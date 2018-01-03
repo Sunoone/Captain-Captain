@@ -1,3 +1,3 @@
 /// @description Ini vars
 
-type = 2; // register as a component
+type = componenttype; // register as a component
