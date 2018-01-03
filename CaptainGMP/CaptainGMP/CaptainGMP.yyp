@@ -191,6 +191,14 @@
             }
         },
         {
+            "Key": "44b3abc0-7956-4c52-a7db-0dd29f7eda9a",
+            "Value": {
+                "id": "629cbff0-c173-49fc-b060-c034fb1ebd4e",
+                "resourcePath": "objects\\obj_Bogus\\obj_Bogus.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "45c9249e-1d4e-4301-9615-8b589cf8f89e",
             "Value": {
                 "id": "d77c1b6f-0977-4bb7-a2bd-7f4909fca10f",
