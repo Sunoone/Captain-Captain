@@ -1,6 +1,8 @@
 /// @description Ini vars
 // 
 
+scr_init_game_constants();
+
 global.game_controler = id;
 
 // create screen controler
@@ -21,7 +23,6 @@ globalvar owned_interface;
 owned_interface[0] = scr_create_interface( 0, room_height * 0.5, room_height * 0.5, room_height * 0.5 );
 owned_interface[1] = scr_create_interface( 0, 0, room_height * 0.5, room_height * 0.5 );
 
-
 player[p,c] = scr_create_object( obj_ship, 0, 250, 250, 1 ); 
 var player_ship = player[0,c]; c++;
 
@@ -35,8 +36,10 @@ player[p,c] = scr_create_object( obj_turret_1, 0, -20, -30, -1, player_ship ); c
 player[p,c] = scr_create_object( obj_truster_1, 0, -45, 50, 2, player_ship, 180 ); c++;
 player[p,c] = scr_create_object( obj_truster_1, 0, -45, -50, 2, player_ship, 180 ); c++;
 
+scr_create_object(obj_base_ship, 0, 500, 250, 1);
+
 //debug
-//ds_list_add(player[p,3].children, player[p,4], player[p,5]);
+ds_list_add(player[p,3].children, player[p,4], player[p,5]);
 
 p = 1;
 c = 0;
