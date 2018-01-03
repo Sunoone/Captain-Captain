@@ -49,7 +49,7 @@ player[p,c] = scr_create_object( obj_software_targeting, 1, 0, 0, 0, other_ship 
 player[p,c] = scr_create_object( obj_fire_control, 1, 0, 0, 99, other_ship ); c++;
 player[p,c] = scr_create_object( obj_turret_1, 1, 0, 0, 98, other_ship ); c++;
 
-
+// This line is added by Leroy
 
 
 depth = -100;
