@@ -439,6 +439,14 @@
             }
         },
         {
+            "Key": "90d236ef-51b5-4a6a-9f6d-6a96737bd05c",
+            "Value": {
+                "id": "c8ab7cd7-0ffc-4e63-94ad-c0612466195f",
+                "resourcePath": "scripts\\DeleteMe\\DeleteMe.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "9969ab14-950e-4178-9313-7cc24c6e221b",
             "Value": {
                 "id": "27a05617-8833-47de-8dd6-837f04a2eb41",
@@ -693,7 +701,8 @@
         "a602b0ff-d826-436e-aa99-b3840c97c089",
         "064ac671-fc65-4092-823a-bc0ec5f169f4",
         "3e5dc068-863e-4590-bafd-c5317b138398",
-        "c9b0b98b-154c-413a-9ff7-9dbc43ceb53c"
+        "c9b0b98b-154c-413a-9ff7-9dbc43ceb53c",
+        "90d236ef-51b5-4a6a-9f6d-6a96737bd05c"
     ],
     "tutorial": ""
 }
