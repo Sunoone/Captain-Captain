@@ -7,6 +7,8 @@
 
 // this script checks if an interface element can be moved to the given location
 
+/*
+
 globalvar owned_interface
 
 var int, grid, obj, obj_width, pos, max_grid, free, type, obj_type;
@@ -17,8 +19,7 @@ obj_width = obj.interface_width;
 grid = int.ring[ argument2, 0 ];
 max_grid = int.grid_width;
 pos = argument3;
-free = int.g_free;
-type = int.g_type;
+
 obj_type = object_get_parent( obj.object_index );
 
 var j, t;

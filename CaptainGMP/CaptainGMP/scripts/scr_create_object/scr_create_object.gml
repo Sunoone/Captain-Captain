@@ -23,7 +23,7 @@ i.owner = argument[1]; // index of owner
 i.interface = owned_interface[ argument[1] ]; // id of interface object;
 
 	//register object with interface
-if( scr_interface_register( i.interface, i, i.type ) == false )
+if( scr_interface_register( argument[1], i, i.type ) == false )
 {
 	//The object could not be added to the interface, remove the object
 	instance_destroy(i, false);
