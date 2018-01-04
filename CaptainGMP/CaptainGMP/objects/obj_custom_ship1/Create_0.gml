@@ -4,12 +4,18 @@
 // Inherit the parent event
 event_inherited();
 
+turning = 0;
 
+// C = x, y
 
+X = undefined; // Point of application
+F = undefined; // Force
+P = undefined; // Moment arm
+I = undefined;
 
-//thrusters[] = objects[coreX -3, coreY 1];
+torque = undefined;
+angAccel = undefined;
 
-
-
+//myForce = scr_create_array(
 //a =  0; b =  2;	objects[coreX+a, coreY+b] = scr_create_grid_object(obj_fire_control, 0, 0, coreX+a, coreY+b, d, id, 0);
 //a =  0; b = -2; objects[coreX+a, coreY+b] = scr_create_grid_object(obj_fire_control, 0, 0, coreX+a, coreY+b, d, id, 0); 

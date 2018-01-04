@@ -231,6 +231,14 @@
             }
         },
         {
+            "Key": "4cf591f1-f3fc-4e38-bdc0-2126954ab27d",
+            "Value": {
+                "id": "8d1d8e48-3931-4c7d-9179-0e9409f75055",
+                "resourcePath": "scripts\\Distance\\Distance.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "4da196ad-dd43-4d83-9b6b-3c7e603ce944",
             "Value": {
                 "id": "65a0aafc-881d-4558-98f7-86f6429ab873",
@@ -503,6 +511,14 @@
             }
         },
         {
+            "Key": "8d127030-51b6-4140-8b1b-d1b9b010cb92",
+            "Value": {
+                "id": "711b5c7d-f0ba-4678-9cc7-19cbb4f16387",
+                "resourcePath": "views\\8d127030-51b6-4140-8b1b-d1b9b010cb92.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "9969ab14-950e-4178-9313-7cc24c6e221b",
             "Value": {
                 "id": "27a05617-8833-47de-8dd6-837f04a2eb41",
@@ -580,6 +596,14 @@
                 "id": "2bb8213c-a659-4e06-ab1f-43aed8a993a5",
                 "resourcePath": "objects\\obj_base_turret_component\\obj_base_turret_component.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "a86a33e3-7451-42cc-9730-4a37804b5088",
+            "Value": {
+                "id": "2e840ed8-48af-40e1-adbd-970f55ae5e16",
+                "resourcePath": "scripts\\DistanceSQR\\DistanceSQR.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -711,6 +735,14 @@
             }
         },
         {
+            "Key": "e54693cc-b493-428a-9636-62ae0b768dd3",
+            "Value": {
+                "id": "df6fa266-d84f-4011-8c96-7632d0f04f25",
+                "resourcePath": "scripts\\Vector\\Vector.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ea4b2f04-00dd-4dc3-b608-40e39648b128",
             "Value": {
                 "id": "2344d96c-7a79-4038-bc12-1689c59fe0a3",
@@ -779,7 +811,10 @@
         "c9b0b98b-154c-413a-9ff7-9dbc43ceb53c",
         "838dd935-902a-4bc2-9d20-3fe28c973cf1",
         "71708eff-7a80-47f3-8e24-05efc282bc91",
-        "9beb0a4b-5345-48f1-bdcd-e13632cbe66c"
+        "9beb0a4b-5345-48f1-bdcd-e13632cbe66c",
+        "e54693cc-b493-428a-9636-62ae0b768dd3",
+        "4cf591f1-f3fc-4e38-bdc0-2126954ab27d",
+        "a86a33e3-7451-42cc-9730-4a37804b5088"
     ],
     "tutorial": ""
 }

@@ -41,6 +41,7 @@ player[p,c] = scr_create_object( obj_truster_1, 0, -45, -50, 2, player_ship, 180
 //custom ship
 scr_create_custom_ship( 1 );
 
+
 //DEBUG target ship
 /*
 p = 1;
