@@ -36,18 +36,6 @@ update = false;
 
 ring[0,0] = 0;
 
-	// ring index
-g_type = 0;		// what type does this space holds?
-g_free = 1;		// can this space be used?
-g_parent = 2;	// what is this space it's parent, if any?
-e_id = 3;		// list element id
-e_rot = 4;		// list element rotation
-e_spr = 5;		// list element sprite
-e_link = 6;		// list element link
-e_x = 7;		// list element x
-e_y = 8;		// list element y
-e_width = 9;	// list element width
-
 grid_width = 24;
 grid_height = 10;
 max_rings = 3;
