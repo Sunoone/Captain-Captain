@@ -11,20 +11,32 @@ draw_circle_color( s_width, s_height, rad_0 - r_dist*2, c_ltgray, c_ltgray, fals
 draw_circle_color( s_width, s_height, rad_0 - r_dist*3, c_dkgray, c_dkgray, false );
 
 
-// draw lines
-for( var j = 0; j < grid_width; j++ )
+// draw seperation lines
+for( var i = 0; i < max_rings; i++ )
 {
-	var x1, x2, y1, y2, dir;
+	for( var j = 0; j < grid_width; j++ )
+	{
+		var e = ds_grid_get( ring[i,0], j, e_id );
+		if( instance_exists( e ) )
+		{
+			var x1, x2, y1, y2, dir;
 	
-	dir = (360 / grid_width) * (j + 0.5);
-	
-	x1 = s_width + lengthdir_x(  rad_0 - r_dist*3, dir );
-	y1 = s_height + lengthdir_y( rad_0 - r_dist*3, dir );
-	
-	x2 = s_width + lengthdir_x(  rad_0, dir );
-	y2 = s_height + lengthdir_y( rad_0, dir );
-	
-	draw_line_color(x1,y1,x2,y2,c_black,c_black);
+			dir = (360 / grid_width) * (j - 0.5);
+			
+			repeat(2)
+			{
+				x1 = s_width + lengthdir_x(  rad_0 - r_dist * ( max_rings - i), dir );
+				y1 = s_height + lengthdir_y( rad_0 - r_dist * ( max_rings - i), dir );
+			
+				x2 = s_width + lengthdir_x(  rad_0, dir );
+				y2 = s_height + lengthdir_y( rad_0, dir );
+			
+				draw_line_color(x1,y1,x2,y2,c_black,c_black);
+				
+				dir = (360 / grid_width) * (j + 0.5 + e.interface_width - 1);
+			}
+		}
+	}
 }
 
 // draw links

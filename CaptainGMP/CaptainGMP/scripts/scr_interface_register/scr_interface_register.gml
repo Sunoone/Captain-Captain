@@ -29,8 +29,11 @@ if( type != 0)
 	c = -1;
 	
 	// loop trough grid in search of a position with an parent that accepts the object type
-	for( var j = 0; j < int.grid_width; j++)
+	for( var k = 0; k < int.grid_width + obj_width; k++)
 	{
+		var j = k;
+		if (j >= int.grid_width) j -= int.grid_width
+		
 		if( grid[# j, int.g_free ] == true )
 		{
 			if( grid[# j, int.g_type ] == obj_type )
@@ -73,8 +76,11 @@ if( pos == -1 )
 	free = true;
 	
 	// loop trough grid in search of a free position
-	for( var j = 0; j < int.grid_width; j++)
+	for( var k = 0; k < int.grid_width + obj_width; k++)
 	{
+		var j = k;
+		if (j >= int.grid_width) j -= int.grid_width
+		
 		if( grid[# j, int.g_free ] == true )
 		{
 			if( grid[# j, int.g_type ] == -4 )
@@ -116,13 +122,13 @@ for( var j = 0; j < obj_width; j++ )
 }
 
 // parent underlying spaces or forbid them
+var obj_allowed_list = obj.allowed_type;
+
 for( var i = type + 1; i<int.max_rings; i++ )
 {
 	for( var j = 0; j < obj_width; j++ )
 	{
 		ds_grid_set( int.ring[ i, 0 ], pos + j, int.g_parent, obj );
-		
-		var obj_allowed_list = obj.allowed_type;
 		
 		if( ds_list_size(obj_allowed_list) > 0 )
 		{
@@ -155,7 +161,7 @@ var ele_x, ele_y, ele_rot, r_rot, p_len;
 r_rot = 360 / int.grid_width;
 p_len = (int.rad_0*0.5) - (int.r_dist*0.5) + (int.r_dist*type);
 
-ele_rot = r_rot * pos;
+ele_rot = r_rot * (pos - 0.5 + 0.5 * obj_width);
 ele_x = int.s_width + lengthdir_x( p_len, ele_rot );
 ele_y = int.s_height + lengthdir_y( p_len, ele_rot );
 

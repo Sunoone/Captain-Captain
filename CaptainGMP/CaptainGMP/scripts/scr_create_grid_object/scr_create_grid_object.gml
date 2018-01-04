@@ -26,13 +26,13 @@ var yposition = 0 /*argument[6].y*/ - ydifference + argument[4] * cellsize;
 
 if(argument_count >= 7) 
 {	
-	return scr_create_object(argument[0], argument[1], xposition, yposition, argument[5],argument[6], argument[7]);
+	return scr_create_object(argument[0], argument[2], xposition, yposition, argument[5],argument[6], argument[7]);
 }
 
 if(argument_count >= 6)
 {
-	return scr_create_object(argument[0], argument[1], xposition, yposition, argument[5],argument[6]);
+	return scr_create_object(argument[0], argument[2], xposition, yposition, argument[5],argument[6]);
 }
 
-return scr_create_object(argument[0], argument[1], xposition, yposition, argument[5]);
+return scr_create_object(argument[0], argument[2], xposition, yposition, argument[5]);
 

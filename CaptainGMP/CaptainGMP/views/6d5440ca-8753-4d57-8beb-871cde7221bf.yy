@@ -1,0 +1,16 @@
+{
+    "id": "6d5440ca-8753-4d57-8beb-871cde7221bf",
+    "modelName": "GMFolder",
+    "mvc": "1.1",
+    "name": "6d5440ca-8753-4d57-8beb-871cde7221bf",
+    "children": [
+        "64d05447-25d4-48e1-bc4a-f7e01695584b",
+        "4f1d81db-61e4-4ccf-8624-c7d4f1cb08f8",
+        "838dd935-902a-4bc2-9d20-3fe28c973cf1",
+        "71708eff-7a80-47f3-8e24-05efc282bc91"
+    ],
+    "filterType": "GMScript",
+    "folderName": "Interface",
+    "isDefaultView": false,
+    "localisedFolderName": ""
+}

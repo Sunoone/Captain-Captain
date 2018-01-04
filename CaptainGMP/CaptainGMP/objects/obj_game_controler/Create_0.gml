@@ -1,6 +1,9 @@
 /// @description Ini vars
 // 
 
+// set constant variables
+scr_init_game_constants();
+
 global.game_controler = id;
 
 // create screen controler
@@ -35,11 +38,11 @@ player[p,c] = scr_create_object( obj_turret_1, 0, -20, -30, -1, player_ship ); c
 player[p,c] = scr_create_object( obj_truster_1, 0, -45, 50, 2, player_ship, 180 ); c++;
 player[p,c] = scr_create_object( obj_truster_1, 0, -45, -50, 2, player_ship, 180 ); c++;
 
-//debug
-//ds_list_add(player[p,3].children, player[p,4], player[p,5]);
+//custom ship
+scr_create_custom_ship( 1 );
 
-scr_create_object(obj_custom_ship1, 0, 500, 400, 0);
-
+//DEBUG target ship
+/*
 p = 1;
 c = 0;
 player[p,c] = scr_create_object( obj_target, 1, 100, 100, 100 );
@@ -49,7 +52,7 @@ player[p,c] = scr_create_object( obj_software_targeting, 1, 0, 0, 0, other_ship 
 player[p,c] = scr_create_object( obj_fire_control, 1, 0, 0, 99, other_ship ); c++;
 player[p,c] = scr_create_object( obj_turret_1, 1, 0, 0, 98, other_ship ); c++;
 
-// This line is added by Leroy
+*/
 
 
 depth = -100;
