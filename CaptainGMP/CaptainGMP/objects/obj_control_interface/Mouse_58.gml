@@ -30,7 +30,7 @@ if(drag_hold)
 			// if statement has a HARDCODED distance, the radius of an interface element
 			if( point_distance( m_x, m_y, g_pos_x, g_pos_y ) <= 50 )
 			{
-				grid[# drag_pos,e_spr] = spr_target;
+				//grid[# drag_pos,e_spr] = spr_target;
 				
 				if( scr_interface_check( index, drag_id, drag_ring, j, drag_pos ) )
 				{
@@ -38,7 +38,7 @@ if(drag_hold)
 					scr_interface_add( index, drag_id, drag_ring, j );
 					
 					//debug
-					grid[# drag_pos,e_spr] = spr_ship_1;
+					//grid[# drag_pos,e_spr] = spr_ship_1;
 					
 					found = true;
 				}	

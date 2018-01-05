@@ -30,12 +30,23 @@ for( var j = pos; j < pos + obj_width; j++ )
 	k = j mod grid_max;
 	
 	// check if the space is free
-	if( grid[# k, g_free] == true )
+	if( grid[# k, g_free] == false )
 	{
 		if( pos2 >= 0 )
 		{
-			// bug here, special case: wrap-around
-			if( k < pos2 || k > (pos2 + obj_width - 1) mod grid_max )
+			// special case: wrap-around
+			var k_max, pos3, pos4;
+			
+			k_max = k;
+			
+			pos3 = (pos2 + obj_width - 1) mod grid_max;
+			if( pos3 < pos2 ) 
+			{
+				pos3 += grid_max;
+				k_max += grid_max;
+			}
+			
+			if( k_max < pos2 || k_max > pos3 )
 			{
 				return false;
 			}

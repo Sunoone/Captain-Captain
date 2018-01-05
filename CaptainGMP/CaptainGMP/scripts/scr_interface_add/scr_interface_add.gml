@@ -64,26 +64,10 @@ if( type + 1 < int.max_rings )
 		if( instance_exists( child ) && object_get_parent( child.object_index ) == obj_allowed_list[|0] )
 		{
 			scr_ds_list_add_unique( obj.children , child );
+			tmp_grid[# k, e_link] = obj;
 		}
 	}
 }
-
-// if free, forbid space above element
-/*
-if( grid[# pos2, g_parent ] < 0 )
-{
-	for( var i = type; i >= 0; i-- )
-	{
-		tmp_grid = ring[ i, 0 ];
-		
-		for( var j = pos2; j < pos2 + obj_width; j++ )
-		{
-			k = j mod grid_width;
-			ds_grid_set( tmp_grid, k, g_free, false );
-		}
-	}
-}
-*/
 
 // calculate pos
 var ele_x, ele_y, ele_rot, r_rot, p_len, p;
@@ -106,7 +90,9 @@ grid[# pos, e_x ] = ele_x;
 grid[# pos, e_y ] = ele_y;
 grid[# pos, e_width ] = obj_width;
 
+// parent object
 if( instance_exists( p ) )
 {
 	scr_ds_list_add_unique( p.children, obj );
 }
+
