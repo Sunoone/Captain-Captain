@@ -12,19 +12,29 @@ event_inherited();
 
 
 if (thrusters[0].active)
-{
+{	
+	centerOfMass = vector_create(x, y);
+	pointOfApplication = vector_create(thrusters[0].x, thrusters[1].y);
+	momentArm = vector_subtract(centerOfMass, pointOfApplication);
 	
-	//show_debug_message("turning");
+	myForce = vector_create_from_direction(thrusters[0].direction);
 	
-	X = scr_create_array(thrusters[0].x, thrusters[0].y); // Point of application
-	P = scr_create_array(X[0] - x, X[1] - y); // Moment arm
+	parallelComponent = vector_multiply(momentArm, vector_dot(myForce, momentArm) / vector_dot(momentArm, momentArm));
+	angularForce = vector_subtract(myForce, parallelComponent);
 	
-	F = scr_create_array(-1, 0); // Force
-	I = 1;
+	torque = vector_multiply(angularForce, vector_magnitude(momentArm));
+	
+	angularAcceleration = torque / intertia;
+	
+	
+	//parallelComponent = momentArm * (dot(myForce, momentArm) / dot(momentArm, momentArm))
+	//angularForce = myForce - parallelComponent
+	
+	
+	
+	//force = vector_create_from_direction(direction + thrusters[0].self_direction, .1);
 
-	torque = P[0]*F[1]-P[1]*F[0];
-	angAccel = torque/I;
-	show_debug_message(angAccel);
-	direction += angAccel;
-	
+	turning = vector_cross(vector_subtract(centerOfMass, pointOfApplication), force);
 }
+
+direction += turning;

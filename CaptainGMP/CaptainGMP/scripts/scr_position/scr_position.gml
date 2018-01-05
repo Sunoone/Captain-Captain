@@ -1,4 +1,4 @@
-/// @description Vector(x, y);
+/// @description scr_position(x, y);
 /// @param x
 /// @param y
 
