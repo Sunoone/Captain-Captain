@@ -1,3 +1,8 @@
 /// @description Debug - Activate left thruster
 
-thrusters[0].active = true;
+for(i = 0; i < thrusterCount; i++)
+{
+	thrusters[i].active = true;
+}
+
+

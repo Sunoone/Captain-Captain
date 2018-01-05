@@ -4,37 +4,56 @@
 // Inherit the parent event
 event_inherited();
 
+
 //clamp(rotation, -1 * maxRotation, maxRotation);
 
 //velocity
 //speed
+//draw_line_color(100, 100, 800, 800, c_red, c_green);
+
+var force = 1;
+var lineLength = 200 * (1/force);
+
+myForce = vector_create_from_direction(-direction, force);
+//var debugLinearPower = 1 * (1/force);
+
+//torque = 0;
+
+centerOfMass = vector_create(x, y);
 
 
+thrusterCount = array_length_1d(thrusters);
 
-if (thrusters[0].active)
-{	
-	centerOfMass = vector_create(x, y);
-	pointOfApplication = vector_create(thrusters[0].x, thrusters[1].y);
-	momentArm = vector_subtract(centerOfMass, pointOfApplication);
+surface_set_target(global.combat_screen);
+for(i = 0; i < thrusterCount; i++)
+{ 
+	if (thrusters[i].active)
+	{			
+		
+		pointOfApplication = vector_create(thrusters[i].x, thrusters[i].y);
+		momentArm = vector_subtract(centerOfMass, pointOfApplication);
+		
+		parallelComponent = vector_calc_parallel_component(momentArm, myForce);	
+		//torque = vector_calc_torque(centerOfMass, pointOfApplication, myForce);
+		torque = vector_cross(momentArm, myForce);
+		intertia = 100;
 	
-	myForce = vector_create_from_direction(thrusters[0].direction);
+		angularAcceleration = torque / inertia;
+		turning += angularAcceleration;
 	
-	parallelComponent = vector_multiply(momentArm, vector_dot(myForce, momentArm) / vector_dot(momentArm, momentArm));
-	angularForce = vector_subtract(myForce, parallelComponent);
+		velocity[0] += parallelComponent[0] / mass;
+		velocity[1] += parallelComponent[1] / mass;
+		
+		
 	
-	torque = vector_multiply(angularForce, vector_magnitude(momentArm));
+		draw_line_color(thrusters[i].x, thrusters[i].y, thrusters[i].x + (myForce[0] * lineLength), thrusters[i].y + (myForce[1] * lineLength), c_white, c_white);
+		draw_line_color(thrusters[i].x, thrusters[i].y, thrusters[i].x + (myForce[0] * -lineLength), thrusters[i].y + (myForce[1] * -lineLength), c_red, c_green);
 	
-	angularAcceleration = torque / intertia;
-	
-	
-	//parallelComponent = momentArm * (dot(myForce, momentArm) / dot(momentArm, momentArm))
-	//angularForce = myForce - parallelComponent
-	
-	
-	
-	//force = vector_create_from_direction(direction + thrusters[0].self_direction, .1);
-
-	turning = vector_cross(vector_subtract(centerOfMass, pointOfApplication), force);
+	}
 }
 
+surface_reset_target();
+
+x += velocity[0];
+y += velocity[1];
 direction += turning;

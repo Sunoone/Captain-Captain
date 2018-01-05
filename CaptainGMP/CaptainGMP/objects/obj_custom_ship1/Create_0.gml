@@ -4,7 +4,8 @@
 // Inherit the parent event
 event_inherited();
 
-turning = 1;
+
+turning = 0;
 
 // C = x, y
 
@@ -18,13 +19,24 @@ momentArm = undefined;
 	
 myForce = undefined;
 	
+mass = 500;
+inertia = mass;
+
+thrusterCount = 0;
+	
+velocity = undefined;
+velocity[0] = 0;
+velocity[1] = 0;
+
 parallelComponent = undefined;
 angularForce = undefined;
 	
 torque = undefined;
-inertia = 5;
+//inertia = 5;
 angularAcceleration = undefined;
 
+angularVelocity = undefined;
+distToCom = undefined;
 //turning = math_cross(math_subtract_vectors(centerOfMass, pointOfApplication), force);
 
 

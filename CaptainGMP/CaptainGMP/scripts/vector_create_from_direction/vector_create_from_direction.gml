@@ -4,7 +4,7 @@
 
 if( argument_count < 1 && argument_count > 2) show_error("vector_create_from_direction.gml argument count is incorrect", true);
 
-var dir = degtorad(argument[0] % 360);
+var dir = degtorad(argument[0]);
 
 var length = 1;
 if (argument_count == 2) length = abs(argument[1]);

@@ -1,5 +1,6 @@
 /// @description Debug - Deactivate left thruster
 
-thrusters[0].active = false;
-
-direction = 0;
+for(i = 0; i < thrusterCount; i++)
+{
+	thrusters[i].active = false;
+}

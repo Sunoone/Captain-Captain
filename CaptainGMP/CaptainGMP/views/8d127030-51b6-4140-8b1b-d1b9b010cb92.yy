@@ -14,7 +14,10 @@
         "cfa75a6c-ffdb-4abd-9065-e7d37c7b6c2b",
         "c7c14011-139d-4c9d-bccf-d298b8d5209f",
         "ce4a4bea-c7d2-47ef-a040-ecfdd43b1e85",
-        "00c6db1c-d49d-491d-b41c-55608422e0d6"
+        "00c6db1c-d49d-491d-b41c-55608422e0d6",
+        "2bdb96d4-05d6-4307-b9a5-2b6574f1e628",
+        "fd58b449-023b-4f8f-871b-08130832973e",
+        "343b5fd5-ea6f-4c86-9a2d-d60fa4d57016"
     ],
     "filterType": "GMScript",
     "folderName": "VectorLib",
