@@ -1,4 +1,4 @@
-/// @description Vector( x, y);
+/// @description Vector(x, y);
 /// @param x
 /// @param y
 

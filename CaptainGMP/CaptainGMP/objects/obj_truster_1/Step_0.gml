@@ -3,7 +3,7 @@
 
 if (active)
 {
-	show_debug_message("active");
+	//show_debug_message("active");
 	curThrust = 1;
 }
 else
