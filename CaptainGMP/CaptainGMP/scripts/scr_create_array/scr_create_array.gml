@@ -1,11 +1,5 @@
 /// @description scr_create_array(*arg)
-/// @param object
-/// @param owner
-/// @param x
-/// @param y
-/// @param depth
-/// @param opt:parent
-/// @param opt:direction
+/// @param *arg
 
 if( argument_count < 1) show_error("scr_create_array argument count is incorrect", true);
 

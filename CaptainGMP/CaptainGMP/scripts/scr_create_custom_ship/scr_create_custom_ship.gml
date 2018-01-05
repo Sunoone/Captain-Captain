@@ -42,4 +42,8 @@ with( i )
 	a = -3; b =  1; objects[coreX+a, coreY+b] = scr_create_grid_object(obj_truster_1, 0, argument0, coreX+a, coreY+b, d, id, 0); 
 	
 	thrusters = scr_create_array(objects[coreX -3, coreY +1], objects[coreX -3, coreY -1]);
+	
+	//leftThruster = thrusters[coreX -3,coreY +1]))
+	return;
+
 }
