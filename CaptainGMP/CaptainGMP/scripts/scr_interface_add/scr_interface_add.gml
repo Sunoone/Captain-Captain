@@ -74,8 +74,8 @@ if( type + 1 < int.max_rings )
 			if( pos3 < pos ) 
 			{
 				pos3 += max_grid;
-				k_min += max_grid;
-				k_max += max_grid;
+				if( k_min < pos ) k_min += max_grid;
+				if( k_max < pos ) k_max += max_grid;
 			}
 			
 			if( k_min >= pos && k_max <= pos3 )
