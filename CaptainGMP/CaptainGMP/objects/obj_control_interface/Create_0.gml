@@ -38,6 +38,7 @@ ring[0,0] = 0;
 
 grid_width = 24;
 grid_height = 10;
+grid_spacing = 360 / grid_width;
 max_rings = 3;
 
 for( var i = 0; i<max_rings; i++)

@@ -63,8 +63,26 @@ if( type + 1 < int.max_rings )
 		child = tmp_grid[# k, e_id];
 		if( instance_exists( child ) && object_get_parent( child.object_index ) == obj_allowed_list[|0] )
 		{
-			scr_ds_list_add_unique( obj.children , child );
-			tmp_grid[# k, e_link] = obj;
+			//check if the full interface width of the child is under the interface width of the obj
+			
+			var k_min, k_max, pos3;
+			
+			k_min = k;
+			k_max = k + child.interface_width;
+			
+			pos3 = (pos + obj_width) mod max_grid;
+			if( pos3 < pos ) 
+			{
+				pos3 += max_grid;
+				k_min += max_grid;
+				k_max += max_grid;
+			}
+			
+			if( k_min >= pos && k_max <= pos3 )
+			{
+				scr_ds_list_add_unique( obj.children , child );
+				tmp_grid[# k, e_link] = obj;
+			}
 		}
 	}
 }
@@ -85,7 +103,7 @@ ele_y = int.s_height + lengthdir_y( p_len, ele_rot );
 grid[# pos, e_id ] = obj;
 grid[# pos, e_rot ] = ele_rot;
 grid[# pos, e_spr ] = obj.sprite_index;
-grid[# pos, e_link ] = p;
+grid[# pos, e_link ] = -4;
 grid[# pos, e_x ] = ele_x;
 grid[# pos, e_y ] = ele_y;
 grid[# pos, e_width ] = obj_width;
@@ -93,6 +111,10 @@ grid[# pos, e_width ] = obj_width;
 // parent object
 if( instance_exists( p ) )
 {
-	scr_ds_list_add_unique( p.children, obj );
+	if( p.allowed_type[|0] == obj_type )
+	{
+		grid[# pos, e_link ] = p;
+		scr_ds_list_add_unique( p.children, obj );
+	}
 }
 

@@ -6,6 +6,7 @@
 /// @param opt:pos2
 
 // this script checks if an interface element can be placed at the given location
+// pos2 argument is used for the origin location when moving an object within the interface
 
 globalvar owned_interface;
 
@@ -18,6 +19,8 @@ pos = argument[3];
 if( argument_count = 5 ) pos2 = argument[4];
 else pos2 = -4;
 
+if( type < 0 || type >= int.max_rings ) return false;
+if( pos < 0 || pos >= int.grid_width ) return false;
 
 grid = int.ring[ type, 0 ];
 grid_max = int.grid_width;
@@ -35,15 +38,15 @@ for( var j = pos; j < pos + obj_width; j++ )
 		if( pos2 >= 0 )
 		{
 			// special case: wrap-around
-			var k_max, pos3, pos4;
+			var pos3, k_max;
 			
 			k_max = k;
-			
 			pos3 = (pos2 + obj_width - 1) mod grid_max;
-			if( pos3 < pos2 ) 
+			
+			if( pos3 < pos2)
 			{
 				pos3 += grid_max;
-				k_max += grid_max;
+				if( k_max < pos2 ) k_max += grid_max;
 			}
 			
 			if( k_max < pos2 || k_max > pos3 )
@@ -55,10 +58,12 @@ for( var j = pos; j < pos + obj_width; j++ )
 	}
 	
 	// check if the allowed type is correct
+	/*
 	if( grid[# k, g_type] != obj_type )
 	{
 		if( grid[# k, g_type] >= 0 ) return false;
 	}
+	*/
 }
 
 return true;

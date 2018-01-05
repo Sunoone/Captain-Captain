@@ -2,6 +2,11 @@
 // We draw the interface elements in a circulair interface here
 
 
+// get mouse position relative to the screen
+var m_x, m_y;
+m_x = scr_screen_mouse_get_x( screen_index );
+m_y = scr_screen_mouse_get_y( screen_index );
+
 // draw cicles
 surface_set_target( screen_id );
 
@@ -21,7 +26,7 @@ for( var i = 0; i < max_rings; i++ )
 		{
 			var x1, x2, y1, y2, dir;
 	
-			dir = (360 / grid_width) * (j - 0.5);
+			dir = grid_spacing * (j - 0.5);
 			
 			repeat(2)
 			{
@@ -33,7 +38,7 @@ for( var i = 0; i < max_rings; i++ )
 			
 				draw_line_color(x1,y1,x2,y2,c_black,c_black);
 				
-				dir = (360 / grid_width) * (j + 0.5 + e.interface_width - 1);
+				dir = grid_spacing * (j + 0.5 + e.interface_width - 1);
 			}
 		}
 	}
@@ -65,27 +70,43 @@ for( var i = 0; i<max_rings; i++)
 	}
 }
 
-/*
-// draw connection line
-if( instance_exists(select_id) )
+// draw drag indication lines when draging an element
+if(drag_hold && instance_exists( drag_id ) )
 {
-	//debug_size = ds_list_size(select_id.children);
-	
-	var ls_x, ls_y;
-	
-	ls_x = ds_list_find_value( ring[select_ring,6], select_pos);
-	ls_y = ds_list_find_value( ring[select_ring,7], select_pos);
-	
-	draw_line_width_color( mouse_x - f_x, mouse_y - f_y, ls_x, ls_y, 3, c_yellow, c_yellow );
+	var pos, type, col;
+	type = scr_interface_get_type( index, m_x, m_y );
+	if( type == drag_ring )
+	{		
+		pos = (scr_interface_get_pos( index, m_x, m_y ) - floor( -0.5 + 0.5 * drag_id.interface_width ) ) mod grid_width;
+		while(pos < 0) pos += grid_width;
+		
+		if( scr_interface_check( index, drag_id, drag_ring, pos, drag_pos ) ) col = c_yellow;
+		else col = c_red;
+		
+		var x1, x2, y1, y2, dir;
+		
+		dir = grid_spacing * (pos - 0.5);
+			
+		repeat(2)
+		{
+			x1 = s_width + lengthdir_x(  rad_0 - r_dist * ( max_rings - drag_ring), dir );
+			y1 = s_height + lengthdir_y( rad_0 - r_dist * ( max_rings - drag_ring), dir );
+			
+			x2 = s_width + lengthdir_x(  rad_0, dir );
+			y2 = s_height + lengthdir_y( rad_0, dir );
+			
+			draw_line_color(x1,y1,x2,y2,col,col);
+				
+			dir = grid_spacing * (pos + 0.5 + drag_id.interface_width - 1);
+		}
+	}
 }
-*/
-
 
 // draw interface icons
 for( var i = 0; i<max_rings; i++)
 {
 	var grid = ring[i,0];
-	p_len = (rad_0*0.5) - (r_dist*0.5) + (r_dist*i); // distance from the center based on the ring number
+	var p_len = (rad_0*0.5) - (r_dist*0.5) + (r_dist*i); // distance from the center based on the ring number
 	
 	for( var j = 0; j<grid_width; j++ )
 	{
@@ -106,6 +127,41 @@ for( var i = 0; i<max_rings; i++)
 	
 }
 
+
+// debug draw interface pos
+/*
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+
+for( var i = 0; i<max_rings; i++)
+{
+	var p_len, p_x, p_y, p_dir;
+	p_len = (rad_0*0.5) - (r_dist*0.5) + (r_dist*i); // distance from the center based on the ring number
+	
+	for( var j = 0; j<grid_width; j++ )
+	{
+		p_dir = grid_spacing * j;
+		p_x = s_width + lengthdir_x( p_len, p_dir );
+		p_y = s_height + lengthdir_y( p_len, p_dir );
+		
+		draw_text_color( p_x, p_y, string(i) + "," + string(j), c_black, c_black, c_black, c_black, 1);
+	}
+	
+}
+
+draw_set_halign(fa_right);
+draw_set_valign(fa_bottom);
+if( scr_screen_mouse_above( screen_index ) )
+{
+	var m_x, m_y;
+	m_x = scr_screen_mouse_get_x( screen_index );
+	m_y = scr_screen_mouse_get_y( screen_index );
+	draw_text_color( m_x, m_y, string( scr_interface_get_type( index, m_x, m_y ) ) + "," + string(scr_interface_get_pos( index, m_x, m_y )), c_red, c_red, c_red, c_red, 1);
+}
+
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+*/
 
 
 surface_reset_target();
