@@ -13,8 +13,7 @@
 
 if( argument_count < 5 || argument_count > 7 ) show_error("scr_create_object argument count is incorrect", true)
 
-globalvar game_controler;
-globalvar owned_interface;
+globalvar game_controler, owned_interface;
 
 	// create the object
 var i = instance_create_depth( argument[2], argument[3], argument[4], argument[0] );

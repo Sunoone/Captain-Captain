@@ -9,7 +9,6 @@ if(drag_hold)
 	
 	if( scr_screen_mouse_above( screen_index ) )
 	{
-		
 		m_x = scr_screen_mouse_get_x( screen_index );
 		m_y = scr_screen_mouse_get_y( screen_index );
 		

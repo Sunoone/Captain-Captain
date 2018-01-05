@@ -21,8 +21,8 @@ p = 0;
 
 globalvar owned_interface;
 
-owned_interface[0] = scr_create_interface( 0, room_height * 0.5, room_height * 0.5, room_height * 0.5 );
-owned_interface[1] = scr_create_interface( 0, 0, room_height * 0.5, room_height * 0.5 );
+owned_interface[0] = scr_create_interface( 0, room_height * 0.5, room_height * 0.5, room_height * 0.5, 0 );
+owned_interface[1] = scr_create_interface( 0, 0, room_height * 0.5, room_height * 0.5, 1 );
 
 
 player[p,c] = scr_create_object( obj_ship, 0, 250, 250, 1 ); 

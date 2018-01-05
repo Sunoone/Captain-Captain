@@ -60,7 +60,7 @@ if( type + 1 < int.max_rings )
 		}
 		
 		// add child
-		child =  grid[# k, e_id];
+		child = tmp_grid[# k, e_id];
 		if( instance_exists( child ) && object_get_parent( child.object_index ) == obj_allowed_list[|0] )
 		{
 			scr_ds_list_add_unique( obj.children , child );
@@ -110,5 +110,3 @@ if( instance_exists( p ) )
 {
 	scr_ds_list_add_unique( p.children, obj );
 }
-
-return true;

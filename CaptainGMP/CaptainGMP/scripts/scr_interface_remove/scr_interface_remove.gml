@@ -1,120 +1,82 @@
-/// @description scr_interface_move( interface_index, ring, pos1, pos2 )
+/// @description scr_interface_move( interface_index, type, pos )
 /// @param interface_index
-/// @param ring
-/// @param pos1
-/// @param pos2
+/// @param type
+/// @param pos
 
 
-// this script checks if an interface element can be moved to the given location
-
-/*
+// this script removes the element from the given interface
 
 globalvar owned_interface
 
-var int, type, grid, obj, obj_width, pos1, pos2, max_grid, obj_type;
+var int, type, obj, pos;
 
-int = owned_interface[ argument0 ];
-type = argument1;
+int = owned_interface[ argument0 ];	// interface id referance
+type = argument1;	// combat object type
+pos = argument2;	// position on the ring
+
+
+var grid, max_grid, obj, obj_width, obj_type, parent, parent_allowed_type;
+
 grid = int.ring[ type, 0 ];
-pos1 = argument2;
-pos2 = argument3;
-
 max_grid = int.grid_width;
 
-obj = grid[# pos1, int.e_id];
+obj = grid[# pos, e_id]; // object id
 obj_type = object_get_parent( obj.object_index );
 obj_width = obj.interface_width;
 
-var g_free, g_type;
-g_free = int.g_free;
-g_type = int.g_type;
+parent = grid[# pos, e_link]; // object id
+if( instance_exists( parent ) ) parent_allowed_type = parent.allowed_type[|0];
+else parent_allowed_type = -4;
 
-// reserve space
-for( var j = 0; j < obj_width; j++ )
+// common loop vars
+var k, tmp_grid, child;
+
+// free space under object_width
+for( var j = pos; j < pos + obj_width; j++ )
 {
-	grid[# pos2 + j, free] = false;
+	k = j mod max_grid;
+	grid[# k, g_free] = true;
 }
 
-// parent underlying spaces & objects or forbid them
-var tmp_grid, obj_allowed_list, k, child;
-
-obj_allowed_list = obj.allowed_type;
-
+// un-parent underlying spaces & objects and unforbid them
 if( type + 1 < int.max_rings )
 {
 	tmp_grid = int.ring[ type + 1, 0 ];
 	
-	for( var j = pos2; j < pos2 + obj_width; j++ )
+	for( var j = pos; j < pos + obj_width; j++ )
 	{
-		k = j mod int.grid_width;
+		k = j mod max_grid;
 		
-		ds_grid_set( tmp_grid, k, int.g_parent, obj );
+		ds_grid_set( tmp_grid, k, g_parent, -4 );
 		
-		if( ds_list_size(obj_allowed_list) > 0 )
-		{
-			// parent underlying space
-			ds_grid_set( tmp_grid, k, g_free, true );
-			ds_grid_set( tmp_grid, k, g_type, obj_allowed_list[|0] );
-		}
-		else
-		{
-			// forbid underlying space
-			ds_grid_set( tmp_grid, k, g_free, false );
-			ds_grid_set( tmp_grid, k, g_type, -4 );
-		}
+		ds_grid_set( tmp_grid, k, g_free, true );
+		ds_grid_set( tmp_grid, k, g_type, parent_allowed_type );
 		
-		// add child
-		child =  grid[# k, int.e_id];
-		if( instance_exists( child ) && object_get_parent( child.object_index ) == obj_allowed_list[|0] )
+		// remove children
+		child = tmp_grid[# k, e_id];
+		tmp_grid[# k, e_link] = -4;
+		if( instance_exists( child ) )
 		{
-			scr_ds_list_add_unique( obj.children , child );
+			scr_ds_list_remove_value( obj.children , child );
 		}
 	}
 }
 
-// if free, forbid space above element
-/*
-if( grid[# pos2, int.g_parent ] < 0 )
-{
-	for( var i = type; i >= 0; i-- )
-	{
-		tmp_grid = int.ring[ i, 0 ];
-		
-		for( var j = pos2; j < pos2 + obj_width; j++ )
-		{
-			k = j mod int.grid_width;
-			ds_grid_set( tmp_grid, k, g_free, false );
-		}
-	}
-}
-*/
-/*
 // calculate pos
 var ele_x, ele_y, ele_rot, r_rot, p_len, p;
 
-p = grid[# pos2, int.g_parent];
-
-r_rot = 360 / int.grid_width;
-p_len = (int.rad_0*0.5) - (int.r_dist*0.5) + (int.r_dist*type);
-
-ele_rot = r_rot * (pos2 - 0.5 + 0.5 * obj_width);
-ele_x = int.s_width + lengthdir_x( p_len, ele_rot );
-ele_y = int.s_height + lengthdir_y( p_len, ele_rot );
+p = parent;
 
 // declare vars
-grid[# pos2, int.e_id ] = obj;
-grid[# pos2, int.e_spr ] = obj.sprite_index;
-grid[# pos2, int.e_link ] = p;
-grid[# pos2, int.e_x ] = ele_x;
-grid[# pos2, int.e_y ] = ele_y;
-grid[# pos2, int.e_width ] = obj_width;
+grid[# pos, e_id ] = -4;
+grid[# pos, e_rot ] = -4;
+grid[# pos, e_spr ] = -4;
+grid[# pos, e_link ] = -4;
+grid[# pos, e_x ] = -4;
+grid[# pos, e_y ] = -4;
+grid[# pos, e_width ] = -4;
 
 if( instance_exists( p ) )
 {
-	ds_list_add( p.children, obj );
+	scr_ds_list_remove_value( p.children, obj );
 }
-
-// cleanup
-
-
-return true;

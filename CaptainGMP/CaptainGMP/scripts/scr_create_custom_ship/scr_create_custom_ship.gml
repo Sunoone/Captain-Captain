@@ -6,7 +6,7 @@ globalvar owned_interface;
 // interface
 if( array_length_1d( owned_interface ) <= argument0 )
 {
-	owned_interface[argument0] = scr_create_interface( room_width - room_height * 0.5, 0, room_height * 0.5, room_height * 0.5 );
+	owned_interface[argument0] = scr_create_interface( room_width - room_height * 0.5, 0, room_height * 0.5, room_height * 0.5, argument0 );
 }
 
 var i = scr_create_object(obj_custom_ship1, argument0, 500, 400, 0);
