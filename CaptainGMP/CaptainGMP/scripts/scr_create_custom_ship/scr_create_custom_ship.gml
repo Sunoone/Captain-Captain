@@ -38,9 +38,11 @@ with( i )
 	a = -1; b =  1;	objects[coreX+a, coreY+b] = scr_create_grid_object(obj_turret_1, 0, argument0, coreX+a, coreY+b, d, id, 0); 
 
 
+	a =  1; b = -1; thrusters[4] = /*objects[coreX+a, coreY+b] =*/ scr_create_grid_object(obj_truster_1, 0, argument0, coreX+a, coreY+b, d, id, 180);
+	a =  1; b = 1; thrusters[3] = /*objects[coreX+a, coreY+b] =*/ scr_create_grid_object(obj_truster_1, 0, argument0, coreX+a, coreY+b, d, id, 180);
 	a = -3; b = -1; thrusters[2] = /*objects[coreX+a, coreY+b] =*/ scr_create_grid_object(obj_truster_1, 0, argument0, coreX+a, coreY+b, d, id, 0);
 	a = -3; b =  1; thrusters[1] = /*objects[coreX+a, coreY+b] =*/ scr_create_grid_object(obj_truster_1, 0, argument0, coreX+a, coreY+b, d, id, 0); 
-	a = -3; b =  2; thrusters[0] = /*objects[coreX+a, coreY+b] =*/ scr_create_grid_object(obj_truster_1, 0, argument0, coreX+a, coreY+b, d, id, 0); 
+	a = -2; b =  0; thrusters[0] = /*objects[coreX+a, coreY+b] =*/ scr_create_grid_object(obj_truster_1, 0, argument0, coreX+a, coreY+b, d, id, 0); 
 	//thrusters = scr_create_array(objects[coreX -3, coreY +1], objects[coreX -3, coreY -1], objects[coreX-3, coreY+ 2]);
 	
 	//leftThruster = thrusters[coreX -3,coreY +1]))
