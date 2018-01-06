@@ -1,8 +1,12 @@
 /// @description Ini vars
-// 
+// settup game
 
 // set constant variables
 scr_init_game_constants();
+
+// create the timekeeper object, CREATE BEFORE ANY OTHER OBJECTS!
+time = instance_create_depth( 0,0,0, obj_timekeeper );
+
 
 global.game_controler = id;
 

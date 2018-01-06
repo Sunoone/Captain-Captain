@@ -231,6 +231,14 @@
             }
         },
         {
+            "Key": "448f4d2f-277d-4bb4-8304-7d30ed5fb0f6",
+            "Value": {
+                "id": "fb728b6b-40c1-4fe7-80e5-b98a017d2aa1",
+                "resourcePath": "scripts\\scr_timer_add\\scr_timer_add.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "45c9249e-1d4e-4301-9615-8b589cf8f89e",
             "Value": {
                 "id": "d77c1b6f-0977-4bb7-a2bd-7f4909fca10f",
@@ -543,6 +551,14 @@
             }
         },
         {
+            "Key": "83494457-e21b-4566-99e8-1a457e0e2175",
+            "Value": {
+                "id": "8aee0831-53af-4233-bd53-e96801c0deee",
+                "resourcePath": "views\\83494457-e21b-4566-99e8-1a457e0e2175.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "838dd935-902a-4bc2-9d20-3fe28c973cf1",
             "Value": {
                 "id": "4812a88c-5a46-4536-8483-8becf6272099",
@@ -727,6 +743,14 @@
             }
         },
         {
+            "Key": "afdab5f4-8c89-4e4d-a70a-fc15ca62c14c",
+            "Value": {
+                "id": "0b37804f-b4d8-4566-9862-9bd550f12ee2",
+                "resourcePath": "objects\\obj_timekeeper\\obj_timekeeper.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "b5f1d01f-9534-46eb-824a-d11da968d5a8",
             "Value": {
                 "id": "38bc5e67-1895-4d1e-ab82-453173b7cc34",
@@ -747,6 +771,14 @@
             "Value": {
                 "id": "10756f88-7b04-4626-8911-09dba2ab9708",
                 "resourcePath": "scripts\\vector_create_from_direction\\vector_create_from_direction.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "bc158000-50d5-4406-b045-b46d1746abd8",
+            "Value": {
+                "id": "7ccdf956-1990-4f6a-9f44-b56f06b144ac",
+                "resourcePath": "scripts\\scr_timer_ini\\scr_timer_ini.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -803,6 +835,14 @@
             "Value": {
                 "id": "2e89059a-8468-4449-bce5-9a2e8ecec039",
                 "resourcePath": "scripts\\scr_init_game_constants\\scr_init_game_constants.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "caab84c5-d215-4b09-9080-29e1e6ed65f2",
+            "Value": {
+                "id": "8dae3f24-bb60-43d7-8c0d-7a0eb9a3e591",
+                "resourcePath": "scripts\\scr_timer_update\\scr_timer_update.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -976,7 +1016,10 @@
         "00c6db1c-d49d-491d-b41c-55608422e0d6",
         "2bdb96d4-05d6-4307-b9a5-2b6574f1e628",
         "fd58b449-023b-4f8f-871b-08130832973e",
-        "343b5fd5-ea6f-4c86-9a2d-d60fa4d57016"
+        "343b5fd5-ea6f-4c86-9a2d-d60fa4d57016",
+        "448f4d2f-277d-4bb4-8304-7d30ed5fb0f6",
+        "bc158000-50d5-4406-b045-b46d1746abd8",
+        "caab84c5-d215-4b09-9080-29e1e6ed65f2"
     ],
     "tutorial": ""
 }

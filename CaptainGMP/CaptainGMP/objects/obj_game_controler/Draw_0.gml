@@ -1,5 +1,5 @@
 /// @description Debug Draw
-// You can write your code in this editor
+// Draw fps
 
 var col = c_green;
 if( fps_real < 30 ) col = c_red;

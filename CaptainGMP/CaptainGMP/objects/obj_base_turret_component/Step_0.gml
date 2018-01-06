@@ -1,9 +1,12 @@
 /// @description rotate and fire
 
+globalvar DeltaTime;
+
 if(rotation_speed != 0 && rotation_lock == false)
 {
-	if( rotation_speed > rotation_max ) rotation_speed = rotation_max;
-	if( rotation_speed < rotation_max * -1 ) rotation_speed = rotation_max * -1;
+	var r_max_delta = rotation_max * DeltaTime;
+	if( rotation_speed > r_max_delta ) rotation_speed = r_max_delta;
+	if( rotation_speed < r_max_delta * -1 ) rotation_speed = r_max_delta * -1;
 	
 	direction += rotation_speed;
 	
@@ -29,8 +32,9 @@ if(active && fire && reload)
 	// set animation + speed
 	animation_count = animation_start;
 	animation_speed = animation_fire_speed;
-	alarm[0] = fire_time;
-	alarm[1] = max(fire_time, reload_time);
+	
+	scr_timer_add( id, fire_time, 0 );
+	scr_timer_add( id, max(fire_time, reload_time), 1 );
 	
 	globalvar combat_screen_index, combat_screen;
 

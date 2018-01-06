@@ -1,5 +1,7 @@
 /// @description Update
 
+globalvar DeltaTime;
+
 // Update position
 if( instance_exists( parent ) )
 {	
@@ -19,7 +21,7 @@ if( animation_speed != 0)
 {
 	if( sprite_exists( sprite_index ) && surface_exists(object_surface) )
 	{
-		animation_count += animation_speed;
+		animation_count += animation_speed * DeltaTime;
 		
 		var max_animation = sprite_get_number(sprite_index) -1;
 		if (max_animation == 0) animation_count = 0;
@@ -56,3 +58,12 @@ if( size>0 )
 		}
 	}
 }
+
+// natural HP regen
+if( HP < HP_max )
+{
+	var r = HP_max * regen * DeltaTime;
+	HP += r;
+	if( HP > HP_max ) HP = HP_max;
+}
+
