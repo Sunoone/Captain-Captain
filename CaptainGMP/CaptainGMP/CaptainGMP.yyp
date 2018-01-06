@@ -791,6 +791,14 @@
             }
         },
         {
+            "Key": "bd04156e-e2ea-4e84-ab83-e4fe3a53ab00",
+            "Value": {
+                "id": "a1f3bd06-e8f2-4119-8c7d-598c33f5026f",
+                "resourcePath": "objects\\obj_projectile_manager\\obj_projectile_manager.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "c00bece8-ea60-4d2e-81bb-e85a598764ca",
             "Value": {
                 "id": "385801fa-c2f7-4c35-a020-ca8d0d2f3479",

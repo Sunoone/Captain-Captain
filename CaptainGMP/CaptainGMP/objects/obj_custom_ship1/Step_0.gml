@@ -36,18 +36,21 @@ for(i = 0; i < thrusterCount; i++)
 		parallelComponent = vector_calc_parallel_component(momentArm, myForce);	
 		//torque = vector_calc_torque(centerOfMass, pointOfApplication, myForce);
 		torque = vector_cross(momentArm, myForce);
-		intertia = 100;
+		//intertia = 100;
 	
 		angularAcceleration = torque / inertia;
 		turning += angularAcceleration;
-	
-		velocity[0] += parallelComponent[0] / mass;
-		velocity[1] += parallelComponent[1] / mass;
 		
+		// Leroy
+		//velocity[0] += parallelComponent[0] / mass;
+		//velocity[1] += parallelComponent[1] / mass;
 		
+		// Pepijn
+		velocity[0] += myForce[0] / mass;
+		velocity[1] += myForce[1] / mass;
 	
-		draw_line_color(thrusters[i].x, thrusters[i].y, thrusters[i].x + (myForce[0] * lineLength), thrusters[i].y + (myForce[1] * lineLength), c_white, c_white);
-		draw_line_color(thrusters[i].x, thrusters[i].y, thrusters[i].x + (myForce[0] * -lineLength), thrusters[i].y + (myForce[1] * -lineLength), c_red, c_green);
+		//draw_line_color(thrusters[i].x, thrusters[i].y, thrusters[i].x + (myForce[0] * lineLength), thrusters[i].y + (myForce[1] * lineLength), c_white, c_white);
+		draw_line_color(thrusters[i].x, thrusters[i].y, thrusters[i].x + (myForce[0] * -lineLength), thrusters[i].y + (myForce[1] * -lineLength), c_red, c_black);
 	
 	}
 }

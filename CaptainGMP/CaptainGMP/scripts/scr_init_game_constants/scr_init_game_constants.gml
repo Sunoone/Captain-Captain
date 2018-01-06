@@ -20,3 +20,13 @@
 #macro e_x 7		// list element x
 #macro e_y 8		// list element y
 #macro e_width 9	// list element width
+
+	// Projectile list index
+#macro pro_id 0		// Projectile id
+#macro pro_x 1		// Projectile x
+#macro pro_y 2		// Projectile y
+#macro pro_dir 3	// Projectile direction in degrees
+#macro pro_speed 4	// Projectile speed in pixels per second
+#macro pro_type 5	// Projectile type
+#macro pro_dam 6	// Projectile damage
+#macro pro_mod 7	// Projectile modulation

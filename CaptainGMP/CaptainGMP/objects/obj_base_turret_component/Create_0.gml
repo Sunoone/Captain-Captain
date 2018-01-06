@@ -17,7 +17,7 @@ rotation_speed = 0; // rotation speed
 rotation_max = 135;	// max rotation speed, degrees per second
 
 animation_start = 1.0;			// animation count; at what sub-frame does the animation start?
-animation_fire_speed = 10;		// animation speed in frames per second
+animation_fire_speed = 5;		// animation speed in frames per second
 
 fire_time = 0.2;				// how long does the fire-ing animation last, in sec
 reload_time = 0.5;				// time between shots

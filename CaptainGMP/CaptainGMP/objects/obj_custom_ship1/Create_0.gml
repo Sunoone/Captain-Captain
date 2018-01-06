@@ -19,8 +19,8 @@ momentArm = undefined;
 	
 myForce = undefined;
 	
-mass = 500;
-inertia = mass;
+mass = 50;
+inertia = mass * 10;
 
 thrusterCount = 0;
 	
