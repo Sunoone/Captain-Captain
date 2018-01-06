@@ -4,7 +4,6 @@
 event_inherited();
 
 type = 0;
-max_children = 3;
 
 fire_target_id = -100;
 fire_target_x = -100;

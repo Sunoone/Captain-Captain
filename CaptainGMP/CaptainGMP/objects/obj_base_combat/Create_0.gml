@@ -12,10 +12,9 @@ mass = 1;
 armor = 0;
 rotation_lock = true; //overwite with false if the object does not rotate with it's parent
 active = true; //is the object active? 
-max_children = 0;
-children = ds_list_create();
+children = ds_list_create(); //keeps all linked object ids
 interface_width = 1; // the width of the interface element for the object
-allowed_type = ds_list_create();
+allowed_type = ds_list_create(); //keeps all objects that are able to link to this object
 
 HP_max = 100;	// max HP of object 
 HP = 100;		// current HP of object

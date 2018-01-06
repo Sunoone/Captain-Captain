@@ -1,7 +1,8 @@
 /// @description rotate and fire
 
-globalvar DeltaTime;
+var DeltaTime = global.DeltaTime;
 
+// Rotate the Turret
 if(rotation_speed != 0 && rotation_lock == false)
 {
 	var r_max_delta = rotation_max * DeltaTime;
@@ -26,6 +27,7 @@ if(rotation_speed != 0 && rotation_lock == false)
 	}
 }
 
+// Fire the turret
 	//needs to be changed when we have actual damage + projectiles in the game
 if(active && fire && reload)
 {
@@ -34,17 +36,15 @@ if(active && fire && reload)
 	animation_speed = animation_fire_speed;
 	
 	scr_timer_add( id, fire_time, 0 );
-	scr_timer_add( id, max(fire_time, reload_time), 1 );
+	scr_timer_add( id, reload_time, 1 );
+
+	surface_set_target(global.combat_screen);
 	
-	globalvar combat_screen_index, combat_screen;
-
-	surface_set_target(combat_screen);
-
 	var b_x = x + lengthdir_x(1000, direction);
 	var b_y = y + lengthdir_y(1000, direction);
 
 	draw_line_color(x, y, b_x, b_y, c_red, c_red );
-			
+	
 	surface_reset_target();
 	
 	reload = false;

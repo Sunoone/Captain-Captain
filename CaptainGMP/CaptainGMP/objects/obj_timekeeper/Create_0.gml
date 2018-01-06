@@ -4,3 +4,7 @@
 global.DeltaTime = 0; // Delta Time in sec
 
 scr_timer_ini();
+
+
+// Debug
+//draw_count = 0;

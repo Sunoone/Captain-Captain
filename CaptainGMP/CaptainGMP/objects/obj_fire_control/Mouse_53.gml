@@ -15,7 +15,7 @@ if( size>0 )
 			{			
 				if(active)
 				{					
-					// fire the turret
+					// fire the child
 					fire = true;
 				}
 			}

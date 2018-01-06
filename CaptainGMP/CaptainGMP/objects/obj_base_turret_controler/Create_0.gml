@@ -4,7 +4,6 @@
 event_inherited();
 
 type = 1;
-max_children = 1;
 interface_width = 1;
 
 target_x = "0";

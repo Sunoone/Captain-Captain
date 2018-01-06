@@ -9,7 +9,7 @@
         "caab84c5-d215-4b09-9080-29e1e6ed65f2"
     ],
     "filterType": "GMScript",
-    "folderName": "Time",
+    "folderName": "Timers",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

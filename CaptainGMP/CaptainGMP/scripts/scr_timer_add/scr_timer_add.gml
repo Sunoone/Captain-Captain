@@ -26,9 +26,9 @@ if( i == -1 )
 
 var timestamp = get_timer();
 
-timer[# 0, i] = timestamp;
-timer[# 1, i] = argument1;
-timer[# 2, i] = argument0;
-timer[# 3, i] = argument2;
+timer[# 0, i] = timestamp; // timer id
+timer[# 1, i] = argument1; // time in sec
+timer[# 2, i] = argument0; // obj id
+timer[# 3, i] = argument2; // user_event
 
 return timestamp;

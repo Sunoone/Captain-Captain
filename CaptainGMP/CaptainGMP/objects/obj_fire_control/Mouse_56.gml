@@ -11,13 +11,11 @@ if( size>0 )
 	{
 		if( instance_exists( children[|i] ) )
 		{
-		
 			with( children[|i] )
 			{			
 				// stop fire on the child
 				fire = false;
 			}
-			
 		}
 	}
 }
