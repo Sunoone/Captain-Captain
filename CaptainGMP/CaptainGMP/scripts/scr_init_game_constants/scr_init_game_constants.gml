@@ -9,7 +9,7 @@
 #macro othertype -1
 
 
-	// interface ring index
+	// Interface ring index
 #macro g_free 0		// can this space be used?
 #macro g_parent 1	// what is this space it's parent, if any?
 #macro e_id 2		// list element id
@@ -29,4 +29,20 @@
 #macro pro_type 5	// Projectile type
 #macro pro_dam 6	// Projectile damage
 #macro pro_ttl 7	// Projectile time to live in sec
-#macro pro_mod 8	// Projectile modulation
+#macro pro_spr 8	// Projectile sprite
+#macro pro_mod 9	// Projectile modulation
+
+	// Ship Grids
+#macro ship_valid 0
+#macro ship_type 1
+#macro ship_object 2
+
+#macro ship_grid_size 21
+
+
+	// Object Index Type
+#macro sh_none 0	
+#macro sh_combat_component 1	
+#macro sh_truster_component 2
+#macro sh_core 3
+

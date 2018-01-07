@@ -3,3 +3,5 @@
 
 event_inherited();
 type = shiptype;
+
+name = "Hull Object";

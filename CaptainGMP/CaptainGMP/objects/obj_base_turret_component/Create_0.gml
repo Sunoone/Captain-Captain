@@ -21,3 +21,5 @@ animation_fire_speed = 5;		// animation speed in frames per second
 
 fire_time = 0.2;				// how long does the fire-ing animation last, in sec
 reload_time = 0.5;				// time between shots
+
+name = "Base Combat Component";

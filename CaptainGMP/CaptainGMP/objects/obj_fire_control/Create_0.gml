@@ -7,3 +7,4 @@ event_inherited();
 
 interface_width = 3;
 
+name = "Debug Combat Object Controler";

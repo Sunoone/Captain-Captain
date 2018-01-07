@@ -11,6 +11,7 @@
 //		list_type	=	5	=	type
 //		list_dam	=	6	=	damage
 //		list_ttl	=	7	=	time to live in sec
+//		list_spr	=	8	=	Projectile sprite
 //		list_mod	=	8	=	modulation
 
 for( var i = 0; i < 1 + pro_mod; i++ )
@@ -26,4 +27,9 @@ list_speed	=	projectile[pro_speed];
 list_type	=	projectile[pro_type];
 list_dam	=	projectile[pro_dam];
 list_ttl	=	projectile[pro_ttl];
+list_spr	=	projectile[pro_spr];
 list_mod	=	projectile[pro_mod];
+
+
+// debug
+debug_array = -1;

@@ -3,5 +3,5 @@
 // Inherit the parent event
 event_inherited();
 
-// overwrite vars here
-name = "Debug Turret";
+// overwrite and add new vars here
+name = "Base Software";

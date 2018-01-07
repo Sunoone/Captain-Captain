@@ -4,6 +4,7 @@
 // Inherit the parent event
 event_inherited();
 
+name = "Custom Ship 1";
 
 turning = 0;
 

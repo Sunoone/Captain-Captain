@@ -21,3 +21,5 @@ HP = 100;		// current HP of object
 regen = 0.025;	// every sec, 2.5% hp is regained
 
 type = -1; // set type of object, THIS SHOULD BE OVERWRITTEN TO REGISTER WITH THE INTERFACE!
+
+name = "Base Combat Object";

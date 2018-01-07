@@ -1,0 +1,1 @@
+/// @description scr_hull_template_create()
