@@ -38,11 +38,11 @@ if( type != 0)
 		
 		if( grid[# j, g_free ] == true )
 		{
-			if( grid[# j, g_type ] == obj_type )
+			var par = grid[# j, g_parent ];
+			
+			if( instance_exists(par) )
 			{
-				var par = grid[# j, g_parent ];
-				
-				if( instance_exists(par) )
+				if( scr_ds_list_value_exist( par.allowed_type, obj_type ) )
 				{
 					if( par == p ) w += 1;
 					else
@@ -85,7 +85,9 @@ if( pos == -1 )
 		
 		if( grid[# j, g_free ] == true )
 		{
-			if( grid[# j, g_type ] == -4 )
+			var par = grid[# j, g_parent ];
+			
+			if( instance_exists(par) == false )
 			{
 				if( w = 0 )
 				{

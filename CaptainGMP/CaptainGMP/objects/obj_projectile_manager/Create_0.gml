@@ -3,14 +3,15 @@
 
 
 	// Projectile list index
-//		pro_id		=	0	=		id
-//		pro_x		=	1	=		x
-//		pro_y		=	2	=		y
-//		pro_dir		=	3	=		direction in degrees
-//		pro_speed	=	4	=		speed in pixels per second
-//		pro_type	=	5	=		type
-//		pro_dam		=	6	=		damage
-//		pro_mod		=	7	=		modulation
+//		list_id		=	0	=	id
+//		list_x		=	1	=	x
+//		list_x		=	2	=	y
+//		list_dir	=	3	=	direction in degrees
+//		list_speed	=	4	=	speed in pixels per second
+//		list_type	=	5	=	type
+//		list_dam	=	6	=	damage
+//		list_ttl	=	7	=	time to live in sec
+//		list_mod	=	8	=	modulation
 
 for( var i = 0; i < 1 + pro_mod; i++ )
 {
@@ -24,4 +25,5 @@ list_dir	=	projectile[pro_dir];
 list_speed	=	projectile[pro_speed];
 list_type	=	projectile[pro_type];
 list_dam	=	projectile[pro_dam];
+list_ttl	=	projectile[pro_ttl];
 list_mod	=	projectile[pro_mod];

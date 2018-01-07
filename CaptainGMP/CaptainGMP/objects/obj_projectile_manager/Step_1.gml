@@ -2,21 +2,37 @@
 
 var size = ds_list_size(projectile[0]);
 
-/*
-list_id		=	projectile[pro_id];
-list_x		=	projectile[pro_x];
-list_y		=	projectile[pro_y];
-list_dir	=	projectile[pro_dir];
-list_speed	=	projectile[pro_speed];
-list_type	=	projectile[pro_type];
-list_dam	=	projectile[pro_dam];
-list_mod	=	projectile[pro_mod];
-*/
 
+	// Projectile list index
+//		list_id		=	0	=	id
+//		list_x		=	1	=	x
+//		list_x		=	2	=	y
+//		list_dir	=	3	=	direction in degrees
+//		list_speed	=	4	=	speed in pixels per second
+//		list_type	=	5	=	type
+//		list_dam	=	6	=	damage
+//		list_mod	=	7	=	modulation
 
 
 
 for( var i = 0; i < size; i++ )
 {
 	// update projectiles here
+	switch( list_type[|i] )
+	{
+		case 0:		// simple projectile
+		
+		break;
+		
+		
+		
+		
+		default:	// unknown, remove from list
+		{
+			
+			i--;
+			size--;
+		}
+		break;
+	}
 }

@@ -56,14 +56,6 @@ for( var j = pos; j < pos + obj_width; j++ )
 		}
 		else return false;
 	}
-	
-	// check if the allowed type is correct
-	/*
-	if( grid[# k, g_type] != obj_type )
-	{
-		if( grid[# k, g_type] >= 0 ) return false;
-	}
-	*/
 }
 
 return true;

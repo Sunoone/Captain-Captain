@@ -50,18 +50,16 @@ if( type + 1 < int.max_rings )
 		{
 			// parent underlying space
 			ds_grid_set( tmp_grid, k, g_free, true );
-			ds_grid_set( tmp_grid, k, g_type, obj_allowed_list[|0] );
 		}
 		else
 		{
 			// forbid underlying space
 			ds_grid_set( tmp_grid, k, g_free, false );
-			ds_grid_set( tmp_grid, k, g_type, -4 );
 		}
 		
 		// add child
 		child = tmp_grid[# k, e_id];
-		if( instance_exists( child ) && object_get_parent( child.object_index ) == obj_allowed_list[|0] )
+		if( instance_exists( child ) && scr_ds_list_value_exist( obj_allowed_list, object_get_parent( child.object_index ) ) )
 		{
 			//check if the full interface width of the child is under the interface width of the obj
 			
@@ -111,7 +109,7 @@ grid[# pos, e_width ] = obj_width;
 // parent object
 if( instance_exists( p ) )
 {
-	if( p.allowed_type[|0] == obj_type )
+	if( scr_ds_list_value_exist( p.allowed_type, obj_type ) )
 	{
 		grid[# pos, e_link ] = p;
 		scr_ds_list_add_unique( p.children, obj );

@@ -15,7 +15,7 @@ type = argument1;	// combat object type
 pos = argument2;	// position on the ring
 
 
-var grid, max_grid, obj, obj_width, obj_type, parent, parent_allowed_type;
+var grid, max_grid, obj, obj_width, obj_type, parent;
 
 grid = int.ring[ type, 0 ];
 max_grid = int.grid_width;
@@ -25,8 +25,6 @@ obj_type = object_get_parent( obj.object_index );
 obj_width = obj.interface_width;
 
 parent = grid[# pos, e_link]; // object id
-if( instance_exists( parent ) ) parent_allowed_type = parent.allowed_type[|0];
-else parent_allowed_type = -4;
 
 // common loop vars
 var k, tmp_grid, child;
@@ -50,7 +48,6 @@ if( type + 1 < int.max_rings )
 		ds_grid_set( tmp_grid, k, g_parent, -4 );
 		
 		ds_grid_set( tmp_grid, k, g_free, true );
-		ds_grid_set( tmp_grid, k, g_type, parent_allowed_type );
 		
 		// remove children
 		child = tmp_grid[# k, e_id];
