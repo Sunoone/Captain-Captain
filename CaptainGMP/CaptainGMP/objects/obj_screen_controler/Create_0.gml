@@ -1,7 +1,6 @@
 /// @description Ini vars
 // This object controls and draws the surfaces on the screenspace
 
-global.screen = id;
 
 // screen_surface holds the surfaces and their positions that are drawn to the screen every frame
 screen_surface[0,0] = false;
