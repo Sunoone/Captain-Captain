@@ -9,3 +9,9 @@ event_inherited();
 scr_hull_template_create( id, 0 );
 
 name = "Debug Small Ship"
+
+ship_sprite = spr_ship_2;
+ship_sprite_hallign = 6;
+ship_sprite_vallign = 5;
+
+direction = 90;

@@ -26,3 +26,9 @@ draw_grid_object_active = false;
 
 draw_grid_turret[0,0] = -1;
 draw_grid_turret_index = 0;
+
+ship_sprite = -1;
+ship_sprite_hallign = 0;
+ship_sprite_vallign = 0;
+
+draw_top = true;

@@ -118,6 +118,6 @@ with(obj)
 	
 	draw_grid_hull_recheck = true;
 	
-	if( surface_exists( object_surface ) ) surface_resize( object_surface, ship_grid_width * ship_grid_size, ship_grid_height * ship_grid_size );
-	else object_surface = surface_create( ship_grid_width * ship_grid_size, ship_grid_height * ship_grid_size );
+	if( surface_exists( object_surface ) ) surface_resize( object_surface, ship_grid_size + ship_grid_width * ship_grid_size, ship_grid_height * ship_grid_size );
+	else object_surface = surface_create( ship_grid_size + ship_grid_width * ship_grid_size, ship_grid_height * ship_grid_size );
 }
