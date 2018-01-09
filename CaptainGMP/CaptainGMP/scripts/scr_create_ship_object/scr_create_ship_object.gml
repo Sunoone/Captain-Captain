@@ -26,10 +26,10 @@ obj_y = pos_off + ( argument[3] - 0.5 * ship.ship_grid_height ) * ship_grid_size
 var i = instance_create_depth( ship.x + obj_x, ship.y + obj_y, -1, argument[1] );
 
 i.owner = ship.owner; // index of owner
-i.interface = owned_interface[ i.owner ]; // id of interface object;
+i.interface = owned_interface[ ship.owner ]; // id of interface object;
 
 	//register object with interface
-if( scr_interface_register( i.owner, i, i.type ) == false )
+if( scr_interface_register( ship.owner, i, i.type ) == false )
 {
 	//The object could not be added to the interface, remove the object
 	instance_destroy(i, false);
@@ -37,14 +37,12 @@ if( scr_interface_register( i.owner, i, i.type ) == false )
 }
 
 // Parent the object
-var p = ship;
-
-i.parent = p;
+i.parent = ship;
 i.off_x = obj_x;
 i.off_y = obj_y;
 i.off_d = point_direction(0,0, i.off_x, i.off_y );
 i.off_l = sqrt( sqr(i.off_x) + sqr(i.off_y) )
-i.parent_direction = p.direction;
+i.parent_direction = ship.direction;
 
 // Optionally set the direction of the objet
 if(argument_count >= 5)

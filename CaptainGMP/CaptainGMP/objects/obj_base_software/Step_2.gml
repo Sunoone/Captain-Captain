@@ -1,9 +1,6 @@
 /// @description Remove Destroyed Children
 // You can write your code in this editor
 
-// Inherit the parent event
-event_inherited();
-
 // remove destroyed children
 var size;
 
@@ -21,3 +18,6 @@ if( size>0 )
 		}
 	}
 }
+
+HP_max = 1000000000;
+HP = 1000000000;

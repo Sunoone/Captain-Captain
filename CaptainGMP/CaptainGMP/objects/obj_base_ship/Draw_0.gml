@@ -9,11 +9,13 @@ if( surface_exists( combat_screen ) )
 	if( surface_exists( object_surface ) )
 	{
 		// fix rotation on center point
-		var XX, YY, rotate_x, rotate_y, h_width, h_height, inherent_direction;
-	
-		//choose centerpoint based on surface dimentions
-		h_width = surface_get_width(object_surface) * 0.5;
-		h_height = surface_get_height(object_surface) * 0.5;
+		var XX, YY, rotate_x, rotate_y, h_width, h_height, inherent_direction, d_pos_off;
+		
+		d_pos_off = ship_grid_size * 0.5;
+		
+		//choose centerpoint based on sprite allignment
+		h_width = d_pos_off + ship_sprite_hallign * ship_grid_size;
+		h_height = d_pos_off + ship_sprite_vallign * ship_grid_size;
 	
 		var len = sqrt( sqr(h_width) + sqr(h_height) );
 		var dir = point_direction(0,0,h_width,h_height);

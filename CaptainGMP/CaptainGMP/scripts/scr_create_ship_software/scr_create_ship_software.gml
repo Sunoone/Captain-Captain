@@ -10,7 +10,7 @@ owned_interface = global.owned_interface;
 ship = argument0;
 
 	// create the object
-var i = instance_create_depth( ship.x, ship.y, 1000, argument1 );
+var i = instance_create_depth( -1000, -1000, 1000, argument1 );
 
 i.owner = ship.owner; // index of owner
 i.interface = owned_interface[ i.owner ]; // id of interface object;

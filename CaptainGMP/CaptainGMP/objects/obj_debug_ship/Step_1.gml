@@ -1,3 +1,3 @@
-/// @description debug spin
+/// @description debug turning
 
-//direction += 1;
+direction += turning;

@@ -6,4 +6,4 @@ event_inherited();
 // vars can be overwritten her
 interface_width = 6;
 
-name = "Debug Combat Software";
+name = "Debug Targeting Software";

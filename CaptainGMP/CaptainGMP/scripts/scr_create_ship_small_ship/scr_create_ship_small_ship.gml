@@ -65,3 +65,5 @@ scr_create_ship_object( ship, obj_truster_1, r, c, 180 );
 
 r = 2; c = 9;
 scr_create_ship_object( ship, obj_truster_1, r, c, 270 );
+
+return ship;

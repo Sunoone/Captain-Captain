@@ -5,16 +5,6 @@
     "name": "obj_base_turret_component",
     "eventList": [
         {
-            "id": "c239db77-09d9-4bdd-aa6e-590443e754ce",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 3,
-            "m_owner": "a74c77d3-d18a-4399-94eb-e6f10adf950c"
-        },
-        {
             "id": "eced8f8c-a50b-4266-a8c8-8f00eada5ce6",
             "modelName": "GMEvent",
             "mvc": "1.0",
@@ -52,6 +42,16 @@
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 11,
             "eventtype": 7,
+            "m_owner": "a74c77d3-d18a-4399-94eb-e6f10adf950c"
+        },
+        {
+            "id": "5820108c-f0e1-48dd-afa8-ef782053d3b8",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 2,
+            "eventtype": 3,
             "m_owner": "a74c77d3-d18a-4399-94eb-e6f10adf950c"
         }
     ],

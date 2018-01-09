@@ -9,8 +9,8 @@ if( instance_exists( parent ) )
 	
 		// if the rotation of the component is locked, rotate with parent
 	if(rotation_lock) direction = self_direction + parent.direction;
-	else direction += parent.direction - parent_direction;
-	parent_direction = parent.direction;
+		//note: non-rotation locked objects must provide their own rotation code 
+	
 	//move with parent	
 	x = parent.x + lengthdir_x(off_l, parent.direction + off_d);
 	y = parent.y + lengthdir_y(off_l, parent.direction + off_d);
@@ -39,7 +39,6 @@ if( animation_speed != 0)
 		surface_reset_target();
 		*/
 	}
-	
 }
 
 // remove destroyed children
