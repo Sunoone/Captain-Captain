@@ -8,7 +8,7 @@
         "a05732ce-ca7c-4c6d-a8bf-38bbd57fd93a"
     ],
     "filterType": "GMScript",
-    "folderName": "Projectile",
+    "folderName": "Combat \/ Projectile",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

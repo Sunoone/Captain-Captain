@@ -107,12 +107,25 @@ grid[# pos, e_y ] = ele_y;
 grid[# pos, e_width ] = obj_width;
 
 // parent object
-if( instance_exists( p ) )
+if( instance_exists( p ) && type != 0 )
 {
 	if( scr_ds_list_value_exist( p.allowed_type, obj_type ) )
 	{
-		grid[# pos, e_link ] = p;
-		scr_ds_list_add_unique( p.children, obj );
+		// check if the full width of the parent extends over the full width of the object
+		var p_min, p_max, temp_grid;
+		temp_grid = int.ring[ type - 1, 0 ]
+		
+		if( ds_grid_value_exists( temp_grid, 0, e_id, ds_grid_width(temp_grid)-1, e_id, p ) )
+		{
+			p_min = ds_grid_value_x( temp_grid, 0, e_id, ds_grid_width(temp_grid)-1, e_id, p );
+			p_max = p_min + p.interface_width;
+			
+			if( pos + obj_width <= p_max && pos + obj_width >= p_min )
+			{
+				grid[# pos, e_link ] = p;
+				scr_ds_list_add_unique( p.children, obj );
+			}
+		}
 	}
 }
 

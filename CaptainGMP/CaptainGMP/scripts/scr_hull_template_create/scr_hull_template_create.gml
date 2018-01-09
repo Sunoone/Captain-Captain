@@ -4,6 +4,7 @@
 
 // this script creates a predefined hull template
 	// We need to build an editor for this that has a save and load fuction
+
 var obj;
 
 obj = argument0;
@@ -17,104 +18,89 @@ switch( argument1 )
 		// Hull Template 'Small Ship'
 		with(obj)
 		{
-			for( var i = 0; i < 3; i++ )
-			{
-				ds_grid_resize( ship_grid[i], 11, 12 );
-			}
+			// resize the 3d array to the needed size + 2 (buffer)
+			var x_max, y_max;
+			x_max = 11;
+			y_max = 10;
+			
+			scr_3d_array_resize( ship_grid, x_max + 1, y_max + 1, 3 );
 			
 				// set grid to standard values
-			ds_grid_set_region( ship_grid[ship_valid], 0,0, 10,11, false );
-			ds_grid_set_region( ship_grid[ship_type], 0,0, 10,11, 0 );
-			ds_grid_set_region( ship_grid[ship_object], 0,0, 10,11, -1 );
-			
-			var ship_grid_obj = ship_grid[ship_object];
-			
+			scr_3d_array_set_region( ship_grid, 0, 0, ship_valid, x_max, y_max, ship_valid, false );
+			scr_3d_array_set_region( ship_grid, 0, 0, ship_type, x_max, y_max, ship_type, sh_none );
+			scr_3d_array_set_region( ship_grid, 0, 0, ship_object, x_max, y_max, ship_object, -1 );
+						
 				// row, collom
 			var r, c; 
-			c = 1; c = 1;
+			r = 1; c = 1;
 			
 				// set valid
 			r = 1;
-			repeat(3) { ds_grid_set( ship_grid[ship_valid], r,c, true ); r++; }
+			repeat(3) { scr_3d_array_set( ship_grid, r,c, ship_valid, true ); r++; }
 			c++; r = 2;
-			repeat(3) { ds_grid_set( ship_grid[ship_valid], r,c, true ); r++; }
+			repeat(3) { scr_3d_array_set( ship_grid, r,c, ship_valid, true ); r++; }
 			c++; r = 3;
-			repeat(3) { ds_grid_set( ship_grid[ship_valid], r,c, true ); r++; }
+			repeat(3) { scr_3d_array_set( ship_grid, r,c, ship_valid, true ); r++; }
 			c++; r = 3;
-			repeat(5) { ds_grid_set( ship_grid[ship_valid], r,c, true ); r++; }
+			repeat(5) { scr_3d_array_set( ship_grid, r,c, ship_valid, true ); r++; }
 			c++; r = 3;
-			repeat(8) { ds_grid_set( ship_grid[ship_valid], r,c, true ); r++; }
+			repeat(8) { scr_3d_array_set( ship_grid, r,c, ship_valid, true ); r++; }
 			c++; r = 3;
-			repeat(5) { ds_grid_set( ship_grid[ship_valid], r,c, true ); r++; }
+			repeat(5) { scr_3d_array_set( ship_grid, r,c, ship_valid, true ); r++; }
 			c++; r = 3;
-			repeat(3) { ds_grid_set( ship_grid[ship_valid], r,c, true ); r++; }
+			repeat(3) { scr_3d_array_set( ship_grid, r,c, ship_valid, true ); r++; }
 			c++; r = 2;
-			repeat(3) { ds_grid_set( ship_grid[ship_valid], r,c, true ); r++; }
-			r = 1;
-			repeat(3) { ds_grid_set( ship_grid[ship_valid], r,c, true ); r++; }
+			repeat(3) { scr_3d_array_set( ship_grid, r,c, ship_valid, true ); r++; }
+			c++; r = 1;
+			repeat(3) { scr_3d_array_set( ship_grid, r,c, ship_valid, true ); r++; }
 			
 			// restrict grid types & create objects
 			
 				// core
 			r = 5; c= 5;
-			ds_grid_set( ship_grid[ship_type], r, c, sh_core );
-			ship_grid_obj[# r, c] = scr_create_object( obj_core, obj.owner, (r * -0.5 + 5) * ship_grid_size, (c * -0.5 + 5), 0, obj ); //create core
-			
+			scr_3d_array_set( ship_grid, r, c, ship_type, sh_core );
 			
 				// turrets
 			r = 3; c = 2;
-			ds_grid_set( ship_grid[ship_type], r, c, sh_combat_component );
-			ship_grid_obj[# r, c] = scr_create_object( obj_turret_1, obj.owner, (r * -0.5 + 5) * ship_grid_size, (c * -0.5 + 5), 0, obj ); //create turret
+			scr_3d_array_set( ship_grid, r, c, ship_type, sh_combat_component );
 			
-			r = 4; c = 3;
-			ds_grid_set( ship_grid[ship_type], r, c, sh_combat_component );
-			ship_grid_obj[# r, c] = scr_create_object( obj_turret_1, obj.owner, (r * -0.5 + 5) * ship_grid_size, (c * -0.5 + 5), 0, obj ); //create turret
+			r = 4; c = 4;
+			scr_3d_array_set( ship_grid, r, c, ship_type, sh_combat_component );
 			
 			r = 6; c = 5;
-			ds_grid_set( ship_grid[ship_type], r, c, sh_combat_component );
-			ship_grid_obj[# r, c] = scr_create_object( obj_turret_1, obj.owner, (r * -0.5 + 5) * ship_grid_size, (c * -0.5 + 5), 0, obj ); //create turret
+			scr_3d_array_set( ship_grid, r, c, ship_type, sh_combat_component );
 			
-			r = 10; c = 5;
-			ds_grid_set( ship_grid[ship_type], r, c, sh_combat_component );
-			ship_grid_obj[# r, c] = scr_create_object( obj_turret_1, obj.owner, (r * -0.5 + 5) * ship_grid_size, (c * -0.5 + 5), 0, obj ); //create turret
+			r = 9; c = 5;
+			scr_3d_array_set( ship_grid, r, c, ship_type, sh_combat_component );
 			
 			r = 4; c = 6;
-			ds_grid_set( ship_grid[ship_type], r, c, sh_combat_component );
-			ship_grid_obj[# r, c] = scr_create_object( obj_turret_1, obj.owner, (r * -0.5 + 5) * ship_grid_size, (c * -0.5 + 5), 0, obj ); //create turret
+			scr_3d_array_set( ship_grid, r, c, ship_type, sh_combat_component );
 			
 			r = 3; c = 8;
-			ds_grid_set( ship_grid[ship_type], r, c, sh_combat_component );
-			ship_grid_obj[# r, c] = scr_create_object( obj_turret_1, obj.owner, (r * -0.5 + 5) * ship_grid_size, (c * -0.5 + 5), 0, obj ); //create turret
+			scr_3d_array_set( ship_grid, r, c, ship_type, sh_combat_component );
 			
 			
 				// trusters
 			r = 2; c = 1;
-			ds_grid_set( ship_grid[ship_type], 2, 1, sh_truster_component );
-			ship_grid_obj[# r, c] = scr_create_object( obj_truster_1, obj.owner, (r * -0.5 + 5) * ship_grid_size, (c * -0.5 + 5), 0, obj, 270 ); //create truster
+			scr_3d_array_set( ship_grid, r, c, ship_type, sh_truster_component );
 			
 			r = 3; c = 3;
-			ds_grid_set( ship_grid[ship_type], 3, 3, sh_truster_component );
-			ship_grid_obj[# r, c] = scr_create_object( obj_truster_1, obj.owner, (r * -0.5 + 5) * ship_grid_size, (c * -0.5 + 5), 0, obj, 180 ); //create truster
+			scr_3d_array_set( ship_grid, r, c, ship_type, sh_truster_component );
 			
 			r = 7; c = 4;
-			ds_grid_set( ship_grid[ship_type], 7, 4, sh_truster_component );
-			ship_grid_obj[# r, c] = scr_create_object( obj_truster_1, obj.owner, (r * -0.5 + 5) * ship_grid_size, (c * -0.5 + 5), 0, obj ); //create truster
+			scr_3d_array_set( ship_grid, r, c, ship_type, sh_truster_component );
 			
 			r = 3; c = 5;
-			ds_grid_set( ship_grid[ship_type], 3, 5, sh_truster_component );
-			ship_grid_obj[# r, c] = scr_create_object( obj_truster_1, obj.owner, (r * -0.5 + 5) * ship_grid_size, (c * -0.5 + 5), 0, obj, 180 ); //create truster
+			scr_3d_array_set( ship_grid, r, c, ship_type, sh_truster_component );
 			
 			r = 7; c = 6;
-			ds_grid_set( ship_grid[ship_type], 7, 6, sh_truster_component );
-			ship_grid_obj[# r, c] = scr_create_object( obj_truster_1, obj.owner, (r * -0.5 + 5) * ship_grid_size, (c * -0.5 + 5), 0, obj ); //create truster
+			scr_3d_array_set( ship_grid, r, c, ship_type, sh_truster_component );
 			
 			r = 3; c = 7;
-			ds_grid_set( ship_grid[ship_type], 3, 7, sh_truster_component );
-			ship_grid_obj[# r, c] = scr_create_object( obj_truster_1, obj.owner, (r * -0.5 + 5) * ship_grid_size, (c * -0.5 + 5), 0, obj, 180 ); //create truster
+			scr_3d_array_set( ship_grid, r, c, ship_type, sh_truster_component );
 			
 			r = 2; c = 9;
-			ds_grid_set( ship_grid[ship_type], 2, 9, sh_truster_component );
-			ship_grid_obj[# r, c] = scr_create_object( obj_truster_1, obj.owner, (r * -0.5 + 5) * ship_grid_size, (c * -0.5 + 5), 0, obj, 90 ); //create truster
+			scr_3d_array_set( ship_grid, r, c, ship_type, sh_truster_component );
 		}		
 	}
 	break;
@@ -122,4 +108,16 @@ switch( argument1 )
 	default:
 		show_error( "scr_hull_template_create: Hull template does not exists.", true );
 	break;	
+}
+
+	// adjust internal variables based on the new ship_grid dimentions
+with(obj)
+{
+	ship_grid_width = scr_3d_array_width(ship_grid);
+	ship_grid_height = scr_3d_array_height(ship_grid);
+	
+	draw_grid_hull_recheck = true;
+	
+	if( surface_exists( object_surface ) ) surface_resize( object_surface, ship_grid_width * ship_grid_size, ship_grid_height * ship_grid_size );
+	else object_surface = surface_create( ship_grid_width * ship_grid_size, ship_grid_height * ship_grid_size );
 }

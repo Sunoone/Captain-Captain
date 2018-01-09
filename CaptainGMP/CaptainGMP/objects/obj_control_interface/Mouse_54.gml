@@ -2,7 +2,7 @@
 
 // remove element
 
-
+/*
 if( scr_screen_mouse_above( screen_index ) && drag_hold == false )
 {
 	var m_x, m_y, grid;

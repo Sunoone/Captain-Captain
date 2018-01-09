@@ -39,10 +39,9 @@
 
 #macro ship_grid_size 21
 
-
-	// Object Index Type
-#macro sh_none 0	
-#macro sh_combat_component 1	
-#macro sh_truster_component 2
-#macro sh_core 3
+	// Ship Object Index Type
+#macro sh_none -1	
+#macro sh_combat_component obj_base_turret_component	
+#macro sh_truster_component obj_base_truster_component
+#macro sh_core obj_base_core
 

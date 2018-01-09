@@ -34,5 +34,3 @@ with( global.data )
 		}
 	}
 }
-
-return c;

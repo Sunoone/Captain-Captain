@@ -1,7 +1,4 @@
-/// @description Combat Draw
-
-// The standart draw code for combat objects
-/*
+/// @description Draw Ship
 
 globalvar combat_screen;
 
@@ -11,13 +8,8 @@ if( surface_exists( object_surface ) )
 	var XX, YY, rotate_x, rotate_y, h_width, h_height, inherent_direction;
 	
 	//choose centerpoint based on surface dimentions
-	//h_width = surface_get_width(object_surface) * 0.5;
-	//h_height = surface_get_height(object_surface) * 0.5;
-	
-	//choose centerpoint based on sprite settings
-	h_width = sprite_get_xoffset(sprite_index);
-	h_height = sprite_get_yoffset(sprite_index);
-	
+	h_width = surface_get_width(object_surface) * 0.5;
+	h_height = surface_get_height(object_surface) * 0.5;
 	
 	var len = sqrt( sqr(h_width) + sqr(h_height) );
 	var dir = point_direction(0,0,h_width,h_height);

@@ -24,6 +24,9 @@ global.owned_interface[1] = scr_create_interface( 0, 0, room_height * 0.5, room_
 
 
 // Ships
+var debug_ship_0 = scr_create_ship_small_ship( 0, 150, 150 );
+
+
 /*
 var c,p;
 c = 0;
