@@ -658,7 +658,7 @@
             "Key": "7824d199-b069-45c7-96f1-68905598305b",
             "Value": {
                 "id": "f5919a3c-3a5d-4548-bbd9-9f9ed8a12259",
-                "resourcePath": "scripts\\scr_remove_projectile\\scr_remove_projectile.yy",
+                "resourcePath": "scripts\\scr_projectile_remove\\scr_projectile_remove.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -802,7 +802,7 @@
             "Key": "a05732ce-ca7c-4c6d-a8bf-38bbd57fd93a",
             "Value": {
                 "id": "55fc8a09-5c3a-44e9-adb8-843df753f9ed",
-                "resourcePath": "scripts\\scr_check_collision_line\\scr_check_collision_line.yy",
+                "resourcePath": "scripts\\scr_projectile_check_collision\\scr_projectile_check_collision.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1103,6 +1103,14 @@
             }
         },
         {
+            "Key": "d5f94952-10ba-4671-909d-0b815163a5bf",
+            "Value": {
+                "id": "97e30a7f-2d4c-49e9-b527-cc8b642db5d1",
+                "resourcePath": "sprites\\spr_laser_1\\spr_laser_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d7bb9737-6ff1-4e65-8a72-6509792b0507",
             "Value": {
                 "id": "b0277d86-2609-4059-81e6-9d698b54aedb",
@@ -1187,6 +1195,14 @@
             "Value": {
                 "id": "dce61b2e-bb94-4a22-acb2-eadd8492310b",
                 "resourcePath": "scripts\\vector_magnitude\\vector_magnitude.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f3f0e5b3-044c-4fd6-bf0b-e891d6515c92",
+            "Value": {
+                "id": "0d0b1d35-3adf-4216-bda3-e5f6d2f8d4dd",
+                "resourcePath": "scripts\\scr_projectile_add\\scr_projectile_add.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1298,6 +1314,7 @@
         "84b7b158-ff8c-44bf-aac0-d8d0f5c8fee2",
         "7824d199-b069-45c7-96f1-68905598305b",
         "a05732ce-ca7c-4c6d-a8bf-38bbd57fd93a",
+        "f3f0e5b3-044c-4fd6-bf0b-e891d6515c92",
         "9beb0a4b-5345-48f1-bdcd-e13632cbe66c",
         "6d400e64-81fb-4c4f-a84e-33f33ac268a1",
         "3e5dc068-863e-4590-bafd-c5317b138398",

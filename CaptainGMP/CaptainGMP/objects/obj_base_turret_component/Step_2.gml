@@ -43,15 +43,22 @@ if(active && fire && reload)
 	
 	scr_timer_add( id, fire_time, 0 );
 	scr_timer_add( id, reload_time, 1 );
-
-	surface_set_target(global.combat_screen);
 	
-	var b_x = x + lengthdir_x(1000, direction);
-	var b_y = y + lengthdir_y(1000, direction);
-
-	draw_line_color(x, y, b_x, b_y, c_red, c_red );
+	var dam = damage_base + damage_extra;
 	
-	surface_reset_target();
+	var v_x, v_y, dir, spe;
+	
+	spe = projectile_speed + turret_speed;
+	dir = direction;
+	
+	v_x = (x - delta_x) + lengthdir_x( spe, dir );
+	v_y = (y - delta_y) + lengthdir_y( spe, dir );
+	
+	scr_projectile_add( owner, projectile_type, x, y, v_x, v_y, dam, projectile_sprite, projectile_ttl );	
 	
 	reload = false;
 }
+
+// set delta pos 
+delta_x = x;
+delta_y = y;

@@ -24,13 +24,16 @@
 #macro pro_id 0		// Projectile id
 #macro pro_x 1		// Projectile x
 #macro pro_y 2		// Projectile y
-#macro pro_dir 3	// Projectile direction in degrees
-#macro pro_speed 4	// Projectile speed in pixels per second
-#macro pro_type 5	// Projectile type
-#macro pro_dam 6	// Projectile damage
-#macro pro_ttl 7	// Projectile time to live in sec
-#macro pro_spr 8	// Projectile sprite
-#macro pro_mod 9	// Projectile modulation
+#macro pro_v0 3		// Projectile movement vector
+#macro pro_v1 4		// Projectile movement vector
+#macro pro_dir 5	// Projectile direction
+#macro pro_speed 6	// Projectile speed
+#macro pro_type 7	// Projectile type
+#macro pro_dam 8	// Projectile damage
+#macro pro_ttl 9	// Projectile time to live in sec
+#macro pro_spr 10	// Projectile sprite
+#macro pro_own 11	// Projectile owner
+#macro pro_mod 12	// Projectile modulation
 
 	// Ship Grids
 #macro ship_valid 0
