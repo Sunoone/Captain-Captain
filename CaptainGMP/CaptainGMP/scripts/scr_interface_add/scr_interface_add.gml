@@ -46,17 +46,6 @@ if( type + 1 < int.max_rings )
 		
 		ds_grid_set( tmp_grid, k, g_parent, obj );
 		
-		if( ds_list_size(obj_allowed_list) > 0 )
-		{
-			// parent underlying space
-			ds_grid_set( tmp_grid, k, g_free, true );
-		}
-		else
-		{
-			// forbid underlying space
-			ds_grid_set( tmp_grid, k, g_free, false );
-		}
-		
 		// add child
 		child = tmp_grid[# k, e_id];
 		if( instance_exists( child ) && scr_ds_list_value_exist( obj_allowed_list, object_get_parent( child.object_index ) ) )
@@ -106,7 +95,7 @@ grid[# pos, e_x ] = ele_x;
 grid[# pos, e_y ] = ele_y;
 grid[# pos, e_width ] = obj_width;
 
-// parent object
+// parent object ---> there is an bug in this code relating to the wrap-around case, look at above code for fix
 if( instance_exists( p ) && type != 0 )
 {
 	if( scr_ds_list_value_exist( p.allowed_type, obj_type ) )

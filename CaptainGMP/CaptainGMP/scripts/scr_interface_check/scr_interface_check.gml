@@ -37,6 +37,8 @@ for( var j = pos; j < pos + obj_width; j++ )
 	{
 		if( pos2 >= 0 )
 		{
+			if( obj_width == 1 && pos != pos2 ) return false;
+			
 			// special case: wrap-around
 			var pos3, k_max;
 			

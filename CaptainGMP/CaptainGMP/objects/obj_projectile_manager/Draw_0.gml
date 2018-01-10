@@ -1,13 +1,33 @@
-/// @description Debug Draw
+/// @description draw projectiles
 
-if( debug_array != -1 )
+var combat_screen = global.combat_screen;
+
+if( surface_exists( combat_screen ) )
 {
-	if( instance_exists(debug_array) )
+	
+	surface_set_target(combat_screen);
+	
+	var size, time, frame;
+	
+	size = ds_list_size( projectile[0] );
+	time = get_timer() * 0.000015; // 15 fps
+	
+	for( var i = 0; i < size; i++ )
 	{
-		draw_text_color( 10,30, debug_array.name, c_red, c_red, c_red, c_red, 1 );	
+		switch( list_type[|i] )
+		{
+			case 0: //normal projectile
+				frame = floor( (list_id[|i] + time) mod sprite_get_number( list_spr[|i] ) );
+				draw_sprite_ext( list_spr[|i], frame, list_x[|i], list_y[|i], 1, 1, list_dir[|i], c_white, 1 );
+			break;	
+			
+			default:
+			break;
+		}
+		
+		
 	}
-}
-else
-{
-	draw_text_color( 10,30, "No Object Detected", c_red, c_red, c_red, c_red, 1 );
+
+	surface_reset_target();
+
 }

@@ -47,8 +47,6 @@ if( type + 1 < int.max_rings )
 		
 		ds_grid_set( tmp_grid, k, g_parent, -4 );
 		
-		ds_grid_set( tmp_grid, k, g_free, true );
-		
 		// remove children
 		child = tmp_grid[# k, e_id];
 		tmp_grid[# k, e_link] = -4;
