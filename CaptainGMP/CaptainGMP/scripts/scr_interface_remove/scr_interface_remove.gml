@@ -1,4 +1,4 @@
-/// @description scr_interface_move( interface_index, type, pos )
+/// @description scr_interface_remove( interface_index, type, pos )
 /// @param interface_index
 /// @param type
 /// @param pos

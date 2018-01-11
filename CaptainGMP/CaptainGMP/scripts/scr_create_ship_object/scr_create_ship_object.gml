@@ -29,6 +29,15 @@ var i = instance_create_depth( ship.x + obj_x, ship.y + obj_y, -1, argument[1] )
 i.owner = ship.owner; // index of owner
 i.interface = owned_interface[ ship.owner ]; // id of interface object;
 
+if( scr_obj_check_parentage( i, obj_base_core ) )
+{
+	// register with the ship
+	if( ship.ship_core == -1 )
+	{
+		ship.ship_core = i;	
+	}
+}
+
 	//register object with interface
 if( scr_interface_register( ship.owner, i, i.type ) == false )
 {
@@ -41,6 +50,8 @@ if( scr_interface_register( ship.owner, i, i.type ) == false )
 i.parent = ship;
 i.off_x = obj_x;
 i.off_y = obj_y;
+i.grid_x = argument[2];
+i.grid_y = argument[3];
 i.off_d = point_direction(0,0, i.off_x, i.off_y );
 i.off_l = sqrt( sqr(i.off_x) + sqr(i.off_y) )
 i.parent_direction = ship.direction;

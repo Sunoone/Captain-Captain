@@ -54,7 +54,7 @@ if(active && fire && reload)
 	v_x = (x - delta_x) + lengthdir_x( spe, dir );
 	v_y = (y - delta_y) + lengthdir_y( spe, dir );
 	
-	scr_projectile_add( owner, projectile_type, x, y, v_x, v_y, dam, projectile_sprite, projectile_ttl );	
+	scr_projectile_add( owner, projectile_type, x, y, v_x, v_y, dam, projectile_sprite, projectile_ttl, projectile_explosion_sprite );	
 	
 	reload = false;
 }

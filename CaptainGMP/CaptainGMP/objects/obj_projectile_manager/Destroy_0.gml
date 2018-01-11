@@ -10,3 +10,11 @@ for( var i = 0; i < length; i++ )
 	}
 }
 projectile = 0;
+
+
+// destroy collision target data
+for( var i = 0; i < col_data; i++ )
+{
+	ds_list_destroy( collision_target[i] );
+}
+collision_target = 0;

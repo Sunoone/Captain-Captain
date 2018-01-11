@@ -1,61 +1,69 @@
-/// @description scr_projectile_check_collision( owner, x1, y1, x2, y2, opt:accuracy )
-/// @param owner
-/// @param x1
-/// @param y1
-/// @param x2
-/// @param y2
-/// @param opt:accuracy
+/// @description scr_projectile_check_collision( pos )
+/// @param pos
 
-// this script checks collision on points on a line, then returns the first object along the line belonging to another owner than the given one
+// this script checks for projectile collision with ships and their components
 
-// the optional argument accuracy adjust the distance between points on the line that get checked
-	// if accuracy <= 1 then the collision check will happen per pixel
+// THIS SCRIPT SHOULD ONLY BE CALLED FROM THE PROJECTILE MANAGER!
+	// (due to using internal variables)
 
-	// safety check
-if( argument_count < 5 || argument_count > 6 ) show_error("scr_check_collision_line argument count is incorrect", true);
 
-var dis, acc, len, own;
+//this collision only works on projectile type 1;
 
-len = point_distance( argument[1], argument[2], argument[3], argument[4] );
-if(len <= 0) len = 1;
-dir = point_direction( argument[1], argument[2], argument[3], argument[4] );
-own = argument[0];
+var registry = global.registry;
 
-// accuracy
-if( argument_count == 6 ) acc = argument[5];
-else acc = 4; // standard accuracy
+var pos, size, len, dir, x1, y1, x2, y2, XX, YY, ship, obj;
+pos = argument0;
+size = ds_list_size( registry );
 
-if( acc < 1 )	// pixel perfect collision checking
+// check all ship objects for collision
+for( var i = 0; i < size; i++ )
 {
-	acc = 1;
-}
-
-var p_x, p_y, collision_object, obj, x_adj, y_adj, value_found;
-
-collision_object = -1;
-
-p_x = argument[1];
-p_y = argument[2];
-
-x_adj = lengthdir_x( acc, dir );
-y_adj = lengthdir_y( acc, dir );
-
-// the collision check, might be more optimized to do a collision line before to check if there will be any results
-for( var i = 0; i < len; i += acc )
-{
-	obj = collision_point( p_x, p_y, obj_base_combat, false, false );
-	
-	if( obj != noone )
-	{
-		if( obj.owner != own )
+		// if the owner of the ship is not equal to the owner of the projectile
+	if( collision_target[i,0] != list_own[|pos] )
+	{	
+		// this is the current location, we need to check every location between here and +vector
+		x1 = list_x[|pos];	
+		y1 = list_y[|pos];
+		
+		x2 = collision_target[i,1];
+		y2 = collision_target[i,2];
+		
+		len = point_distance( x1,y1,x2,y2 );
+		
+		// if the projectile is within the radius of the ship
+		if( len < collision_target[i,3] )
 		{
-			collision_object = obj;
-			break;
+			// point direction from the ship origin minus the ship's direction
+			dir = point_direction( x2,y2,x1,y1 ) - collision_target[i,4];
+			
+			// get co-ordinates relative to the ship center and add the ships center
+			XX = floor(lengthdir_x( len, dir ) / ship_grid_size) + collision_target[i,5];
+			YY = floor(lengthdir_y( len, dir ) / ship_grid_size) + collision_target[i,6];
+			
+			if( XX >= 0 && YY >= 0 )
+			{
+				if( XX < collision_target[i,7] && YY < collision_target[i,8] )
+				{
+					ship = registry[|i];
+					
+					if( scr_3d_array_get( ship.ship_grid, XX, YY, ship_valid ) )
+					{
+						// ship is hit
+						obj = scr_3d_array_get( ship.ship_grid, XX, YY, ship_object );
+						if( instance_exists( obj ) && obj != -1 )
+						{
+							// damage object and explode projectile
+							obj.HP -= list_dam[|pos];
+							
+							list_des[|pos] = true;
+							list_ttl[|pos] = 0;
+						}
+					}
+				}
+			}
 		}
+		
 	}
-	
-	p_x += x_adj;
-	p_y += y_adj;
 }
 
-return collision_object;
+return -1; // no collision

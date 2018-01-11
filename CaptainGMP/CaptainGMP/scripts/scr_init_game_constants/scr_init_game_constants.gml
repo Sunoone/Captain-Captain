@@ -32,8 +32,10 @@
 #macro pro_dam 8	// Projectile damage
 #macro pro_ttl 9	// Projectile time to live in sec
 #macro pro_spr 10	// Projectile sprite
-#macro pro_own 11	// Projectile owner
-#macro pro_mod 12	// Projectile modulation
+#macro pro_exp 11	// Projectile Explosion sprite
+#macro pro_des 12	// Projectile Destruction
+#macro pro_own 13	// Projectile owner
+#macro pro_mod 14	// Projectile modulation
 
 	// Ship Grids
 #macro ship_valid 0

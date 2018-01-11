@@ -59,6 +59,12 @@ if( size>0 )
 	}
 }
 
+// check HP
+if( HP <= 0 )
+{
+	instance_destroy(id);
+}
+
 // natural HP regen
 if( HP < HP_max )
 {
@@ -66,4 +72,3 @@ if( HP < HP_max )
 	HP += r;
 	if( HP > HP_max ) HP = HP_max;
 }
-

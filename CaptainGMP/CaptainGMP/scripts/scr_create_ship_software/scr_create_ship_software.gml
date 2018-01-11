@@ -4,16 +4,27 @@
 
 // This script creates a software object on the given ship
 
-var game_controler, owned_interface, ship;
+var game_controler, owned_interface, ship, core;
 game_controler = global.game_controler;
 owned_interface = global.owned_interface;
 ship = argument0;
+
+// does the ship have a core that can hold the software?
+core = ship.ship_core;
+if( ship.ship_core == -1 ) return(-404);
+
+
 
 	// create the object
 var i = instance_create_depth( -1000, -1000, 1000, argument1 );
 
 i.owner = ship.owner; // index of owner
 i.interface = owned_interface[ i.owner ]; // id of interface object;
+
+// register software with the core
+i.core = core;
+ds_list_add( core.software, i );
+
 
 	//register object with interface
 if( scr_interface_register( i.owner, i, i.type ) == false )

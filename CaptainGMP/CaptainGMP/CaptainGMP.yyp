@@ -119,6 +119,14 @@
             }
         },
         {
+            "Key": "13e336d5-b279-495d-8b59-9a71c874ad15",
+            "Value": {
+                "id": "3b851064-5a13-4288-84e5-9904fef07ed5",
+                "resourcePath": "views\\13e336d5-b279-495d-8b59-9a71c874ad15.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "190736f1-755b-421a-9bad-ced3cdf4626c",
             "Value": {
                 "id": "e96596ff-dcc9-4eac-bff6-e0fd3fe7e5a4",
@@ -311,6 +319,14 @@
             }
         },
         {
+            "Key": "49570989-11c3-4a88-8913-a26d39c2723e",
+            "Value": {
+                "id": "e2ed469d-4e65-4dae-b411-f9baa7494bb1",
+                "resourcePath": "sprites\\spr_laser_explosion_1\\spr_laser_explosion_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4c41fe43-ec03-468f-a5f8-f55866b3b09d",
             "Value": {
                 "id": "d3ac8db9-9cc6-4237-a3ca-c98368805a2b",
@@ -396,6 +412,14 @@
                 "id": "861c6c0a-0397-4b2e-99eb-ac343be070ec",
                 "resourcePath": "objects\\obj_base_ship_old\\obj_base_ship_old.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "560e4742-4a47-4c88-99eb-bf1c0ff16b69",
+            "Value": {
+                "id": "ae6af934-d023-4dd5-966f-1c397c16e92e",
+                "resourcePath": "views\\560e4742-4a47-4c88-99eb-bf1c0ff16b69.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -604,6 +628,14 @@
                 "id": "88b187ac-23d0-4423-abb3-1fe538b2bdd7",
                 "resourcePath": "scripts\\scr_create_thruster\\scr_create_thruster.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "727a10ac-b3a5-4de5-b78f-c7ca95d93c9f",
+            "Value": {
+                "id": "e1dcec30-2a81-416b-ac43-a89897e8477b",
+                "resourcePath": "views\\727a10ac-b3a5-4de5-b78f-c7ca95d93c9f.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -879,6 +911,14 @@
             }
         },
         {
+            "Key": "a8eac638-b243-422e-8a24-3a588ded97fb",
+            "Value": {
+                "id": "2ccbc407-6381-42e4-8d0c-1bd996888cea",
+                "resourcePath": "views\\a8eac638-b243-422e-8a24-3a588ded97fb.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "a9188620-a624-4a5a-83ae-a1b53faf038b",
             "Value": {
                 "id": "1a4884d6-f5d8-4306-8f5b-31247f9bd994",
@@ -916,6 +956,22 @@
                 "id": "8fa063d3-92ff-477d-a34f-db8180c1ea40",
                 "resourcePath": "scripts\\scr_interface_get_pos\\scr_interface_get_pos.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "ad542303-3720-4697-9239-bf2b49e8745a",
+            "Value": {
+                "id": "9f98fd7f-c92c-42ce-9795-852c686303a3",
+                "resourcePath": "views\\ad542303-3720-4697-9239-bf2b49e8745a.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "af3a85b4-9f36-4933-914c-e965690f5e6e",
+            "Value": {
+                "id": "9a433366-cf35-440f-b005-8aa6582b4fac",
+                "resourcePath": "views\\af3a85b4-9f36-4933-914c-e965690f5e6e.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -1060,6 +1116,14 @@
                 "id": "8dae3f24-bb60-43d7-8c0d-7a0eb9a3e591",
                 "resourcePath": "scripts\\scr_timer_update\\scr_timer_update.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "cb9926c1-2fcf-4577-843e-37437b1266b5",
+            "Value": {
+                "id": "c993285b-66b6-4bd7-a79c-415694044ef1",
+                "resourcePath": "views\\cb9926c1-2fcf-4577-843e-37437b1266b5.yy",
+                "resourceType": "GMFolder"
             }
         },
         {

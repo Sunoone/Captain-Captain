@@ -1,24 +1,39 @@
 /// @description Update Projectiles
 
 
+// update collision targets
+var col_obj, registry;
+registry = global.registry;
+
+for( var i = 0; i < ds_list_size( registry ); i++ )
+{
+	col_obj = ds_list_find_value( global.registry, i );
+	collision_target[i,0] = col_obj.owner;
+	collision_target[i,1] = col_obj.x;
+	collision_target[i,2] = col_obj.y;
+	
+	var x1, x2, y1, y2;
+	x1 = col_obj.ship_hallign * ship_grid_size;
+	y1 = col_obj.ship_vallign * ship_grid_size;
+	x2 = col_obj.ship_grid_width * ship_grid_size - x1;
+	y2 = col_obj.ship_grid_height * ship_grid_size - y1;
+	
+	collision_target[i,3] = round(max( point_distance(0,0,x1,y1), point_distance(0,0,x1,y2), point_distance(0,0,x2,y1), point_distance(0,0,x2,y2) ));	//rad
+
+	collision_target[i,4] = col_obj.direction;
+	collision_target[i,5] = col_obj.ship_hallign;
+	collision_target[i,6] = col_obj.ship_vallign;
+	collision_target[i,7] = col_obj.ship_grid_width;
+	collision_target[i,8] = col_obj.ship_grid_height;
+}
+
+
+
+
+// update projectiles
+
 var DeltaTime = global.DeltaTime;
 var size = ds_list_size(projectile[0]);
-
-
-	// Projectile list index
-//		list_id		=	0	=	id
-//		list_x		=	1	=	x
-//		list_y		=	2	=	y
-//		list_v0		=	3	=	movement vector
-//		list_v1		=	4	=	movement vector
-//		list_type	=	5	=	type
-//		list_dam	=	6	=	damage
-//		list_ttl	=	7	=	time to live in sec
-//		list_spr	=	8	=	Projectile sprite
-//		list_own	=	9	=	owner
-//		list_mod	=	10	=	modulation
-
-
 
 for( var i = 0; i < size; i++ )
 {
@@ -27,26 +42,22 @@ for( var i = 0; i < size; i++ )
 	{
 		case 0:		// simple projectile
 		{
-			/*
-			var x1, y1, x2, y2;
-			
-			x1 = list_x[| i];
-			y1 = list_y[| i];
-			
-			x2 = x1 + list_v0[| i];
-			y2 = y1 + list_v1[| i];
-			*/	
-			
 			list_ttl[|i ] -= DeltaTime;
 			
 			if( list_ttl[|i ] <= 0 )
 			{
-				scr_projectile_remove( i );
+				if( list_des[|i] == false ) // projectile timed out
+					scr_projectile_remove( i );
+				else if( floor(abs(list_ttl[|i ] * animation_speed)) >= sprite_get_number( list_exp[|i] ) )
+					scr_projectile_remove( i );
 			}
 			else
-			{
-				list_x[| i ] += list_v0[| i ] * DeltaTime;
-				list_y[| i ] += list_v1[| i ] * DeltaTime;
+			{			
+				if( scr_projectile_check_collision( i ) < 0 )
+				{
+					list_x[| i ] += list_v0[| i ] * DeltaTime;
+					list_y[| i ] += list_v1[| i ] * DeltaTime;
+				}
 			}
 			
 		}

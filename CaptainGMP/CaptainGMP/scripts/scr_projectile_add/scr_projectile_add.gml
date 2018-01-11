@@ -1,4 +1,4 @@
-/// @description scr_add_projectile( owner, type, x, y, v0, v1, dam, spr, ttl )
+/// @description scr_add_projectile( owner, type, x, y, v0, v1, dam, spr_pro, ttl, spr_end )
 /// @param owner
 /// @param type
 /// @param x
@@ -6,8 +6,9 @@
 /// @param v0
 /// @param v1
 /// @param dam
-/// @param spr
+/// @param spr_pro
 /// @param ttl
+/// @param spr_end
 
 var p_id;
 p_id = get_timer();
@@ -31,8 +32,11 @@ with( global.projectile_manager )
 	ds_list_add( list_dam, argument6);
 	ds_list_add( list_spr, argument7);
 	
+	ds_list_add( list_exp, argument9);
+	ds_list_add( list_des, false);
+	
 	ds_list_add( list_ttl, argument8);
-	//ds_list_add( list_ttl, argument9);
+	//ds_list_add( list_mod, );
 }
 
 return p_id; // return the id of the projectile

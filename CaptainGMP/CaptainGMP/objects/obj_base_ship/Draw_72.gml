@@ -40,8 +40,8 @@ if( draw_grid_object_active )
 	for( var i = 0; i < draw_grid_object_index; i++)
 	{
 		obj = draw_grid_object[i,0];
-		
-		draw_sprite_ext( obj.sprite_index, floor(obj.animation_count),  d_pos_off + draw_grid_object[i,1] * ship_grid_size,  d_pos_off + draw_grid_object[i,2] * ship_grid_size, 1, 1, obj.direction - direction, c_white, 1 );
+		if( instance_exists(obj) )
+			draw_sprite_ext( obj.sprite_index, floor(obj.animation_count),  d_pos_off + draw_grid_object[i,1] * ship_grid_size,  d_pos_off + draw_grid_object[i,2] * ship_grid_size, 1, 1, obj.direction - direction, c_white, 1 );
 	}
 	
 	if( sprite_exists( ship_sprite ) && draw_top )
@@ -52,12 +52,13 @@ if( draw_grid_object_active )
 	for( var i = 0; i < draw_grid_turret_index; i++)
 	{
 		obj = draw_grid_turret[i,0];
-		
-		draw_sprite_ext( obj.sprite_index, floor(obj.animation_count), d_pos_off + draw_grid_turret[i,1] * ship_grid_size, d_pos_off + draw_grid_turret[i,2] * ship_grid_size, 1, 1, obj.direction - direction, c_white, 1 );
+		if( instance_exists(obj) )
+			draw_sprite_ext( obj.sprite_index, floor(obj.animation_count), d_pos_off + draw_grid_turret[i,1] * ship_grid_size, d_pos_off + draw_grid_turret[i,2] * ship_grid_size, 1, 1, obj.direction - direction, c_white, 1 );
 	}
 }
 
 //debug draw grid
+/*
 for( var i = 0; i <= ship_grid_width; i++)
 {
 	for( var j = 0; j <= ship_grid_height; j++ )
@@ -66,7 +67,7 @@ for( var i = 0; i <= ship_grid_width; i++)
 		draw_line_color( 0, j * ship_grid_size, i * ship_grid_size, j * ship_grid_size, c_green, c_green );
 	}
 }
-
+*/
 surface_reset_target();
 
 
@@ -101,6 +102,22 @@ if( surface_exists( combat_screen ) )
 	// draw surface with offset for rotation
 	
 	draw_surface_ext( object_surface, XX, YY, 1, 1, inherent_direction, c_white, 1 );
-
+	
+	// debug -----------------------------------------------------------------------------------------------------------------------------------------------
+	/*
+	draw_circle_color( x, y, 2, c_red, c_red, false);
+	
+	var x1, x2, y1, y2, rad;
+	x1 = ship_hallign * ship_grid_size;
+	y1 = ship_vallign * ship_grid_size;
+	x2 = ship_grid_width * ship_grid_size - x1;
+	y2 = ship_grid_height * ship_grid_size - y1;
+	
+	rad = round(max( point_distance(0,0,x1,y1), point_distance(0,0,x1,y2), point_distance(0,0,x2,y1), point_distance(0,0,x2,y2) ));	//rad
+	
+	draw_circle_color( x, y, rad, c_green, c_green, true );
+	*/
+	// debug -----------------------------------------------------------------------------------------------------------------------------------------------
+	
 	surface_reset_target();
 }

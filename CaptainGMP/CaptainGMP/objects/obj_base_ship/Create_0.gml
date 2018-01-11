@@ -7,6 +7,12 @@ event_inherited();
 name = "Base Ship Object";
 type = -1;
 
+// core object reference
+ship_core = -1;
+
+// add ship to the ship registry
+scr_ds_list_add_unique( global.registry, id );
+
 ship_grid = scr_3d_array_create( 1 , 1 , 3 );
 ship_grid_width = 1;
 ship_grid_height = 1;

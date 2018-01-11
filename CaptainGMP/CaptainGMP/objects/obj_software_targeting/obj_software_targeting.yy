@@ -5,16 +5,6 @@
     "name": "obj_software_targeting",
     "eventList": [
         {
-            "id": "3c5c79e4-b665-4b1d-b984-5ccc7091c56f",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 8,
-            "m_owner": "4c6c53ac-20b4-4d31-b2b3-29b83df29d1d"
-        },
-        {
             "id": "b49981f8-59c7-4bcd-bfe5-5d696309b8bf",
             "modelName": "GMEvent",
             "mvc": "1.0",

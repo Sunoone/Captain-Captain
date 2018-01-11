@@ -29,12 +29,13 @@ name = "Base Combat Component";
 
 	// turret type
 projectile_type = 0;
-projectile_ttl = 1.5;
+projectile_ttl = 3;
 
-projectile_speed = 1500; // pixels per sec
+projectile_speed = 500; // pixels per sec
 turret_speed = 0;
 
 damage_base = 10;
 damage_extra = 0;
 
 projectile_sprite = spr_laser_1;
+projectile_explosion_sprite = spr_laser_explosion_1;

@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// @description Insert base truster functionality in this object
 // You can write your code in this editor
 
 // Inherit the parent event

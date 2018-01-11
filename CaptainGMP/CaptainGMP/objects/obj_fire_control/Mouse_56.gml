@@ -1,22 +1,24 @@
 /// @description stop firing childeren
 // 
 
-var size;
-
-size = ds_list_size(children)
-
-if( size>0 )
+if( global.player == owner )
 {
-	for( var i = 0; i<size; i++ )
+	var size;
+
+	size = ds_list_size(children)
+
+	if( size>0 )
 	{
-		if( instance_exists( children[|i] ) )
+		for( var i = 0; i<size; i++ )
 		{
-			with( children[|i] )
-			{			
-				// stop fire on the child
-				fire = false;
+			if( instance_exists( children[|i] ) )
+			{
+				with( children[|i] )
+				{			
+					// stop fire on the child
+					fire = false;
+				}
 			}
 		}
 	}
 }
-
