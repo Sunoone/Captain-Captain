@@ -38,4 +38,4 @@ ship_sprite = -1;
 ship_hallign = 0;
 ship_vallign = 0;
 
-draw_top = true;
+draw_top = false;

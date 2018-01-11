@@ -57,8 +57,9 @@ if( draw_grid_object_active )
 	}
 }
 
-//debug draw grid
+
 /*
+// debug draw grid
 for( var i = 0; i <= ship_grid_width; i++)
 {
 	for( var j = 0; j <= ship_grid_height; j++ )
@@ -67,7 +68,17 @@ for( var i = 0; i <= ship_grid_width; i++)
 		draw_line_color( 0, j * ship_grid_size, i * ship_grid_size, j * ship_grid_size, c_green, c_green );
 	}
 }
+
+// debug draw surface size
+var s_h, s_w;
+
+s_w = surface_get_width( object_surface ) - 2;
+s_h = surface_get_height( object_surface ) - 2;
+
+draw_rectangle_color( 1,1, s_w,s_h, c_white,c_white,c_white,c_white,true );
 */
+
+// reset the draw target
 surface_reset_target();
 
 

@@ -57,6 +57,9 @@ for( var i = 0; i < size; i++ )
 							
 							list_des[|pos] = true;
 							list_ttl[|pos] = 0;
+							
+							list_x[|pos] = round( list_x[|pos] );
+							list_y[|pos] = round( list_y[|pos] );
 						}
 					}
 				}

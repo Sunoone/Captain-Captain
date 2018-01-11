@@ -1,7 +1,6 @@
 /// @description Clean vars
 
 // deregister with the interface
-
 var int = global.owned_interface[ owner ];
 
 if instance_exists( int )

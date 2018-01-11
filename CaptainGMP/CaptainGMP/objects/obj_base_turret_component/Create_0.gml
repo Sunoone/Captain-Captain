@@ -31,10 +31,10 @@ name = "Base Combat Component";
 projectile_type = 0;
 projectile_ttl = 3;
 
-projectile_speed = 500; // pixels per sec
+projectile_speed = 750; // pixels per sec
 turret_speed = 0;
 
-damage_base = 10;
+damage_base = 17;
 damage_extra = 0;
 
 projectile_sprite = spr_laser_1;

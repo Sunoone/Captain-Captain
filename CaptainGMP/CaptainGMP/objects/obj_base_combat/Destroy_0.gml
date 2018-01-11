@@ -1,6 +1,25 @@
 /// @description Clean vars
 // If overwritten, do not forget to copy this code
 
+// deregister with the interface
+var int = global.owned_interface[ owner ];
+if(instance_exists( int ) )
+{
+	if( type >= 0 && type < int.max_rings )
+	{
+		var grid, i, x2;
+		grid = int.ring[type,0];
+		x2 = ds_grid_width(grid);
+
+		i = ds_grid_value_exists( grid, 0, e_id, x2, e_id, id );
+		if( i == true )
+		{
+			var pos = ds_grid_value_x( grid, 0, e_id, x2, e_id, id );
+			scr_interface_remove( owner, type, pos );	
+		}
+	}
+}
+
 if( instance_exists( parent )) 
 {
 		// destroy self out off the ship grid
