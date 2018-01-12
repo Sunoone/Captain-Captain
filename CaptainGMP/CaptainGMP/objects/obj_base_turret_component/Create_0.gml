@@ -31,6 +31,7 @@ fire_time = 0.2;				// how long does the fire-ing animation last, in animation_f
 reload_time = 0.5;				// time between shots
 
 	// projectile type
+projectile = -1;
 projectile_type = 0;
 projectile_ttl = 3;
 

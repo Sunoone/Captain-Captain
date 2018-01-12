@@ -33,6 +33,13 @@ if(rotation_speed != 0 && rotation_lock == false)
 	rotation_speed = 0;
 }
 
+// if projectile_type == beam, rotate beam with turret
+if(projectile_type == 1 && projectile != -1)
+{
+	scr_projectile_change_position( projectile, x, y );
+	scr_projectile_change_direction( projectile, direction );
+}
+
 // Fire the turret
 	//needs to be changed when we have actual damage + projectiles in the game
 if(active && fire && reload)
@@ -54,7 +61,7 @@ if(active && fire && reload)
 	v_x = (x - delta_x) + lengthdir_x( spe, dir );
 	v_y = (y - delta_y) + lengthdir_y( spe, dir );
 	
-	scr_projectile_add( owner, projectile_type, x, y, v_x, v_y, dam, projectile_sprite, projectile_ttl, projectile_explosion_sprite );	
+	projectile = scr_projectile_add( owner, projectile_type, x, y, v_x, v_y, dam, projectile_sprite, projectile_ttl, projectile_explosion_sprite );	
 	
 	reload = false;
 }

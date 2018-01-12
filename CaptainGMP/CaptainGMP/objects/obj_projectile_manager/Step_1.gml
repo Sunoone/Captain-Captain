@@ -41,6 +41,7 @@ for( var i = 0; i < size; i++ )
 	switch( list_type[|i] )
 	{
 		case 0:		// simple projectile
+		case 2:		// missiles
 		{
 			list_ttl[|i ] -= DeltaTime;
 			
@@ -68,7 +69,17 @@ for( var i = 0; i < size; i++ )
 		
 		case 1:		// beam projectile
 		{
+			list_ttl[|i ] -= DeltaTime;
 			
+			if( list_ttl[|i ] <= 0 )
+			{
+				scr_projectile_remove( i );
+			}
+			else
+			{							
+				// check where the beam ends
+				scr_beam_check_collision( i );
+			}
 		}
 		break;		
 		

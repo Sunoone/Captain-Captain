@@ -20,12 +20,12 @@ reload_time = 2.5;				// time between shots
 
 	// projectile type
 projectile_type = 1; // beam
-projectile_ttl = 3;
+projectile_ttl = 1;
 
 projectile_speed = 0; // pixels per sec
 turret_speed = 1200;
 
-damage_base = 125;
+damage_base = 50; // dps
 damage_extra = 0;
 
 projectile_sprite = spr_beam_1;

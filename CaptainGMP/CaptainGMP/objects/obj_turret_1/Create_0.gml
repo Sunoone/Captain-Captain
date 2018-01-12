@@ -22,7 +22,7 @@ projectile_ttl = 3;
 projectile_speed = 750; // pixels per sec
 turret_speed = 0;
 
-damage_base = 17;
+damage_base = 15;
 damage_extra = 0;
 
 projectile_sprite = spr_laser_1;

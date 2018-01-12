@@ -4,6 +4,7 @@
 /// @param v1
 
 // this script checks for projectile collision with ships and their components
+	// this script deals with the collision event
 
 // THIS SCRIPT SHOULD ONLY BE CALLED FROM THE PROJECTILE MANAGER!
 	// (due to using internal variables)
@@ -17,7 +18,11 @@ var registry = global.registry;
 // declare vars
 var pos, size, len, dir, x_base, y_base, v_x, v_y, vdx, vdy, x1, y1, x2, y2, XX, YY, ship, obj;
 pos = argument0;
+v_x = argument1;
+v_y = argument2;
 size = ds_list_size( registry );
+
+
 
 switch( list_type[|pos] )
 {
@@ -32,10 +37,7 @@ switch( list_type[|pos] )
 			x_base = list_x[|pos];
 			y_base = list_y[|pos];
 			
-			v_x = argument1;
-			v_y = argument2;		
-			
-			var d = ceil( point_distance( x_base, y_base, x_base+v_x, y_base+v_y ) ) / accuracy;
+			var d = ceil( point_distance( x_base, y_base, x_base + v_x, y_base + v_y ) ) / accuracy;
 			if( d <= 0) d = 1;
 			
 			vdx = v_x / d;
@@ -82,6 +84,8 @@ switch( list_type[|pos] )
 							
 									list_x[|pos] = round( list_x[|pos] );
 									list_y[|pos] = round( list_y[|pos] );
+									
+									return obj;
 								}
 							}
 						}
@@ -91,11 +95,6 @@ switch( list_type[|pos] )
 		}
 	}
 	break;
-	
-	case 1: // beam
-	{
-		
-	}
 	
 	default:
 	break;
