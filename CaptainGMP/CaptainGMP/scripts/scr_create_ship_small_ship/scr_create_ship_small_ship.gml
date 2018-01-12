@@ -28,21 +28,20 @@ scr_create_ship_object( ship, obj_fire_control, r, c );
 r = 3; c = 2;
 scr_create_ship_object( ship, obj_turret_1, r, c );
 
-r = 4; c = 4;
-scr_create_ship_object( ship, obj_turret_1, r, c );
-
-r = 6; c = 5;
-scr_create_ship_object( ship, obj_turret_1, r, c );
-
 r = 9; c = 5;
-scr_create_ship_object( ship, obj_turret_1, r, c );
-
-r = 4; c = 6;
 scr_create_ship_object( ship, obj_turret_1, r, c );
 
 r = 3; c = 8;
 scr_create_ship_object( ship, obj_turret_1, r, c );
 
+r = 4; c = 6;
+scr_create_ship_object( ship, obj_turret_2, r, c );
+
+r = 4; c = 4;
+scr_create_ship_object( ship, obj_turret_2, r, c );
+
+r = 6; c = 5;
+scr_create_ship_object( ship, obj_turret_2, r, c );
 
 // create trusters
 r = 2; c = 1;

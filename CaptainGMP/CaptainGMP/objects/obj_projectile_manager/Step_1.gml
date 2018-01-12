@@ -21,8 +21,8 @@ for( var i = 0; i < ds_list_size( registry ); i++ )
 	collision_target[i,3] = round(max( point_distance(0,0,x1,y1), point_distance(0,0,x1,y2), point_distance(0,0,x2,y1), point_distance(0,0,x2,y2) ));	//rad
 
 	collision_target[i,4] = col_obj.direction;
-	collision_target[i,5] = col_obj.ship_hallign;
-	collision_target[i,6] = col_obj.ship_vallign;
+	collision_target[i,5] = col_obj.ship_hallign + col_obj.ship_hallign_off;
+	collision_target[i,6] = col_obj.ship_vallign + col_obj.ship_vallign_off;
 	collision_target[i,7] = col_obj.ship_grid_width;
 	collision_target[i,8] = col_obj.ship_grid_height;
 }
@@ -53,10 +53,13 @@ for( var i = 0; i < size; i++ )
 			}
 			else
 			{			
-				if( scr_projectile_check_collision( i ) < 0 )
+				var v0 = list_v0[| i ] * DeltaTime;
+				var v1 = list_v1[| i ] * DeltaTime;
+				
+				if( scr_projectile_check_collision( i, v0, v1 ) < 0 )
 				{
-					list_x[| i ] += list_v0[| i ] * DeltaTime;
-					list_y[| i ] += list_v1[| i ] * DeltaTime;
+					list_x[| i ] += v0;
+					list_y[| i ] += v1;
 				}
 			}
 			

@@ -19,7 +19,7 @@ if( instance_exists( parent ) )
 //Update animation
 if( animation_speed != 0)
 {
-	if( sprite_exists( sprite_index ) && surface_exists(object_surface) )
+	if( sprite_exists( sprite_index ) )
 	{
 		animation_count += animation_speed * DeltaTime;
 		
@@ -30,14 +30,6 @@ if( animation_speed != 0)
 			if( animation_count > max_animation ) animation_count = 0;
 			if( animation_count < 0 ) animation_count = max_animation;
 		}
-		/*
-		surface_set_target( object_surface );
-		
-		draw_clear_alpha(c_black, 0);
-		draw_sprite(sprite_index, round(animation_count) , sprite_get_xoffset(sprite_index), sprite_get_yoffset(sprite_index) );
-		
-		surface_reset_target();
-		*/
 	}
 }
 

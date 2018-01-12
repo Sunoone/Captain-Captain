@@ -20,8 +20,8 @@ ship = argument[0];
 var obj_x, obj_y, pos_off;
 pos_off = ship_grid_size * 0.5;
 
-obj_x = pos_off + ( argument[2] - ship.ship_hallign ) * ship_grid_size;
-obj_y = pos_off + ( argument[3] - ship.ship_vallign ) * ship_grid_size;
+obj_x = pos_off + ( argument[2] - (ship.ship_hallign + ship.ship_hallign_off) ) * ship_grid_size;
+obj_y = pos_off + ( argument[3] - (ship.ship_vallign + ship.ship_vallign_off)  ) * ship_grid_size;
 
 	// create the object
 var i = instance_create_depth( ship.x + obj_x, ship.y + obj_y, -1, argument[1] );

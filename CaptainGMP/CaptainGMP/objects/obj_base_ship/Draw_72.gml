@@ -59,6 +59,7 @@ if( draw_grid_object_active )
 
 
 /*
+// debug -----------------------------------------------------------------------------------------------------------
 // debug draw grid
 for( var i = 0; i <= ship_grid_width; i++)
 {
@@ -76,6 +77,7 @@ s_w = surface_get_width( object_surface ) - 2;
 s_h = surface_get_height( object_surface ) - 2;
 
 draw_rectangle_color( 1,1, s_w,s_h, c_white,c_white,c_white,c_white,true );
+// debug -----------------------------------------------------------------------------------------------------------
 */
 
 // reset the draw target
@@ -96,8 +98,8 @@ if( surface_exists( combat_screen ) )
 		
 	
 	//choose centerpoint based on sprite allignment
-	h_width = ship_hallign * ship_grid_size;
-	h_height = ship_vallign * ship_grid_size;
+	h_width = (ship_hallign + ship_hallign_off) * ship_grid_size;
+	h_height = (ship_vallign + ship_vallign_off) * ship_grid_size;
 	
 	var len = sqrt( sqr(h_width) + sqr(h_height) );
 	var dir = point_direction(0,0,h_width,h_height);
@@ -115,9 +117,9 @@ if( surface_exists( combat_screen ) )
 	draw_surface_ext( object_surface, XX, YY, 1, 1, inherent_direction, c_white, 1 );
 	
 	// debug -----------------------------------------------------------------------------------------------------------------------------------------------
-	/*
-	draw_circle_color( x, y, 2, c_red, c_red, false);
 	
+	//draw_circle_color( x, y, 2, c_red, c_red, false);
+	/*
 	var x1, x2, y1, y2, rad;
 	x1 = ship_hallign * ship_grid_size;
 	y1 = ship_vallign * ship_grid_size;

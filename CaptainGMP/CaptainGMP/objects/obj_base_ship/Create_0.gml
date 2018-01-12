@@ -37,5 +37,7 @@ draw_grid_turret_index = 0;
 ship_sprite = -1;
 ship_hallign = 0;
 ship_vallign = 0;
+ship_hallign_off = 0;
+ship_vallign_off = 0;
 
 draw_top = false;
