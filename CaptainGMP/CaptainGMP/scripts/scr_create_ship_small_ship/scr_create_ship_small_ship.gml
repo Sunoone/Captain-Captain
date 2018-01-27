@@ -19,10 +19,10 @@ scr_create_ship_software( ship, obj_software_targeting );
 
 	// create turret controlers
 r = 5; c = 4;
-scr_create_ship_object( ship, obj_fire_control, r, c );
+scr_create_ship_object( ship, obj_fire_regulator, r, c );
 
 r = 5; c = 6;
-scr_create_ship_object( ship, obj_fire_control, r, c );
+scr_create_ship_object( ship, obj_fire_regulator, r, c );
 
 	// create turrets
 r = 3; c = 2;

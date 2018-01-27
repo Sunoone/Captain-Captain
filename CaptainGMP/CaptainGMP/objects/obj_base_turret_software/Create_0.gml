@@ -11,6 +11,6 @@ fire_target_y = -100;
 
 interface_width = 3;
 
-ds_list_add( allowed_type, obj_base_turret_controler );
+ds_list_add( allowed_type, obj_base_turret_regulator );
 
-name = "Base Combat Software";
+name = "Base Turret Software";

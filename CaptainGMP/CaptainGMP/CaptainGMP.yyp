@@ -58,7 +58,7 @@
             "Key": "0288a303-7ca6-432c-973e-bf60e56563ce",
             "Value": {
                 "id": "b83e4817-63d7-41e4-a97b-ccf3cc9d008b",
-                "resourcePath": "objects\\obj_base_turret_controler\\obj_base_turret_controler.yy",
+                "resourcePath": "objects\\obj_base_turret_regulator\\obj_base_turret_regulator.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -212,6 +212,14 @@
                 "id": "e2e018e0-32c4-4cb2-860b-af3ad27e0e10",
                 "resourcePath": "views\\247580e2-4157-4484-8709-3904fe3bb0ee.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "28224309-fd2a-4b97-a0e9-d210976662c2",
+            "Value": {
+                "id": "bfb38a0b-f968-409f-9812-556656395302",
+                "resourcePath": "sprites\\spr_armor_1\\spr_armor_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1266,7 +1274,7 @@
             "Key": "e29b76a0-48c9-4d40-8460-e7f69208593c",
             "Value": {
                 "id": "643139f8-638e-422f-b342-bda11a7eb387",
-                "resourcePath": "objects\\obj_fire_control\\obj_fire_control.yy",
+                "resourcePath": "objects\\obj_fire_regulator\\obj_fire_regulator.yy",
                 "resourceType": "GMObject"
             }
         },

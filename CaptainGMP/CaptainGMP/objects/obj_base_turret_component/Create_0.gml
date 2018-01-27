@@ -3,7 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
-name = "Base Combat Component";
+name = "Base Turret Component";
 
 // Unlock the rotation for the turret
 rotation_lock = false;
