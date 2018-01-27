@@ -25,6 +25,7 @@ for( var i = 0; i < ds_list_size( registry ); i++ )
 	collision_target[i,6] = col_obj.ship_vallign + col_obj.ship_vallign_off;
 	collision_target[i,7] = col_obj.ship_grid_width;
 	collision_target[i,8] = col_obj.ship_grid_height;
+	collision_target[i,9] = col_obj;
 }
 
 

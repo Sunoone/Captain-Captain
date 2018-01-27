@@ -30,16 +30,17 @@ global.owned_interface[1] = scr_create_interface( 0, 0, room_height * 0.5, room_
 global.registry = ds_list_create();
 
 	//blue ship -> player ship
-debug_ship_0 = scr_create_ship_small_ship( 0, 500, 700 );
-debug_ship_0.direction = 90;
-debug_ship_0.turning = 1;
+debug_ship_0 = scr_create_ship_small_ship( 0, 600, 750 );
+debug_ship_0.direction = 180;
+debug_ship_0.turning = -1;
+debug_ship_0.speed = 6;
 
 	//red ship
-debug_ship_1 = scr_create_ship_small_ship( 1, 500, 200 );
+debug_ship_1 = scr_create_ship_small_ship( 1, 600, 250 );
 debug_ship_1.ship_sprite = spr_ship_3;
-debug_ship_1.direction = 270;
+debug_ship_1.direction = 0;
 debug_ship_1.turning = -1;
-
+debug_ship_1.speed = 6;
 
 /*
 var c,p;

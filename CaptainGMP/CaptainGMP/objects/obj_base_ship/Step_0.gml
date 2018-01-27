@@ -1,4 +1,27 @@
-/// @description update draw grids
+/// @description update draw grids, check out of bounds
+
+// fix out of bounds
+if( surface_exists( global.combat_screen ) )
+{
+	var s_x,s_y,s_w,s_h;
+	
+	//s_x = scr_screen_surface_get_x( global.combat_screen_index );
+	//s_y = scr_screen_surface_get_y( global.combat_screen_index );
+	
+	s_x = 0;
+	s_y = 0;
+	
+	s_w = surface_get_width( global.combat_screen );
+	s_h = surface_get_height( global.combat_screen );
+	
+	while( x < s_x ) x+= s_w;
+	while( x > s_x + s_w ) x -= s_w;
+	
+	while( y < s_y ) y+= s_h;
+	while( y > s_y + s_h ) y -= s_h;
+}
+
+
 
 	// recheck the hull draw grid 
 if( draw_grid_hull_recheck )

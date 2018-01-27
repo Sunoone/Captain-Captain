@@ -50,3 +50,5 @@
 #macro sh_truster_component obj_base_truster_component
 #macro sh_core obj_base_core
 
+	// constant
+#macro max_int 2147483647	// the maximum size that a 32-bit signed int can take 
