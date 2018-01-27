@@ -30,6 +30,8 @@ if( scr_screen_mouse_above( screen_index ) )
 					drag_off_x = m_x - drag_old_x;
 					drag_off_y = m_y - drag_old_y;
 					
+					audio_play_sound( snd_interface_ping, 3, false );
+					
 					break;
 				}
 			}

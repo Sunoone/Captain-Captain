@@ -20,5 +20,7 @@ if(drag_hold)
 		drag_hold = false;
 		grid[# drag_pos, e_x] = drag_old_x;
 		grid[# drag_pos, e_y] = drag_old_y;
+		
+		audio_play_sound( snd_interface_reject, 3, false );
 	}
 }

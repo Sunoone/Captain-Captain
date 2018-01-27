@@ -111,6 +111,14 @@
             }
         },
         {
+            "Key": "076babe2-e539-4d9b-a819-6d9db725a7d9",
+            "Value": {
+                "id": "1202e37b-2f93-45d2-adee-5675cf04f6f5",
+                "resourcePath": "sounds\\snd_beam_fire\\snd_beam_fire.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "08694852-4c14-4293-9ac8-3c58a9a9c39c",
             "Value": {
                 "id": "92f40483-c663-4914-95d2-467a4a7b16a4",
@@ -359,6 +367,14 @@
             }
         },
         {
+            "Key": "4a2fa9e9-7fae-4ac6-b528-7f86cf06c2c4",
+            "Value": {
+                "id": "affb4e72-c5b5-40ad-a267-eb6c1342ddc3",
+                "resourcePath": "sounds\\snd_plasma_fire\\snd_plasma_fire.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "4c41fe43-ec03-468f-a5f8-f55866b3b09d",
             "Value": {
                 "id": "d3ac8db9-9cc6-4237-a3ca-c98368805a2b",
@@ -479,6 +495,14 @@
             }
         },
         {
+            "Key": "573fe86e-1c36-4381-bb46-75736825101d",
+            "Value": {
+                "id": "702f51fe-3288-4a52-a0a7-2654fe0e40ab",
+                "resourcePath": "sounds\\snd_interface_ping\\snd_interface_ping.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "5786da8d-6bd6-43a4-a69d-387e9315db70",
             "Value": {
                 "id": "f072e463-fea7-402a-aa7b-178290a07447",
@@ -564,6 +588,14 @@
                 "id": "25367d7c-0583-4635-b57f-312d14ac58f7",
                 "resourcePath": "sprites\\sprite4\\sprite4.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "649ef159-c346-4edf-bc72-9b3d0ea6e428",
+            "Value": {
+                "id": "180cd63d-aa4e-4d55-8134-f1dd9e35c784",
+                "resourcePath": "objects\\obj_armor_1\\obj_armor_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1071,6 +1103,14 @@
             }
         },
         {
+            "Key": "b4143ddc-acba-4067-a753-b9b106ae3d2d",
+            "Value": {
+                "id": "d69a397a-1f53-471e-a2df-7fb02c65edaa",
+                "resourcePath": "objects\\obj_base_armor_component\\obj_base_armor_component.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "b5f1d01f-9534-46eb-824a-d11da968d5a8",
             "Value": {
                 "id": "38bc5e67-1895-4d1e-ab82-453173b7cc34",
@@ -1279,6 +1319,14 @@
             }
         },
         {
+            "Key": "e2b4d563-fb7c-4303-b3d8-5dcd960407aa",
+            "Value": {
+                "id": "b4b48c14-8ad7-49a6-96a9-2f336eee3e5d",
+                "resourcePath": "sounds\\snd_cannon_fire\\snd_cannon_fire.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "e339c190-dc5d-4a49-b486-e19002408327",
             "Value": {
                 "id": "2f773c8b-09dc-4b68-9001-c58cd56d2dd1",
@@ -1319,6 +1367,14 @@
             }
         },
         {
+            "Key": "ecb51ad7-a0e3-444a-a970-4dfe595d020c",
+            "Value": {
+                "id": "63709639-fca1-4206-b160-5419b8855758",
+                "resourcePath": "sounds\\snd_interface_reject\\snd_interface_reject.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "f09dd434-f3ce-473b-8379-44375e4033fe",
             "Value": {
                 "id": "dce61b2e-bb94-4a22-acb2-eadd8492310b",
@@ -1356,6 +1412,14 @@
                 "id": "1a19b996-d3e1-43ea-96c0-23b56d5df0ca",
                 "resourcePath": "views\\f8a6b529-0f13-4fb9-a2e6-6f0851084e97.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "fa346347-409b-4417-baf9-638946ef3d22",
+            "Value": {
+                "id": "5b769bba-2e01-49d0-bdf6-fb96afdc4fc7",
+                "resourcePath": "sounds\\snd_interface_confirm\\snd_interface_confirm.yy",
+                "resourceType": "GMSound"
             }
         },
         {

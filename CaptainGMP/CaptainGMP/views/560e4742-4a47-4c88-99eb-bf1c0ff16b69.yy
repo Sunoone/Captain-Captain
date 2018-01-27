@@ -7,7 +7,7 @@
         "6263f3e5-1d61-4b89-8d06-384e89a9f0bb"
     ],
     "filterType": "GMSprite",
-    "folderName": "Controllers",
+    "folderName": "Regulators",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

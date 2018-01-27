@@ -43,3 +43,6 @@ damage_extra = 0;
 
 projectile_sprite = spr_laser_1;
 projectile_explosion_sprite = spr_laser_explosion_1;
+
+	// turret sounds
+sound_fire = -1;

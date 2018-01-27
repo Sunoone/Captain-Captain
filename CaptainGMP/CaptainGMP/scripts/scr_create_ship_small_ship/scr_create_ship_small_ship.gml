@@ -65,4 +65,21 @@ scr_create_ship_object( ship, obj_truster_1, r, c, 180 );
 r = 2; c = 9;
 scr_create_ship_object( ship, obj_truster_1, r, c, 270 );
 
+
+
+// fill all unused ship grid spaces with armor
+var armor = obj_armor_1;
+
+for( var i = 0; i < ship.ship_grid_width; i++ )
+{
+	for( var j = 0; j < ship.ship_grid_height; j++ )
+	{
+		if( scr_ship_pos_check( ship, armor, i, j ) )
+		{
+			scr_create_ship_object( ship, armor, i, j );
+		}
+	}
+}
+
+
 return ship;

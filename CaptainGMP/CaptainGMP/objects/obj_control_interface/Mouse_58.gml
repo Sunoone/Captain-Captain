@@ -19,14 +19,19 @@ if(drag_hold && instance_exists( drag_id ) )
 	
 	if( type == drag_ring && scr_interface_check( index, drag_id, type, pos, drag_pos ) )
 	{
+		// valid position, move element
 		scr_interface_remove( index, drag_ring, drag_pos );
 		scr_interface_add( index, drag_id, type, pos );
+		
+		audio_play_sound( snd_interface_confirm, 3, false );
 	}
 	else
 	{
 		// invalid type, return element to original location
 		grid[# drag_pos, e_x] = drag_old_x;
 		grid[# drag_pos, e_y] = drag_old_y;
+		
+		audio_play_sound( snd_interface_reject, 3, false );
 	}
 }
 

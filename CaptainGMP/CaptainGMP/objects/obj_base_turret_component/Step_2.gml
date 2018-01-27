@@ -63,6 +63,11 @@ if(active && fire && reload)
 	
 	projectile = scr_projectile_add( owner, projectile_type, x, y, v_x, v_y, dam, projectile_sprite, projectile_ttl, projectile_explosion_sprite );	
 	
+	if( sound_fire != -1 )
+	{
+		audio_play_sound( sound_fire, 1, false );
+	}
+	
 	reload = false;
 }
 
