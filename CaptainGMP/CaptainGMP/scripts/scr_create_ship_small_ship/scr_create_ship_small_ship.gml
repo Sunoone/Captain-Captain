@@ -35,10 +35,10 @@ r = 3; c = 8;
 scr_create_ship_object( ship, obj_turret_1, r, c );
 
 r = 4; c = 6;
-scr_create_ship_object( ship, obj_turret_2, r, c );
+scr_create_ship_object( ship, obj_turret_3, r, c );
 
 r = 4; c = 4;
-scr_create_ship_object( ship, obj_turret_2, r, c );
+scr_create_ship_object( ship, obj_turret_3, r, c );
 
 r = 6; c = 5;
 scr_create_ship_object( ship, obj_turret_2, r, c );
@@ -74,6 +74,11 @@ for( var i = 0; i < ship.ship_grid_width; i++ )
 {
 	for( var j = 0; j < ship.ship_grid_height; j++ )
 	{
+		if( i == 5 && j == 4 )
+		{
+			var test = true;	
+		}
+		
 		if( scr_ship_pos_check( ship, armor, i, j ) )
 		{
 			scr_create_ship_object( ship, armor, i, j );

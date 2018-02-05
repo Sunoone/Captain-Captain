@@ -91,8 +91,8 @@ grid[# pos, e_id ] = obj;
 grid[# pos, e_rot ] = ele_rot;
 grid[# pos, e_spr ] = obj.sprite_index;
 grid[# pos, e_link ] = -4;
-grid[# pos, e_x ] = ele_x;
-grid[# pos, e_y ] = ele_y;
+grid[# pos, e_x ] = round(ele_x);
+grid[# pos, e_y ] = round(ele_y);
 grid[# pos, e_width ] = obj_width;
 
 // parent object ---> there is an bug in this code relating to the wrap-around case, look at above code for fix

@@ -71,6 +71,14 @@
             }
         },
         {
+            "Key": "04988864-03b8-496f-a46a-44b0db6eb012",
+            "Value": {
+                "id": "47c8cfd1-5b77-49b4-bee4-3541cd6f4aa0",
+                "resourcePath": "sounds\\snd_missile_fire\\snd_missile_fire.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "04ac8758-0f9f-45fe-af4b-4bb0d8c6eaf7",
             "Value": {
                 "id": "dc4a87b8-6a29-4d02-8495-28bdfe00c12f",
@@ -156,6 +164,14 @@
                 "id": "3b851064-5a13-4288-84e5-9904fef07ed5",
                 "resourcePath": "views\\13e336d5-b279-495d-8b59-9a71c874ad15.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "1651f874-a7c6-4a70-b080-4c80dadce8ab",
+            "Value": {
+                "id": "15b6d9ba-fd74-4882-9c4d-3f7bbc843645",
+                "resourcePath": "sprites\\spr_launchtube_1\\spr_launchtube_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1303,11 +1319,27 @@
             }
         },
         {
+            "Key": "dd582e1a-0318-4029-ac9b-cf4162d58909",
+            "Value": {
+                "id": "e6bc0daf-1448-44c7-b9ee-f9579c34f9ec",
+                "resourcePath": "objects\\obj_turret_3\\obj_turret_3.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e13c9f01-a096-4241-9bba-303f310b808b",
             "Value": {
                 "id": "1b0077ff-1b22-4e71-9465-81facf3a0b52",
                 "resourcePath": "views\\e13c9f01-a096-4241-9bba-303f310b808b.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e2005e2b-b9d8-4c9c-9174-8e1762739944",
+            "Value": {
+                "id": "d5ba09f1-b7c8-478d-a95b-2790f3bb0f4c",
+                "resourcePath": "sprites\\spr_missile_1\\spr_missile_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

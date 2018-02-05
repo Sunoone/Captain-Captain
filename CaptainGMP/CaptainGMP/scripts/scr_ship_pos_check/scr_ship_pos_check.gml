@@ -16,8 +16,6 @@ var array = argument0.ship_grid;
 if( scr_3d_array_get( array, argument2, argument3, ship_valid ) == false ) return false;
 
 	// check if space accepts object type
-
-
 var type = scr_3d_array_get( array, argument2, argument3, ship_type );
 if( type == sh_none ) 
 {
@@ -26,8 +24,12 @@ if( type == sh_none )
 }
 else if( type != object_get_parent( argument1 ) ) return false;
 
+
 	// check if space is not already occupied
-if( object_exists( scr_3d_array_get( array, argument2, argument3, ship_object ) ) ) return false;
+var inst = scr_3d_array_get( array, argument2, argument3, ship_object );
+if( inst < 0 ) return true;
+if( instance_exists( inst ) ) return false;
+
 
 // return true if all checks where passed
 return true;

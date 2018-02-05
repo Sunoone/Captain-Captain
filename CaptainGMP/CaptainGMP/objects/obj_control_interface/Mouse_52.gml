@@ -1,26 +1,26 @@
-/// @description Drag element
+/// @description Drag Element
 
-// drag an interface element across the screen
-
-if(drag_hold)
+switch( access )
 {
-	var m_x, m_y, grid;
-	grid = ring[drag_ring,0];
-	
-	if( scr_screen_mouse_above( screen_index ) )
-	{
-		m_x = scr_screen_mouse_get_x( screen_index );
-		m_y = scr_screen_mouse_get_y( screen_index );
+	case 0:
+	break;
 		
-		grid[# drag_pos, e_x] = m_x; // + drag_off_x
-		grid[# drag_pos, e_y] = m_y; // + drag_off_y
-	}
-	else 
+	case 1:
 	{
-		drag_hold = false;
-		grid[# drag_pos, e_x] = drag_old_x;
-		grid[# drag_pos, e_y] = drag_old_y;
+		// dragging an interface element across the screen
+		if(drag_hold)
+		{
+			if( !scr_screen_mouse_above( screen_index ) )
+			{
+				drag_hold = false;
+				drag_sprite = -1;
 		
-		audio_play_sound( snd_interface_reject, 3, false );
+				audio_play_sound( snd_interface_reject, 3, false );
+			}
+		}
 	}
+	break;
+
+	default:
+	break;
 }

@@ -6,24 +6,21 @@ list_count = 0;
 r_dist = 65;
 
 	//interface
-//select_id = -4;
-//select_ring = -4;
-//select_pos = -4;
-
 drag_id = -4;
 drag_ring = -4;
 drag_pos = -4;
 drag_hold = false;
+
+drag_sprite = -1;
 
 drag_old_x = -4;
 drag_old_y = -4;
 drag_off_x = -4;
 drag_off_y = -4;
 
-//clear = false;
-//clear_id = -4;
-
 update = false;
+
+access = 0; // this variable controls if the player has friendly or hostile access to this interface
 
 	//debug
 //debug_size = 0;

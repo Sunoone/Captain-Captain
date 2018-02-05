@@ -13,7 +13,11 @@ surface_set_target( screen_id );
 draw_circle_color( s_width, s_height, rad_0, c_blue, c_blue, false );
 draw_circle_color( s_width, s_height, rad_0 - r_dist, c_aqua, c_aqua, false );
 draw_circle_color( s_width, s_height, rad_0 - r_dist*2, c_ltgray, c_ltgray, false );
-draw_circle_color( s_width, s_height, rad_0 - r_dist*3, c_dkgray, c_dkgray, false );
+
+var owner_color = c_red;
+if( access == 1 ) owner_color = c_green;
+
+draw_circle_color( s_width, s_height, rad_0 - r_dist*3, owner_color, owner_color, false );
 
 
 // draw seperation lines
@@ -103,6 +107,9 @@ if(drag_hold && instance_exists( drag_id ) )
 }
 
 // draw interface icons
+var i_grey, j_grey;
+if( drag_hold ) { i_grey = drag_ring; j_grey = drag_pos; }
+else { i_grey = -1; j_grey = -1; }
 for( var i = 0; i<max_rings; i++)
 {
 	var grid = ring[i,0];
@@ -119,12 +126,28 @@ for( var i = 0; i<max_rings; i++)
 			ele_x = grid[# j, e_x]; // element x
 			ele_y = grid[# j, e_y]; // element y
 			ele_spr = grid[# j, e_spr]; // element sprite
-				
-			draw_sprite( spr_baseNode, 0, ele_x, ele_y);
-			draw_sprite( ele_spr, 0, ele_x, ele_y );		
+			
+			var col = c_white;
+			
+				// draw grey drag-hold sprite
+			if( i == i_grey && j == j_grey ) col = c_dkgray;
+			
+			draw_sprite_ext( spr_baseNode, 0, ele_x, ele_y, 1, 1, 0, col, 1);
+			draw_sprite_ext( ele_spr, 0, ele_x, ele_y, 1, 1, 0, col, 1 );
+			
 		}			
 	}
 	
+}
+
+// draw the drag sprite
+if( drag_hold )
+{
+	if( sprite_exists( drag_sprite ) )
+	{
+		draw_sprite( spr_baseNode, 0, m_x, m_y );
+		draw_sprite( drag_sprite, 0, m_x, m_y );
+	}
 }
 
 
