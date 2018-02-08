@@ -33,13 +33,30 @@ if(rotation_speed != 0 && rotation_lock == false)
 	rotation_speed = 0;
 }
 
-// if projectile_type == beam, rotate beam with turret
-if( projectile_type == 1 )
+if( ds_exists(tracked_projectiles, ds_type_list) )
 {
-	for( var i = 0; i < ds_list_size(tracked_projectiles); i++ )
+	switch( projectile_type )
 	{
-		scr_projectile_change_position( tracked_projectiles[|i], x, y );
-		scr_projectile_change_direction( tracked_projectiles[|i], direction );
+		case 1: // beam, rotate beam with turret
+		{
+			for( var i = 0; i < ds_list_size(tracked_projectiles); i++ )
+			{
+				scr_projectile_change_position( tracked_projectiles[|i], x, y );
+				scr_projectile_change_direction( tracked_projectiles[|i], direction );
+			}
+		}
+		break;
+	
+		case 2: // Missile, update target
+		{
+		
+			for( var i = 0; i < ds_list_size(tracked_projectiles); i++ )
+			{
+				scr_projectile_change_target( tracked_projectiles[|i], target_x, target_y );
+			}
+		
+		}
+		break;
 	}
 }
 

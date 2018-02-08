@@ -17,7 +17,7 @@ if( surface_exists( combat_screen ) )
 		switch( list_type[|i] )
 		{
 			case 0: // normal projectile
-			case 2: // missile
+			{
 				if( list_ttl[|i] < 0 )
 				{
 					frame = floor( abs( list_ttl[|i] * animation_speed) mod sprite_get_number( list_imp[|i] ) );
@@ -28,6 +28,7 @@ if( surface_exists( combat_screen ) )
 					frame = floor( (list_id[|i] + time) mod sprite_get_number( list_spr[|i] ) );
 					draw_sprite_ext( list_spr[|i], frame, list_x[|i], list_y[|i], 1, 1, list_dir[|i], c_white, 1 );
 				}
+			}
 			break;	
 			
 			case 1:	// beam
@@ -41,6 +42,23 @@ if( surface_exists( combat_screen ) )
 				draw_line_width_color( x1, y1, x2, y2, 3, c_blue,c_blue );
 				draw_line_color( x1, y1, x2, y2, c_white,c_white );
 			}
+			
+			case 2: // missile
+			{				
+				var p_dir = point_direction( 0,0, list_v0[| i ], list_v1[| i ] );
+				
+				if( list_ttl[|i] < 0 )
+				{
+					frame = floor( abs( list_ttl[|i] * animation_speed) mod sprite_get_number( list_imp[|i] ) );
+					draw_sprite_ext( list_imp[|i], frame, list_x[|i], list_y[|i], 1, 1, p_dir, c_white, 1 );
+				}
+				else
+				{
+					frame = floor( (list_id[|i] + time) mod sprite_get_number( list_spr[|i] ) );
+					draw_sprite_ext( list_spr[|i], frame, list_x[|i], list_y[|i], 1, 1, p_dir, c_white, 1 );
+				}
+			}
+			break;	
 			
 			default:
 			break;

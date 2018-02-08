@@ -12,6 +12,9 @@ type = 2; // register as a component
 delta_x = x;
 delta_y = y;
 
+target_x = 0;
+target_y = 0;
+
 fire = false;		// fire the turret
 reload = true;		// can fire; finished reloading
 

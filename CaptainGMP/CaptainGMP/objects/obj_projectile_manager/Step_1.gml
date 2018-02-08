@@ -41,8 +41,7 @@ for( var i = 0; i < size; i++ )
 	// update projectiles here
 	switch( list_type[|i] )
 	{
-		case 0:		// simple projectile
-		case 2:		// missiles
+		case 0:		// simple projectile -----------------------------------------------------------------------
 		{
 			list_ttl[|i ] -= DeltaTime;
 			
@@ -64,11 +63,10 @@ for( var i = 0; i < size; i++ )
 					list_y[| i ] += v1;
 				}
 			}
-			
 		}
 		break;
 		
-		case 1:		// beam projectile
+		case 1:		// beam projectile -------------------------------------------------------------------------
 		{
 			list_ttl[|i ] -= DeltaTime;
 			
@@ -84,6 +82,43 @@ for( var i = 0; i < size; i++ )
 		}
 		break;		
 		
+		case 2:		// missiles ---------------------------------------------------------------------------------
+		{
+			list_ttl[|i ] -= DeltaTime;
+			
+			if( list_ttl[|i ] <= 0 )
+			{
+				if( list_des[|i] == false ) // projectile timed out
+					scr_projectile_remove( i );
+				else if( floor(abs(list_ttl[|i ] * animation_speed)) >= sprite_get_number( list_imp[|i] ) )
+					scr_projectile_remove( i );
+			}
+			else
+			{			
+				// rotate missile towards direction
+				var o_dir = point_direction( 0,0, list_v0[| i ], list_v1[| i ] );
+				var ang = scr_min_angle( o_dir, list_dir[|i] );
+				
+				// clamp the rotation, this is a value based on speed CHANGE THIS VALUE TO A PROPER LISTED VARIABLE A.S.A.P.
+				ang = clamp( ang * (DeltaTime*2.5), -list_speed[|i], list_speed[|i] );			
+				o_dir += ang;
+				
+				//reacalculate the vector
+				list_v0[| i ] = lengthdir_x( list_speed[|i], o_dir );
+				list_v1[| i ] = lengthdir_y( list_speed[|i], o_dir );
+				
+				// chage missile position based on it's vector
+				var v0 = list_v0[| i ] * DeltaTime;
+				var v1 = list_v1[| i ] * DeltaTime;
+				
+				if( scr_projectile_check_collision( i, v0, v1 ) < 0 )
+				{
+					list_x[| i ] += v0;
+					list_y[| i ] += v1;
+				}
+			}
+		}
+		break;
 		
 		default:	// unknown, remove from list
 		{
