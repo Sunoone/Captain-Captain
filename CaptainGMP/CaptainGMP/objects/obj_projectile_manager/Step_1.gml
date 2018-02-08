@@ -50,7 +50,7 @@ for( var i = 0; i < size; i++ )
 			{
 				if( list_des[|i] == false ) // projectile timed out
 					scr_projectile_remove( i );
-				else if( floor(abs(list_ttl[|i ] * animation_speed)) >= sprite_get_number( list_exp[|i] ) )
+				else if( floor(abs(list_ttl[|i ] * animation_speed)) >= sprite_get_number( list_imp[|i] ) )
 					scr_projectile_remove( i );
 			}
 			else

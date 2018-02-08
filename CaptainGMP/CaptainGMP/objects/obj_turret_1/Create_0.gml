@@ -4,29 +4,36 @@
 event_inherited();
 
 // overwrite vars here
-name = "Debug Projectile Turret";
-
-	// rotation
-rotation_max = 180;	// max rotation speed, degrees per second
 
 	// turret animation
 animation_fire_speed = 6;		// animation speed in frames per second
 
+// Turret stats -------------------------------------------------------------------------------------------
+name = "Debug Projectile Turret";
+
+	// Bonus
+turret_speed = 0;	// speed added to the projectile by turret bonuses
+turret_damage = 0;	// damage added to the projectile by turret bonuses
+
+	// rotation
+rotation_max = 180;	// max rotation speed, degrees per second
+max_angle = -1;		// max angle for the turret
+min_angle = -1;		// min angle for the turret
+
+	// attack speed
 fire_time = 0.5;				// how long does the fire-ing animation last, in animation_fire_speed / sec
 reload_time = 0.75;				// time between shots
 
-	// projectile type
-projectile_type = 0;
-projectile_ttl = 3;
-
-projectile_speed = 750; // pixels per sec
-turret_speed = 0;
-
-damage_base = 45;
-damage_extra = 0;
-
-projectile_sprite = spr_laser_1;
-projectile_explosion_sprite = spr_laser_explosion_1;
-
 	// turret sounds
 sound_fire = snd_cannon_fire;
+
+	// projectile type
+projectile = "debug_laser";
+projectile_type = scr_premade_projectile_get_type( projectile );
+projectile_ttl = 3;
+
+	// projectile stats
+projectile_speed = 750; // pixels per sec
+projectile_damage = 45;
+
+// --------------------------------------------------------------------------------------------------------

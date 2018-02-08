@@ -5,12 +5,11 @@
     "name": "79b4a2c5-d6e2-4025-9086-ea5b2e3c4ef4",
     "children": [
         "9ed86855-f20f-4f69-9076-c14c7b874b81",
-        "506ceec9-b3e2-4c78-9140-af045e862839",
-        "ab77cbc6-0c3a-4806-8ce7-c5060e19fc1e",
-        "5d726506-c26a-4e6c-abd2-a2515e5dd618",
-        "afb186e4-dc2e-49e8-be65-d3a5391356e3",
-        "b4143ddc-acba-4067-a753-b9b106ae3d2d",
-        "0aa34023-9c1b-4e50-8e48-d58352516d8f"
+        "0aa34023-9c1b-4e50-8e48-d58352516d8f",
+        "54d6ba4c-f6c1-4686-b8cf-160dc2321d9f",
+        "831c2b92-cc8f-4dae-ab6b-7d0f597a32f9",
+        "647c2216-1a50-48cf-9c73-a554c08f7730",
+        "80f3f21f-d84a-40df-ab80-1a780e396d53"
     ],
     "filterType": "GMObject",
     "folderName": "Base Objects",

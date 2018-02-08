@@ -15,34 +15,42 @@ delta_y = y;
 fire = false;		// fire the turret
 reload = true;		// can fire; finished reloading
 
-
-	// rotation
-max_angle = -1;		// max angle for the turret
-min_angle = -1;		// min angle for the turret
+tracked_projectiles = ds_list_create();
 
 rotation_speed = 0; // rotation speed
-rotation_max = 135;	// max rotation speed, degrees per second
 
 	// turret animation
 animation_start = 0.0;			// animation count; at what sub-frame does the animation start?
 animation_fire_speed = 30;		// animation speed in frames per second
 
+
+	// Overwrite the values below in inherited turrets
+// Turret stats -------------------------------------------------------------------------------------------
+name = "Base Turret Component";
+
+	// Bonus
+turret_speed = 0;	// speed added to the projectile by turret bonuses
+turret_damage = 0;	// damage added to the projectile by turret bonuses
+
+	// rotation
+rotation_max = 135;	// max rotation speed, degrees per second
+max_angle = -1;		// max angle for the turret
+min_angle = -1;		// min angle for the turret
+
+	// attack speed
 fire_time = 0.2;				// how long does the fire-ing animation last, in animation_fire_speed / sec
 reload_time = 0.5;				// time between shots
 
-	// projectile type
-projectile = -1;
-projectile_type = 0;
-projectile_ttl = 3;
-
-projectile_speed = 750; // pixels per sec
-turret_speed = 0;
-
-damage_base = 17;
-damage_extra = 0;
-
-projectile_sprite = spr_laser_1;
-projectile_explosion_sprite = spr_laser_explosion_1;
-
 	// turret sounds
 sound_fire = -1;
+
+	// projectile type
+projectile = "none";
+projectile_type = 0;
+projectile_ttl = 0;
+
+	// projectile stats
+projectile_speed = 750; // pixels per sec
+projectile_damage = 17;
+
+// --------------------------------------------------------------------------------------------------------

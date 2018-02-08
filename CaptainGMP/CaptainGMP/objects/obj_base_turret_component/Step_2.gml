@@ -34,10 +34,13 @@ if(rotation_speed != 0 && rotation_lock == false)
 }
 
 // if projectile_type == beam, rotate beam with turret
-if(projectile_type == 1 && projectile != -1)
+if( projectile_type == 1 )
 {
-	scr_projectile_change_position( projectile, x, y );
-	scr_projectile_change_direction( projectile, direction );
+	for( var i = 0; i < ds_list_size(tracked_projectiles); i++ )
+	{
+		scr_projectile_change_position( tracked_projectiles[|i], x, y );
+		scr_projectile_change_direction( tracked_projectiles[|i], direction );
+	}
 }
 
 // Fire the turret
@@ -51,7 +54,7 @@ if(active && fire && reload)
 	scr_timer_add( id, fire_time, 0 );
 	scr_timer_add( id, reload_time, 1 );
 	
-	var dam = damage_base + damage_extra;
+	var dam = turret_damage + projectile_damage;
 	
 	var v_x, v_y, dir, spe;
 	
@@ -61,7 +64,7 @@ if(active && fire && reload)
 	v_x = (x - delta_x) + lengthdir_x( spe, dir );
 	v_y = (y - delta_y) + lengthdir_y( spe, dir );
 	
-	projectile = scr_projectile_add( owner, projectile_type, x, y, v_x, v_y, dam, projectile_sprite, projectile_ttl, projectile_explosion_sprite );	
+	ds_list_add( tracked_projectiles, scr_projectile_add_premade( projectile, owner, x, y, v_x, v_y, dam, projectile_ttl ) );	
 	
 	if( sound_fire != -1 )
 	{

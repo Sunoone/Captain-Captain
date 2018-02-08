@@ -20,8 +20,8 @@ if( surface_exists( combat_screen ) )
 			case 2: // missile
 				if( list_ttl[|i] < 0 )
 				{
-					frame = floor( abs( list_ttl[|i] * animation_speed) mod sprite_get_number( list_exp[|i] ) );
-					draw_sprite_ext( list_exp[|i], frame, list_x[|i], list_y[|i], 1, 1, list_dir[|i], c_white, 1 );
+					frame = floor( abs( list_ttl[|i] * animation_speed) mod sprite_get_number( list_imp[|i] ) );
+					draw_sprite_ext( list_imp[|i], frame, list_x[|i], list_y[|i], 1, 1, list_dir[|i], c_white, 1 );
 				}
 				else
 				{
