@@ -11,7 +11,7 @@ if( global.player == owner )
 	{
 		if( instance_exists( int_a[i] ) && scr_ds_list_value_exist( target_id, int_a[i] ) == false && int_a[i] > 0 )
 		{
-			if( int_a[i].owner != owner )
+			if( int_a[i].owner != owner || ds_list_size( int_a[i].hacking_progress ) > 0 )
 			{
 				while( ds_list_size( target_id ) >= interface_width ) ds_list_delete( target_id, 0 ); // make room for the new target
 					

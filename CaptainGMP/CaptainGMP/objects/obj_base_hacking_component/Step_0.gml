@@ -31,8 +31,8 @@ if( instance_exists(target_id) )
 	
 			if( target_id.hacking_progress[|index] >= sqr( target_id.security_level ) )	// did I hack the component?
 			{
-				if( target_id.original_owner == owner ) target_id.owner = owner; // Am I retaking an node on my own ship
-				else target_id.owner = -1 * get_timer();	// scramble ownership
+				if( target_id.original_owner == owner ) target_id.owner = owner;	// reset ownership
+				else target_id.owner = -1 * get_timer();							// scramble ownership
 				
 				ds_list_clear( target_id.hacking_owner );
 				ds_list_clear( target_id.hacking_level );

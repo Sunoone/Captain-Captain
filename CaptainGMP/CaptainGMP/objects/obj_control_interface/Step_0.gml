@@ -113,6 +113,9 @@ if(drag_hold && instance_exists( drag_id ) )
 }
 
 // draw interface icons
+var player_owned = false;
+if( global.player == index ) player_owned = true;
+
 var i_grey, j_grey;
 if( drag_hold ) { i_grey = drag_ring; j_grey = drag_pos; }
 else { i_grey = -1; j_grey = -1; }
@@ -139,7 +142,7 @@ for( var i = 0; i<max_rings; i++)
 			col_g = 255;  
 			col_b = 255;
 			
-			if( ds_list_size( ele_id.hacking_progress ) > 0 )
+			if( ds_list_size( ele_id.hacking_progress ) > 0 && player_owned == false)
 			{
 				var sec = sqr( ele_id.security_level );
 				var d_col = (sec - scr_ds_list_max(ele_id.hacking_progress)) / sec;
