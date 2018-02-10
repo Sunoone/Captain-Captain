@@ -9,7 +9,8 @@
         "54d6ba4c-f6c1-4686-b8cf-160dc2321d9f",
         "831c2b92-cc8f-4dae-ab6b-7d0f597a32f9",
         "647c2216-1a50-48cf-9c73-a554c08f7730",
-        "80f3f21f-d84a-40df-ab80-1a780e396d53"
+        "80f3f21f-d84a-40df-ab80-1a780e396d53",
+        "9bf15445-3241-4bd0-9982-531d333cf212"
     ],
     "filterType": "GMObject",
     "folderName": "Base Objects",
