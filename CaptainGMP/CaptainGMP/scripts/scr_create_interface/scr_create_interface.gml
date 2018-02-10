@@ -7,6 +7,9 @@
 
 // This script creates an interface object 
 
+	// create an array space for object selection
+global.interface_select_id[argument4] = -4;
+
 	// create the object
 var i = instance_create_depth( argument0 , argument1 ,0,obj_control_interface)
 

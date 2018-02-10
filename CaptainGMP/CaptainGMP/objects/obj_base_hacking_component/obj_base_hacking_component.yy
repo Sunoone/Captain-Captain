@@ -4,7 +4,36 @@
     "mvc": "1.0",
     "name": "obj_base_hacking_component",
     "eventList": [
-        
+        {
+            "id": "09a5f05d-7403-4826-81ab-2db0a1a8ad53",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "7e878d3e-99fd-4010-8a4b-f7c33fa94ebb"
+        },
+        {
+            "id": "8d15c66f-b6ad-4f25-834a-e89d55e13361",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 3,
+            "m_owner": "7e878d3e-99fd-4010-8a4b-f7c33fa94ebb"
+        },
+        {
+            "id": "3663483d-336d-43e3-8dc3-b86086e115d6",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 53,
+            "eventtype": 6,
+            "m_owner": "7e878d3e-99fd-4010-8a4b-f7c33fa94ebb"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

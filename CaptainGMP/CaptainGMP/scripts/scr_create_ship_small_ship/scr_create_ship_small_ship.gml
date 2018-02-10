@@ -43,6 +43,10 @@ scr_create_ship_object( ship, obj_turret_3, r, c );
 r = 6; c = 5;
 scr_create_ship_object( ship, obj_turret_2, r, c );
 
+	// hacking
+r = 4; c = 5;
+scr_create_ship_object( ship, obj_sub_prosessor_1, r, c );
+
 // create trusters
 r = 2; c = 1;
 scr_create_ship_object( ship, obj_truster_1, r, c, 90 );

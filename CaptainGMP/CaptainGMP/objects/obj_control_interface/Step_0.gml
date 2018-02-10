@@ -7,6 +7,12 @@ var m_x, m_y;
 m_x = scr_screen_mouse_get_x( screen_index );
 m_y = scr_screen_mouse_get_y( screen_index );
 
+// update selected element
+if( instance_exists( global.interface_select_id[index] ) )
+{
+	global.interface_select_id[index].light_up = 0.1;
+}
+
 // draw cicles
 surface_set_target( screen_id );
 
@@ -128,6 +134,16 @@ for( var i = 0; i<max_rings; i++)
 			ele_spr = grid[# j, e_spr]; // element sprite
 			
 			var col = c_white;
+				
+				// draw yellow for selected nodes
+			if( i == select_type && j == select_pos ) col = c_yellow;
+			
+			// draw red for hacked nodes
+			if( index != grid[# j, e_id].owner ) 
+			{
+				if( col == c_yellow) col = make_color_rgb( 255,100,0 );
+				else col = c_red;
+			}
 			
 				// draw grey drag-hold sprite
 			if( i == i_grey && j == j_grey ) col = c_dkgray;

@@ -51,6 +51,25 @@ if( size>0 )
 	}
 }
 
+// update owned childern
+ds_list_clear( owned_childern );
+
+ds_list_copy( owned_childern, children );
+
+if( size>0 )
+{
+	for( var i = size - 1; i >= 0; i-- )
+	{
+		if( owned_childern[|i].owner != owner )
+		{
+			ds_list_delete( owned_childern, i );	
+		}
+	}
+}
+
+
+
+
 // check HP
 if( HP <= 0 )
 {
@@ -64,3 +83,6 @@ if( HP < HP_max )
 	HP += r;
 	if( HP > HP_max ) HP = HP_max;
 }
+
+// update visual light_up
+if( light_up > 0 ) light_up -= DeltaTime;

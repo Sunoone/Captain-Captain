@@ -19,6 +19,7 @@ if( ship.ship_core == -1 ) return(-404);
 var i = instance_create_depth( -1000, -1000, 1000, argument1 );
 
 i.owner = ship.owner; // index of owner
+i.original_owner = i.owner; // set the original owner
 i.interface = owned_interface[ i.owner ]; // id of interface object;
 
 // register software with the core

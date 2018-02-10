@@ -1,7 +1,6 @@
 /// @description Ini vars
 
 // This objects projects the control circle for ship objects
-
 list_count = 0;
 r_dist = 65;
 
@@ -17,6 +16,10 @@ drag_old_x = -4;
 drag_old_y = -4;
 drag_off_x = -4;
 drag_off_y = -4;
+
+select_id = -4;
+select_pos = -1;
+select_type = -1;
 
 update = false;
 

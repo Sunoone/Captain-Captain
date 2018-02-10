@@ -25,7 +25,7 @@ min_angle = -1;		// min angle for the turret
 
 	// attack speed
 fire_time = 0.1;				// how long does the fire-ing animation last, in animation_fire_speed / sec
-reload_time = 0.15;				// time between shots
+reload_time = 3.5;				// time between shots
 
 	// turret sounds
 sound_fire = snd_missile_fire;
@@ -33,7 +33,7 @@ sound_fire = snd_missile_fire;
 	// projectile type
 projectile = "debug_missile";
 projectile_type = scr_premade_projectile_get_type( projectile );
-projectile_ttl = 7;
+projectile_ttl = 3.5;
 
 	// projectile stats
 projectile_speed = 150; // pixels per sec

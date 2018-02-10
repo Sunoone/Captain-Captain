@@ -28,4 +28,5 @@ if( instance_exists( parent ))
 }
 
 ds_list_destroy(children);
+ds_list_destroy(owned_childern);
 ds_list_destroy(allowed_type);

@@ -1,4 +1,4 @@
-/// @description Aim children
+/// @description Aim owned childern
 // Overwite this code
 
 if( global.player == owner )
@@ -8,13 +8,13 @@ if( global.player == owner )
 	
 		var size;
 
-		size = ds_list_size(children)
+		size = ds_list_size(owned_childern)
 
 		if( size>0 )
 		{
 			for( var i = 0; i<size; i++ )
 			{
-				if( instance_exists( children[|i] ) )
+				if( instance_exists( owned_childern[|i] ) )
 				{			
 					if(active)
 					{
@@ -24,13 +24,13 @@ if( global.player == owner )
 					
 						var target_dir, delta_dir;
 						
-						target_dir = point_direction( children[|i].x, children[|i].y, target_x, target_y );
-						delta_dir = scr_min_angle( children[|i].direction, target_dir );
+						target_dir = point_direction( owned_childern[|i].x, owned_childern[|i].y, target_x, target_y );
+						delta_dir = scr_min_angle( owned_childern[|i].direction, target_dir );
 					
-						children[|i].rotation_speed = delta_dir;
+						owned_childern[|i].rotation_speed = delta_dir;
 						
-						children[|i].target_x = target_x;
-						children[|i].target_y = target_y;
+						owned_childern[|i].target_x = target_x;
+						owned_childern[|i].target_y = target_y;
 					}
 				}
 			}

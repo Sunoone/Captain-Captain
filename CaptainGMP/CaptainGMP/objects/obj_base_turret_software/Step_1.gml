@@ -1,4 +1,4 @@
-/// @description set target for children
+/// @description set target for owned children
 // Overwrite me!
 
 if( global.player == owner )
@@ -24,15 +24,15 @@ if( global.player == owner )
 			fire_target_x = mouse_x - scr_screen_surface_get_x(combat_screen_index);
 			fire_target_y = mouse_y - scr_screen_surface_get_y(combat_screen_index);
 	
-			size = ds_list_size(children)
+			size = ds_list_size(owned_childern)
 			if( size>0 )
 			{
 				for( var i = 0; i<size; i++ )
 				{
-					if( instance_exists( children[|i] ) )
+					if( instance_exists( owned_childern[|i] ) )
 					{		
-						children[|i].target_x = fire_target_x;
-						children[|i].target_y = fire_target_y;			
+						owned_childern[|i].target_x = fire_target_x;
+						owned_childern[|i].target_y = fire_target_y;	
 					}
 				}
 			}

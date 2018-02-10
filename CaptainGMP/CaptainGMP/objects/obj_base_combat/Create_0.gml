@@ -13,14 +13,17 @@ armor = 0;
 rotation_lock = true; //overwite with false if the object does not rotate with it's parent
 active = true; //is the object active? 
 children = ds_list_create(); //keeps all linked object ids
+owned_childern = ds_list_create(); // a list of childern that have the same owner as the regulator
 interface_width = 1; // the width of the interface element for the object
 allowed_type = ds_list_create(); //keeps all objects that are able to link to this object
+
+light_up = 0; // this variable controls how long the object should light up
 
 HP_max = 100;	// max HP of object 
 HP = 100;		// current HP of object
 regen = 0.025;	// every sec, 2.5% hp is regained
 
-type = -1; // set type of object, THIS SHOULD BE OVERWRITTEN TO REGISTER WITH THE INTERFACE!
+type = -1; // set type of object, 0 = software, 1 = regulator, 2 = component THIS SHOULD BE OVERWRITTEN TO REGISTER WITH THE INTERFACE!
 
 name = "Base Combat Object";
 

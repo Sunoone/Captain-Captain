@@ -1,55 +1,47 @@
-/// @description Search for interface elements
-// Does the mouse click on an interface element?
+/// @description Select Element
 
-/*
-if( mouse_x > f_x && mouse_x < f_x + f_width && mouse_y > f_y && mouse_y < f_y + f_height)
+// ini vars
+var m_x, m_y
+m_x = scr_screen_mouse_get_x( screen_index );
+m_y = scr_screen_mouse_get_y( screen_index );
+
+// de-select interface element
+global.interface_select_id[index] = -4;
+
+select_id = -4;
+select_pos = -1;
+select_type = -1;
+
+if( scr_screen_mouse_above( screen_index ) )
 {
-	select_id = -4;
-	select_ring = -4;
-	select_pos = -4;
+	var grid, hold;	
+	hold = false;
 	
-	var m_x, m_y, m_dist;
-	m_x = mouse_x - f_x;
-	m_y = mouse_y - f_y;
-	
-	// distance the mouse is from the center of the interface
-	m_dist = point_distance(s_width, s_height, m_x, m_y);
-	
-	// if the mouse is within the interface
-	if( m_dist < rad_0 )
+	// this can be replaced by some math that figures out to which position the mouse is closest
+	for( var i = 0; i < max_rings; i++ )
 	{
-		var i, r;
-		r = rad_0 - r_dist * max_rings;
+		grid = ring[i,0];
 		
-		if( m_dist > r )
+		for( var j = 0; j < grid_width; j++ )
 		{
-			// i == ring number where the mouse clicked
-			i = floor( (m_dist - r) / r_dist );
-			
-			if( i >= 0 && i < max_rings )
+				// if statement has a HARDCODED distance, the radius of an interface element
+			if( instance_exists( grid[# j, e_id ] ) )
 			{
-				var l_size = ds_list_size(ring[i,1]);
-				
-				for( var j = 0; j<l_size; j++ )
+				if( point_distance( m_x, m_y, grid[# j,e_x], grid[# j,e_y] ) <= 25 )
 				{
-					var e_x, e_y;
-					e_x = ds_list_find_value( ring[i,6], j );
-					e_y = ds_list_find_value( ring[i,7], j );
+					select_id = grid[# j, e_id ];
+					select_pos = j;
+					select_type = i;
 					
-					if( point_distance( m_x, m_y, e_x, e_y ) < r_dist * 0.5 )
-					{
-						select_id = ds_list_find_value( ring[i,1], j );
-						select_ring = i;
-						select_pos = j;
-						break;
-					}
-					else
-					{
-						
-					}
+					global.interface_select_id[index] = select_id;
+					hold = true;
+					
+					audio_play_sound( snd_interface_ping, 3, false );
+					
+					break;
 				}
 			}
 		}
+		if(hold) break;
 	}
-	
 }
