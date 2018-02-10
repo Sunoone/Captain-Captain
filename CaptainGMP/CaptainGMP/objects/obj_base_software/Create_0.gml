@@ -10,3 +10,5 @@ name = "Base Software";
 HP_max = 1000000000;
 HP = 1000000000;
 regen = 1;
+
+security_level = 6;

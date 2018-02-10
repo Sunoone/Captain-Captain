@@ -1,23 +1,14 @@
 {
-    "id": "0c060934-47bd-45ba-85fd-a673ed1f86c7",
+    "id": "d0398afa-8e5f-43a4-a38b-19a0bbcd6441",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_base_hacking_software",
+    "name": "obj_hacking_software_1",
     "eventList": [
-        {
-            "id": "15fb9005-3c73-49ff-9023-20b19764b9cc",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "0c060934-47bd-45ba-85fd-a673ed1f86c7"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "506ceec9-b3e2-4c78-9140-af045e862839",
+    "parentObjectId": "0c060934-47bd-45ba-85fd-a673ed1f86c7",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -33,6 +24,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "00000000-0000-0000-0000-000000000000",
+    "spriteId": "f8d3fcda-6a1f-477c-8534-ee9ac63bb17d",
     "visible": true
 }

@@ -133,17 +133,33 @@ for( var i = 0; i<max_rings; i++)
 			ele_y = grid[# j, e_y]; // element y
 			ele_spr = grid[# j, e_spr]; // element sprite
 			
-			var col = c_white;
-				
-				// draw yellow for selected nodes
-			if( i == select_type && j == select_pos ) col = c_yellow;
+			var col, col_r, col_g, col_b;
 			
-			// draw red for hacked nodes
+			col_r = 255;
+			col_g = 255;  
+			col_b = 255;
+			
+			if( ds_list_size( ele_id.hacking_progress ) > 0 )
+			{
+				var sec = sqr( ele_id.security_level );
+				var d_col = (sec - scr_ds_list_max(ele_id.hacking_progress)) / sec;
+				
+				col_g *= d_col;
+				col_b *= d_col;
+			}
+			
+				// draw yellow for selected nodes
+			if( i == select_type && j == select_pos ) col_b = 0;
+			
+				// draw red for hacked nodes
 			if( index != grid[# j, e_id].owner ) 
 			{
-				if( col == c_yellow) col = make_color_rgb( 255,100,0 );
-				else col = c_red;
+				if( col_b == 0) col_g = 100;
+				else col_g = 0;
+				col_b = 0;
 			}
+			
+			col = make_color_rgb( col_r, col_g, col_b );
 			
 				// draw grey drag-hold sprite
 			if( i == i_grey && j == j_grey ) col = c_dkgray;

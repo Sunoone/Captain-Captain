@@ -1,5 +1,6 @@
 /// @description hack target
 
+/*
 if( global.player == owner )
 {
 	var int_a, length;
@@ -14,7 +15,6 @@ if( global.player == owner )
 			if( int_a[i].owner != owner )
 			{
 				target_id = int_a[i];
-				hacking = 0;
 			
 				break;
 			}

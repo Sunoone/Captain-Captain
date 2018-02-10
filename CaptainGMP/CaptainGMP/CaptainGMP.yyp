@@ -1679,6 +1679,14 @@
             }
         },
         {
+            "Key": "c2750131-74c6-4e55-92f5-2c6948783363",
+            "Value": {
+                "id": "ee12ed11-30ae-414c-b689-ab54fee0abe9",
+                "resourcePath": "scripts\\scr_ds_list_max\\scr_ds_list_max.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "c2dab58a-9051-4438-9051-051a9a4b29ba",
             "Value": {
                 "id": "5bc0fabb-e152-40f5-a2ec-8d35f812be87",
@@ -1772,6 +1780,14 @@
                 "id": "3f315629-71af-46c3-b9a1-be1b5bae8e89",
                 "resourcePath": "scripts\\vector_add\\vector_add.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "d0398afa-8e5f-43a4-a38b-19a0bbcd6441",
+            "Value": {
+                "id": "86bc22aa-2ad8-474d-9d68-83d393123bd5",
+                "resourcePath": "objects\\obj_hacking_software_1\\obj_hacking_software_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1932,6 +1948,14 @@
                 "id": "2684f970-ce92-42bf-a7bb-c6c4652f1fc0",
                 "resourcePath": "views\\e400d9da-f008-41b8-bbfb-b2b3b5d0003a.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e5426de8-da6a-49bf-a080-a47a1e109db1",
+            "Value": {
+                "id": "a814b291-4cee-4429-b4a3-e8ab662ceb89",
+                "resourcePath": "objects\\obj_hacking_regulator_1\\obj_hacking_regulator_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -2104,6 +2128,7 @@
         "d367f973-228f-4ef9-aae7-fdb535454847",
         "5d29053f-4425-4203-8d88-9fb2d9986498",
         "96abd05c-803c-400f-9295-fa5fa0ad1644",
+        "c2750131-74c6-4e55-92f5-2c6948783363",
         "048d66e3-d883-4988-8215-bf102315448c",
         "1ed45ea8-4077-495e-a334-2eac8095ac0b",
         "6861fa42-05f4-4932-9e0e-c3cbb5aff6b3",

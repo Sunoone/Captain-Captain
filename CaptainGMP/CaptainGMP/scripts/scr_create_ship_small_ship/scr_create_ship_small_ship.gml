@@ -44,8 +44,23 @@ r = 6; c = 5;
 scr_create_ship_object( ship, obj_turret_2, r, c );
 
 	// hacking
+scr_create_ship_software( ship, obj_hacking_software_1 );	
+	
 r = 4; c = 5;
+scr_create_ship_object( ship, obj_hacking_regulator_1, r, c );
+r = 7; c = 5;
+scr_create_ship_object( ship, obj_hacking_regulator_1, r, c );
+
+
+r = 4; c = 3;
 scr_create_ship_object( ship, obj_sub_prosessor_1, r, c );
+r = 4; c = 7;
+scr_create_ship_object( ship, obj_sub_prosessor_1, r, c );
+r = 3; c = 4;
+scr_create_ship_object( ship, obj_sub_prosessor_1, r, c );
+r = 3; c = 6;
+scr_create_ship_object( ship, obj_sub_prosessor_1, r, c );
+
 
 // create trusters
 r = 2; c = 1;

@@ -10,4 +10,6 @@ type = 2; // declare as component
 
 	// internal variuables
 target_id = -4;
-hacking = 0;
+clock_speed = 1;
+bonus_clock = 0;
+max_hack_level = 1;
