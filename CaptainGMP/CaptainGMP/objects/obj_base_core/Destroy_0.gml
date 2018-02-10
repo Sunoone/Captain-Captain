@@ -12,5 +12,5 @@ ds_list_destroy(software);
 
 if( instance_exists( parent ) )
 {
-	if( parent.ship_core == id ) parent.ship_core = -1;
+	if( parent.ship_core == id ) parent.ship_core = -4;
 }

@@ -21,7 +21,9 @@ if instance_exists( int )
 	}
 }
 
+/*
 if( instance_exists(core) )
 {
 	scr_ds_list_remove_value( core.software, id );
 }
+*/

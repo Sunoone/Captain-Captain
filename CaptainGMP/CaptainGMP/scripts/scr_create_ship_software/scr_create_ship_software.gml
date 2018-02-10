@@ -1,6 +1,6 @@
-/// @description scr_create_ship_software(ship, object )
+/// @description scr_create_ship_software(ship, software )
 /// @param ship
-/// @param object
+/// @param software
 
 // This script creates a software object on the given ship
 
@@ -11,7 +11,7 @@ ship = argument0;
 
 // does the ship have a core that can hold the software?
 core = ship.ship_core;
-if( ship.ship_core == -1 ) return(-404);
+if( ship.ship_core == -4 ) return(-404);
 
 
 
@@ -22,11 +22,6 @@ i.owner = ship.owner; // index of owner
 i.original_owner = i.owner; // set the original owner
 i.interface = owned_interface[ i.owner ]; // id of interface object;
 
-// register software with the core
-i.core = core;
-ds_list_add( core.software, i );
-
-
 	//register object with interface
 if( scr_interface_register( i.owner, i, i.type ) == false )
 {
@@ -34,6 +29,11 @@ if( scr_interface_register( i.owner, i, i.type ) == false )
 	instance_destroy(i, false);
 	return(-4);
 }
+
+// register software with the core
+i.core = core;
+ds_list_add( core.software, i );
+
 
 // Parent the object
 var p = ship;

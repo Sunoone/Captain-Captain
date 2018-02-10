@@ -33,7 +33,7 @@ i.interface = owned_interface[ ship.owner ]; // id of interface object;
 if( scr_obj_check_parentage( i, obj_base_core ) )
 {
 	// register with the ship
-	if( ship.ship_core == -1 )
+	if( ship.ship_core == -4 )
 	{
 		ship.ship_core = i;	
 	}

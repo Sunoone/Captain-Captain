@@ -8,7 +8,7 @@ name = "Base Ship Object";
 type = -1;
 
 // core object reference
-ship_core = -1;
+ship_core = -4;
 
 // add ship to the ship registry
 scr_ds_list_add_unique( global.registry, id );
