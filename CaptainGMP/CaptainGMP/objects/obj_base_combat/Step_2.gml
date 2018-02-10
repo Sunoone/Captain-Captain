@@ -67,8 +67,8 @@ if( size>0 )
 	}
 }
 
-
-
+// update security rating
+security_rating = sqr( security_level ) * ( 1 + ( 0.5 / interface_width ) * ( ds_list_size(owned_childern) - ds_list_size(children) ) );
 
 // check HP
 if( HP <= 0 )

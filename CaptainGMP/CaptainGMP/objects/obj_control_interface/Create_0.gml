@@ -46,8 +46,11 @@ for( var i = 0; i<max_rings; i++)
 	ring[i,0] = ds_grid_create( grid_width, grid_height );
 	ds_grid_set_region( ring[i,0], 0, 0, grid_width -1, grid_height -1, -4 );
 	ds_grid_set_region( ring[i,0], 0, g_free, grid_width -1, g_free, true );
+	
+	ds_grid_set_region( ring[i,0], 0, e_visible, grid_width -1, e_visible, -1 );
 }
 
+ds_grid_set_region( ring[2,0], 0, e_visible, grid_width -1, e_visible, 0 ); // set components to obscured
 
 
 

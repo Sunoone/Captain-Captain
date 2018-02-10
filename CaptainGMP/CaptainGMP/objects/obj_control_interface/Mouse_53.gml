@@ -24,9 +24,9 @@ if( scr_screen_mouse_above( screen_index ) )
 		
 		for( var j = 0; j < grid_width; j++ )
 		{
-				// if statement has a HARDCODED distance, the radius of an interface element
-			if( instance_exists( grid[# j, e_id ] ) )
+			if( instance_exists( grid[# j, e_id ] ) && grid[# j, e_visible ] >= 0 )
 			{
+				// if statement has a HARDCODED distance, the radius of an interface element
 				if( point_distance( m_x, m_y, grid[# j,e_x], grid[# j,e_y] ) <= 25 )
 				{
 					select_id = grid[# j, e_id ];

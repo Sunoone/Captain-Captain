@@ -3,10 +3,11 @@
 // Inherit the parent event
 event_inherited();
 
-// Make changes here
+// Overwrite inherited vars
 
+name = "Base Hacking Component";
 type = 2; // declare as component
-
+security_level = 4;
 
 	// internal variuables
 target_id = -4;

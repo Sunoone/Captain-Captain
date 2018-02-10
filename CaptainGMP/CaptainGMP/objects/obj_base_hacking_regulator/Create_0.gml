@@ -5,6 +5,8 @@ event_inherited();
 
 // overwrite variables here
 
+name = "Base Hacking Regulator";
+
 type = 1; // declare as regulator
 security_level = 4;
 

@@ -4,6 +4,7 @@
 event_inherited();
 
 // overwrite variables here
+name = "Base Hacking Software";
 
 type = 0; // declare as software
 

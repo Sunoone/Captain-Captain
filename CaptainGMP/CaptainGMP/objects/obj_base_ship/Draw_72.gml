@@ -42,7 +42,10 @@ if( draw_grid_object_active )
 		obj = draw_grid_object[i,0];
 		if( instance_exists(obj) )
 		{
-			draw_sprite_ext( obj.sprite_index, floor(obj.animation_count),  d_pos_off + draw_grid_object[i,1] * ship_grid_size,  d_pos_off + draw_grid_object[i,2] * ship_grid_size, 1, 1, obj.direction - direction, c_white, 1 );
+			var col = c_white;
+			if(obj.owner != obj.original_owner) col = c_dkgray;
+			
+			draw_sprite_ext( obj.sprite_index, floor(obj.animation_count),  d_pos_off + draw_grid_object[i,1] * ship_grid_size,  d_pos_off + draw_grid_object[i,2] * ship_grid_size, 1, 1, obj.direction - direction, col, 1 );
 			if( obj.light_up > 0 ) draw_sprite_ext( spr_hull, 0,  d_pos_off + draw_grid_object[i,1] * ship_grid_size,  d_pos_off + draw_grid_object[i,2] * ship_grid_size, 1.1, 1.1, obj.direction - direction, c_yellow, 0.5 );
 		}
 	}
@@ -57,7 +60,10 @@ if( draw_grid_object_active )
 		obj = draw_grid_turret[i,0];
 		if( instance_exists(obj) )
 		{
-			draw_sprite_ext( obj.sprite_index, floor(obj.animation_count), d_pos_off + draw_grid_turret[i,1] * ship_grid_size, d_pos_off + draw_grid_turret[i,2] * ship_grid_size, 1, 1, obj.direction - direction, c_white, 1 );
+			var col = c_white;
+			if(obj.owner != obj.original_owner) col = c_dkgray;
+			
+			draw_sprite_ext( obj.sprite_index, floor(obj.animation_count), d_pos_off + draw_grid_turret[i,1] * ship_grid_size, d_pos_off + draw_grid_turret[i,2] * ship_grid_size, 1, 1, obj.direction - direction, col, 1 );
 			if( obj.light_up > 0 ) draw_sprite_ext( spr_hull, 0, d_pos_off + draw_grid_turret[i,1] * ship_grid_size, d_pos_off + draw_grid_turret[i,2] * ship_grid_size, 1.1, 1.1, obj.direction - direction, c_yellow, 0.5 );
 		}
 	}

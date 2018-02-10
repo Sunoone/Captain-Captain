@@ -5,13 +5,16 @@
 
 // this script removes the given values from the passed ds_list
 
-var j;
-
-for( var i = 1; i < argument_count; i++ )
+if( ds_exists( argument[0], ds_type_list ) )
 {
-	j = ds_list_find_index( argument[0], argument[i] );
-	if( j >= 0 )
+	var j;
+
+	for( var i = 1; i < argument_count; i++ )
 	{
-		ds_list_delete( argument[0], j );
+		j = ds_list_find_index( argument[0], argument[i] );
+		if( j >= 0 )
+		{
+			ds_list_delete( argument[0], j );
+		}
 	}
 }

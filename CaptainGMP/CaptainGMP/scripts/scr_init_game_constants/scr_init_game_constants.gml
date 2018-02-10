@@ -19,6 +19,7 @@
 #macro e_x 6		// list element x
 #macro e_y 7		// list element y
 #macro e_width 8	// list element width
+#macro e_visible 9	// list element visible
 
 
 	// Projectile list index

@@ -35,5 +35,8 @@ if( size>0 )
 	}
 }
 
+// update security rating
+security_rating = sqr( security_level ) * ( 1 + ( 0.5 / interface_width ) * ( ds_list_size(owned_childern) - ds_list_size(children) ) );
+
 HP_max = 1000000000;
 HP = 1000000000;

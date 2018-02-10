@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_hacking_software_1",
     "eventList": [
-        
+        {
+            "id": "6b124a10-168a-4702-958f-2ca4a844c8fc",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "d0398afa-8e5f-43a4-a38b-19a0bbcd6441"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
