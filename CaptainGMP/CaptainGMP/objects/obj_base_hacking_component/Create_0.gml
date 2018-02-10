@@ -7,7 +7,6 @@ event_inherited();
 
 name = "Base Hacking Component";
 type = 2; // declare as component
-security_level = 4;
 
 	// internal variuables
 target_id = -4;

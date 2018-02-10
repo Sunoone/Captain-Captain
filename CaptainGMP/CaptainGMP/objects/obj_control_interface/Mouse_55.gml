@@ -27,22 +27,26 @@ switch( access )
 					{
 						if( point_distance( m_x, m_y, grid[# j,e_x], grid[# j,e_y] ) <= 25 )
 						{
-							drag_hold = true;
-					
-							drag_sprite = grid[# j, e_spr];
-					
-							drag_id = grid[# j, e_id ];
-							drag_ring = i;
-							drag_pos = j;
+							var node_id = grid[# j, e_id ];
 							
-							//drag_old_x = grid[# j,e_x];
-							//drag_old_y = grid[# j,e_y];
+							if( node_id.owner == global.player )
+							{
+								drag_hold = true;
 					
-							drag_off_x = m_x - drag_old_x;
-							drag_off_y = m_y - drag_old_y;
+								drag_sprite = grid[# j, e_spr];
+								
+								drag_id = node_id;
+								drag_ring = i;
+								drag_pos = j;
+							
+								//drag_old_x = grid[# j,e_x];
+								//drag_old_y = grid[# j,e_y];
 					
-							audio_play_sound( snd_interface_ping, 3, false );
+								drag_off_x = m_x - drag_old_x;
+								drag_off_y = m_y - drag_old_y;
 					
+								audio_play_sound( snd_interface_ping, 3, false );
+							}
 							break;
 						}
 					}

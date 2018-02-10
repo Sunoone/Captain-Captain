@@ -28,7 +28,7 @@ switch( access )
 				// valid position, move element
 				scr_interface_remove( index, drag_ring, drag_pos );
 				scr_interface_add( index, drag_id, type, pos );
-		
+				
 				audio_play_sound( snd_interface_confirm, 3, false );
 			}
 			else

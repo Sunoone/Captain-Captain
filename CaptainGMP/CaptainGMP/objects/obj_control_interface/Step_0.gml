@@ -73,6 +73,7 @@ for( var i = 0; i<max_rings; i++)
 					var grid_above = ring[i - 1, 0];
 					var parent_index = ds_grid_value_x( grid_above, 0, e_id, grid_width - 1, e_id, p );
 					grid_above[# parent_index, e_visible ] = 0;
+					grid_above[# parent_index, e_id ].has_been_revealed = true; // parent has been revealed 
 				}
 				
 				if( i < 2 )
@@ -90,7 +91,7 @@ for( var i = 0; i<max_rings; i++)
 							if( grid_below[# child_index, e_visible ] < 0 )
 							{
 								grid_below[# child_index, e_visible ] = 0;
-								child.has_been_revealed = true;
+								child.has_been_revealed = true;	// reveal child
 							}
 						}
 					}
@@ -106,6 +107,20 @@ for( var i = 0; i<max_rings; i++)
 				
 				e_v = grid[# j, e_visible ];
 				p_v = grid_above[# parent_index, e_visible ];
+				
+				if( e_v > 0 && p_v < 0 )
+				{
+					grid_above[# parent_index, e_visible ] = 0;
+					grid_above[# parent_index, e_visible ].has_been_revealed = true;
+					p_v = 0;
+				}
+				
+				if( p_v > 0 && e_v < 0 )
+				{
+					grid[# j, e_visible ] = 0;
+					grid[# j, e_visible ].has_been_revealed = true;
+					e_v = 0;
+				}
 				
 				if( ( e_v > 0 && p_v >= 0 ) || ( p_v > 0 && e_v >= 0 ) )
 				{

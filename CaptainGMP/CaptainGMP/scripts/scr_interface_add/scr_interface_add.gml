@@ -95,7 +95,7 @@ grid[# pos, e_x ] = round(ele_x);
 grid[# pos, e_y ] = round(ele_y);
 grid[# pos, e_width ] = obj_width;
 
-// parent object ---> there is an bug in this code relating to the wrap-around case, look at above code for fix
+
 if( instance_exists( p ) && type != 0 )
 {
 	if( scr_ds_list_value_exist( p.allowed_type, obj_type ) )
