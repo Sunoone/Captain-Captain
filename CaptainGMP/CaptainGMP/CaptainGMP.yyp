@@ -175,6 +175,14 @@
             }
         },
         {
+            "Key": "10bfd009-3df9-46f8-8a3c-9edf85740c6d",
+            "Value": {
+                "id": "613982aa-3940-43a6-8f79-69a716e1ae24",
+                "resourcePath": "sprites\\spr_antivirus_software\\spr_antivirus_software.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "12022218-1709-4115-810b-2dfded5d140b",
             "Value": {
                 "id": "6ee71abf-e09f-442c-a6f1-9b93cbe3dc4b",
@@ -455,6 +463,14 @@
             }
         },
         {
+            "Key": "4958e149-2e2f-4fb4-8398-010de7a9c207",
+            "Value": {
+                "id": "869ec729-0d96-4f8e-a58c-20dfc9f399ae",
+                "resourcePath": "views\\4958e149-2e2f-4fb4-8398-010de7a9c207.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "4a2fa9e9-7fae-4ac6-b528-7f86cf06c2c4",
             "Value": {
                 "id": "affb4e72-c5b5-40ad-a267-eb6c1342ddc3",
@@ -508,6 +524,14 @@
                 "id": "3c84e6b1-91e5-428f-b513-0a6eb221182c",
                 "resourcePath": "scripts\\scr_create_interface\\scr_create_interface.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "50043e51-3c46-4165-9fd8-e8148bb13b0a",
+            "Value": {
+                "id": "5ba4ace3-70a8-4d92-b16c-c7a5d77cd9b6",
+                "resourcePath": "sprites\\spr_antivirus_regulator\\spr_antivirus_regulator.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -999,6 +1023,14 @@
             }
         },
         {
+            "Key": "877f169d-44b8-4999-a5a7-8d6dc04a2cf0",
+            "Value": {
+                "id": "fa4a7c51-e60e-4dd0-827a-2c0b10938123",
+                "resourcePath": "objects\\obj_base_antivirus_software\\obj_base_antivirus_software.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "88f9556e-3fe7-41d3-84b7-ad61fb9f660f",
             "Value": {
                 "id": "7ad7edb4-e7d8-4183-b341-3cde9a706ca5",
@@ -1036,6 +1068,14 @@
                 "id": "711b5c7d-f0ba-4678-9cc7-19cbb4f16387",
                 "resourcePath": "views\\8d127030-51b6-4140-8b1b-d1b9b010cb92.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "91de167f-90a9-44dd-a498-b774dd4f6281",
+            "Value": {
+                "id": "c3049fbf-0938-436a-b14e-54f6d5c02cce",
+                "resourcePath": "scripts\\scr_ship_get_parts\\scr_ship_get_parts.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1319,6 +1359,14 @@
             }
         },
         {
+            "Key": "b8ee0509-baf7-4fbe-b809-43687e9bb1c4",
+            "Value": {
+                "id": "42da88a5-a11a-4206-a98b-af17a5c66d7e",
+                "resourcePath": "objects\\obj_base_antivirus_regulator\\obj_base_antivirus_regulator.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ba81d22f-c199-4205-8535-129abff5b2b5",
             "Value": {
                 "id": "cc293cd6-96d3-46cb-b5b9-d22c99a7df6a",
@@ -1355,6 +1403,14 @@
             "Value": {
                 "id": "385801fa-c2f7-4c35-a020-ca8d0d2f3479",
                 "resourcePath": "objects\\obj_target\\obj_target.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "c1d59468-d3b9-4a28-a834-cff5964d97f5",
+            "Value": {
+                "id": "71200c4d-7447-4740-8418-6e3b8320a0bb",
+                "resourcePath": "objects\\obj_antivirus_software_1\\obj_antivirus_software_1.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1444,6 +1500,14 @@
                 "id": "79a42913-d3cd-488d-a729-7ce1f7572677",
                 "resourcePath": "options\\windows\\options_windows.yy",
                 "resourceType": "GMWindowsOptions"
+            }
+        },
+        {
+            "Key": "cd298b7e-29a9-441d-a916-45664413d348",
+            "Value": {
+                "id": "e8d2d3ce-bc37-4606-82e0-34348205050c",
+                "resourcePath": "scripts\\scr_ds_list_merge\\scr_ds_list_merge.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1671,6 +1735,14 @@
             }
         },
         {
+            "Key": "f477c147-5f9e-465f-928b-6f28b7480ecb",
+            "Value": {
+                "id": "6f9f2055-1cdd-463b-bbf4-1a1a699c814d",
+                "resourcePath": "objects\\obj_antivirus_regulator_1\\obj_antivirus_regulator_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "f58864cf-84e8-4efd-a84f-a0800b39d986",
             "Value": {
                 "id": "4e153f5f-e90f-4324-b2a8-1835828db13b",
@@ -1729,6 +1801,7 @@
         "5d29053f-4425-4203-8d88-9fb2d9986498",
         "96abd05c-803c-400f-9295-fa5fa0ad1644",
         "c2750131-74c6-4e55-92f5-2c6948783363",
+        "cd298b7e-29a9-441d-a916-45664413d348",
         "048d66e3-d883-4988-8215-bf102315448c",
         "1ed45ea8-4077-495e-a334-2eac8095ac0b",
         "6861fa42-05f4-4932-9e0e-c3cbb5aff6b3",
@@ -1784,6 +1857,7 @@
         "6fb1d800-a631-442a-998e-abddcae74d54",
         "d9daab0b-bb98-4225-9374-ff034b989cbe",
         "be866204-72ae-4957-a78a-74bbe12ed6e5",
+        "91de167f-90a9-44dd-a498-b774dd4f6281",
         "84b7b158-ff8c-44bf-aac0-d8d0f5c8fee2",
         "7824d199-b069-45c7-96f1-68905598305b",
         "a05732ce-ca7c-4c6d-a8bf-38bbd57fd93a",

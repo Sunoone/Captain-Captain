@@ -5,6 +5,13 @@ var m_x, m_y
 m_x = scr_screen_mouse_get_x( screen_index );
 m_y = scr_screen_mouse_get_y( screen_index );
 
+// de-select interface element
+global.interface_select_id[index] = -4;
+
+select_id = -4;
+select_pos = -1;
+select_type = -1;
+
 switch( access )
 {
 	case 0:

@@ -77,6 +77,8 @@ if( draw_grid_object_recheck )
 {
 	var obj;
 	
+	part_count = 0;
+	
 	draw_grid_object_index = 0;
 	draw_grid_turret_index = 0;
 	

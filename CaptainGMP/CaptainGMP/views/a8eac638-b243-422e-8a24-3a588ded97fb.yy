@@ -5,7 +5,8 @@
     "name": "a8eac638-b243-422e-8a24-3a588ded97fb",
     "children": [
         "a1775965-240b-4d1e-b040-9574afd7c970",
-        "f8d3fcda-6a1f-477c-8534-ee9ac63bb17d"
+        "f8d3fcda-6a1f-477c-8534-ee9ac63bb17d",
+        "10bfd009-3df9-46f8-8a3c-9edf85740c6d"
     ],
     "filterType": "GMSprite",
     "folderName": "Software",

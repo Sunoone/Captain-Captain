@@ -4,7 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-name = "Debug Hacking Component";
-
-security_level = 4;
-clock_speed = 1;
+ds_list_destroy( target_id );
+if( ds_exists( part_list, ds_type_list ) )
+	ds_list_destroy( part_list );
