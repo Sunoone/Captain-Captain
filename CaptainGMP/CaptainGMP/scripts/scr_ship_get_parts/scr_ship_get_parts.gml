@@ -1,13 +1,18 @@
-/// @description scr_ship_get_objects( ship )
+/// @description scr_ship_get_objects( ds_list, ship  )
+/// @param ds_list
 /// @param ship
 
-// this script returns a ds_list with all ship objects and software that are regitred with the interface
+
+// this script clears and fills the provided ds_list with all ship objects and software that are regitred with the interface
 
 var ship, list;
 
-ship = argument0;
+list = argument0;
+ship = argument1;
 
-list = ds_list_create();
+if( ds_exists( list, ds_type_list ) == false ) return -4;
+
+ds_list_clear( list );
 
 if( instance_exists(ship) == false ) return list;
 

@@ -37,6 +37,6 @@ projectile_ttl = 2.5;
 
 	// projectile stats
 projectile_speed = 0; // pixels per sec
-projectile_damage = 150; // dps
+projectile_damage = 100; // dps
 
 // --------------------------------------------------------------------------------------------------------

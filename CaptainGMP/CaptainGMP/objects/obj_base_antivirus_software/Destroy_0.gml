@@ -5,5 +5,4 @@
 event_inherited();
 
 ds_list_destroy( target_id );
-if( ds_exists( part_list, ds_type_list ) )
-	ds_list_destroy( part_list );
+ds_list_destroy( part_list );

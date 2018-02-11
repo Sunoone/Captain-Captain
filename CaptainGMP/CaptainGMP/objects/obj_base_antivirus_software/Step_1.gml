@@ -1,17 +1,7 @@
 /// @description Update Target Lists
 
 if( instance_exists( parent ) )
-{
-		// create part list
-	if( ds_exists( part_list, ds_type_list ) == false )
-	{
-		part_list = scr_ship_get_parts( parent );	
-		
-		var ship_core = parent.ship_core;
-		if( instance_exists( ship_core ) )
-			scr_ds_list_merge( part_list, ship_core.software );
-	}
-	
+{	
 	// update part count
 	part_count = parent.draw_grid_object_index + parent.draw_grid_turret_index
 	
@@ -20,15 +10,13 @@ if( instance_exists( parent ) )
 		part_count += ds_list_size( ship_core.software );
 	
 	// update part registry
-	part_reg = ds_list_size( part_count );
+	part_reg = ds_list_size( part_list );
 	
 	// compare part count and registry
 	if( part_count != part_reg )
 	{
-		// re-create part list if necessary
-		ds_list_destroy( part_list );
-		
-		part_list = scr_ship_get_parts( parent );	
+		// re-create part list if necessary		
+		scr_ship_get_parts( part_list, parent );	
 		
 		var ship_core = parent.ship_core;
 		if( instance_exists( ship_core ) )

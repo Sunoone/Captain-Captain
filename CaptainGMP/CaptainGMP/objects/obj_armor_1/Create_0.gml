@@ -6,6 +6,6 @@ event_inherited();
 
 name = "Debug Armor Component";
 
-HP_max = 150;	// max HP of object 
-HP = 150;		// current HP of object
+HP_max = 350;	// max HP of object 
+HP = 350;		// current HP of object
 regen = 0.025;	// every sec, 2.5% hp is regained

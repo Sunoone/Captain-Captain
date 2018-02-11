@@ -3,22 +3,6 @@
 
 global.projectile_manager = id;
 
-	// Projectile list index
-//		list_id		=	0	=	id
-//		list_x		=	1	=	x
-//		list_y		=	2	=	y
-//		list_v0		=	3	=	movement vector
-//		list_v1		=	4	=	movement vector
-//		list_dir	=	5	=	direction
-//		list_speed	=	6	=	speed
-//		list_type	=	7	=	type
-//		list_dam	=	8	=	damage
-//		list_ttl	=	9	=	time to live in sec
-//		list_spr	=	10	=	Projectile sprite
-//		list_exp	=	11	=	Explosion sprite
-//		list_own	=	12	=	owner
-//		list_mod	=	?	=	modulation
-
 for( var i = 0; i < 1 + pro_mod; i++ )
 {
 	projectile[i] = ds_list_create();

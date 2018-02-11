@@ -97,15 +97,19 @@ for( var i = 0; i < size; i++ )
 			{			
 				// rotate missile towards direction
 				var o_dir = point_direction( 0,0, list_v0[| i ], list_v1[| i ] );
-				var ang = scr_min_angle( o_dir, list_dir[|i] );
 				
-				// clamp the rotation, this is a value based on speed CHANGE THIS VALUE TO A PROPER LISTED VARIABLE A.S.A.P.
-				ang = clamp( ang * (DeltaTime*2.5), -list_speed[|i], list_speed[|i] );			
-				o_dir += ang;
+				if( o_dir != list_dir[|i] mod 360 )
+				{
+					var ang = scr_min_angle( o_dir, list_dir[|i] );
 				
-				//reacalculate the vector
-				list_v0[| i ] = lengthdir_x( list_speed[|i], o_dir );
-				list_v1[| i ] = lengthdir_y( list_speed[|i], o_dir );
+					// clamp the rotation, this is a value based on speed CHANGE THIS VALUE TO A PROPER LISTED VARIABLE A.S.A.P.
+					ang = clamp( ang * (DeltaTime*2.5), -list_speed[|i], list_speed[|i] );			
+					o_dir += ang;
+				
+					//reacalculate the vector
+					list_v0[| i ] = lengthdir_x( list_speed[|i], o_dir );
+					list_v1[| i ] = lengthdir_y( list_speed[|i], o_dir );					
+				}
 				
 				// chage missile position based on it's vector
 				var v0 = list_v0[| i ] * DeltaTime;

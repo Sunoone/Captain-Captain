@@ -714,7 +714,7 @@
             "Key": "6263f3e5-1d61-4b89-8d06-384e89a9f0bb",
             "Value": {
                 "id": "25367d7c-0583-4635-b57f-312d14ac58f7",
-                "resourcePath": "sprites\\sprite4\\sprite4.yy",
+                "resourcePath": "sprites\\spr_combat_regulator\\spr_combat_regulator.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1162,7 +1162,7 @@
             "Key": "a1775965-240b-4d1e-b040-9574afd7c970",
             "Value": {
                 "id": "25be966d-e66a-40bc-8285-c908ba8311a4",
-                "resourcePath": "sprites\\sprite5\\sprite5.yy",
+                "resourcePath": "sprites\\spr_combat_software\\spr_combat_software.yy",
                 "resourceType": "GMSprite"
             }
         },
