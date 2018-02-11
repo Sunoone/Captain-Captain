@@ -1,5 +1,8 @@
 /// @description Update Target Lists
 
+if( switch_active ) // debug
+{
+
 if( target_ship == -4 || instance_exists( target_ship ) == false )
 {
 	var size = ds_list_size( global.registry );
@@ -40,6 +43,8 @@ if( instance_exists( target_ship ) )
 	}
 }
 
+}
+
 // update target_id list
 var size, target_owner;
 
@@ -56,6 +61,9 @@ for( var i = size-1; i >= 0; i-- )
 		ds_list_delete( target_id, i );
 }
 
+if( switch_active ) // debug
+{
+
 // look for new targets
 var obj_type;
 size = ds_list_size( part_list );
@@ -69,8 +77,11 @@ for( var i = 0; i < size; i++ )
 		{
 			if( part_list[|i].can_be_hacked || part_list[|i].can_be_hacked_parent ) // is the part hackable?
 			{
-				scr_ds_list_add_unique( target_id, part_list[|i] );
+				if( switch_active ) // debug
+					scr_ds_list_add_unique( target_id, part_list[|i] );
 			}
 		}
 	}
+}
+
 }
