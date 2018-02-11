@@ -1,6 +1,6 @@
 /// @description Add Hack Target
 
-
+/*
 if( global.player == owner )
 {
 	var int_a, length;
@@ -23,3 +23,4 @@ if( global.player == owner )
 		}
 	}
 }
+*/

@@ -12,4 +12,7 @@ type = 2; // declare as component
 target_id = -4;
 clock_speed = 1;
 bonus_clock = 0;
+
+defence_bonus = 0.5; // 50% effective clock speed boost when hacking components on own ship
+
 max_hack_level = 1;

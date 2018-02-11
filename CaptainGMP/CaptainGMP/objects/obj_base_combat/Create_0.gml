@@ -23,6 +23,8 @@ hacking_progress = ds_list_create();	// keeps track of the progress made by hack
 hack_detected = false;
 has_been_hacked = false;
 has_been_revealed = false;
+can_be_hacked = false;
+can_be_hacked_parent = false;
 
 light_up = 0; // this variable controls how long the object should light up
 

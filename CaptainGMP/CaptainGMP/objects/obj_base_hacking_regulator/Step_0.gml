@@ -10,6 +10,10 @@ for( var i = ds_list_size( target_id ) - 1; i >= 0; i-- )
 		{
 			ds_list_delete( target_id, i );
 		}
+		else if( target_id[|i].can_be_hacked == false && target_id[|i].can_be_hacked_parent == false )
+		{
+			ds_list_delete( target_id, i );
+		}	
 		else if( target_id[|i].owner < 0 && target_id[|i].original_owner != owner )
 		{
 			ds_list_delete( target_id, i );

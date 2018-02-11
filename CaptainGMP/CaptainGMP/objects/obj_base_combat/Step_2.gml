@@ -67,8 +67,29 @@ if( size>0 )
 	}
 }
 
-// update security rating
-security_rating = sqr( security_level ) * ( 1 + ( 0.5 / interface_width ) * ( ds_list_size(owned_childern) - ds_list_size(children) ) );
+// Hacking
+var own_c, all_c;
+own_c = ds_list_size(owned_childern);
+all_c = ds_list_size(children);
+
+	// update security rating
+security_rating = sqr( security_level ) * ( 1 + ( 0.5 / interface_width ) * ( own_c - all_c ) );
+
+	// update hackability
+if( type == 2 ) 
+	can_be_hacked = true;
+else if( own_c < all_c )
+{
+	can_be_hacked = true;
+	for( var i = all_c; i >= 0; i-- )
+		children[|i].can_be_hacked_parent = true;
+}
+else
+{
+	can_be_hacked = false;
+	for( var i = all_c; i >= 0; i-- )
+		children[|i].can_be_hacked_parent = false;
+}
 
 // check HP
 if( HP <= 0 )

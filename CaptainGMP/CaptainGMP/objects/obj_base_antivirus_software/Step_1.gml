@@ -42,33 +42,12 @@ var obj_type;
 size = ds_list_size( part_list );
 for( var i = 0; i < size; i++ )
 {
-	if( instance_exists( part_list[|i] ) )
+	if( instance_exists( part_list[|i] ) && part_list[|i] > 0 )
 	{
 		obj_type = part_list[|i].type;
 		if( obj_type >= 0 && obj_type <= 2 && part_list[|i].owner != owner )	
 		{
 			scr_ds_list_add_unique( target_id, part_list[|i] );
 		}
-	}
-}
-
-// add targets to childern
-size = ds_list_size( owned_childern );
-if( size > 0 )
-{
-	if( ds_list_size( target_id ) > 0 ) // attack hacked targets
-	{
-		scanning = false;
-		
-		for( var i = 0; i < size; i++ )
-		{
-			ds_list_clear( owned_childern[|i].target_id );
-			
-			ds_list_add( owned_childern[|i].target_id, target_id[|0] );
-		}
-	}
-	else	// resume scanning
-	{
-		scanning = true;
 	}
 }

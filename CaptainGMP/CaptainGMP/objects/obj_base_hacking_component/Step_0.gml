@@ -7,6 +7,10 @@ if( instance_exists(target_id) )
 	{
 		target_id = -4;	// reset targeting
 	}
+	else if( target_id.can_be_hacked == false && target_id.can_be_hacked_parent == false  )
+	{
+		target_id = -4;	// reset targeting
+	}
 	else if( target_id.owner < 0 && owner != target_id.original_owner )
 	{
 		target_id = -4;	// reset targeting
@@ -30,8 +34,15 @@ if( instance_exists(target_id) )
 		}
 		else
 		{
+			if( target_id.original_owner == owner )
+				bonus_clock = clock_speed * defence_bonus;
+			else
+				bonus_clock = 0;
+			
 			target_id.hacking_progress[|index] += ( clock_speed + bonus_clock ) * global.DeltaTime;	// contribute to hack
-			if( target_id.hacking_level[|index] > max_hack_level ) target_id.hacking_level[|index] = max_hack_level;	// the level of the hack is determained by the lowest level sub_prosessor
+			
+			if( target_id.hacking_level[|index] > max_hack_level ) 
+				target_id.hacking_level[|index] = max_hack_level;	// the level of the hack is determained by the lowest level sub_prosessor
 	
 			if( target_id.hacking_progress[|index] >= target_id.security_rating )	// did I hack the component?
 			{
@@ -48,7 +59,7 @@ if( instance_exists(target_id) )
 				ds_list_clear( target_id.hacking_level );
 				ds_list_clear( target_id.hacking_progress );
 				
-				audio_play_sound( snd_interface_confirm, 3, false );
+				//audio_play_sound( snd_interface_confirm, 3, false );
 				
 				target_id = -4;	// reset targeting
 			}
