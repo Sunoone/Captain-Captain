@@ -28,8 +28,9 @@ if( global.player == owner )
 				{
 					var obj = int_a[i];
 					
-					ds_list_insert( target_id, 0, obj ); // add the new target to the list
-				
+					//ds_list_insert( target_id, 0, obj ); // add the new target to the list
+					ds_list_add( target_id, obj ); // add the new target to the list
+					
 					break;
 				}
 			}

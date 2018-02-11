@@ -53,13 +53,14 @@ if( instance_exists(target_id) )
 					target_id.owner = -1 * get_timer();	// scramble ownership
 					target_id.has_been_hacked = true;
 					target_id.has_been_revealed = true;
+					
+					if( owner == global.player )
+						audio_play_sound( snd_interface_confirm, 3, false );
 				}
 				
 				ds_list_clear( target_id.hacking_owner );
 				ds_list_clear( target_id.hacking_level );
 				ds_list_clear( target_id.hacking_progress );
-				
-				//audio_play_sound( snd_interface_confirm, 3, false );
 				
 				target_id = -4;	// reset targeting
 			}
