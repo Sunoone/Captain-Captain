@@ -7,4 +7,4 @@ event_inherited();
 name = "Debug Hacking Component";
 
 security_level = 4;
-clock_speed = 10;
+clock_speed = 1;
