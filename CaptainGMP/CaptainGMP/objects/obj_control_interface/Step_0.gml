@@ -166,6 +166,8 @@ for( var i = 0; i<max_rings; i++)
 			{
 				ele_x = grid[# j, e_x]; // element x
 				ele_y = grid[# j, e_y]; // element y
+				
+				grid[# j, e_spr] = ele_id.sprite_index; // update sprite
 				ele_spr = grid[# j, e_spr]; // element sprite
 			
 				var col, col_r, col_g, col_b;

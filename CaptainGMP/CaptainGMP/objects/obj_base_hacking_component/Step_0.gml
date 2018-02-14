@@ -26,6 +26,24 @@ for( var i = ds_list_size( hacked_list ) - 1; i >= 0; i-- )
 
 
 
+switch( mode )
+{
+	case 0: // hacking
+	{
+		sprite_index = sprite_mode_0;
+		
+	}
+	break;
+	
+	case 1: // antivirus
+	{
+		sprite_index = sprite_mode_1;
+		
+	}
+	break;
+}
+
+
 
 
 	// are we hacking a real object?
