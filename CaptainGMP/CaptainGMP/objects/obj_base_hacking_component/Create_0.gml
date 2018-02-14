@@ -16,3 +16,6 @@ bonus_clock = 0;
 defence_bonus = 0.5; // 50% effective clock speed boost when hacking components on own ship
 
 max_hack_level = 1;
+
+hack_cost = 0.25; // the cost of keeping a node hacked
+hacked_list = ds_list_create();

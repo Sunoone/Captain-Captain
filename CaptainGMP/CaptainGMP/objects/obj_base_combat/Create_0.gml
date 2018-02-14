@@ -17,6 +17,7 @@ owned_childern = ds_list_create(); // a list of childern that have the same owne
 interface_width = 1; // the width of the interface element for the object
 allowed_type = ds_list_create(); //keeps all objects that are able to link to this object
 
+	// hacking
 hacking_owner = ds_list_create();		// keeps track of which owner is hacking this object
 hacking_level = ds_list_create();		// keeps track of the level of the hack
 hacking_progress = ds_list_create();	// keeps track of the progress made by hacking
@@ -25,6 +26,7 @@ has_been_hacked = false;
 has_been_revealed = false;
 can_be_hacked = false;
 can_be_hacked_parent = false;
+hacked_by = -4;
 
 light_up = 0; // this variable controls how long the object should light up
 
