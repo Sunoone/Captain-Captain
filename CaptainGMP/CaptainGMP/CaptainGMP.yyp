@@ -151,6 +151,14 @@
             }
         },
         {
+            "Key": "090c0616-a54b-4f3e-8867-f2ccdc4a9592",
+            "Value": {
+                "id": "b8b5fafd-083c-48f8-9512-537842f8cee2",
+                "resourcePath": "views\\090c0616-a54b-4f3e-8867-f2ccdc4a9592.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "09adc5a9-af5b-4816-910c-e62b9309be92",
             "Value": {
                 "id": "1ea6e91f-95f2-471d-87bb-4f78b8696be1",
@@ -780,6 +788,14 @@
                 "id": "2cf1a45a-f498-4f1e-b107-439b80683ead",
                 "resourcePath": "views\\6b4c9d63-235a-4469-932c-05cd795a38aa.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "6cf0863a-9350-433d-9abe-e3efee401be0",
+            "Value": {
+                "id": "c0df092d-1834-40b3-a8c1-4f1737d1cd0a",
+                "resourcePath": "sprites\\spr_switch\\spr_switch.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1751,6 +1767,14 @@
             }
         },
         {
+            "Key": "f81be8c2-cac6-4fa3-b742-b58c544170d8",
+            "Value": {
+                "id": "079a7302-6649-49e1-bbb5-521a8f9518e0",
+                "resourcePath": "scripts\\scr_interface_get_node\\scr_interface_get_node.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f8a6b529-0f13-4fb9-a2e6-6f0851084e97",
             "Value": {
                 "id": "1a19b996-d3e1-43ea-96c0-23b56d5df0ca",
@@ -1852,6 +1876,7 @@
         "4f1d81db-61e4-4ccf-8624-c7d4f1cb08f8",
         "ad2d972d-2e8b-4277-a0bc-77753282e92f",
         "06a2a01c-d398-4151-9a53-3666c2f35b78",
+        "f81be8c2-cac6-4fa3-b742-b58c544170d8",
         "e71cdbc5-9ec2-40e4-9f23-7cc45bc091f6",
         "5a47f118-69bc-4dc1-a7c0-2dad560574a5",
         "6fb1d800-a631-442a-998e-abddcae74d54",

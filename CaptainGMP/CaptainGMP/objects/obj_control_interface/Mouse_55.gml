@@ -36,7 +36,7 @@ switch( access )
 						{
 							var node_id = grid[# j, e_id ];
 							
-							if( node_id.owner == global.player )
+							if( node_id.original_owner == global.player )
 							{
 								drag_hold = true;
 					
