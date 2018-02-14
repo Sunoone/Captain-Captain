@@ -97,6 +97,10 @@ for( var i = 0; i<max_rings; i++)
 					}
 				}
 			}
+			else if( ( o.has_been_revealed && grid[# j, e_visible ] < 0 ) ) // reveal childless objects
+			{
+				grid[# j, e_visible ] = 0;
+			}
 			
 			if( instance_exists( p ) )	// draw links
 			{

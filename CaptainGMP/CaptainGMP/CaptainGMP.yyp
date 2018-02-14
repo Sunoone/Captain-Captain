@@ -1519,6 +1519,14 @@
             }
         },
         {
+            "Key": "cccfc176-42af-404b-b63c-b89682bec21c",
+            "Value": {
+                "id": "f0fee4ac-4fda-4e37-b225-e09dcbff1f44",
+                "resourcePath": "sprites\\spr_subProcessor_2\\spr_subProcessor_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "cd298b7e-29a9-441d-a916-45664413d348",
             "Value": {
                 "id": "e8d2d3ce-bc37-4606-82e0-34348205050c",

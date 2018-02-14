@@ -44,7 +44,12 @@ all_c = ds_list_size(children);
 security_rating = sqr( security_level ) * ( 1 + ( 0.5 / interface_width ) * ( own_c - all_c ) );
 
 	// update hackability
-if( own_c < all_c )
+if( all_c <= 0)
+{
+	can_be_hacked = true;
+	has_been_revealed = true;
+}
+else if( own_c < all_c )
 {
 	can_be_hacked = true;
 	for( var i = all_c; i >= 0; i-- )
