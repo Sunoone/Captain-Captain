@@ -76,7 +76,7 @@ all_c = ds_list_size(children);
 security_rating = sqr( security_level ) * ( 1 + ( 0.5 / interface_width ) * ( own_c - all_c ) );
 
 	// update hackability
-if( type == 2 || all_c <= 0)
+if( type == 2 /*|| all_c <= 0*/)
 {
 	can_be_hacked = true;
 	has_been_revealed = true;

@@ -92,7 +92,7 @@ switch( access )
 					}
 					else node = inventory[# pos, e_id ] ;
 					
-					if( node != -5 && node != drag_id )	// switch elements
+					if( node != -5 && node != drag_id && node.type == drag_ring ) // switch elements
 					{
 						scr_interface_inventory_remove( index, pos ); // remove node under mouse
 						
