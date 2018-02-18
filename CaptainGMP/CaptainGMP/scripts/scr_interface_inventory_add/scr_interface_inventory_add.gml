@@ -18,6 +18,9 @@ var inv = int.inventory;
 // clear lists in obj
 ds_list_clear( obj.children );
 
+// quarantine object
+obj.quarantine = true;
+
 // declare vars
 inv[# pos, e_id ] = obj;
 inv[# pos, e_spr ] = obj.sprite_index;

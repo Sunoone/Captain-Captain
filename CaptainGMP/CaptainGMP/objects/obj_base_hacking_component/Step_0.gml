@@ -57,6 +57,10 @@ if( instance_exists(target_id) )
 	{
 		target_id = -4;	// reset targeting
 	}
+	else if( target_id.quarantine )
+	{
+		target_id = -4;	// reset targeting
+	}
 	else if( target_id.owner < 0 && owner != target_id.original_owner )
 	{
 		target_id = -4;	// reset targeting

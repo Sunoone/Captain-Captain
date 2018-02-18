@@ -36,6 +36,7 @@ regen = 0.025;	// every sec, 2.5% hp is regained
 
 security_level = 3;
 security_rating = 4;
+quarantine = false;
 
 type = -1; // set type of object, 0 = software, 1 = regulator, 2 = component THIS SHOULD BE OVERWRITTEN TO REGISTER WITH THE INTERFACE!
 

@@ -5,7 +5,7 @@
 
 // this script removes the element from the given interface inventory
 
-var int, pos, inv;
+var int, pos, inv, obj;
 
 int = global.owned_interface[ argument0 ];	// interface id referance
 pos = argument1;	// position on the ring
@@ -13,6 +13,10 @@ pos = argument1;	// position on the ring
 inv = int.inventory;
 
 if( pos < 0 || pos >= int.inventory_slots ) show_error( "Script 'scr_interface_inventory_remove' recieved an invalid pos argument", true );
+
+obj = inv[# pos, e_id ];
+if( instance_exists( obj ) )
+	obj.quarantine = false;
 
 // declare vars
 inv[# pos, e_id ] = -4;

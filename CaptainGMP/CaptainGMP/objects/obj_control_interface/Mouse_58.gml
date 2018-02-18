@@ -36,7 +36,7 @@ switch( access )
 					else scr_interface_remove( index, drag_ring, drag_pos ); // remove node being moved
 					
 					scr_interface_add( index, drag_id, type, pos );
-				
+					
 					audio_play_sound( snd_interface_confirm, 3, false );
 				
 					node = -5;
@@ -58,7 +58,7 @@ switch( access )
 						
 						if( drag_inventory ) scr_interface_inventory_add( index, node, drag_slot ); // add switch node
 						else scr_interface_add( index, node, drag_ring, drag_pos );	// add switch node
-					
+						
 						audio_play_sound( snd_interface_confirm, 3, false );
 					}
 					else
@@ -85,7 +85,7 @@ switch( access )
 							scr_interface_remove( index, drag_ring, drag_pos ); // remove node being moved
 						
 						scr_interface_inventory_add( index, drag_id, pos ); // add drag node
-				
+						
 						audio_play_sound( snd_interface_confirm, 3, false );
 						
 						node = -5;

@@ -44,14 +44,17 @@ all_c = ds_list_size(children);
 security_rating = sqr( security_level ) * ( 1 + ( 0.5 / interface_width ) * ( own_c - all_c ) );
 
 	// update hackability
-/*
-if( all_c <= 0)
+if( quarantine )
+{
+	can_be_hacked = false;
+	can_be_hacked_parent = false;
+}
+else if( all_c <= 0)
 {
 	can_be_hacked = true;
 	has_been_revealed = true;
 }
-*/
-if( own_c < all_c )
+else if( own_c < all_c )
 {
 	can_be_hacked = true;
 	for( var i = all_c; i >= 0; i-- )

@@ -35,6 +35,8 @@ for( var i = size-1; i >= 0; i-- )
 		ds_list_delete( target_id, i );
 	else if( target_id[|i].owner == owner )
 		ds_list_delete( target_id, i );
+	else if( target_id[|i].quarantine )
+		ds_list_delete( target_id, i );
 }
 
 // look for new targets

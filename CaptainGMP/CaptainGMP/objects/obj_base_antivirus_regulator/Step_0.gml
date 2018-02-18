@@ -13,7 +13,11 @@ for( var i = ds_list_size( target_id ) - 1; i >= 0; i-- )
 		else if( target_id[|i].owner < 0 && target_id[|i].original_owner != owner )
 		{
 			ds_list_delete( target_id, i );
-		}	
+		}
+		else if( target_id[|i].quarantine )
+		{
+			ds_list_delete( target_id, i );
+		}
 	}
 	else
 	{
