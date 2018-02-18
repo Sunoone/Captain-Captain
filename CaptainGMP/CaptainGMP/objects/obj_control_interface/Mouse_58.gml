@@ -94,17 +94,20 @@ switch( access )
 					
 					if( node != -5 && node != drag_id && node.type == drag_ring ) // switch elements
 					{
-						scr_interface_inventory_remove( index, pos ); // remove node under mouse
+						if( node.interface_width == drag_id.interface_width )
+						{
+							scr_interface_inventory_remove( index, pos ); // remove node under mouse
 						
-						if( drag_inventory ) scr_interface_inventory_remove( index, drag_slot ); // remove node being moved
-						else scr_interface_remove( index, drag_ring, drag_pos ); // remove node being moved
+							if( drag_inventory ) scr_interface_inventory_remove( index, drag_slot ); // remove node being moved
+							else scr_interface_remove( index, drag_ring, drag_pos ); // remove node being moved
 					
-						scr_interface_inventory_add( index, drag_id, pos ); // add drag node
+							scr_interface_inventory_add( index, drag_id, pos ); // add drag node
 						
-						if( drag_inventory ) scr_interface_inventory_add( index, node, drag_slot ); // add switch node
-						else scr_interface_add( index, node, drag_ring, drag_pos );	// add switch node
-					
-						audio_play_sound( snd_interface_confirm, 3, false );
+							if( drag_inventory ) scr_interface_inventory_add( index, node, drag_slot ); // add switch node
+							else scr_interface_add( index, node, drag_ring, drag_pos );	// add switch node
+							
+							audio_play_sound( snd_interface_confirm, 3, false );
+						}
 					}
 					
 				}
