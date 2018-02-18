@@ -7,7 +7,7 @@
 
 
 // This script creates a surface and binds it to the screen controller object (which then draws it)
-// returns the id of the surface
+// returns the index of the surface
 
 globalvar screen;
 

@@ -2,8 +2,6 @@
 
 // ini vars
 var m_x, m_y
-m_x = scr_screen_mouse_get_x( screen_index );
-m_y = scr_screen_mouse_get_y( screen_index );
 
 // de-select interface element
 global.interface_select_id[index] = -4;
@@ -21,6 +19,9 @@ switch( access )
 	{
 		if( scr_screen_mouse_above( screen_index ) )
 		{
+			m_x = scr_screen_mouse_get_x( screen_index );
+			m_y = scr_screen_mouse_get_y( screen_index );
+			
 			var grid;	
 			// this can be replaced by some math that figures out to which position the mouse is closest
 			for( var i = 0; i < max_rings; i++ )
@@ -45,13 +46,11 @@ switch( access )
 								drag_id = node_id;
 								drag_ring = i;
 								drag_pos = j;
-							
-								//drag_old_x = grid[# j,e_x];
-								//drag_old_y = grid[# j,e_y];
-					
-								drag_off_x = m_x - drag_old_x;
-								drag_off_y = m_y - drag_old_y;
-					
+								
+								drag_slot = -4;
+								
+								drag_inventory = false;
+								
 								audio_play_sound( snd_interface_ping, 3, false );
 							}
 							break;
@@ -59,6 +58,33 @@ switch( access )
 					}
 				}
 				if(drag_hold) break;
+			}
+		}
+		else if( scr_screen_mouse_above( inventory_index ) ) // check inventory
+		{
+			m_x = scr_screen_mouse_get_x( inventory_index );
+			m_y = scr_screen_mouse_get_y( inventory_index );
+			
+			var pos = floor( m_y / inventory_width );
+			
+			if( pos >= 0 && pos < inventory_slots )
+			{
+				if( scr_interface_inventory_check( index, pos ) == false )
+				{
+					drag_hold = true;
+					
+					drag_sprite = inventory[# pos, e_spr];
+								
+					drag_id = inventory[# pos, e_id];
+					drag_ring = drag_id.type;
+					drag_pos = -4;
+					
+					drag_slot = pos;
+					
+					drag_inventory = true;
+					
+					audio_play_sound( snd_interface_ping, 3, false );
+				}
 			}
 		}
 	}

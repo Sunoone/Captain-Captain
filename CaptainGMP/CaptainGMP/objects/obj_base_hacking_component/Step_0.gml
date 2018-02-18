@@ -85,7 +85,7 @@ if( instance_exists(target_id) )
 			else
 				bonus_clock = 0;
 			
-			target_id.hacking_progress[|index] += ( clock_speed + bonus_clock ) * global.DeltaTime;	// contribute to hack
+			target_id.hacking_progress[|index] += hacking_speed * global.DeltaTime;	// contribute to hack
 			
 			if( target_id.hacking_level[|index] > max_hack_level ) 
 				target_id.hacking_level[|index] = max_hack_level;	// the level of the hack is determained by the lowest level sub_prosessor

@@ -95,6 +95,14 @@
             }
         },
         {
+            "Key": "0634eec8-0395-479d-8f63-2f18f59789b4",
+            "Value": {
+                "id": "7c62a762-15c9-4444-8471-fa3fd05e25d3",
+                "resourcePath": "views\\0634eec8-0395-479d-8f63-2f18f59789b4.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "064ac671-fc65-4092-823a-bc0ec5f169f4",
             "Value": {
                 "id": "ba509d6e-4092-4fc2-abde-3444d2f8bf89",
@@ -716,6 +724,14 @@
                 "id": "2eb8e793-78eb-433b-98b5-cf40c612d4a1",
                 "resourcePath": "objects\\obj_base_core\\obj_base_core.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "62271473-7d86-40aa-8970-8f2a728531a5",
+            "Value": {
+                "id": "cf42150b-845e-47c6-9548-190cdbc3f75d",
+                "resourcePath": "scripts\\scr_interface_inventory_remove\\scr_interface_inventory_remove.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1583,6 +1599,14 @@
             }
         },
         {
+            "Key": "d489d977-a52a-45dc-8af2-5a91902a5ecd",
+            "Value": {
+                "id": "650ef262-3e52-44b9-90c4-dcb0bea5a09f",
+                "resourcePath": "scripts\\scr_interface_inventory_add\\scr_interface_inventory_add.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d5f94952-10ba-4671-909d-0b815163a5bf",
             "Value": {
                 "id": "97e30a7f-2d4c-49e9-b527-cc8b642db5d1",
@@ -1644,6 +1668,14 @@
                 "id": "d5ba09f1-b7c8-478d-a95b-2790f3bb0f4c",
                 "resourcePath": "sprites\\spr_missile_1\\spr_missile_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e28030f0-9db0-4af9-801d-a65431285601",
+            "Value": {
+                "id": "f8f60819-bd34-4bfd-9cf6-db209167715b",
+                "resourcePath": "scripts\\scr_interface_inventory_check\\scr_interface_inventory_check.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1885,6 +1917,9 @@
         "ad2d972d-2e8b-4277-a0bc-77753282e92f",
         "06a2a01c-d398-4151-9a53-3666c2f35b78",
         "f81be8c2-cac6-4fa3-b742-b58c544170d8",
+        "e28030f0-9db0-4af9-801d-a65431285601",
+        "d489d977-a52a-45dc-8af2-5a91902a5ecd",
+        "62271473-7d86-40aa-8970-8f2a728531a5",
         "e71cdbc5-9ec2-40e4-9f23-7cc45bc091f6",
         "5a47f118-69bc-4dc1-a7c0-2dad560574a5",
         "6fb1d800-a631-442a-998e-abddcae74d54",

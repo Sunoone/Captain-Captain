@@ -14,3 +14,5 @@ for( var i = 0; i<a_length; i++)
 }
 
 ring = 0;
+
+ds_list_destroy( inventory );

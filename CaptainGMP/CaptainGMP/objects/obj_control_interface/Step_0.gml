@@ -1,6 +1,8 @@
 /// @description update screen
 // We draw the interface elements in a circulair interface here
 
+// update interface screen
+screen_id = scr_screen_surface_get_id( screen_index );
 
 // get mouse position relative to the screen
 var m_x, m_y;
@@ -273,28 +275,43 @@ if(drag_hold && instance_exists( drag_id ) )
 	}
 }
 
-// draw the drag sprite
-if( drag_hold )
+surface_reset_target();
+
+// Update inventory
+if( access == 1 && inventory_index != -4 )
 {
-	if( sprite_exists( drag_sprite ) )
+	var inventory_screen = scr_screen_surface_get_id( inventory_index );
+	
+	surface_set_target( inventory_screen );
+	
+	for( var i = 0; i < inventory_slots; i++ )
 	{
-		var col = c_white;
-		if( index != drag_id.owner ) 
-			col = c_red;
+		draw_line_color( 0, i * 60, 60, i * 60, c_red, c_red );
 		
-		draw_sprite_ext( spr_baseNode, 0, m_x, m_y, 1, 1, 0, col, 1 );
-		draw_sprite( drag_sprite, 0, m_x, m_y );
-		
-		var node = scr_interface_get_node( id, m_x, m_y );
-		if( instance_exists( node ) && node != drag_id )
+		if( inventory[# i, g_free ] == false )
 		{
-			if( node.interface_width == drag_id.interface_width )
-			{	
-				draw_sprite( spr_switch, 0, m_x + 15, m_y + 15);
+			var ele_id =  inventory[# i, e_id ];
+			
+			if( instance_exists( ele_id ) )
+			{
+				var col, ele_x, ele_y;
+				
+				col = c_white;
+				ele_x = inventory[# i, e_x ];
+				ele_y = inventory[# i, e_y ];
+				
+					// draw red for hacked nodes
+				if( index != ele_id.owner ) 
+					col = c_red;
+				
+				if( inventory[# i, e_id ] == drag_id )
+					col = c_dkgray;
+				
+				draw_sprite_ext( spr_baseNode, 0, ele_x, ele_y, 1, 1, 0, col, 1);
+				draw_sprite_ext( inventory[# i, e_spr ], 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );
 			}
 		}
-		
 	}
+	
+	surface_reset_target();
 }
-
-surface_reset_target();

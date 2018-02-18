@@ -1,118 +1,120 @@
-/// @description scr_interface_move( interface_index, ring, pos1, pos2 )
+/// @description scr_interface_add( interface_index, id, type, pos )
 /// @param interface_index
-/// @param ring
-/// @param pos1
-/// @param pos2
+/// @param id
+/// @param type
+/// @param pos
 
-
-// this script checks if an interface element can be moved to the given location
+// this script add an interface element to the given location
 
 globalvar owned_interface
 
-var int, type, grid, obj, obj_width, pos1, pos2, max_grid, obj_type;
+var int, type, obj, pos;
 
-int = owned_interface[ argument0 ];
-type = argument1;
+int = owned_interface[ argument0 ];	// interface id referance
+obj = argument1;	// object id
+type = argument2;	// combat object type
+pos = argument3;	// position on the ring
+
+
+var grid, max_grid, obj_width, obj_type, obj_allowed_list;
+
 grid = int.ring[ type, 0 ];
-pos1 = argument2;
-pos2 = argument3;
-
 max_grid = int.grid_width;
 
-obj = grid[# pos1, int.e_id];
 obj_type = object_get_parent( obj.object_index );
 obj_width = obj.interface_width;
+obj_allowed_list = obj.allowed_type;
 
-var g_free, g_type;
-g_free = int.g_free;
-g_type = int.g_type;
+// common loop vars
+var k, tmp_grid, child;
 
-// reserve space
-for( var j = 0; j < obj_width; j++ )
+// reserve space for object_width
+for( var j = pos; j < pos + obj_width; j++ )
 {
-	grid[# pos2 + j, free] = false;
+	k = j mod max_grid;
+	grid[# k, g_free] = false;
 }
 
 // parent underlying spaces & objects or forbid them
-var tmp_grid, obj_allowed_list, k, child;
-
-obj_allowed_list = obj.allowed_type;
-
 if( type + 1 < int.max_rings )
 {
 	tmp_grid = int.ring[ type + 1, 0 ];
 	
-	for( var j = pos2; j < pos2 + obj_width; j++ )
+	for( var j = pos; j < pos + obj_width; j++ )
 	{
-		k = j mod int.grid_width;
+		k = j mod max_grid;
 		
-		ds_grid_set( tmp_grid, k, int.g_parent, obj );
-		
-		if( ds_list_size(obj_allowed_list) > 0 )
-		{
-			// parent underlying space
-			ds_grid_set( tmp_grid, k, g_free, true );
-			ds_grid_set( tmp_grid, k, g_type, obj_allowed_list[|0] );
-		}
-		else
-		{
-			// forbid underlying space
-			ds_grid_set( tmp_grid, k, g_free, false );
-			ds_grid_set( tmp_grid, k, g_type, -4 );
-		}
+		ds_grid_set( tmp_grid, k, g_parent, obj );
 		
 		// add child
-		child =  grid[# k, int.e_id];
-		if( instance_exists( child ) && object_get_parent( child.object_index ) == obj_allowed_list[|0] )
+		child = tmp_grid[# k, e_id];
+		if( instance_exists( child ) && scr_ds_list_value_exist( obj_allowed_list, object_get_parent( child.object_index ) ) )
 		{
-			scr_ds_list_add_unique( obj.children , child );
+			//check if the full interface width of the child is under the interface width of the obj
+			
+			var k_min, k_max, pos3;
+			
+			k_min = k;
+			k_max = k + child.interface_width;
+			
+			pos3 = (pos + obj_width) mod max_grid;
+			if( pos3 < pos ) 
+			{
+				pos3 += max_grid;
+				if( k_min < pos ) k_min += max_grid;
+				if( k_max < pos ) k_max += max_grid;
+			}
+			
+			if( k_min >= pos && k_max <= pos3 )
+			{
+				scr_ds_list_add_unique( obj.children , child );
+				tmp_grid[# k, e_link] = obj;
+			}
 		}
 	}
 }
-
-// if free, forbid space above element
-/*
-if( grid[# pos2, int.g_parent ] < 0 )
-{
-	for( var i = type; i >= 0; i-- )
-	{
-		tmp_grid = int.ring[ i, 0 ];
-		
-		for( var j = pos2; j < pos2 + obj_width; j++ )
-		{
-			k = j mod int.grid_width;
-			ds_grid_set( tmp_grid, k, g_free, false );
-		}
-	}
-}
-*/
 
 // calculate pos
 var ele_x, ele_y, ele_rot, r_rot, p_len, p;
 
-p = grid[# pos2, int.g_parent];
+p = grid[# pos, g_parent];
 
-r_rot = 360 / int.grid_width;
-p_len = (int.rad_0*0.5) - (int.r_dist*0.5) + (int.r_dist*type);
+r_rot = 360 / max_grid;
+p_len = (int.rad_0 * 0.5) - (int.r_dist * 0.5) + (int.r_dist * type);
 
-ele_rot = r_rot * (pos2 - 0.5 + 0.5 * obj_width);
+ele_rot = r_rot * (pos - 0.5 + 0.5 * obj_width);
 ele_x = int.s_width + lengthdir_x( p_len, ele_rot );
 ele_y = int.s_height + lengthdir_y( p_len, ele_rot );
 
 // declare vars
-grid[# pos2, int.e_id ] = obj;
-grid[# pos2, int.e_spr ] = obj.sprite_index;
-grid[# pos2, int.e_link ] = p;
-grid[# pos2, int.e_x ] = ele_x;
-grid[# pos2, int.e_y ] = ele_y;
-grid[# pos2, int.e_width ] = obj_width;
+grid[# pos, e_id ] = obj;
+grid[# pos, e_rot ] = ele_rot;
+grid[# pos, e_spr ] = obj.sprite_index;
+grid[# pos, e_link ] = -4;
+grid[# pos, e_x ] = round(ele_x);
+grid[# pos, e_y ] = round(ele_y);
+grid[# pos, e_width ] = obj_width;
 
-if( instance_exists( p ) )
+
+if( instance_exists( p ) && type != 0 )
 {
-	ds_list_add( p.children, obj );
+	if( scr_ds_list_value_exist( p.allowed_type, obj_type ) )
+	{
+		// check if the full width of the parent extends over the full width of the object
+		var p_min, p_max, temp_grid;
+		temp_grid = int.ring[ type - 1, 0 ]
+		
+		if( ds_grid_value_exists( temp_grid, 0, e_id, ds_grid_width(temp_grid)-1, e_id, p ) )
+		{
+			p_min = ds_grid_value_x( temp_grid, 0, e_id, ds_grid_width(temp_grid)-1, e_id, p );
+			p_max = p_min + p.interface_width;
+			
+			if( pos + obj_width <= p_max && pos + obj_width >= p_min )
+			{
+				grid[# pos, e_link ] = p;
+				scr_ds_list_add_unique( p.children, obj );
+			}
+		}
+	}
 }
 
-// cleanup
-
-
-return true;

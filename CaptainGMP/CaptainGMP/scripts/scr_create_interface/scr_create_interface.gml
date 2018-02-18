@@ -11,7 +11,7 @@
 global.interface_select_id[argument4] = -4;
 
 	// create the object
-var i = instance_create_depth( argument0 , argument1 ,0,obj_control_interface)
+var i = instance_create_depth( argument0 , argument1 ,-100,obj_control_interface)
 
 	// Get a private screen from the screen controler
 i.screen_index = scr_screen_surface_create( argument2, argument3, argument0, argument1, true );

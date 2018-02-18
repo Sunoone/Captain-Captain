@@ -13,6 +13,17 @@ if( global.player == index && access != 1 ) // this is a FRIENDLY interface and 
 	select_id = -4;
 	select_pos = -1;
 	select_type = -1;
+	
+	if( inventory_index == -4 )
+	{
+		inventory_index = scr_screen_surface_create( inventory_width, f_height,f_x, f_y  ,true);
+	}
+	else
+	{
+		scr_screen_surface_set_active( inventory_index, true );
+	}
+	
+	scr_screen_surface_set_xy( screen_index, f_x + inventory_width, f_y );
 }
 
 if( global.player != index && access == 1 ) // this is a HOSTILE interface and needs to be updated as such
@@ -53,4 +64,9 @@ if( global.player != index && access == 1 ) // this is a HOSTILE interface and n
 	select_id = -4;
 	select_pos = -1;
 	select_type = -1;
+	
+	if( inventory_index != -4 )
+		scr_screen_surface_set_active( inventory_index, false );
+		
+	scr_screen_surface_set_xy( screen_index, f_x, f_y );
 }
