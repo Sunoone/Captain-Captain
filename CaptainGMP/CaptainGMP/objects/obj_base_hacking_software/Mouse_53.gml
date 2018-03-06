@@ -1,5 +1,6 @@
-/// @description Add Hack Target
+/// @description Add Target
 
+/*
 if( global.player == owner )
 {
 	if( switch_active ) // debug

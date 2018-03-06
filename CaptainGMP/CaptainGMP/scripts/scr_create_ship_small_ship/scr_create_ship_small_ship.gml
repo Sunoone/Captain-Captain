@@ -61,6 +61,7 @@ scr_create_ship_object( ship, obj_sub_prosessor_1, r, c );
 r = 3; c = 6;
 scr_create_ship_object( ship, obj_sub_prosessor_1, r, c );
 
+/*
 	// antivirus
 scr_create_ship_software( ship, obj_antivirus_software_1 );	
 
@@ -78,7 +79,7 @@ r = 5; c = 3;
 scr_create_ship_object( ship, obj_sub_prosessor_1, r, c );
 r = 5; c = 7;
 scr_create_ship_object( ship, obj_sub_prosessor_1, r, c );
-
+*/
 
 // create trusters
 r = 2; c = 1;

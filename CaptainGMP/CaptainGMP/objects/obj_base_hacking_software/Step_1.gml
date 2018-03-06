@@ -3,7 +3,7 @@
 if( switch_active ) // debug
 {
 
-if( target_ship == -4 || instance_exists( target_ship ) == false )
+if( target_ship == -4 || instance_exists( target_ship ) == false ) // find a new target ship
 {
 	var size = ds_list_size( global.registry );
 	for( var i = 0; i < size; i++ )
@@ -17,71 +17,129 @@ if( target_ship == -4 || instance_exists( target_ship ) == false )
 	}
 }
 
-if( instance_exists( target_ship ) )
+if( instance_exists( target_ship ) ) // if the hacking target exists
 {	
 	// update part count
-	part_count = target_ship.draw_grid_object_index + target_ship.draw_grid_turret_index
+	target_part_count = target_ship.draw_grid_object_index + target_ship.draw_grid_turret_index
 	
 	var ship_core = target_ship.ship_core;
 	if( instance_exists( ship_core ) )
-		part_count += ds_list_size( ship_core.software );
+		target_part_count += ds_list_size( ship_core.software );
 	
 	// update part registry
-	part_reg = ds_list_size( part_list );
+	target_part_reg = ds_list_size( target_part_list );
 	
 	// compare part count and registry
-	if( part_count != part_reg )
+	if( target_part_count != target_part_reg )
 	{
 		// re-create part list if necessary		
-		scr_ship_get_parts( part_list, target_ship );	
+		scr_ship_get_parts( target_part_list, target_ship );	
 		
 		var ship_core = target_ship.ship_core;
 		if( instance_exists( ship_core ) )
-			scr_ds_list_merge( part_list, ship_core.software );
+			scr_ds_list_merge( target_part_list, ship_core.software );
 			
-		ds_list_shuffle( part_list );
+		ds_list_shuffle( target_part_list );
 	}
 }
 
 }
 
-// update target_id list
+// update attack_id list
 var size, target_owner;
 
-size = ds_list_size( target_id );
+size = ds_list_size( attack_id );
 target_owner = target_ship.owner;
 
 for( var i = size-1; i >= 0; i-- )
 {
-	if( instance_exists( target_id[|i] ) == false )
-		ds_list_delete( target_id, i );
-	else if( target_id[|i].owner != target_owner )
-		ds_list_delete( target_id, i );
-	else if( target_id[|i].can_be_hacked == false && target_id[|i].can_be_hacked_parent == false )
-		ds_list_delete( target_id, i );
+	if( instance_exists( attack_id[|i] ) == false )
+		ds_list_delete( attack_id, i );
+	else if( attack_id[|i].owner != target_owner )
+		ds_list_delete( attack_id, i );
+	else if( attack_id[|i].can_be_hacked == false && attack_id[|i].can_be_hacked_parent == false )
+		ds_list_delete( attack_id, i );
 }
 
 if( switch_active ) // debug
 {
 
-// look for new targets
-var obj_type;
-size = ds_list_size( part_list );
-for( var i = 0; i < size; i++ )
-{
-	if( instance_exists( part_list[|i] ) )
+	// look for new targets
+	var obj_type;
+	size = ds_list_size( target_part_list );
+	for( var i = 0; i < size; i++ )
 	{
-		obj_type = part_list[|i].type;
-		
-		if( obj_type >= 0 && obj_type <= 2 && part_list[|i].owner != owner )
+		if( instance_exists( target_part_list[|i] ) )
 		{
-			if( part_list[|i].can_be_hacked || part_list[|i].can_be_hacked_parent ) // is the part hackable?
+			obj_type = target_part_list[|i].type;
+		
+			if( obj_type >= 0 && obj_type <= 2 && target_part_list[|i].owner != owner )
 			{
-				if( switch_active ) // debug
-					scr_ds_list_add_unique( target_id, part_list[|i] );
+				if( target_part_list[|i].can_be_hacked || target_part_list[|i].can_be_hacked_parent ) // is the part hackable?
+				{
+					if( switch_active ) // debug
+						scr_ds_list_add_unique( attack_id, target_part_list[|i] );
+				}
 			}
 		}
 	}
+
 }
 
+
+// Antivirus code ---------------------------------------------------------------------------------------------------------------------
+	// Update Target Lists
+
+if( instance_exists( parent ) )
+{	
+	// update part count
+	defend_part_count = parent.draw_grid_object_index + parent.draw_grid_turret_index;
+	
+	var ship_core = parent.ship_core;
+	if( instance_exists( ship_core ) )
+		defend_part_count += ds_list_size( ship_core.software );
+	
+	// update part registry
+	defend_part_reg = ds_list_size( defend_part_list );
+	
+	// compare part count and registry
+	if( defend_part_count != defend_part_reg )
+	{
+		// re-create part list if necessary		
+		scr_ship_get_parts( defend_part_list, parent );	
+		
+		var ship_core = parent.ship_core;
+		if( instance_exists( ship_core ) )
+			scr_ds_list_merge( defend_part_list, ship_core.software );
+	}
+}
+
+// update defend_id list
+var size;
+
+size = ds_list_size( defend_id );
+
+for( var i = size-1; i >= 0; i-- )
+{
+	if( instance_exists( defend_id[|i] ) == false )
+		ds_list_delete( defend_id, i );
+	else if( defend_id[|i].owner == owner )
+		ds_list_delete( defend_id, i );
+	else if( defend_id[|i].quarantine )
+		ds_list_delete( defend_id, i );
+}
+
+// look for new targets
+var obj_type;
+size = ds_list_size( defend_part_list );
+for( var i = 0; i < size; i++ )
+{
+	if( instance_exists( defend_part_list[|i] ) && defend_part_list[|i] > 0 )
+	{
+		obj_type = defend_part_list[|i].type;
+		if( obj_type >= 0 && obj_type <= 2 && defend_part_list[|i].owner != owner )	
+		{
+			scr_ds_list_add_unique( defend_id, defend_part_list[|i] );
+		}
+	}
 }
