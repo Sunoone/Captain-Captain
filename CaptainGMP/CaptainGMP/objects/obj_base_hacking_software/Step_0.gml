@@ -11,10 +11,10 @@ if( size > 0 )
 	{		
 		for( var i = 0; i < size; i++ )
 		{
-			ds_list_clear( owned_childern[|i].target_id );
+			ds_list_clear( owned_childern[|i].attack_id );
 			
 			var pos = i mod min(size, tar);
-			ds_list_add( owned_childern[|i].target_id, attack_id[| pos ] );
+			ds_list_add( owned_childern[|i].attack_id, attack_id[| pos ] );
 		}
 	}
 }
@@ -33,9 +33,9 @@ if( size > 0 )
 		
 		for( var i = 0; i < size; i++ )
 		{
-			ds_list_clear( owned_childern[|i].target_id );
+			ds_list_clear( owned_childern[|i].defend_id );
 			
-			ds_list_add( owned_childern[|i].target_id, defend_id[|0] );
+			ds_list_add( owned_childern[|i].defend_id, defend_id[|0] );
 		}
 	}
 	else	// resume scanning

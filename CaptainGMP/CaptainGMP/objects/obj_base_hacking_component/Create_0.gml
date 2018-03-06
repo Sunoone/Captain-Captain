@@ -10,6 +10,10 @@ type = 2; // declare as component
 
 	// internal variuables
 target_id = -4;
+
+attack_id = -4;
+defend_id = -4;
+
 clock_speed = 1;
 bonus_clock = 0;
 

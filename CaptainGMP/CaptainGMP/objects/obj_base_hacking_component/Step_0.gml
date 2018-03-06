@@ -1,5 +1,16 @@
 /// @description Hacking
 
+switch( mode )
+{
+	case 0:
+		target_id = attack_id;
+		break;
+	
+	case 1:
+		target_id = defend_id;
+		break;		
+}
+
 // calculate hacking speed
 var hacking_speed = clock_speed + bonus_clock;
 

@@ -1,5 +1,4 @@
 /// @description Add Hack Target
-
 /*
 if( global.player == owner )
 {
