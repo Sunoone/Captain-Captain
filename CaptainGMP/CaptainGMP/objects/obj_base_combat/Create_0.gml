@@ -41,18 +41,9 @@ quarantine = false;
 type = -1; // set type of object, 0 = software, 1 = regulator, 2 = component THIS SHOULD BE OVERWRITTEN TO REGISTER WITH THE INTERFACE!
 
 name = "Base Combat Object";
-
-/*
-//draw sprite_index
-if( sprite_exists( sprite_index ) )
-{
-	object_surface = surface_create( sprite_get_width(sprite_index), sprite_get_height(sprite_index) );
-	
-	surface_set_target(object_surface );
-	draw_clear_alpha(c_black, 0);
-	draw_sprite(sprite_index,0, sprite_get_xoffset(sprite_index), sprite_get_yoffset(sprite_index) );
-	surface_reset_target();
-}
-else object_surface = -1;
-*/
 object_surface = -1;
+
+// interface
+interface_data = 0;
+interface_name_list = ds_list_create();
+interface_number_list = ds_list_create();

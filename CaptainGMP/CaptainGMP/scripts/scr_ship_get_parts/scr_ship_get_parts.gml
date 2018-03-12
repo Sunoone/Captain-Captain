@@ -5,6 +5,8 @@
 
 // this script clears and fills the provided ds_list with all ship objects and software that are regitred with the interface
 
+// this script is slow, avoid use
+
 var ship, list;
 
 list = argument0;

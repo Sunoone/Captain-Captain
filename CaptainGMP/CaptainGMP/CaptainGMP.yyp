@@ -535,6 +535,14 @@
             }
         },
         {
+            "Key": "4ddc030c-55f1-4766-af65-a076937dcb2a",
+            "Value": {
+                "id": "cc97e8a9-adb3-4961-9463-0d51a002213a",
+                "resourcePath": "sprites\\spr_radial_menu_base\\spr_radial_menu_base.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4f1d81db-61e4-4ccf-8624-c7d4f1cb08f8",
             "Value": {
                 "id": "3c84e6b1-91e5-428f-b513-0a6eb221182c",
@@ -1439,14 +1447,6 @@
             }
         },
         {
-            "Key": "c1d59468-d3b9-4a28-a834-cff5964d97f5",
-            "Value": {
-                "id": "71200c4d-7447-4740-8418-6e3b8320a0bb",
-                "resourcePath": "objects\\obj_antivirus_software_1\\obj_antivirus_software_1.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "c2750131-74c6-4e55-92f5-2c6948783363",
             "Value": {
                 "id": "ee12ed11-30ae-414c-b689-ab54fee0abe9",
@@ -1788,14 +1788,6 @@
                 "id": "1ea455fb-0483-4f41-a769-1a8dd0cabdb3",
                 "resourcePath": "sprites\\spr_hacking_regulator\\spr_hacking_regulator.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "f477c147-5f9e-465f-928b-6f28b7480ecb",
-            "Value": {
-                "id": "6f9f2055-1cdd-463b-bbf4-1a1a699c814d",
-                "resourcePath": "objects\\obj_antivirus_regulator_1\\obj_antivirus_regulator_1.yy",
-                "resourceType": "GMObject"
             }
         },
         {

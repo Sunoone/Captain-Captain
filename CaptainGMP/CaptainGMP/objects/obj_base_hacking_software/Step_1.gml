@@ -1,48 +1,60 @@
 /// @description Update Target Lists
 
+// exit event in case of hacked or quarantined node
+if( owner != original_owner || quarantine )
+{
+	exit;
+}
+
 if( switch_active ) // debug
 {
-
-if( target_ship == -4 || instance_exists( target_ship ) == false ) // find a new target ship
-{
-	var size = ds_list_size( global.registry );
-	for( var i = 0; i < size; i++ )
+	if( target_ship == -4 || instance_exists( target_ship ) == false ) // find a new target ship
 	{
-		var reg =  global.registry[|i];
-		if( reg != parent && reg >= 0 && instance_exists( reg ) )
+		var size = ds_list_size( global.registry );
+		for( var i = 0; i < size; i++ )
 		{
-			target_ship = reg;
-			break;
+			var reg =  global.registry[|i];
+			if( reg != parent && reg >= 0 && instance_exists( reg ) )
+			{
+				target_ship = reg;
+				break;
+			}
 		}
 	}
-}
 
-if( instance_exists( target_ship ) ) // if the hacking target exists
-{	
-	// update part count
-	target_part_count = target_ship.draw_grid_object_index + target_ship.draw_grid_turret_index
-	
-	var ship_core = target_ship.ship_core;
-	if( instance_exists( ship_core ) )
-		target_part_count += ds_list_size( ship_core.software );
-	
-	// update part registry
-	target_part_reg = ds_list_size( target_part_list );
-	
-	// compare part count and registry
-	if( target_part_count != target_part_reg )
-	{
-		// re-create part list if necessary		
-		scr_ship_get_parts( target_part_list, target_ship );	
+	if( instance_exists( target_ship ) ) // if the hacking target exists
+	{			
 		
+		// update part count
+		target_part_count = ds_list_size( target_ship.hackable_parts_list );
+	
 		var ship_core = target_ship.ship_core;
 		if( instance_exists( ship_core ) )
-			scr_ds_list_merge( target_part_list, ship_core.software );
+			target_part_count += ds_list_size( ship_core.software );
+	
+		// is the list populated yet?
+		if( target_part_count <= 0 )
+			exit;
+		
+		// update part registry
+		target_part_reg = ds_list_size( target_part_list );
+	
+		// compare part count and registry
+		if( target_part_count != target_part_reg )
+		{
+			// re-create part list if necessary		
+			ds_list_copy( target_part_list, target_ship.hackable_parts_list );
 			
-		ds_list_shuffle( target_part_list );
+			// old method
+			// scr_ship_get_parts( target_part_list, target_ship );
+			
+			var ship_core = target_ship.ship_core;
+			if( instance_exists( ship_core ) )
+				scr_ds_list_merge( target_part_list, ship_core.software );
+			
+			ds_list_shuffle( target_part_list );
+		}
 	}
-}
-
 }
 
 // update attack_id list

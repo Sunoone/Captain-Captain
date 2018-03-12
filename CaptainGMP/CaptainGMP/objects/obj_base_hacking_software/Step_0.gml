@@ -1,5 +1,11 @@
 /// @description Update regulators
 
+// exit event in case of hacked or quarantined node
+if( owner != original_owner || quarantine )
+{
+	exit;
+}
+
 	// Hacking
 // add targets to childern
 var size = ds_list_size( owned_childern );

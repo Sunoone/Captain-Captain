@@ -75,6 +75,10 @@ if( draw_grid_hull_recheck )
 	// recheck the object && turret draw grid
 if( draw_grid_object_recheck )
 {
+	// update the hackable_parts_list while were're at it
+	ds_list_clear(hackable_parts_list);
+	
+	
 	var obj;
 	
 	part_count = 0;
@@ -111,6 +115,11 @@ if( draw_grid_object_recheck )
 					
 							draw_grid_turret_index++;
 						}
+						
+						// add object to list of hackable parts?
+						if( obj.type >= 0 && obj.type < 3 )
+							ds_list_add( hackable_parts_list, obj );
+						
 					}
 				}
 			}

@@ -1,13 +1,22 @@
-/// @description Hacking
+/// @description Hacking			
 
+// exit event in case of hacked or quarantined node
+if( owner != original_owner || quarantine )
+{
+	exit;
+}
+
+// set the target according to the mode
 switch( mode )
 {
 	case 0:
 		target_id = attack_id;
+		bonus_clock = 0;
 		break;
 	
 	case 1:
 		target_id = defend_id;
+		bonus_clock = clock_speed * defence_bonus;
 		break;		
 }
 
@@ -35,7 +44,8 @@ for( var i = ds_list_size( hacked_list ) - 1; i >= 0; i-- )
 		ds_list_delete( hacked_list, i );
 }
 
-
+// update the current CPU on the interface
+ds_list_set( interface_number_list, 0, hacking_speed );
 
 switch( mode )
 {
@@ -49,12 +59,13 @@ switch( mode )
 	case 1: // antivirus
 	{
 		sprite_index = sprite_mode_1;
-		
 	}
 	break;
 }
 
-
+// if the hacking speed is too small, exit event
+if( hacking_speed <= 0 )
+	exit;
 
 
 	// are we hacking a real object?
@@ -95,10 +106,6 @@ if( instance_exists(target_id) )
 		}
 		else
 		{
-			if( target_id.original_owner == owner )
-				bonus_clock = clock_speed * defence_bonus;
-			else
-				bonus_clock = 0;
 			
 			target_id.hacking_progress[|index] += hacking_speed * global.DeltaTime;	// contribute to hack
 			

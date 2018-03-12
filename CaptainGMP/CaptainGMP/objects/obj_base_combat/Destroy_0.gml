@@ -1,5 +1,6 @@
 /// @description Clean vars
 // If overwritten, do not forget to copy this code
+	// Try not to overwrite tis code
 
 // deregister with the interface
 var int = global.owned_interface[ original_owner ];
@@ -27,6 +28,8 @@ if( instance_exists( parent ) && type != 0 )
 	parent.draw_grid_object_recheck = true;	
 }
 
+
+// destroy ds_lists
 ds_list_destroy(children);
 ds_list_destroy(owned_childern);
 ds_list_destroy(allowed_type);
@@ -34,3 +37,6 @@ ds_list_destroy(allowed_type);
 ds_list_destroy(hacking_owner);
 ds_list_destroy(hacking_level);
 ds_list_destroy(hacking_progress);
+
+ds_list_destroy(interface_name_list);
+ds_list_destroy(interface_number_list);

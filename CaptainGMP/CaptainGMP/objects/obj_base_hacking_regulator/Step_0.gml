@@ -1,5 +1,12 @@
 /// @description Hack Target
 
+// exit event in case of hacked or quarantined node
+if( owner != original_owner || quarantine )
+{
+	exit;
+}
+
+// check and push attack and defend id lists to their sub-processors
 target_id = attack_id;
 
 repeat(2)

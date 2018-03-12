@@ -19,3 +19,5 @@ scr_3d_array_destroy( ship_grid );
 
 // remove the ship from the registry
 scr_ds_list_remove_value( global.registry, id );
+
+ds_list_destroy(hackable_parts_list);

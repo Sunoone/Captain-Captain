@@ -2,6 +2,21 @@
 
 globalvar DeltaTime;
 
+// check HP
+if( HP <= 0 )
+{
+	instance_destroy(id);
+	exit;
+}
+
+// natural HP regen
+if( HP < HP_max )
+{
+	var r = HP_max * regen * DeltaTime;
+	HP += r;
+	if( HP > HP_max ) HP = HP_max;
+}
+
 // Update position
 if( instance_exists( parent ) )
 {	
@@ -33,10 +48,11 @@ if( animation_speed != 0)
 	}
 }
 
-// remove destroyed children
+// remove destroyed children & update owned childern
 var size;
 
 size = ds_list_size(children)
+ds_list_clear( owned_childern );
 
 if( size>0 )
 {
@@ -49,20 +65,17 @@ if( size>0 )
 			size--;
 		}
 	}
-}
-
-// update owned childern
-ds_list_clear( owned_childern );
-
-ds_list_copy( owned_childern, children );
-
-if( size>0 )
-{
-	for( var i = size - 1; i >= 0; i-- )
+	
+	if( size>0 )
 	{
-		if( owned_childern[|i].owner != owner )
+		ds_list_copy( owned_childern, children );
+		
+		for( var i = size - 1; i >= 0; i-- )
 		{
-			ds_list_delete( owned_childern, i );	
+			if( owned_childern[|i].owner != owner )
+			{
+				ds_list_delete( owned_childern, i );	
+			}
 		}
 	}
 }
@@ -97,20 +110,6 @@ else
 	can_be_hacked = false;
 	for( var i = all_c; i >= 0; i-- )
 		children[|i].can_be_hacked_parent = false;
-}
-
-// check HP
-if( HP <= 0 )
-{
-	instance_destroy(id);
-}
-
-// natural HP regen
-if( HP < HP_max )
-{
-	var r = HP_max * regen * DeltaTime;
-	HP += r;
-	if( HP > HP_max ) HP = HP_max;
 }
 
 // update visual light_up

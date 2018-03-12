@@ -27,3 +27,9 @@ hacked_list = ds_list_create();
 mode = 1; // hacking or antivirus mode
 sprite_mode_0 = -4;
 sprite_mode_1 = -4;
+
+
+// interface
+interface_data = 1;
+ds_list_add( interface_name_list, "" ); 
+ds_list_add( interface_number_list, clock_speed + bonus_clock );

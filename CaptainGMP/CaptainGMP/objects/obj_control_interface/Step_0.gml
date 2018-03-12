@@ -148,6 +148,8 @@ for( var i = 0; i<max_rings; i++)
 var player_owned = false;
 if( global.player == index ) player_owned = true;
 
+draw_set_halign( fa_center );
+
 var i_grey, j_grey;
 if( drag_hold ) { i_grey = drag_ring; j_grey = drag_pos; }
 else { i_grey = -1; j_grey = -1; }
@@ -221,12 +223,38 @@ for( var i = 0; i<max_rings; i++)
 				draw_sprite_ext( spr_baseNode, 0, ele_x, ele_y, 1, 1, 0, col, 1);
 				if( grid[# j, e_visible] == 1 || player_owned )
 					draw_sprite_ext( ele_spr, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );
-			
+				
+				if( player_owned )	// draw node data
+				{
+					var m_text = ele_id.interface_data;
+					
+					if( m_text > 0 )
+					{
+						var t_col = c_red;
+						
+						for( var n = m_text - 1; n >= 0; n-- )
+						{
+							var h = ele_x + n * 20;
+							var s;
+							
+							if( ele_id.interface_name_list[|n] == "" )
+								s = string( ele_id.interface_number_list[|n] );
+							else
+								s = ele_id.interface_name_list[|n] + ": " + string( ele_id.interface_number_list[|n] );
+							
+							draw_text_color( h, ele_y, s , t_col, t_col, t_col, t_col, 1 );
+						}
+					}
+				}
+				
 			}
 		}
 	}
 	
 }
+
+draw_set_halign( fa_left );
+
 
 // draw drag indication lines when draging an element
 if(drag_hold && instance_exists( drag_id ) )

@@ -8,7 +8,7 @@
         "877f169d-44b8-4999-a5a7-8d6dc04a2cf0"
     ],
     "filterType": "GMObject",
-    "folderName": "Antivirus",
+    "folderName": "Antivirus (Deprecated)",
     "isDefaultView": false,
     "localisedFolderName": ""
 }
