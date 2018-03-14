@@ -1,4 +1,4 @@
-/// @description Select Element
+/// @description Select
 
 
 // de-select interface element
@@ -41,6 +41,9 @@ if( draw_menu )
 					user_owner = own;
 					event_user( eve );
 				}
+				
+				audio_play_sound( snd_interface_ping, 3, false );
+				
 				break;
 			}
 		}

@@ -3,6 +3,8 @@
 
 global.DeltaTime = 0; // Delta Time in sec
 
+global.TimeDilation = 1;
+
 scr_timer_ini();
 
 

@@ -14,12 +14,11 @@ if( scr_screen_mouse_above(screen_index) )
 	node = scr_interface_get_node( id, m_x, m_y );
 	node_pos = scr_interface_get_pos( index, m_x, m_y );
 	node_type = scr_interface_get_type( index, m_x, m_y );
-					
-	var grid = ring[node_type,0];
-	
 	
 	if( instance_exists( node ) )
 	{
+		var grid = ring[node_type,0];
+		
 		switch( access )
 		{
 			case 0: // Hostile interface

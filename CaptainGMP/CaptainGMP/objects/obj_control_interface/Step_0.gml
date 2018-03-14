@@ -356,6 +356,9 @@ if( access == 1 && inventory_index != -4 )
 
 if( draw_menu )
 {
+	m_x = scr_screen_mouse_get_x( menu_screen_index );
+	m_y = scr_screen_mouse_get_y( menu_screen_index );
+	
 	var menu_surface = scr_screen_surface_get_id( menu_screen_index );
 	
 	surface_set_target( menu_surface );
@@ -374,7 +377,11 @@ if( draw_menu )
 		len_x = 78 + lengthdir_x( 51, angle_div * i );
 		len_y = 78 + lengthdir_y( 51, angle_div * i );
 		
-		draw_sprite_ext( spr_baseNode, 0, len_x, len_y, 1, 1, 0, c_black, 0.5 );
+		if( point_distance( len_x,len_y,m_x,m_y ) < 26 )
+			draw_sprite_ext( spr_baseNode, 0, len_x, len_y, 1, 1, 0, c_black, 1 );
+		else
+			draw_sprite_ext( spr_baseNode, 0, len_x, len_y, 1, 1, 0, c_black, 0.5 );
+		
 		draw_sprite( menu_options_graphics[|i], 0, len_x, len_y );
 	}
 	
