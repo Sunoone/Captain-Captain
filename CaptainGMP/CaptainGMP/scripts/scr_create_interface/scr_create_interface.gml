@@ -15,6 +15,8 @@ var i = instance_create_depth( argument0 , argument1 ,-100,obj_control_interface
 
 	// Get a private screen from the screen controler
 i.screen_index = scr_screen_surface_create( argument2, argument3, argument0, argument1, true );
+i.menu_screen_index = scr_screen_surface_create( 155, 155, 0, 0, false ); // get a menu screen
+
 i.screen_id = scr_screen_surface_get_id( i.screen_index );
 i.index = argument4;
 

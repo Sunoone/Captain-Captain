@@ -16,3 +16,5 @@ for( var i = 0; i<a_length; i++)
 ring = 0;
 
 ds_list_destroy( inventory );
+ds_list_destroy( menu_options_list );
+ds_list_destroy( menu_options_graphics );

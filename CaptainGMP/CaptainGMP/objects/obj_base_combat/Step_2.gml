@@ -80,7 +80,7 @@ if( size>0 )
 	}
 }
 
-// Hacking
+// Hacking ------------------------------------------------------------------------------------------------------------------------------
 var own_c, all_c;
 own_c = ds_list_size(owned_childern);
 all_c = ds_list_size(children);

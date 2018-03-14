@@ -1,54 +1,73 @@
-/// @description switch mode
+/// @description Node Menu
 
-switch( access )
+scr_screen_surface_set_active( menu_screen_index, false );
+draw_menu = false;
+
+if( scr_screen_mouse_above(screen_index) )
 {
+	// get mouse position relative to the screen
+	var m_x, m_y;
+	m_x = scr_screen_mouse_get_x( screen_index );
+	m_y = scr_screen_mouse_get_y( screen_index );
 	
-	case 1:
+	var node, node_pos, node_type;
+	node = scr_interface_get_node( id, m_x, m_y );
+	node_pos = scr_interface_get_pos( index, m_x, m_y );
+	node_type = scr_interface_get_type( index, m_x, m_y );
+					
+	var grid = ring[node_type,0];
+	
+	
+	if( instance_exists( node ) )
 	{
-		// get mouse position relative to the screen
-		var m_x, m_y;
-		m_x = scr_screen_mouse_get_x( screen_index );
-		m_y = scr_screen_mouse_get_y( screen_index );
-	
-		var node = scr_interface_get_node( id, m_x, m_y );
-	
-		if( instance_exists( node ) )
+		switch( access )
 		{
-			if( variable_instance_exists( node, "mode" ) )
+			case 0: // Hostile interface
 			{
-				if( node.mode == 0 )
+				if( node.secret_owner == global.player )
 				{
-					node.mode = 1;
+					ds_list_clear( menu_options_graphics );
 					
-				}
-				else
-				{
-					node.mode = 0;
-				}
+					ds_list_add( menu_options_graphics, spr_action_disrupt, spr_action_stealth, spr_action_fortify, spr_action_command );
 					
-				audio_play_sound( snd_interface_ping, 3, false );
+					ds_list_add( menu_options_list, 0, 1, 2, 3 );
+					
+					draw_menu = true;
+					
+					scr_screen_surface_set_active( menu_screen_index, draw_menu );
+					
+					menu_id = node;
+					menu_x = grid[# node_pos, e_x] + f_x - 78;
+					menu_y = grid[# node_pos, e_y] + f_y - 78;
+					
+					scr_screen_surface_set_xy( menu_screen_index, menu_x, menu_y );
+					
+					audio_play_sound( snd_interface_ping, 3, false );
+				}
+			}
+			break;
+	
+			case 1: // Friendly interface
+			{
 				
-				/*
-				var grid, t, p;
-				
-				t = scr_interface_get_type( index, m_x, m_y );
-				grid = ring[t,0];
-				
-				p = ds_grid_value_x( grid, 0, e_id, grid_width-1, e_id, node );
-				
-				if( p >= 0 )
+				// switch mode
+				if( variable_instance_exists( node, "mode" ) )
 				{
 					if( node.mode == 0 )
-						grid[# p, e_spr] = node.sprite_mode_0; // update sprite
+					{
+						node.mode = 1;
+					}
 					else
-						grid[# p, e_spr] = node.sprite_mode_1; // update sprite
+					{
+						node.mode = 0;
+					}
+					
+					audio_play_sound( snd_interface_ping, 3, false );
 				}
-				*/
-				
 				
 			}
+			break;
+
 		}
 	}
-	break;
-
 }

@@ -23,15 +23,15 @@ update = false;
 
 access = 0; // this variable controls if the player has friendly or hostile access to this interface
 
-	//debug
-//debug_size = 0;
+	// Menu
+menu_options_list = ds_list_create();
+menu_options_graphics = ds_list_create();
+draw_menu = false
+menu_x = 0;
+menu_y = 0;
+menu_id = -4;
 
-	// Database for node storage
-		// This database needs to hold all interface elements for components, controlers and software
-		// This database needs to hold the position of those elements
-		// This database needs to hold the links between elements
-
-
+	// data structure
 ring[0,0] = 0;
 
 grid_width = 24;

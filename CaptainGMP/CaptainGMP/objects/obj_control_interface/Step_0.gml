@@ -67,7 +67,7 @@ for( var i = 0; i<max_rings; i++)
 		
 		if( instance_exists( o ) )
 		{
-			if( o.owner != o.original_owner && grid[# j, e_visible ] < 1 ) // make hacked elements visible
+			if( o.secret_owner != o.original_owner && grid[# j, e_visible ] < 1 ) // make hacked elements visible
 			{
 				grid[# j, e_visible ] = 1;
 				if( i > 0 && instance_exists( p ) )
@@ -146,7 +146,10 @@ for( var i = 0; i<max_rings; i++)
 
 // draw interface icons ----------------------------------------------------------------------------------------
 var player_owned = false;
-if( global.player == index ) player_owned = true;
+var player_index = global.player;
+
+if( player_index == index ) 
+	player_owned = true;
 
 draw_set_halign( fa_center );
 
@@ -221,8 +224,13 @@ for( var i = 0; i<max_rings; i++)
 				if( i == i_grey && j == j_grey ) col = c_dkgray;
 			
 				draw_sprite_ext( spr_baseNode, 0, ele_x, ele_y, 1, 1, 0, col, 1);
+				
 				if( grid[# j, e_visible] == 1 || player_owned )
 					draw_sprite_ext( ele_spr, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );
+				
+				if( ele_id.secret_owner == player_index && !player_owned )
+					draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );
+				
 				
 				if( player_owned )	// draw node data
 				{
@@ -343,3 +351,55 @@ if( access == 1 && inventory_index != -4 )
 	
 	surface_reset_target();
 }
+
+// Draw menu -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+if( draw_menu )
+{
+	var menu_surface = scr_screen_surface_get_id( menu_screen_index );
+	
+	surface_set_target( menu_surface );
+	
+	// draw menu background
+	draw_sprite_ext( spr_radial_menu_extended, 0, 78, 78, 1, 1, 0, c_white, 0.75 );
+	
+	// draw menu options
+	var menu_item_count, angle_div, len_x, len_y;
+	
+	menu_item_count = ds_list_size( menu_options_graphics );
+	angle_div = 360 / menu_item_count;
+	
+	for( var i = 0; i<menu_item_count; i++ )
+	{	
+		len_x = 78 + lengthdir_x( 51, angle_div * i );
+		len_y = 78 + lengthdir_y( 51, angle_div * i );
+		
+		draw_sprite_ext( spr_baseNode, 0, len_x, len_y, 1, 1, 0, c_black, 0.5 );
+		draw_sprite( menu_options_graphics[|i], 0, len_x, len_y );
+	}
+	
+	surface_reset_target();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

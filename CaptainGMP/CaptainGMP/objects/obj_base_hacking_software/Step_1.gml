@@ -64,6 +64,8 @@ for( var i = size-1; i >= 0; i-- )
 		ds_list_delete( attack_id, i );
 	else if( attack_id[|i].can_be_hacked == false && attack_id[|i].can_be_hacked_parent == false )
 		ds_list_delete( attack_id, i );
+	else if( attack_id[|i].secret_owner == owner )
+		ds_list_delete( attack_id, i );
 }
 
 if( switch_active ) // debug

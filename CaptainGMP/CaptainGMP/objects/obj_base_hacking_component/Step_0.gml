@@ -12,11 +12,13 @@ switch( mode )
 	case 0:
 		target_id = attack_id;
 		bonus_clock = 0;
+		sprite_index = sprite_mode_0;
 		break;
 	
 	case 1:
 		target_id = defend_id;
 		bonus_clock = clock_speed * defence_bonus;
+		sprite_index = sprite_mode_1;
 		break;		
 }
 
@@ -30,7 +32,7 @@ for( var i = ds_list_size( hacked_list ) - 1; i >= 0; i-- )
 		if( hacked_list[|i].hacked_by == id )
 		{
 			if( hacking_speed >= hack_cost )
-				hacking_speed -= hack_cost;	// hacking speed is decreased by the hacking cost
+				hacking_speed -= hack_cost;	// hacking speed is decreased by the hacking cost for holding nodes
 			else
 			{
 				hacked_list[|i].hacked_by = -4;
@@ -47,22 +49,6 @@ for( var i = ds_list_size( hacked_list ) - 1; i >= 0; i-- )
 // update the current CPU on the interface
 ds_list_set( interface_number_list, 0, hacking_speed );
 
-switch( mode )
-{
-	case 0: // hacking
-	{
-		sprite_index = sprite_mode_0;
-		
-	}
-	break;
-	
-	case 1: // antivirus
-	{
-		sprite_index = sprite_mode_1;
-	}
-	break;
-}
-
 // if the hacking speed is too small, exit event
 if( hacking_speed <= 0 )
 	exit;
@@ -72,21 +58,15 @@ if( hacking_speed <= 0 )
 if( instance_exists(target_id) )
 {
 	if( target_id.owner == owner )
-	{
 		target_id = -4;	// reset targeting
-	}
 	else if( target_id.can_be_hacked == false && target_id.can_be_hacked_parent == false  )
-	{
 		target_id = -4;	// reset targeting
-	}
 	else if( target_id.quarantine )
-	{
 		target_id = -4;	// reset targeting
-	}
 	else if( target_id.owner < 0 && owner != target_id.original_owner )
-	{
 		target_id = -4;	// reset targeting
-	}
+	else if( target_id.secret_owner == owner )
+		target_id = -4;	// reset targeting
 	else
 	{
 		var index = ds_list_find_index( target_id.hacking_owner, owner ) // find out if the object is already being hacked
@@ -116,21 +96,21 @@ if( instance_exists(target_id) )
 			{
 				if( target_id.original_owner == owner )
 				{
-					// antivirus
-					
+						// antivirus
 					target_id.hacked_by = -4;
-					
 					target_id.owner = owner;	// reset ownership
-					
+					target_id.secret_owner = owner;	// set secret owner to noone
 				}
 				else
 				{
-					// hacked enemy node
+						// hacked enemy node
 					
 					target_id.hacked_by = id;
 					ds_list_add( hacked_list, target_id );
 					
-					target_id.owner = -1 * get_timer();	// scramble ownership
+					//target_id.owner = -1 * get_timer();	// scramble ownership
+					target_id.secret_owner = owner;
+					
 					target_id.has_been_hacked = true;
 					target_id.has_been_revealed = true;
 					

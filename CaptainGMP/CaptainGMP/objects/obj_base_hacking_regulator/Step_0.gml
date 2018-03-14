@@ -33,6 +33,10 @@ repeat(2)
 			{
 				ds_list_delete( target_id, i );
 			}
+			else if( target_id[|i].secret_owner == parent )
+			{
+				ds_list_delete( target_id, i );
+			}			
 		}
 		else
 		{
