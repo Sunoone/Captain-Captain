@@ -15,6 +15,3 @@ global.screen = instance_create_depth(0,0,0,obj_screen_controler);
 
 // Projectile Manager
 global.projectile_manager = instance_create_depth( 0,0,-1000, obj_projectile_manager );
-
-// Hacking Option object
-global.hacking_options = instance_create_depth( 0,0,-1000, obj_hacking_options );

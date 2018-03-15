@@ -29,18 +29,8 @@ if( draw_menu )
 			
 			if( point_distance( len_x, len_y, m_x, m_y ) < 52 )
 			{				
-				var obj, own, eve;
-				
-				obj = menu_id;
-				own = index;
-				eve = menu_options_list[|i];
-				
-				with( global.hacking_options )
-				{
-					target = obj;
-					user_owner = own;
-					event_user( eve );
-				}
+				// this action shoulkd work through the node that has hacked the target node
+				scr_hacking_action( menu_id, menu_options_list[|i], index )
 				
 				audio_play_sound( snd_interface_ping, 3, false );
 				

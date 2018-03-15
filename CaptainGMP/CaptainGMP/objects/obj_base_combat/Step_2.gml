@@ -72,7 +72,7 @@ if( size>0 )
 		
 		for( var i = size - 1; i >= 0; i-- )
 		{
-			if( owned_childern[|i].owner != owner )
+			if( owned_childern[|i].owner != original_owner || owned_childern[|i].secret_owner != original_owner )
 			{
 				ds_list_delete( owned_childern, i );	
 			}

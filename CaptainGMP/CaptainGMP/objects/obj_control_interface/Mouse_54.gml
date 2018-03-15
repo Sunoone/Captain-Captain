@@ -10,14 +10,14 @@ if( scr_screen_mouse_above(screen_index) )
 	m_x = scr_screen_mouse_get_x( screen_index );
 	m_y = scr_screen_mouse_get_y( screen_index );
 	
-	var node, node_pos, node_type;
+	var node, node_pos, node_type, grid;
 	node = scr_interface_get_node( id, m_x, m_y );
-	node_pos = scr_interface_get_pos( index, m_x, m_y );
 	node_type = scr_interface_get_type( index, m_x, m_y );
 	
 	if( instance_exists( node ) )
 	{
-		var grid = ring[node_type,0];
+		grid = ring[node_type,0];
+		node_pos = ds_grid_value_x( grid, 0, e_id, grid_width, e_id, node );
 		
 		switch( access )
 		{
