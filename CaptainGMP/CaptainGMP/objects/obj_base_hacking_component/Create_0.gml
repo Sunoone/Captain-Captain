@@ -28,6 +28,8 @@ mode = 1; // hacking or antivirus mode
 sprite_mode_0 = -4;
 sprite_mode_1 = -4;
 
+	// cpu
+cpu_cost = 0;
 
 // interface
 interface_data = 1;

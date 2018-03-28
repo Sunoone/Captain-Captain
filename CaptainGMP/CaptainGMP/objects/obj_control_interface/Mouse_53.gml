@@ -9,43 +9,31 @@ select_pos = -1;
 select_type = -1;
 
 // check menu
-if( draw_menu )
+if( draw_menu && scr_screen_mouse_above( menu_screen_index ) )
 {	
-	if( scr_screen_mouse_above( menu_screen_index ) )
-	{
-		var m_x, m_y
-		m_x = scr_screen_mouse_get_x( menu_screen_index );
-		m_y = scr_screen_mouse_get_y( menu_screen_index );
+	var m_x, m_y, menu_item_count, angle_div, len_x, len_y;
 		
-		var menu_item_count, angle_div, len_x, len_y;
+	m_x = scr_screen_mouse_get_x( menu_screen_index );
+	m_y = scr_screen_mouse_get_y( menu_screen_index );
 		
-		menu_item_count = ds_list_size( menu_options_list );
-		angle_div = 360 / menu_item_count;
-	
-		for( var i = 0; i<menu_item_count; i++ )
-		{	
-			len_x = 78 + lengthdir_x( 51, angle_div * i );
-			len_y = 78 + lengthdir_y( 51, angle_div * i );
+	menu_item_count = ds_list_size( menu_options ) / 4;
+	angle_div = 360 / menu_item_count;
+		
+	for( var i = 0; i<menu_item_count; i++ )
+	{	
+		len_x = 78 + lengthdir_x( 51, angle_div * i );
+		len_y = 78 + lengthdir_y( 51, angle_div * i );
 			
-			if( point_distance( len_x, len_y, m_x, m_y ) < 52 )
-			{				
-				// this action shoulkd work through the node that has hacked the target node
-				scr_hacking_action( menu_id, menu_options_list[|i], index )
+		if( point_distance( len_x, len_y, m_x, m_y ) < 52 )
+		{				
+			scr_ability_excecute_script( menu_options[| i * 4 + 1 ], menu_id, global.player );
 				
-				audio_play_sound( snd_interface_ping, 3, false );
-				
-				break;
-			}
+			audio_play_sound( snd_interface_ping, 3, false );
+			break;
 		}
 	}
 }
-
-// clear menu
-scr_screen_surface_set_active( menu_screen_index, false );
-draw_menu = false;
-
-// select node
-if( scr_screen_mouse_above( screen_index ) )
+else if( scr_screen_mouse_above( screen_index ) ) // select node
 {
 	// ini vars
 	var m_x, m_y
@@ -83,3 +71,7 @@ if( scr_screen_mouse_above( screen_index ) )
 		if(hold) break;
 	}
 }
+
+// clear menu
+scr_screen_surface_set_active( menu_screen_index, false );
+draw_menu = false;

@@ -10,8 +10,9 @@
 var i = instance_create_depth( argument2, argument3, 0, argument0 );
 
 i.owner = argument1; // index of owner
-i.interface = global.owned_interface[ argument1 ]; // id of interface object;
 
-
+var int = global.owned_interface[ argument1 ]; // id of interface object;
+i.interface = int;
+int.ship = i;
 
 return (i);

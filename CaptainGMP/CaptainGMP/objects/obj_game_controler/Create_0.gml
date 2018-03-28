@@ -19,6 +19,7 @@ global.combat_screen = scr_screen_surface_get_id( global.combat_screen_index );
 
 // Player
 global.player = 0;	// declares the player to be owner 0;
+global.player_core = -4;
 
 // Interface wheel
 global.owned_interface[0] = scr_create_interface( 0, room_height * 0.5, room_height * 0.5, room_height * 0.5, 0 );

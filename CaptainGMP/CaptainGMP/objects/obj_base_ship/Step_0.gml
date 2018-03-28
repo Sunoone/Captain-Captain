@@ -1,5 +1,11 @@
 /// @description update draw grids, check out of bounds
 
+// Update CPU
+if( instance_exists( ship_core ) )
+	cpu = ship_core.cpu_available;
+else
+	cpu = 0;
+
 // fix out of bounds
 if( surface_exists( global.combat_screen ) )
 {
@@ -72,12 +78,11 @@ if( draw_grid_hull_recheck )
 	draw_grid_hull_recheck = false;
 }
 
-	// recheck the object && turret draw grid
+	// recheck the object && turret draw grid && hackable_parts_list
 if( draw_grid_object_recheck )
 {
-	// update the hackable_parts_list while were're at it
+	// update the hackable_parts_list
 	ds_list_clear(hackable_parts_list);
-	
 	
 	var obj;
 	
@@ -119,7 +124,6 @@ if( draw_grid_object_recheck )
 						// add object to list of hackable parts?
 						if( obj.type >= 0 && obj.type < 3 )
 							ds_list_add( hackable_parts_list, obj );
-						
 					}
 				}
 			}

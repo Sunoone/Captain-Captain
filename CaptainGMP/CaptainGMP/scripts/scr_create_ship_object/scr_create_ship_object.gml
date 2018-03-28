@@ -31,14 +31,24 @@ i.original_owner = i.owner; // set the original owner
 i.secret_owner = i.owner; // set the secret owner
 i.interface = owned_interface[ ship.owner ]; // id of interface object;
 
-if( scr_obj_check_parentage( i, obj_base_core ) )
+
+// is the object a core?
+if( scr_obj_check_parentage( i, obj_base_core ) ) 
 {
-	// register with the ship
 	if( ship.ship_core == -4 )
 	{
-		ship.ship_core = i;	
+			// register with the ship
+		ship.ship_core = i;
+			
+			// register with the interface
+		i.interface.core = i
+		
+			// is this the player core?
+		if( i.owner == global.player )
+			global.player_core = i;
 	}
 }
+
 
 	//register object with interface
 if( scr_interface_register( ship.owner, i, i.type ) == false )

@@ -1,5 +1,5 @@
 /// @description scr_hacking_0_disable( target_id )
-// @param target_id
+/// @param target_id
 
 // this script scrambles the ownership of an object, disabeling it
 

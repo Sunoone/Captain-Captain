@@ -13,4 +13,7 @@ regen = 0.05;	// every sec, 5% hp is regained
 
 type = -5; // set type of object to -5
 
+	// cpu
+cpu_cost = 0;
+
 name = "Base Armor Component";

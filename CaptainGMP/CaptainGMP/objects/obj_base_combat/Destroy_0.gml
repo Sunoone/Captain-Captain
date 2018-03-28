@@ -40,3 +40,6 @@ ds_list_destroy(hacking_progress);
 
 ds_list_destroy(interface_name_list);
 ds_list_destroy(interface_number_list);
+
+	// destroy abilities
+scr_ability_destroy_structure( id );

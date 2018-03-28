@@ -14,3 +14,9 @@ if( instance_exists( parent ) )
 {
 	if( parent.ship_core == id ) parent.ship_core = -4;
 }
+
+// clear ds lists
+ds_list_destroy( core_ability_id )
+
+ds_list_destroy( core_abilities_type_1 );
+ds_list_destroy( core_abilities_type_2 );

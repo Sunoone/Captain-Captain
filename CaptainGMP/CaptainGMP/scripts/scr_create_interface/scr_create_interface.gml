@@ -15,7 +15,7 @@ var i = instance_create_depth( argument0 , argument1 ,-100,obj_control_interface
 
 	// Get a private screen from the screen controler
 i.screen_index = scr_screen_surface_create( argument2, argument3, argument0, argument1, true );
-i.menu_screen_index = scr_screen_surface_create( 155, 155, 0, 0, false ); // get a menu screen
+i.menu_screen_index = scr_screen_surface_create( 155 * 3, 155, 0, 0, false ); // get a menu screen
 
 i.screen_id = scr_screen_surface_get_id( i.screen_index );
 i.index = argument4;
@@ -27,5 +27,8 @@ i.f_y = argument1;
 i.s_width = round( 0.5 * i.f_width );
 i.s_height = round( 0.5 * i.f_height );
 i.rad_0 = min(i.s_width,i.s_height) - 5;
+
+i.ship = -4;
+i.core = -4;
 
 return (i);

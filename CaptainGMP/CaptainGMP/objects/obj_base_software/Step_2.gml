@@ -70,3 +70,35 @@ else
 // HP Hack
 HP_max = 1000000000;
 HP = 1000000000;
+
+
+// CPU cost -----------------------------------------------------------------------------------------------------------------------------
+if( instance_exists( parent ) && active )
+{
+	if( instance_exists( parent.ship_core ) && owner == original_owner)
+	{
+		var core = parent.ship_core;
+	
+		core.cpu_budget += cpu_cost *  power( security_level, 2 );
+	}
+}
+
+
+// Abilities
+if( switch_active != active)
+{
+		// change the active stage of all abilities
+	for( var i = ds_list_size( ability_active ); i>=0; i-- )
+		ability_active[|i] = active;
+		
+		// switch on/off abilities
+	if( active )
+		scr_ability_set_active( ability_on, false );
+	else
+		scr_ability_set_active( ability_on, true );
+	
+	switch_active = active;
+}
+
+if( register_abilities )
+	scr_ability_update();

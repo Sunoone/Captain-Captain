@@ -9,6 +9,7 @@ type = -1;
 
 // core object reference
 ship_core = -4;
+cpu = 0;
 
 // add ship to the ship registry
 scr_ds_list_add_unique( global.registry, id );

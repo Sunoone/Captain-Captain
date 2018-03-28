@@ -24,8 +24,13 @@ update = false;
 access = 0; // this variable controls if the player has friendly or hostile access to this interface
 
 	// Menu
-menu_options_list = ds_list_create();
-menu_options_graphics = ds_list_create();
+menu_options = ds_list_create();
+//menu_options_list = ds_list_create();
+//menu_options_graphics = ds_list_create();
+//menu_options_cpu = ds_list_create();
+//menu_options_tooltip = ds_list_create();
+
+
 draw_menu = false
 menu_x = 0;
 menu_y = 0;

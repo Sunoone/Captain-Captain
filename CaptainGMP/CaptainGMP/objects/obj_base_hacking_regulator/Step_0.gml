@@ -1,5 +1,5 @@
 /// @description Hack Target
-
+/*
 // exit event in case of hacked or quarantined node
 if( owner != original_owner || quarantine )
 {
