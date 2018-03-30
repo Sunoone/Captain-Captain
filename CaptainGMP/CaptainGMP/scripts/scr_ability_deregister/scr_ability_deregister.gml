@@ -10,7 +10,6 @@ if( i >= 0 )
 	ds_list_delete( ability_graphic, i );
 	ds_list_delete( ability_script, i );
 	ds_list_delete( ability_type, i );
-	ds_list_delete( ability_cpu, i );
 	ds_list_delete( ability_active, i );
 	ds_list_delete( ability_tooltip, i );
 	ds_list_delete( ability_index, i );

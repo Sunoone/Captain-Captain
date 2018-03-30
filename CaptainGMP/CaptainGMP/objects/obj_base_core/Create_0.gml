@@ -25,10 +25,15 @@ hacking_level = 1;
 scan_level = 1;
 
 // Abilities
-scr_ability_register( spr_action_basic_hack, 0, 1, 100, true, "Hack this node" );
-scr_ability_register( spr_action_disrupt,	 1, 3, 0,	true, "Disrupt this node, rendering it inoperable" );
+scr_ability_register( spr_action_basic_hack, 0, 1, true, "Hack this node" );
+scr_ability_register( spr_action_disrupt,	 1, 3, true, "Disrupt this node, rendering it inoperable" );
 
 core_ability_id = ds_list_create();
 ds_list_add( core_ability_id, id );
 
-core_abilities[0,0] = -4;
+running_abilities_index = ds_list_create();
+running_abilities_time = ds_list_create();
+running_abilities_script = ds_list_create();
+running_abilities_target = ds_list_create();
+running_abilities_icon = ds_list_create();
+running_abilities_cost = ds_list_create();

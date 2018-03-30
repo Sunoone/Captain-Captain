@@ -40,15 +40,14 @@ secret_owner = -4; // this determains who is the actual controller of this node,
 security_level = 3; // this determains, in part, the resistance to hacking
 quarantine = false; // is the node in quarantine / inventory?
 
-	// Hacking legacy
-hacked_by = -4;
-
 	// Abilities
 scr_ability_create_structure( id );
 register_abilities = false;
-ability_off = scr_ability_register( spr_action_off, 2, 0, 0, true, "Shut down, disables cpu cost." );
-ability_on = scr_ability_register( spr_action_on, 3, 0, 0, false, "Turn on, re-enables cpu cost." );
+ability_off = scr_ability_register( spr_action_off, 2, 0, true, "Shut down, disables cpu cost." );
+ability_on = scr_ability_register( spr_action_on, 3, 0, false, "Turn on, re-enables cpu cost." );
 switch_active = false;
+
+ability_running[0,0] = -4;
 
 	// health
 HP_max = 100;	// max HP of object 
@@ -63,8 +62,9 @@ interface_number_list = ds_list_create();
 light_up = 0; // this variable controls how long the object should light up
 
 	// cpu
-cpu_cost = 10;
+cpu_cost = 100;
 
 	// legacy -> unknown if still used, find out if save to remove
 object_surface = -1;
 security_rating = 4;
+hacked_by = -4;

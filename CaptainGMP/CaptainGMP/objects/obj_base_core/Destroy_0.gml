@@ -18,5 +18,9 @@ if( instance_exists( parent ) )
 // clear ds lists
 ds_list_destroy( core_ability_id )
 
-ds_list_destroy( core_abilities_type_1 );
-ds_list_destroy( core_abilities_type_2 );
+ds_list_destroy( running_abilities_index );
+ds_list_destroy( running_abilities_time );
+ds_list_destroy( running_abilities_script );
+ds_list_destroy( running_abilities_target );
+ds_list_destroy( running_abilities_icon );
+ds_list_destroy( running_abilities_cost );

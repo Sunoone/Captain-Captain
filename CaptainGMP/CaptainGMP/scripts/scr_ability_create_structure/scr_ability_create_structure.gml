@@ -11,6 +11,5 @@ with( argument0 )
 	ability_type = ds_list_create();
 	ability_script = ds_list_create();
 	ability_tooltip = ds_list_create();
-	ability_cpu = ds_list_create();
 	ability_index = ds_list_create();
 }

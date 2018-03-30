@@ -79,7 +79,7 @@ if( instance_exists( parent ) && active )
 	{
 		var core = parent.ship_core;
 	
-		core.cpu_budget += cpu_cost *  power( security_level, 2 );
+		core.cpu_budget += cpu_cost;
 	}
 }
 

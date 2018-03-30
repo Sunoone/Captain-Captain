@@ -1,13 +1,41 @@
-/// @description scr_ability_0_hack( target_id, owner )
+/// @description scr_ability_0_hack( mode, target_id, core )
+/// @param mode
 /// @param target_id
 /// @param owner
 
-// This script starts a basic hack on the target
+// Ability script for the basic hack on target
 
-if( instance_exists( argument0 ) )
+var node, core;
+node = argument1;
+core = argument2;
+
+if( instance_exists( node ) && instance_exists( core ) ) // check object existance
 {
-	// To do: add basic hacking code here
-	
-		// set secret owner
-	argument0.secret_owner = argument1;
+	if( node.secret_owner != core.owner ) // conditions
+	{
+		var cost, time;
+		cost = power( core.hacking_level, 2 ) * 10 + node.cpu_cost;
+		//time = node.security_level / core.hacking_level * 3;
+		time = 1; // debug
+		
+		switch( argument0 ) // mode switch
+		{
+			case 0: // test conditions
+				return true;
+		
+			case 1: // cost
+				return cost;
+			
+			case 2: // time in sec
+				return time;
+			
+			case 3: // real
+			{
+				// Hacking code
+				node.secret_owner = core.owner;
+			}
+		}
+	}
 }
+
+return false;

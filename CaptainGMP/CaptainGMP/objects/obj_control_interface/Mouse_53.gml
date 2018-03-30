@@ -26,8 +26,18 @@ if( draw_menu && scr_screen_mouse_above( menu_screen_index ) )
 			
 		if( point_distance( len_x, len_y, m_x, m_y ) < 52 )
 		{				
-			scr_ability_excecute_script( menu_options[| i * 4 + 1 ], menu_id, global.player );
-				
+			var script = menu_options[| i * 4 + 1 ];
+			
+			// run ability
+			scr_ability_initiate( 
+				global.player_core, 
+				menu_id, 
+				script,
+				scr_ability_excecute_script( 2, script, menu_id, global.player_core ),
+				scr_ability_excecute_script( 1, script, menu_id, global.player_core ),
+				menu_options[| 4 * i ]
+			);
+			
 			audio_play_sound( snd_interface_ping, 3, false );
 			break;
 		}

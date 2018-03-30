@@ -11,7 +11,7 @@ if( surface_exists(CPU_surface) && CPU_max > 0 )
 	draw_rectangle_colour( 0, CPU_surface_height - h_b, CPU_surface_width, CPU_surface_height, CPU_col, CPU_col, CPU_col, CPU_col, false );
 	
 		// draw cpu cost
-	if( CPU_cost > 0 )
+	if( CPU_cost != 0)
 	{
 		
 			// set the right colour
