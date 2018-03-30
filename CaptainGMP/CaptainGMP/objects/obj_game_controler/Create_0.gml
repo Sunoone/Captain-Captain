@@ -17,6 +17,7 @@ var room_hh = room_height * 0.5;
 global.combat_screen_index = scr_screen_surface_create( room_width - room_hh, room_height, room_hh, 0, true ); 
 global.combat_screen = scr_screen_surface_get_id( global.combat_screen_index );
 
+	// Owners
 // Player
 global.player = 0;	// declares the player to be owner 0;
 global.player_core = -4;
@@ -25,10 +26,9 @@ global.player_core = -4;
 global.owned_interface[0] = scr_create_interface( 0, room_height * 0.5, room_height * 0.5, room_height * 0.5, 0 );
 global.owned_interface[1] = scr_create_interface( 0, 0, room_height * 0.5, room_height * 0.5, 1 );
 
-
-
 // Ships
 global.registry = ds_list_create();
+global.owner_core[0] = -4;
 
 	//blue ship -> player ship
 debug_ship_0 = scr_create_ship_small_ship( 0, 600, 750 );

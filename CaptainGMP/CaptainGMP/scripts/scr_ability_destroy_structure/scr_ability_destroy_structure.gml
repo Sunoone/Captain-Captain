@@ -20,6 +20,5 @@ with( argument0 )
 	ds_list_destroy( ability_active );
 	ds_list_destroy( ability_script );
 	ds_list_destroy( ability_tooltip );
-	ds_list_destroy( ability_cpu );
 	ds_list_destroy( ability_index );
 }

@@ -43,6 +43,9 @@ if( scr_obj_check_parentage( i, obj_base_core ) )
 			// register with the interface
 		i.interface.core = i
 		
+			// register with the owner - core reverence structure
+		global.owner_core[ i.owner ] = i;
+		
 			// is this the player core?
 		if( i.owner == global.player )
 			global.player_core = i;

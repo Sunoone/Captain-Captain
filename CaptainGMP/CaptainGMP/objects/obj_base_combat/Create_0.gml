@@ -8,6 +8,8 @@ name = "Base Combat Object";
 	// standard variables 
 parent = -4;
 owner = -4;
+delta_owner = owner;
+core = -4;
 original_owner = -4;
 animation_speed = 0; // animation speed, frames per second
 animation_count = 0; //subimage

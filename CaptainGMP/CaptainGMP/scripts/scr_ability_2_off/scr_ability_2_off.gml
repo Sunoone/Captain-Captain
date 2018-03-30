@@ -11,7 +11,7 @@ core = argument2;
 
 if( instance_exists( node ) && instance_exists( core ) ) // check object existance
 {
-	if( node.original_owner == core.owner && node.active == true) // conditions
+	if( node.owner == core.owner && node.active == true) // conditions
 	{
 		var cost, time;
 		cost = -1 * node.cpu_cost;

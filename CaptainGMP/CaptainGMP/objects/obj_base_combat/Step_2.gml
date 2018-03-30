@@ -48,6 +48,19 @@ if( animation_speed != 0)
 	}
 }
 
+// Owner change
+if( owner != delta_owner ) // owner has changed
+{
+	if( owner >= 0 && owner < array_height_2d(global.owner_core) )
+	{	
+		if( instance_exists( global.owner_core[ owner ] ) )
+		{
+			core =  global.owner_core[ owner ];
+			delta_owner = owner;
+		}
+	}
+}
+
 // remove destroyed children & update owned childern
 var size;
 
@@ -119,10 +132,8 @@ if( light_up > 0 ) light_up -= DeltaTime;
 // CPU cost -----------------------------------------------------------------------------------------------------------------------------
 if( instance_exists( parent ) && active )
 {
-	if( instance_exists( parent.ship_core ) && owner == original_owner)
-	{
-		var core = parent.ship_core;
-	
+	if( instance_exists( core ) )
+	{	
 		core.cpu_budget += cpu_cost;
 	}
 }
