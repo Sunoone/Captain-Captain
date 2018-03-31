@@ -56,6 +56,9 @@ for( var i = ds_list_size( running_abilities_time ) -1; i >=0; i-- )
 		{
 			scr_ability_deregister_node( running_abilities_target[|i], id );
 			scr_ability_excecute_script( 3, running_abilities_script[|i], running_abilities_target[|i], id );
+			
+			if( owner == global.player )
+				audio_play_sound( snd_interface_confirm, 10, false );
 		}
 		
 		ds_list_delete( running_abilities_target, i );

@@ -45,3 +45,6 @@ draw_top = false;
 
 // hacking
 hackable_parts_list = ds_list_create();
+
+// internal variables
+object_surface = -4;

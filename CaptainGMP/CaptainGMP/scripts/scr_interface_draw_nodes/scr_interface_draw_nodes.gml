@@ -59,7 +59,7 @@ for( var i = 0; i<max_rings; i++)
 					col_g = 255 * d_col;
 					col_b = 255 * d_col;
 				}
-			
+				
 					// draw yellow for selected nodes
 				if( i == select_type && j == select_pos ) 
 				{

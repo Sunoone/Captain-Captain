@@ -73,7 +73,7 @@ HP = 1000000000;
 
 
 // CPU cost -----------------------------------------------------------------------------------------------------------------------------
-if( instance_exists( parent ) && active )
+if( instance_exists( parent ) && active && !quarantine )
 {
 	if( instance_exists( parent.ship_core ) && owner == original_owner)
 	{

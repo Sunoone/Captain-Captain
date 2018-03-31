@@ -69,29 +69,6 @@ if( draw_grid_object_active )
 	}
 }
 
-
-/*
-// debug -----------------------------------------------------------------------------------------------------------
-// debug draw grid
-for( var i = 0; i <= ship_grid_width; i++)
-{
-	for( var j = 0; j <= ship_grid_height; j++ )
-	{
-		draw_line_color( i * ship_grid_size, 0, i * ship_grid_size, j * ship_grid_size, c_green, c_green );
-		draw_line_color( 0, j * ship_grid_size, i * ship_grid_size, j * ship_grid_size, c_green, c_green );
-	}
-}
-
-// debug draw surface size
-var s_h, s_w;
-
-s_w = surface_get_width( object_surface ) - 2;
-s_h = surface_get_height( object_surface ) - 2;
-
-draw_rectangle_color( 1,1, s_w,s_h, c_white,c_white,c_white,c_white,true );
-// debug -----------------------------------------------------------------------------------------------------------
-*/
-
 // reset the draw target
 surface_reset_target();
 
@@ -127,22 +104,6 @@ if( surface_exists( combat_screen ) )
 	// draw surface with offset for rotation
 	
 	draw_surface_ext( object_surface, XX, YY, 1, 1, inherent_direction, c_white, 1 );
-	
-	// debug -----------------------------------------------------------------------------------------------------------------------------------------------
-	
-	//draw_circle_color( x, y, 2, c_red, c_red, false);
-	/*
-	var x1, x2, y1, y2, rad;
-	x1 = ship_hallign * ship_grid_size;
-	y1 = ship_vallign * ship_grid_size;
-	x2 = ship_grid_width * ship_grid_size - x1;
-	y2 = ship_grid_height * ship_grid_size - y1;
-	
-	rad = round(max( point_distance(0,0,x1,y1), point_distance(0,0,x1,y2), point_distance(0,0,x2,y1), point_distance(0,0,x2,y2) ));	//rad
-	
-	draw_circle_color( x, y, rad, c_green, c_green, true );
-	*/
-	// debug -----------------------------------------------------------------------------------------------------------------------------------------------
 	
 	surface_reset_target();
 }

@@ -130,7 +130,7 @@ if( light_up > 0 ) light_up -= DeltaTime;
 
 
 // CPU cost -----------------------------------------------------------------------------------------------------------------------------
-if( instance_exists( parent ) && active )
+if( instance_exists( parent ) && active && !quarantine )
 {
 	if( instance_exists( core ) )
 	{	
@@ -140,7 +140,7 @@ if( instance_exists( parent ) && active )
 
 
 // Abilities
-if( switch_active != active)
+if( switch_active != active )
 {
 		// change the active stage of all abilities
 	for( var i = ds_list_size( ability_active ); i>=0; i-- )

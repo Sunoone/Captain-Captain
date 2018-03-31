@@ -5,16 +5,6 @@
     "name": "obj_base_combat",
     "eventList": [
         {
-            "id": "75016f87-12c7-44e6-91d3-768e37ca8823",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 72,
-            "eventtype": 8,
-            "m_owner": "9ed86855-f20f-4f69-9076-c14c7b874b81"
-        },
-        {
             "id": "00582504-437f-4a70-85e3-eb844758e1a4",
             "modelName": "GMEvent",
             "mvc": "1.0",

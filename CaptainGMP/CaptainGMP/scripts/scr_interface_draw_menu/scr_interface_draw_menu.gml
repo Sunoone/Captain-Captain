@@ -77,7 +77,7 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 			draw_text_colour( 160, 50,  "CPU: " + string( scr_ability_excecute_script( 1, menu_options[| i * 4 + 1 ], menu_id, global.player_core ) ), c_red,  c_red,  c_red,  c_red,  1 );
 			draw_set_valign(fa_top);
 			
-			global.resource_display.CPU_cost = scr_ability_excecute_script( 1, menu_options[| i * 4 + 1 ], menu_id, global.player_core );
+			scr_resource_display_cost( global.player_core, scr_ability_excecute_script( 1, menu_options[| i * 4 + 1 ], menu_id, global.player_core ) );
 		}
 		else
 			draw_sprite_ext( spr_baseNode, 0, len_x, len_y, 1, 1, 0, c_black, 0.5 );
