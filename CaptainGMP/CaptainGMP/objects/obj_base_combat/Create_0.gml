@@ -64,7 +64,7 @@ interface_number_list = ds_list_create();
 light_up = 0; // this variable controls how long the object should light up
 
 	// cpu
-cpu_cost = 100;
+cpu_cost = 200;
 
 	// legacy -> unknown if still used, find out if save to remove
 object_surface = -1;

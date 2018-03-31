@@ -89,30 +89,26 @@ for( var i = 0; i<max_rings; i++)
 				if( ele_id.secret_owner == player_index && !player_owned )
 					draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );
 				
-				
-				if( player_owned )	// draw node data
-				{
-					var m_text = ele_id.interface_data;
+				// draw node data
+				var m_text = ele_id.interface_data;
 					
-					if( m_text > 0 )
-					{
-						var t_col = c_red;
+				if( m_text > 0 )
+				{
+					var t_col = c_red;
 						
-						for( var n = m_text - 1; n >= 0; n-- )
-						{
-							var h = ele_x + n * 20;
-							var s;
+					for( var n = m_text - 1; n >= 0; n-- )
+					{
+						var h = ele_x + n * 20;
+						var s;
 							
-							if( ele_id.interface_name_list[|n] == "" )
-								s = string( ele_id.interface_number_list[|n] );
-							else
-								s = ele_id.interface_name_list[|n] + ": " + string( ele_id.interface_number_list[|n] );
+						if( ele_id.interface_name_list[|n] == "" )
+							s = string( ele_id.interface_number_list[|n] );
+						else
+							s = ele_id.interface_name_list[|n] + ": " + string( ele_id.interface_number_list[|n] );
 							
-							draw_text_color( h, ele_y, s , t_col, t_col, t_col, t_col, 1 );
-						}
+						draw_text_color( h, ele_y, s , t_col, t_col, t_col, t_col, 1 );
 					}
 				}
-				
 			}
 		}
 	}

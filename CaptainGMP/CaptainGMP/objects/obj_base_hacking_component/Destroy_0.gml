@@ -5,6 +5,7 @@ event_inherited();
 
 // write code here
 
+/* Legacy
 for( var i = ds_list_size( hacked_list ) - 1; i >= 0; i-- )
 {
 	if( instance_exists( hacked_list[|i] ) )

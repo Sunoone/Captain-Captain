@@ -15,8 +15,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 	{
 		var cost, time;
 		cost = power( core.hacking_level, 2 ) * 10 + node.cpu_cost;
-		//time = node.security_level / core.hacking_level * 3;
-		time = 1; // debug
+		time = node.security_level / core.hacking_level * 3;
 		
 		switch( argument0 ) // mode switch
 		{

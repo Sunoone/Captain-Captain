@@ -21,7 +21,7 @@ cpu_budget = 0;
 cpu_available = 0;
 
 // Hacking
-hacking_level = 1;
+hacking_level = 3;
 scan_level = 1;
 
 // Abilities

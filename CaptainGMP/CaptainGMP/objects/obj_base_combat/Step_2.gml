@@ -157,3 +157,29 @@ if( switch_active != active)
 
 if( register_abilities )
 	scr_ability_update();
+
+// Update interface
+var global_player = global.player;
+
+if( scr_ability_check_running( id, global_player ) )
+{
+	
+	
+		// find the position of the index number
+	var c, p, t;
+	c = ability_running[ global_player,0];
+	p = ds_list_find_index( c.running_abilities_index, ability_running[global_player,1]  );
+	t = c.running_abilities_time[|p];
+	
+	if( t > 0 )
+	{
+		ds_list_clear( interface_name_list );
+		ds_list_clear( interface_number_list );
+	
+		interface_data = 1;
+	
+		ds_list_add( interface_name_list, "" );
+		ds_list_add( interface_number_list, t );
+	}
+}
+else interface_data = 0;

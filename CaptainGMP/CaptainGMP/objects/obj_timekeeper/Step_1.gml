@@ -20,7 +20,8 @@ for( var i = ds_list_size( global.registry ) -1; i >= 0; i-- )
 				if( cpu < 0 ) cpu = 0;
 				
 				// this is probably not the right formula that we want to be using
-				global.TimeDilation = 1 / power( cpu , 0.05 );
+				if( cpu > 0 )
+					global.TimeDilation = 1 / power( cpu , 0.05 );
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 /// @description Add Target
 
+exit;
 
 if( global.player == owner )
 {

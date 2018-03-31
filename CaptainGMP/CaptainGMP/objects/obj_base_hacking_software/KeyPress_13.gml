@@ -1,5 +1,7 @@
 /// @description debug switch active
 
+exit;
+
 if( global.player == owner )
 {
 	if( switch_active )

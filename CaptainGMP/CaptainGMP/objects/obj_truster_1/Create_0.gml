@@ -7,7 +7,7 @@ maxThrust = 100;
 timeToMaxThrust = 1;	// Ease in
 
 curThrust = 100;
-active = false;
+active = true;
 type = 2; // register as a component
 
 name = "Debug Truster";

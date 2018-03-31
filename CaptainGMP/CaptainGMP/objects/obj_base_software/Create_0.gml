@@ -12,3 +12,5 @@ HP = 1000000000;
 regen = 1;
 
 security_level = 6;
+
+cpu_cost = 500;

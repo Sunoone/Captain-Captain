@@ -4,10 +4,7 @@
 
 
 if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
-{
-	
-	
-	
+{	
 	// Update the menu options
 	ds_list_clear( menu_options );
 	
@@ -54,7 +51,7 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 	// draw menu background
 	draw_sprite_ext( spr_radial_menu_extended, 0, 78, 78, 1, 1, 0, c_white, 0.75 );
 	
-	// draw menu options
+	// draw menu options / icons
 	var m_x, m_y;
 	
 	m_x = scr_screen_mouse_get_x( menu_screen_index );
@@ -76,6 +73,8 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 			
 			draw_set_valign(fa_middle);
 			draw_text_colour( 160, 10,  string( menu_options[| 4 * i + 3] ), c_yellow,  c_yellow,  c_yellow,  c_yellow,  1 );
+			draw_text_colour( 160, 30,  "Time: " + string( scr_ability_excecute_script( 2, menu_options[| i * 4 + 1 ], menu_id, global.player_core ) ), c_red,  c_red,  c_red,  c_red,  1 );
+			draw_text_colour( 160, 50,  "CPU: " + string( scr_ability_excecute_script( 1, menu_options[| i * 4 + 1 ], menu_id, global.player_core ) ), c_red,  c_red,  c_red,  c_red,  1 );
 			draw_set_valign(fa_top);
 			
 			global.resource_display.CPU_cost = scr_ability_excecute_script( 1, menu_options[| i * 4 + 1 ], menu_id, global.player_core );
