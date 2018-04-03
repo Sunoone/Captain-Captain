@@ -65,4 +65,11 @@
 #macro sh_core obj_base_core
 
 	// constant
-#macro max_int 2147483647	// the maximum size that a 32-bit signed int can take 
+#macro max_int 2147483647	// the maximum size that a 32-bit signed int can take (this #macro is used)
+
+	// Base Object Variables
+#macro var_HP 0
+#macro var_HP_max 1
+#macro var_regen 2
+#macro var_cpu_cost 3
+#macro var_security_level 4

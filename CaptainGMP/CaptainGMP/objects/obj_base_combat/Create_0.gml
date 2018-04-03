@@ -8,12 +8,10 @@ name = "Base Combat Object";
 	// standard variables 
 parent = -4;
 core = -4;
-
 owner = -4;
-original_owner = -4;
 secret_owner = -4; // this determains who is the actual controller of this node
+original_owner = -4;
 delta_owner = owner;
-
 animation_speed = 0; // animation speed, frames per second
 animation_count = 0; //subimage
 parent_direction = 0; //direction from parent
@@ -23,14 +21,20 @@ active = true; //is the object active?
 children = ds_list_create(); //keeps all linked object ids
 owned_childern = ds_list_create(); // a list of childern that have the same owner as the regulator
 allowed_type = ds_list_create(); //keeps all objects that are able to link to this object
+interface_width = 1;	// the width of the interface element for the object
 
 	// stats
-HP = 100;				// current HP of object
-HP_max = 100;			// max HP of object 
-regen = 0.025;			// every sec, 2.5% hp is regained
-cpu_cost = 150;			// base cost of object
-security_level = 3;		// this determains, in part, the resistance to hacking
-interface_width = 1;	// the width of the interface element for the object
+update_variables = true;
+
+stat[var_HP, 1] = 100;				// current HP of object
+stat[var_HP_max, 1] = 100;			// max HP of object 
+stat[var_regen, 1] = 0.025;			// every sec, 2.5% hp is regained
+stat[var_cpu_cost, 1] = 100;		// base cost of object
+stat[var_security_level, 1] = 1;	// resistance to hacking
+
+	// Status Effects
+modification = ds_grid_create( 1, 5 );
+
 
 	// hacking
 hacking_owner = ds_list_create();		// keeps track of which owner is hacking this object

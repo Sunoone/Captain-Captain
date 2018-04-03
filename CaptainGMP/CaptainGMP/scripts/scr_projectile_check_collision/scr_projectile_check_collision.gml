@@ -73,7 +73,7 @@ for( var i = 0; i < size; i++ )
 							if( instance_exists( obj ) && obj != -1 )
 							{
 								// damage object and explode projectile
-								obj.HP -= list_dam[|pos];
+								obj.stat[var_HP,0] -= list_dam[|pos];
 							
 								list_des[|pos] = true;
 								list_ttl[|pos] = 0;

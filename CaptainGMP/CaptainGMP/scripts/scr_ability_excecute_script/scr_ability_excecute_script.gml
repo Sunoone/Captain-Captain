@@ -30,6 +30,9 @@ switch( argument1 )
 	
 	case 4:
 		return scr_ability_4_control( argument0, argument2, argument3 );
+		
+	case 5:
+		return scr_ability_5_raise( argument0, argument2, argument3 );
 	
 	default:
 		return false;

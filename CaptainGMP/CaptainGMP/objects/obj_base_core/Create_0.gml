@@ -7,14 +7,15 @@ event_inherited();
 type = -2;
 name = "Base Core";
 
-HP_max = 250;
-HP = 200;
+	// stats
+stat[var_HP, 1] = 500;				// current HP of object
+stat[var_HP_max, 1] = 500;			// max HP of object 
+stat[var_regen, 1] = 0.05;			// every sec, 2.5% hp is regained
+stat[var_cpu_cost, 1] = 0;
 
 software = ds_list_create();
 
 // CPU
-cpu_cost = 0;
-
 cpu = 5000;
 cpu_bonus = 0;
 cpu_budget = 0;

@@ -11,8 +11,6 @@ animation_fire_speed = 0;		// animation speed in frames per second
 
 // Turret stats -------------------------------------------------------------------------------------------
 name = "Debug Missile Turret";
-HP_max = 250;
-HP = 250;
 
 	// Bonus
 turret_speed = 500;	// speed added to the projectile by turret bonuses

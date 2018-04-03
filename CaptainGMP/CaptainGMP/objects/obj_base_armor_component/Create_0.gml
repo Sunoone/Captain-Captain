@@ -7,13 +7,12 @@ event_inherited();
 
 interface_width = 0; // the width of the interface element for the object
 
-HP_max = 500;	// max HP of object 
-HP = 500;		// current HP of object
-regen = 0.05;	// every sec, 5% hp is regained
-
 type = -5; // set type of object to -5
 
-	// cpu
-cpu_cost = 0;
+	// stats
+stat[var_HP, 1] = 500;				// current HP of object
+stat[var_HP_max, 1] = 500;			// max HP of object 
+stat[var_regen, 1] = 0.05;			// every sec, 2.5% hp is regained
+stat[var_cpu_cost, 1] = 0;
 
 name = "Base Armor Component";

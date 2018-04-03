@@ -7,10 +7,8 @@ event_inherited();
 name = "Base Software";
 
 // hack to keep software healty
-HP_max = 1000000000;
-HP = 1000000000;
-regen = 1;
-
-security_level = 6;
-
-cpu_cost = 500;
+stat[var_HP_max, 1] = 1000000000;
+stat[var_HP, 1] = 1000000000;
+stat[var_regen, 1] = 1;
+stat[var_security_level, 1] = 6;
+stat[var_cpu_cost, 1] = 500;

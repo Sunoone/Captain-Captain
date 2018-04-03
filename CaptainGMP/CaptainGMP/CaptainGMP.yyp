@@ -423,6 +423,14 @@
             }
         },
         {
+            "Key": "30f4c2d9-1d2e-41a2-802b-038466dd79e5",
+            "Value": {
+                "id": "13c862a6-398a-468c-ad2a-656afc999350",
+                "resourcePath": "scripts\\scr_ability_5_raise\\scr_ability_5_raise.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "3199638b-5bbe-4d95-9b7d-2241b4143c4d",
             "Value": {
                 "id": "ede3c30f-122a-4ce2-8a28-3b6e5677cee2",
@@ -847,6 +855,14 @@
             }
         },
         {
+            "Key": "5ba04795-920d-4023-bea6-83be659025da",
+            "Value": {
+                "id": "f358ed6c-f835-4177-9af0-bf0c06145490",
+                "resourcePath": "scripts\\scr_status_effect_add\\scr_status_effect_add.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "5baeef53-1712-4d89-bc36-0a8018971cf0",
             "Value": {
                 "id": "2e0f98b5-72bd-4ec5-b825-273d3bfd848d",
@@ -1135,6 +1151,14 @@
             }
         },
         {
+            "Key": "77804cef-fc68-4565-bdcb-151e7098f6a8",
+            "Value": {
+                "id": "62b81aaf-a074-4ae5-883b-185a4f6caf78",
+                "resourcePath": "scripts\\scr_status_effect_remove\\scr_status_effect_remove.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "77d39c0f-1bc9-40e3-9389-c29cb15454c9",
             "Value": {
                 "id": "c676a52b-036c-4735-9382-e9be4617bb45",
@@ -1300,6 +1324,14 @@
                 "id": "711b5c7d-f0ba-4678-9cc7-19cbb4f16387",
                 "resourcePath": "views\\8d127030-51b6-4140-8b1b-d1b9b010cb92.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "901106a2-4a7e-4231-b492-a913511ceff5",
+            "Value": {
+                "id": "3655d070-6d37-48a1-addd-257ac68b69aa",
+                "resourcePath": "sprites\\spr_action_buff\\spr_action_buff.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1919,6 +1951,14 @@
             }
         },
         {
+            "Key": "dbd9cc7d-187c-493c-b873-ffec338831c3",
+            "Value": {
+                "id": "b335e0da-5c10-4750-8f66-a39464365655",
+                "resourcePath": "scripts\\scr_status_effect_update\\scr_status_effect_update.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "dcb6b43c-ee8b-4bec-baa6-96b51bc88caf",
             "Value": {
                 "id": "63aa3295-9012-438b-842a-db5192e39201",
@@ -2283,17 +2323,18 @@
         "d2c58533-9d48-462b-9621-62f392897d9f",
         "70d5e9bb-8d31-4da8-9eff-be678a71583a",
         "08e6b3f6-7a3b-4de5-b088-2575c2f1204d",
+        "d1d63bc6-213b-49d7-97a9-00c0f4623ac4",
         "abddd5fc-e14c-4881-8a52-492b9a46000c",
         "c6184398-7975-4340-bc23-7e72aecccad7",
         "eab999cc-f67f-41ab-8e65-981936623193",
         "f6eabce9-b281-40ad-93ff-f37a0e64a26f",
         "4d15243e-9301-4361-aed0-01633b0a9dca",
+        "30f4c2d9-1d2e-41a2-802b-038466dd79e5",
         "e26f732c-77a3-4dee-b0de-abce47a28981",
         "75442efd-91f8-48a5-bfa5-5a80240b911a",
         "73b803b4-7292-4e75-bf12-1c97e476bedb",
         "a4997661-9402-4edd-b16d-ebd508757335",
         "1531dbfa-f04f-4af7-92a4-8204dced0ae8",
-        "d1d63bc6-213b-49d7-97a9-00c0f4623ac4",
         "cc1ef32a-dc59-4265-87c0-441f85694744",
         "9abeac81-1a75-4a15-9c96-25ce0cec10d1",
         "57425268-d4b3-4046-8b92-f02ab8762510",
@@ -2301,6 +2342,9 @@
         "0b1dbbf6-d64f-413b-bb71-138b317c6a46",
         "f77cd096-039b-41fa-972f-dbce99e9f727",
         "0bb03247-9f7b-4768-9a39-c0b8ac60241f",
+        "dbd9cc7d-187c-493c-b873-ffec338831c3",
+        "77804cef-fc68-4565-bdcb-151e7098f6a8",
+        "5ba04795-920d-4023-bea6-83be659025da",
         "9beb0a4b-5345-48f1-bdcd-e13632cbe66c",
         "6d400e64-81fb-4c4f-a84e-33f33ac268a1",
         "3e5dc068-863e-4590-bafd-c5317b138398",

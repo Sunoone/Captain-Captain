@@ -7,7 +7,6 @@ event_inherited();
 name = "Base Hacking Software";
 
 type = 0; // declare as software
-security_level = 7;
 
 interface_width = 6;
 ds_list_add( allowed_type, obj_base_hacking_regulator );

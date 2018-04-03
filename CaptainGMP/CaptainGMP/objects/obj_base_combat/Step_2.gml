@@ -2,19 +2,29 @@
 
 globalvar DeltaTime;
 
+// update all stats
+if( update_variables )
+{
+	for( var i = array_height_2d( stat ) -1; i >= 0; i-- )
+	{
+		scr_status_effect_update( id, i );
+	}
+	update_variables = false;	
+}
+
 // check HP
-if( HP <= 0 )
+if( stat[var_HP,0] <= 0 )
 {
 	instance_destroy(id);
 	exit;
 }
 
 // natural HP regen
-if( HP < HP_max )
+if( stat[var_HP,0] < stat[var_HP_max,0] )
 {
-	var r = HP_max * regen * DeltaTime;
-	HP += r;
-	if( HP > HP_max ) HP = HP_max;
+	var r = stat[var_HP_max,0] * stat[var_regen,0] * DeltaTime;
+	stat[var_HP,0] += r;
+	if( stat[var_HP,0] > stat[var_HP_max,0] ) stat[var_HP,0] = stat[var_HP_max,0];
 }
 
 // Update position
@@ -98,8 +108,6 @@ var own_c, all_c;
 own_c = ds_list_size(owned_childern);
 all_c = ds_list_size(children);
 
-	// update security rating
-security_rating = sqr( security_level ) * ( 1 + ( 0.5 / interface_width ) * ( own_c - all_c ) );
 
 	// update hackability
 if( quarantine )
@@ -134,7 +142,10 @@ if( instance_exists( parent ) && active && !quarantine )
 {
 	if( instance_exists( core ) )
 	{	
-		core.cpu_budget += cpu_cost;
+		core.cpu_budget += stat[var_cpu_cost,0];
+		
+		for( var i = ds_grid_width( modification ) - 1; i > 0; i-- )
+			core.cpu_budget += modification[# i, 1];
 	}
 }
 

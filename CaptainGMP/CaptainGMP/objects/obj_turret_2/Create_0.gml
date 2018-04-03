@@ -11,8 +11,6 @@ animation_fire_speed = 3.2;		// animation speed in frames per second
 
 // Turret stats -------------------------------------------------------------------------------------------
 name = "Debug Beam Turret";
-HP_max = 250;
-HP = 250;
 
 	// Bonus
 turret_speed = 1200;	// speed added to the projectile by turret bonuses

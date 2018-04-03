@@ -32,9 +32,6 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 			{
 				node.owner = core.owner;
 				node.register_abilities = true;
-				
-					// remove all bufs
-				scr_status_effect_remove( node, -1 );
 			}
 		}
 	}

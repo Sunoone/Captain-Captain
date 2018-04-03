@@ -1,6 +1,16 @@
 /// @description Update Children
 // You can write your code in this editor
 
+// update all stats
+if( update_variables )
+{
+	for( var i = array_height_2d( stat ) -1; i >= 0; i-- )
+	{
+		scr_status_effect_update( id, i );
+	}
+	update_variables = false;	
+}
+
 // remove destroyed children
 var size;
 
@@ -40,8 +50,6 @@ var own_c, all_c;
 own_c = ds_list_size(owned_childern);
 all_c = ds_list_size(children);
 
-	// update security rating
-security_rating = sqr( security_level ) * ( 1 + ( 0.5 / interface_width ) * ( own_c - all_c ) );
 
 	// update hackability
 if( quarantine )
@@ -67,10 +75,6 @@ else
 		children[|i].can_be_hacked_parent = false;
 }
 
-// HP Hack
-HP_max = 1000000000;
-HP = 1000000000;
-
 
 // CPU cost -----------------------------------------------------------------------------------------------------------------------------
 if( instance_exists( parent ) && active && !quarantine )
@@ -79,7 +83,10 @@ if( instance_exists( parent ) && active && !quarantine )
 	{
 		var core = parent.ship_core;
 	
-		core.cpu_budget += cpu_cost;
+		core.cpu_budget += stat[var_cpu_cost,0];
+		
+		for( var i = ds_grid_width( modification ) - 1; i > 0; i-- )
+			core.cpu_budget += modification[# i, 1];
 	}
 }
 
@@ -109,8 +116,6 @@ var global_player = global.player;
 
 if( scr_ability_check_running( id, global_player ) )
 {
-	
-	
 		// find the position of the index number
 	var c, p, t;
 	c = ability_running[ global_player,0];
