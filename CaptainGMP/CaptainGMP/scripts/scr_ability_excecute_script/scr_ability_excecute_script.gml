@@ -33,6 +33,9 @@ switch( argument1 )
 		
 	case 5:
 		return scr_ability_5_raise( argument0, argument2, argument3 );
+		
+	case 6:
+		return scr_ability_6_scan( argument0, argument2, argument3 );
 	
 	default:
 		return false;

@@ -12,7 +12,7 @@ if( instance_exists(argument0) )
 		if( argument1 < 0 ) // remove all modifications
 		{
 			var w;
-			for( var i = ds_grid_width( modification ); i > 0; i-- )
+			for( var i = ds_grid_width( modification ) -1; i > 0; i-- )
 			{
 				w = modification[# i, 2];
 				
@@ -36,8 +36,6 @@ if( instance_exists(argument0) )
 				ds_grid_add_grid_region( modification, modification, i + 1, 0, s - 1, 4, i, 0 );
 			
 			ds_grid_resize( modification, s - 1, 5 );
-			
-			
 		}
 	}
 }

@@ -2,7 +2,7 @@
     "id": "212bded3-3a38-493a-89a6-bbd3100d06c3",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "spr_action_disrupt1",
+    "name": "spr_action_scan",
     "For3D": false,
     "HTile": false,
     "VTile": false,

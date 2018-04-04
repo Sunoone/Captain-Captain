@@ -35,6 +35,8 @@ for( var i = 0; i<max_rings; i++)
 					draw_line_width_color( x1, y1, x2, y2, 3, c_white, c_white );
 				}
 			}
+			else if( i ==  0 && grid[# j, e_visible ] == 1) // draw lines for software to core
+				draw_line_width_color(  grid[# j, e_x ], grid[# j, e_y ], s_width, s_height, 3, c_white, c_white );
 		}
 	}
 }

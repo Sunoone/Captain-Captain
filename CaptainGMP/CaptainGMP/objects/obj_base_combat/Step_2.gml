@@ -2,7 +2,7 @@
 
 globalvar DeltaTime;
 
-// update all stats
+// Update all stats
 if( update_variables )
 {
 	for( var i = array_height_2d( stat ) -1; i >= 0; i-- )
@@ -12,14 +12,14 @@ if( update_variables )
 	update_variables = false;	
 }
 
-// check HP
+// Check HP
 if( stat[var_HP,0] <= 0 )
 {
 	instance_destroy(id);
 	exit;
 }
 
-// natural HP regen
+// Natural HP regen
 if( stat[var_HP,0] < stat[var_HP_max,0] )
 {
 	var r = stat[var_HP_max,0] * stat[var_regen,0] * DeltaTime;
@@ -41,7 +41,7 @@ if( instance_exists( parent ) )
 	y = parent.y + lengthdir_y(off_l, parent.direction + off_d);
 }
 
-//Update animation
+// Update animation
 if( animation_speed != 0)
 {
 	if( sprite_exists( sprite_index ) )
@@ -71,7 +71,7 @@ if( owner != delta_owner ) // owner has changed
 	}
 }
 
-// remove destroyed children & update owned childern
+// Remove destroyed children & update owned childern
 var size;
 
 size = ds_list_size(children)
@@ -109,7 +109,7 @@ own_c = ds_list_size(owned_childern);
 all_c = ds_list_size(children);
 
 
-	// update hackability
+	// Update hackability
 if( quarantine )
 {
 	can_be_hacked = false;
@@ -133,7 +133,7 @@ else
 		children[|i].can_be_hacked_parent = false;
 }
 
-// update visual light_up
+// Update visual light_up
 if( light_up > 0 ) light_up -= DeltaTime;
 
 
@@ -153,11 +153,11 @@ if( instance_exists( parent ) && active && !quarantine )
 // Abilities
 if( switch_active != active )
 {
-		// change the active stage of all abilities
+		// Change the active stage of all abilities
 	for( var i = ds_list_size( ability_active ); i>=0; i-- )
 		ability_active[|i] = active;
 		
-		// switch on/off abilities
+		// Switch on/off abilities
 	if( active )
 		scr_ability_set_active( ability_on, false );
 	else
@@ -174,9 +174,7 @@ var global_player = global.player;
 
 if( scr_ability_check_running( id, global_player ) )
 {
-	
-	
-		// find the position of the index number
+		// Find the position of the index number
 	var c, p, t;
 	c = ability_running[ global_player,0];
 	p = ds_list_find_index( c.running_abilities_index, ability_running[global_player,1]  );

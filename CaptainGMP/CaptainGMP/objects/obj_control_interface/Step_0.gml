@@ -30,13 +30,6 @@ scr_interface_update();
 	draw_circle_color( s_width, s_height, rad_0 - r_dist, c_aqua, c_aqua, false );
 	draw_circle_color( s_width, s_height, rad_0 - r_dist*2, c_ltgray, c_ltgray, false );
 
-	// draw core
-	var owner_color = c_red;
-	if( access == 1 ) owner_color = c_green;
-
-	draw_circle_color( s_width, s_height, rad_0 - r_dist*3, owner_color, owner_color, false );
-
-
 // draw seperation lines
 scr_interface_draw_seperation_lines();
 
@@ -52,6 +45,14 @@ scr_interface_draw_nodes();
 // draw drag indication lines when draging an element
 scr_interface_draw_indication_lines();
 
+
+// draw core
+var owner_color = c_red;
+
+if( access == 1 ) 
+	owner_color = c_green;
+
+draw_circle_color( s_width, s_height, rad_0 - r_dist*3, owner_color, owner_color, false );
 
 // reset the draw target
 surface_reset_target();
