@@ -65,6 +65,7 @@ for( var i = ds_list_size( running_abilities_time ) -1; i >=0; i-- )
 		ds_list_delete( running_abilities_script, i );
 		ds_list_delete( running_abilities_index, i );
 		ds_list_delete( running_abilities_time, i );
+		ds_list_delete( running_abilities_maxTime, i );
 		ds_list_delete( running_abilities_cost, i );
 		ds_list_delete( running_abilities_icon, i );
 	}

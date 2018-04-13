@@ -75,40 +75,49 @@ for( var i = 0; i<max_rings; i++)
 					col_b = 0;
 					col_r = 255;
 				}
-			
+				
+				if( ele_id.active == false && ele_id.owner == player_index )
+				{
+					col_b -= 124;
+					col_g -= 124;
+					col_r -= 124;
+				}
+				
 				col = make_color_rgb( col_r, col_g, col_b );
 			
 					// draw grey drag-hold sprite
-				if( i == i_grey && j == j_grey ) col = c_dkgray;
-			
+				if( i == i_grey && j == j_grey ) col = c_dkgray;	
+				
 				draw_sprite_ext( spr_baseNode, 0, ele_x, ele_y, 1, 1, 0, col, 1);
+				
+				// draw node data
+				var m_text = ele_id.interface_data;
+				
+				if( m_text > 0 )
+				{
+					var m = ele_id.interface_name_list[|0];
+					
+					if( m != 0 )
+					{
+						var p = (ele_id.interface_number_list[|0] / m ) * 100;
+						
+							// Overdraw
+						if( player_owned )
+						{
+							scr_draw_sprite_loading( spr_baseNode, 0, ele_x, ele_y, col, make_color_rgb(25,255,25), 100-p );
+						}
+						else
+						{
+							scr_draw_sprite_loading( spr_baseNode, 0, ele_x, ele_y, col, c_red, 100-p);
+						}
+					}
+				}
 				
 				if( grid[# j, e_visible] == 1 || player_owned )
 					draw_sprite_ext( ele_spr, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );
 				
 				if( ele_id.secret_owner == player_index && !player_owned )
 					draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );
-				
-				// draw node data
-				var m_text = ele_id.interface_data;
-					
-				if( m_text > 0 )
-				{
-					var t_col = c_red;
-						
-					for( var n = m_text - 1; n >= 0; n-- )
-					{
-						var h = ele_x + n * 20;
-						var s;
-							
-						if( ele_id.interface_name_list[|n] == "" )
-							s = string( ele_id.interface_number_list[|n] );
-						else
-							s = ele_id.interface_name_list[|n] + ": " + string( ele_id.interface_number_list[|n] );
-							
-						draw_text_color( h, ele_y, s , t_col, t_col, t_col, t_col, 1 );
-					}
-				}
 			}
 		}
 	}

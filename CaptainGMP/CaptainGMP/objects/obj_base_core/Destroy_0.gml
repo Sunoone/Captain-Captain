@@ -24,3 +24,4 @@ ds_list_destroy( running_abilities_script );
 ds_list_destroy( running_abilities_target );
 ds_list_destroy( running_abilities_icon );
 ds_list_destroy( running_abilities_cost );
+ds_list_destroy( running_abilities_maxTime );

@@ -21,6 +21,7 @@ if( instance_exists( core ) && instance_exists( node ) )
 		ds_list_add( running_abilities_target,	node );
 		ds_list_add( running_abilities_script,	argument2 );
 		ds_list_add( running_abilities_time,	argument3 );
+		ds_list_add( running_abilities_maxTime,	argument3 );
 		ds_list_add( running_abilities_cost,	argument4 );
 		ds_list_add( running_abilities_icon,	argument5 );
 	}

@@ -67,6 +67,7 @@ if( owner != delta_owner ) // owner has changed
 		{
 			core =  global.owner_core[ owner ];
 			delta_owner = owner;
+			register_abilities = true;
 		}
 	}
 }
@@ -175,19 +176,20 @@ var global_player = global.player;
 if( scr_ability_check_running( id, global_player ) )
 {
 		// Find the position of the index number
-	var c, p, t;
+	var c, p, t, m;
 	c = ability_running[ global_player,0];
 	p = ds_list_find_index( c.running_abilities_index, ability_running[global_player,1]  );
 	t = c.running_abilities_time[|p];
+	m = c.running_abilities_maxTime[|p];
 	
 	if( t > 0 )
 	{
 		ds_list_clear( interface_name_list );
 		ds_list_clear( interface_number_list );
-	
+		
 		interface_data = 1;
-	
-		ds_list_add( interface_name_list, "" );
+		
+		ds_list_add( interface_name_list, m );
 		ds_list_add( interface_number_list, t );
 	}
 }

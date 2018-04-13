@@ -25,6 +25,7 @@ if( global.player == index && access != 1 ) // this is a FRIENDLY interface and 
 	
 	scr_screen_surface_set_xy( screen_index, f_x + inventory_width, f_y );
 	
+	global.player_core = core;
 }
 
 if( global.player != index && access == 1 ) // this is a HOSTILE interface and needs to be updated as such

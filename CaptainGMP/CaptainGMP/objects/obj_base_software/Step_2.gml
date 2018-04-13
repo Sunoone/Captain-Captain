@@ -1,6 +1,12 @@
-/// @description Update Children
+/// @description Update Software
+
+// Inherit the parent event
+event_inherited();
+
 // You can write your code in this editor
 
+
+/*
 // update all stats
 if( update_variables )
 {
@@ -9,6 +15,20 @@ if( update_variables )
 		scr_status_effect_update( id, i );
 	}
 	update_variables = false;	
+}
+
+// Owner change
+if( owner != delta_owner ) // owner has changed
+{
+	if( owner >= 0 && owner < array_height_2d(global.owner_core) )
+	{	
+		if( instance_exists( global.owner_core[ owner ] ) )
+		{
+			core =  global.owner_core[ owner ];
+			delta_owner = owner;
+			register_abilities = true;
+		}
+	}
 }
 
 // remove destroyed children
@@ -29,7 +49,7 @@ if( size>0 )
 	}
 }
 
-// update owned childern
+// Update owned childern
 ds_list_clear( owned_childern );
 
 ds_list_copy( owned_childern, children );
