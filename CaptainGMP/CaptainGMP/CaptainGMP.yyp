@@ -151,6 +151,14 @@
             }
         },
         {
+            "Key": "08d3bbf8-8872-4ddb-a8ba-4d838e8d754f",
+            "Value": {
+                "id": "aea784ed-8506-4f74-b40b-77a3d7f46c0a",
+                "resourcePath": "scripts\\scr_cost_antivirus\\scr_cost_antivirus.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "08e6b3f6-7a3b-4de5-b088-2575c2f1204d",
             "Value": {
                 "id": "702c4944-7c05-4195-8024-bcf5793e0480",
@@ -468,6 +476,14 @@
                 "id": "ede3c30f-122a-4ce2-8a28-3b6e5677cee2",
                 "resourcePath": "objects\\obj_resource_display\\obj_resource_display.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "31e58951-0112-401a-8d15-4b3211cb552a",
+            "Value": {
+                "id": "d7064f7b-2753-485a-9f09-945c385d92ba",
+                "resourcePath": "scripts\\scr_ability_9_antivirus\\scr_ability_9_antivirus.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1743,6 +1759,14 @@
             }
         },
         {
+            "Key": "c8d29274-7841-45f6-ad38-ea4090572473",
+            "Value": {
+                "id": "aadb8664-081d-4d5d-ab2d-bf5602033e83",
+                "resourcePath": "sprites\\spr_action_antivirus\\spr_action_antivirus.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c8f6f3c3-2ec3-4eab-a716-c6120be1c112",
             "Value": {
                 "id": "3896aa94-a36f-4b46-91ec-11cc5d768fc1",
@@ -2304,6 +2328,7 @@
         "cd9636b5-199b-4457-9b17-fef427d4fe14",
         "3f445469-0dce-4b2e-9d46-845a0eed5bdb",
         "5164d176-7684-4470-8a52-48d52de04d7d",
+        "08d3bbf8-8872-4ddb-a8ba-4d838e8d754f",
         "99642e91-7714-4fc3-a2f3-098b96308822",
         "c9b0b98b-154c-413a-9ff7-9dbc43ceb53c",
         "422561d9-489c-41ce-baf5-e01ca7616079",
@@ -2358,6 +2383,7 @@
         "1b74a15a-c9a2-4df2-bac4-d678f1cd6749",
         "fc22669e-9cd0-4e91-9f6c-725e7a6c2146",
         "789d38c5-59b3-4c14-8fba-2f4f15a8f06c",
+        "31e58951-0112-401a-8d15-4b3211cb552a",
         "e26f732c-77a3-4dee-b0de-abce47a28981",
         "75442efd-91f8-48a5-bfa5-5a80240b911a",
         "73b803b4-7292-4e75-bf12-1c97e476bedb",

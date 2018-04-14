@@ -42,6 +42,9 @@ switch( argument1 )
 		
 	case 8:
 		return scr_ability_8_exit( argument0, argument2, argument3 );
+		
+	case 9:
+		return scr_ability_9_antivirus( argument0, argument2, argument3 );
 	
 	default:
 		return false;

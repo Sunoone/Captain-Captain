@@ -1,6 +1,8 @@
 /// @description scr_interface_draw_seperation_lines()
 
-// this script draws the seperation lines for an interface object
+// this script draws seperation lines for an interface object
+
+// this script is very slow
 
 for( var i = 0; i < max_rings; i++ )
 {

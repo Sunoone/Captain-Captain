@@ -33,6 +33,8 @@ scr_ability_register( spr_action_scan,		 6, 2, true, "Scan this node" );
 scr_ability_register( spr_action_disrupt,	 1, 3, true, "Disrupt this node" );
 scr_ability_register( spr_action_exit,		 8, 3, true, "Exit Node, removes Status Effects" );
 
+scr_ability_register( spr_action_antivirus,	 9, 4, true, "Antivirus - Regain control of this node" );
+
 
 core_ability_id = ds_list_create();
 ds_list_add( core_ability_id, id );

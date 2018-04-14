@@ -47,16 +47,16 @@ switch( interface.access )
 	
 	case 1: // Friendly interface
 	{
-			// collect core antivirus / scanning abilities
+			// collect core type 2 abilities
 			scr_ability_fetch_type_list( core.core_ability_id, 2, menu_options, core, node );
 				
 			// collect node abilities
 			scr_ability_fetch_type( node, 0, menu_options, core, node );
 				
-			if( app_own != interface.index )
+			if( app_own != player_index )
 			{
 				// collect antivirus tools
-					
+				scr_ability_fetch_type_list( core.core_ability_id, 4, menu_options, core, node );
 			}
 	}
 	break;
