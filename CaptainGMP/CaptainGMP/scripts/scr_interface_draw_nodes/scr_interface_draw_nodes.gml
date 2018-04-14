@@ -108,16 +108,31 @@ for( var i = 0; i<max_rings; i++)
 						}
 						else
 						{
-							scr_draw_sprite_loading( spr_baseNode, 0, ele_x, ele_y, col, c_red, 100-p);
+							scr_draw_sprite_loading( spr_baseNode, 0, ele_x, ele_y, col, make_color_rgb(255,25,25), 100-p);
 						}
 					}
 				}
 				
 				if( grid[# j, e_visible] == 1 || player_owned )
-					draw_sprite_ext( ele_spr, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );
-				
-				if( ele_id.secret_owner == player_index && !player_owned )
-					draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );
+				{
+					// display node icon
+					draw_sprite_ext( ele_spr, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );				
+					
+					// display apparent secret owner
+					if( scr_object_apparent_owner_known( ele_id, player_index ) )
+					{
+						var app_own = ele_id.apparent_owner[player_index];
+						
+						if( app_own == player_index )
+							draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );
+						else
+							draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_red, 1 );
+					}
+					else
+					{
+						draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_gray, 1 );
+					}
+				}
 			}
 		}
 	}

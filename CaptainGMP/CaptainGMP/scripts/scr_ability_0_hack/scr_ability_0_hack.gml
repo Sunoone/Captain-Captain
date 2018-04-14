@@ -32,6 +32,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 			{
 				// Hacking code
 				node.secret_owner = core.owner;
+				node.apparent_owner[ core.owner ] = core.owner;
 			}
 		}
 	}

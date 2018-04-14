@@ -8,6 +8,8 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 	// Update the menu options
 	ds_list_clear( menu_options );
 	
+	var app_own = scr_object_apparent_owner_get(menu_id, global.player);
+	
 	switch( access )
 	{
 		case 0: // Hostile interface
@@ -38,6 +40,12 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 				
 				// collect node abilities
 				scr_ability_fetch_type( menu_id, 0, menu_options, core, menu_id );
+				
+				if( app_own != index )
+				{
+					// collect antivirus tools
+					
+				}
 		}
 		break;
 	}

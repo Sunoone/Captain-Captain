@@ -10,6 +10,7 @@ parent = -4;
 core = -4;
 owner = -4;
 secret_owner = -4; // this determains who is the actual controller of this node
+apparent_owner[0] = -4;
 original_owner = -4;
 delta_owner = owner;
 animation_speed = 0; // animation speed, frames per second

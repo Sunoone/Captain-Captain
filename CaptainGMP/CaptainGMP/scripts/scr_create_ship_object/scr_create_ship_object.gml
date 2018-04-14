@@ -29,6 +29,7 @@ var i = instance_create_depth( ship.x + obj_x, ship.y + obj_y, -1, argument[1] )
 i.owner = ship.owner; // index of owner
 i.original_owner = i.owner; // set the original owner
 i.secret_owner = i.owner; // set the secret owner
+i.apparent_owner[i.owner] = i.owner; // set the appearent owner
 i.interface = owned_interface[ ship.owner ]; // id of interface object;
 
 

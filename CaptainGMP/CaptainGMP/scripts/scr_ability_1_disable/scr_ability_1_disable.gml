@@ -11,7 +11,7 @@ core = argument2;
 
 if( instance_exists( node ) && instance_exists( core ) ) // check object existance
 {
-	if( node.secret_owner == core.owner && node.owner >= 0 ) // conditions
+	if( node.secret_owner == core.owner && node.owner >= 0 && node.owner != core.owner ) // conditions
 	{
 		var cost, time;
 		cost = 100;
@@ -30,7 +30,9 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 			
 			case 3: // real
 			{
-				node.owner = -1 * get_timer();
+				var rand = -1 * get_timer();
+				node.owner = rand;
+				scr_object_apparent_owner_set( node, rand );
 			}
 		}
 	}

@@ -32,8 +32,9 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 			case 3: // real
 			{
 				// scan node
-				if( node.secret_owner != core.owner ) // need to check for hacking level
-					node.owner = node.secret_owner; // debug
+				if( node.apparent_owner[ core.owner ] != node.secret_owner && core.owner == global.player )
+					audio_play_sound( snd_interface_warning, 0, false );
+				node.apparent_owner[ core.owner ] = node.secret_owner;
 			}
 		}
 	}
