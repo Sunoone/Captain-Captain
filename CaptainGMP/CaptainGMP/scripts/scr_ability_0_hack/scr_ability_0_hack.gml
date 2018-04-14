@@ -14,7 +14,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 	if( node.secret_owner != core.owner ) // conditions
 	{
 		var cost, time;
-		cost = power( core.hacking_level, 2 ) * 10 + node.stat[var_cpu_cost,0];
+		cost = scr_cost_hacking( core.hacking_level );
 		time = node.stat[var_security_level,0] / core.hacking_level * 3;
 		
 		switch( argument0 ) // mode switch
@@ -33,6 +33,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 				// Hacking code
 				node.secret_owner = core.owner;
 				node.apparent_owner[ core.owner ] = core.owner;
+				node.hack_level = core.hacking_level;
 			}
 		}
 	}

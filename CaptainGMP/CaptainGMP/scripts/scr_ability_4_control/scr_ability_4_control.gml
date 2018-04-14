@@ -11,11 +11,11 @@ core = argument2;
 
 if( instance_exists( node ) && instance_exists( core ) ) // check object existance
 {
-	if( node.secret_owner == core.owner && node.owner >= 0 && node.owner != core.owner ) // conditions
+	if( node.secret_owner == core.owner && node.owner != core.owner ) // conditions
 	{
 		var cost, time;
-		cost = node.stat[var_cpu_cost,0] + 100;
-		time = node.stat[var_cpu_cost,0] / cost;
+		cost = node.stat[var_cpu_cost,0];
+		time = cost / (power( node.hack_level, 2 ) * 10 + 1);
 		
 		switch( argument0 ) // mode switch
 		{
@@ -34,7 +34,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 				node.register_abilities = true;
 				
 					// remove all bufs
-				scr_status_effect_remove( node, -1 );
+				// scr_status_effect_remove( node, -1 );
 				
 					// set apparent owner
 				scr_object_apparent_owner_set( node, core.owner );

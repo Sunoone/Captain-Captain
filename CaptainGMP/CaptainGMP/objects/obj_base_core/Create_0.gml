@@ -23,12 +23,16 @@ cpu_available = 0;
 
 // Hacking
 hacking_level = 3;
-scan_level = 1;
+scan_level = 3;
 
 // Abilities
 scr_ability_register( spr_action_basic_hack, 0, 1, true, "Hack this node" );
-scr_ability_register( spr_action_disrupt,	 1, 3, true, "Disrupt this node" );
+
 scr_ability_register( spr_action_scan,		 6, 2, true, "Scan this node" );
+
+scr_ability_register( spr_action_disrupt,	 1, 3, true, "Disrupt this node" );
+scr_ability_register( spr_action_exit,		 8, 3, true, "Exit Node, removes Status Effects" );
+
 
 core_ability_id = ds_list_create();
 ds_list_add( core_ability_id, id );

@@ -109,6 +109,9 @@ var own_c, all_c;
 own_c = ds_list_size(owned_childern);
 all_c = ds_list_size(children);
 
+var secret_core = -4;
+if( secret_owner >= 0 )
+	secret_core = global.owner_core[ secret_owner ];
 
 	// Update hackability
 if( quarantine )
@@ -134,19 +137,43 @@ else
 		children[|i].can_be_hacked_parent = false;
 }
 
+
+if( instance_exists( secret_core ) )
+	apparent_owner[ secret_owner ] = secret_owner;
+
 // Update visual light_up
 if( light_up > 0 ) light_up -= DeltaTime;
 
 
 // CPU cost -----------------------------------------------------------------------------------------------------------------------------
-if( instance_exists( parent ) && active && !quarantine )
+if( instance_exists( parent ) && !quarantine )
 {
-	if( instance_exists( core ) )
+		// base CPU cost
+	if( instance_exists( core ) && active )
 	{	
 		core.cpu_budget += stat[var_cpu_cost,0];
+	}
+	
+	
+		// Hacking cost
+	if( secret_owner != original_owner && secret_owner >= 0 )
+	{
+		if( instance_exists(secret_core) )
+		{
+			secret_core.cpu_budget += scr_cost_hacking( hack_level );
+		}
+	}
+	
+		// Status Effect Cost
+	var effect_owner;
+	for( var i = ds_grid_width( modification ) - 1; i > 0; i-- )
+	{	
+		effect_owner = modification[# i, 0];
 		
-		for( var i = ds_grid_width( modification ) - 1; i > 0; i-- )
-			core.cpu_budget += modification[# i, 1];
+		if( instance_exists( effect_owner ) ) // check if the owner core exists
+			effect_owner.cpu_budget += modification[# i, 1];
+		else
+			scr_status_effect_remove(id, i);
 	}
 }
 

@@ -34,10 +34,6 @@ ds_list_destroy(children);
 ds_list_destroy(owned_childern);
 ds_list_destroy(allowed_type);
 
-ds_list_destroy(hacking_owner);
-ds_list_destroy(hacking_level);
-ds_list_destroy(hacking_progress);
-
 ds_list_destroy(interface_name_list);
 ds_list_destroy(interface_number_list);
 

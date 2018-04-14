@@ -49,16 +49,6 @@ for( var i = 0; i<max_rings; i++)
 					col_g = 255;  
 					col_b = 255;
 				}
-			
-				if( ds_list_size( ele_id.hacking_progress ) > 0 && player_owned == false) // hack in progress
-				{
-					var sec = ele_id.security_rating;
-					var d_col = (sec - scr_ds_list_max(ele_id.hacking_progress)) / sec;
-				
-					col_r -= 255 * d_col;
-					col_g = 255 * d_col;
-					col_b = 255 * d_col;
-				}
 				
 					// draw yellow for selected nodes
 				if( i == select_type && j == select_pos ) 
@@ -68,20 +58,27 @@ for( var i = 0; i<max_rings; i++)
 				}
 			
 					// draw red for hacked nodes
-				if( index != grid[# j, e_id].owner ) 
+				if( index != ele_id.owner && access == 1) 
 				{
-					if( i == select_type && j == select_pos ) col_g = 100;
-					else col_g = 0;
+					if( i == select_type && j == select_pos ) 
+						col_g = 100;
+					else 
+						col_g = 0;
+					
 					col_b = 0;
 					col_r = 255;
 				}
 				
-				if( ele_id.active == false && ele_id.owner == player_index )
+				if( ele_id.active == false )
 				{
 					col_b -= 124;
 					col_g -= 124;
 					col_r -= 124;
 				}
+				
+				col_r = max( 0, col_r );
+				col_g = max( 0, col_g );
+				col_b = max( 0, col_b );
 				
 				col = make_color_rgb( col_r, col_g, col_b );
 			

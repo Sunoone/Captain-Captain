@@ -15,5 +15,8 @@ sprite_mode_1 = spr_subProcessor_2;
 	// register control ability
 scr_ability_register( spr_action_command, 4, 3, true, "Control this node." );
 
-	// register raise ability
-scr_ability_register( spr_action_buff, 5, 2, true, "Raise defence" );
+	// register raise Security Level ability
+scr_ability_register( spr_action_buff, 5, 2, true, "Raise Security Level" );
+
+	// register raise Security Level ability
+scr_ability_register( spr_action_stealth, 7, 3, true, "Rootkit - Hack Level +2" );

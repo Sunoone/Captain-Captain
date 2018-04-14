@@ -11,7 +11,7 @@ core = argument2;
 
 if( instance_exists( node ) && instance_exists( core ) ) // check object existance
 {
-	if( core.owner == node.owner && node.stat[var_security_level,0] < core.hacking_level && node.active ) // conditions
+	if( core.owner == node.owner && node.stat[var_security_level,0] < core.hacking_level && node.active && scr_object_apparent_owner_get( node, core.owner ) == core.owner ) // conditions
 	{
 		var cost, time, delta;
 		

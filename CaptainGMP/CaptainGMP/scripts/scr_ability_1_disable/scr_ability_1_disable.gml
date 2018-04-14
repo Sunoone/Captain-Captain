@@ -31,8 +31,12 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 			case 3: // real
 			{
 				var rand = -1 * get_timer();
+				
 				node.owner = rand;
-				scr_object_apparent_owner_set( node, rand );
+				scr_object_apparent_owner_set( node, core.owner );
+				
+				// cost-inducing status effect
+				scr_status_effect_add( node, core, 100, -4, -4 );
 			}
 		}
 	}

@@ -2,7 +2,7 @@
 /// @param node
 /// @param index
 
-// This script removes an status effect from a node
+// This script removes a status effect from a node
 // Pass -1 in index to remove all status effects
 
 if( instance_exists(argument0) )
@@ -16,8 +16,11 @@ if( instance_exists(argument0) )
 			{
 				w = modification[# i, 2];
 				
-				stat[ w, modification[# i, 3] ] = 0;
-				scr_status_effect_update( argument0, w );
+				if( w >= 0 )
+				{
+					stat[ w, modification[# i, 3] ] = 0;
+					scr_status_effect_update( argument0, w );
+				}
 			}
 			ds_grid_resize( modification, 1, 5 );
 		}
@@ -29,8 +32,11 @@ if( instance_exists(argument0) )
 			i = argument1;
 			w = modification[# i, 2];
 			
-			stat[ w, modification[# i, 3] ] = 0;
-			scr_status_effect_update( argument0, w );
+			if( w >= 0 )
+			{
+				stat[ w, modification[# i, 3] ] = 0;
+				scr_status_effect_update( argument0, w );
+			}
 			
 			if( i < s-1 )
 				ds_grid_add_grid_region( modification, modification, i + 1, 0, s - 1, 4, i, 0 );

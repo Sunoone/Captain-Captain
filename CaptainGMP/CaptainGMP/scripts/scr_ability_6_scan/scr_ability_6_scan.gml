@@ -11,11 +11,11 @@ core = argument2;
 
 if( instance_exists( node ) && instance_exists( core ) ) // check object existance
 {
-	if( core.owner == node.owner ) // conditions
+	if( core.owner == node.owner && scr_object_apparent_owner_get( node, core.owner ) == core.owner) // conditions
 	{
 		var cost, time;
 		
-		cost = 100;
+		cost = 100 * core.scan_level;
 		time = node.stat[var_cpu_cost,0] / cost;
 		
 		switch( argument0 ) // mode switch
@@ -32,9 +32,12 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 			case 3: // real
 			{
 				// scan node
-				if( node.apparent_owner[ core.owner ] != node.secret_owner && core.owner == global.player )
-					audio_play_sound( snd_interface_warning, 0, false );
-				node.apparent_owner[ core.owner ] = node.secret_owner;
+				if( core.scan_level >= node.hack_level )
+				{
+					if( node.apparent_owner[ core.owner ] != node.secret_owner && core.owner == global.player )
+						audio_play_sound( snd_interface_warning, 0, false );
+					node.apparent_owner[ core.owner ] = node.secret_owner;
+				}
 			}
 		}
 	}

@@ -5,50 +5,8 @@
 
 if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 {	
-	// Update the menu options
-	ds_list_clear( menu_options );
-	
-	var app_own = scr_object_apparent_owner_get(menu_id, global.player);
-	
-	switch( access )
-	{
-		case 0: // Hostile interface
-		{
-			// collect core hacking abilities
-			if( menu_id.secret_owner == global.player )
-			{
-				scr_ability_fetch_type_list( global.player_core.core_ability_id, 3, menu_options, global.player_core, menu_id );
-				
-				// collect node abilities
-				if( menu_id.owner == global.player )
-				{
-					scr_ability_fetch_type( menu_id, 0, menu_options, global.player_core, menu_id );
-				}
-			}
-			else
-			{
-				// collect basic hacking option
-				scr_ability_fetch_type_list( global.player_core.core_ability_id, 1, menu_options, global.player_core, menu_id );
-			}
-		}
-		break;
-	
-		case 1: // Friendly interface
-		{
-				// collect core antivirus / scanning abilities
-				scr_ability_fetch_type_list( core.core_ability_id, 2, menu_options, core, menu_id );
-				
-				// collect node abilities
-				scr_ability_fetch_type( menu_id, 0, menu_options, core, menu_id );
-				
-				if( app_own != index )
-				{
-					// collect antivirus tools
-					
-				}
-		}
-		break;
-	}
+	// fetch menu
+	scr_interface_fetch_menu( menu_options, menu_id, core, id );
 	
 	// Drawing
 	var menu_surface = scr_screen_surface_get_id( menu_screen_index );

@@ -32,10 +32,16 @@ switch( argument1 )
 		return scr_ability_4_control( argument0, argument2, argument3 );
 		
 	case 5:
-		return scr_ability_5_raise( argument0, argument2, argument3 );
+		return scr_ability_5_raiseSecurityLevel( argument0, argument2, argument3 );
 		
 	case 6:
 		return scr_ability_6_scan( argument0, argument2, argument3 );
+		
+	case 7:
+		return scr_ability_7_raiseHackingLevel( argument0, argument2, argument3 );
+		
+	case 8:
+		return scr_ability_8_exit( argument0, argument2, argument3 );
 	
 	default:
 		return false;
