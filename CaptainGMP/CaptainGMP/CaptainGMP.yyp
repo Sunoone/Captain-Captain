@@ -975,6 +975,14 @@
             }
         },
         {
+            "Key": "64f1f7e1-5222-4224-854f-2dd27d8c495f",
+            "Value": {
+                "id": "4fc3f8a7-8433-4c9d-9634-bf31af320845",
+                "resourcePath": "scripts\\scr_cost_node_abs\\scr_cost_node_abs.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "656660f7-b301-43f4-a088-aa088671518c",
             "Value": {
                 "id": "955ea872-ac75-4681-ac0e-4646b00d4b89",
@@ -2330,6 +2338,7 @@
         "5164d176-7684-4470-8a52-48d52de04d7d",
         "08d3bbf8-8872-4ddb-a8ba-4d838e8d754f",
         "99642e91-7714-4fc3-a2f3-098b96308822",
+        "64f1f7e1-5222-4224-854f-2dd27d8c495f",
         "c9b0b98b-154c-413a-9ff7-9dbc43ceb53c",
         "422561d9-489c-41ce-baf5-e01ca7616079",
         "e28030f0-9db0-4af9-801d-a65431285601",

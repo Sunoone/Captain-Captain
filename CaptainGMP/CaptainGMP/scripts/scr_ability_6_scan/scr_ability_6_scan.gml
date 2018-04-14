@@ -16,7 +16,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 		var cost, time;
 		
 		cost = 100 * core.scan_level;
-		time = node.stat[var_cpu_cost,0] / cost;
+		time = scr_cost_node_abs( node ) / cost;
 		
 		switch( argument0 ) // mode switch
 		{

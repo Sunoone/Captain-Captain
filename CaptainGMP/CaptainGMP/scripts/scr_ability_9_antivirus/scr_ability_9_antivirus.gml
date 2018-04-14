@@ -16,7 +16,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 		var cost, time;
 		cost = scr_cost_antivirus( core.hacking_level );
 		if( node.owner != core.owner )
-			cost += node.stat[var_security_level,0];
+			cost += scr_cost_node_abs( node );
 		
 		time = ( node.hack_level / core.hacking_level ) * 2;
 		

@@ -11,11 +11,11 @@ core = argument2;
 
 if( instance_exists( node ) && instance_exists( core ) ) // check object existance
 {
-	if( node.secret_owner != core.owner ) // conditions
+	if( node.secret_owner != core.owner && core.hacking_level > 0 ) // conditions
 	{
 		var cost, time;
 		cost = scr_cost_hacking( core.hacking_level );
-		time = node.stat[var_security_level,0] / core.hacking_level * 3;
+		time = (node.stat[var_security_level, 0] / core.hacking_level) * 3;
 		
 		switch( argument0 ) // mode switch
 		{

@@ -14,7 +14,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 	if( node.secret_owner == core.owner && node.owner != core.owner ) // conditions
 	{
 		var cost, time;
-		cost = node.stat[var_cpu_cost,0];
+		cost = scr_cost_node_abs( node );
 		time = cost / (power( node.hack_level, 2 ) * 10 + 1);
 		
 		switch( argument0 ) // mode switch

@@ -15,7 +15,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 	{
 		var cost, time;
 		cost = scr_cost_hacking( core.hacking_level + 2 ) - scr_cost_hacking( core.hacking_level ) ;
-		time = node.stat[var_cpu_cost,0] / cost;
+		time = scr_cost_node_abs( node ) / cost;
 		
 		switch( argument0 ) // mode switch
 		{
