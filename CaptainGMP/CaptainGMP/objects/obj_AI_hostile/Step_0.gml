@@ -1,9 +1,6 @@
 /// @description 
 
-var player_index = global.player;
-
-if( owner == player_index )
-	exit;
+var player_index = player_owner;
 	
 // Get a refrence to the players ship
 var ship;

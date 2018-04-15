@@ -8,7 +8,7 @@ if( instance_exists( argument0 ) )
 {
 	with( argument0 )
 	{
-		for( var i = grid_width-1; i>=0; i-- )
+		for( var i = 0; i < grid_width; i++ )
 		{
 			for( var j = 0; j < 3; j++ )
 			{

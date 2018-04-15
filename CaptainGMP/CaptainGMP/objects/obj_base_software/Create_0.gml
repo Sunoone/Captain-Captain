@@ -5,6 +5,7 @@ event_inherited();
 
 // overwrite and add new vars here
 name = "Base Software";
+type = 0;
 
 // hack to keep software healty
 stat[var_HP_max, 1] = 1000000000;

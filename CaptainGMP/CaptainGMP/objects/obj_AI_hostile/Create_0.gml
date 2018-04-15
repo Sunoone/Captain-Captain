@@ -2,6 +2,7 @@
 
 core = -4;
 owner = -4;
+player_owner = global.player;
 
 object_list = ds_list_create();	 // part list of ship
 hacking_target_list = ds_list_create();	 // part list of ship
