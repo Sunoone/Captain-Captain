@@ -458,7 +458,7 @@
             "Key": "2d4449ec-5bf1-429f-bbd6-11604ba85188",
             "Value": {
                 "id": "03c85b2b-3dde-45fb-9a1c-e33ed66ef8a2",
-                "resourcePath": "objects\\obj_AI_hostile\\obj_AI_hostile.yy",
+                "resourcePath": "objects\\obj_AI_hacking\\obj_AI_hacking.yy",
                 "resourceType": "GMObject"
             }
         },

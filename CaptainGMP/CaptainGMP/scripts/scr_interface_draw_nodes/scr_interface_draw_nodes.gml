@@ -110,7 +110,10 @@ for( var i = 0; i<max_rings; i++)
 							scr_draw_sprite_loading( spr_baseNode, 0, ele_x, ele_y, col, make_color_rgb(255,25,25), 100-p);
 						}
 						
-						icon_spr = ele_id.ability_running[ player_index, 2 ];
+							// get the icon of the running ability
+						if( array_height_2d( ele_id.ability_running) > player_index )
+							if( array_length_2d( ele_id.ability_running, player_index ) > 2 )
+								icon_spr = ele_id.ability_running[ player_index, 2 ];
 					}
 				}
 				
