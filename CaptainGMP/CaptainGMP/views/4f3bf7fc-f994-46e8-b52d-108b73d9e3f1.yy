@@ -14,7 +14,9 @@
         "1b74a15a-c9a2-4df2-bac4-d678f1cd6749",
         "fc22669e-9cd0-4e91-9f6c-725e7a6c2146",
         "789d38c5-59b3-4c14-8fba-2f4f15a8f06c",
-        "31e58951-0112-401a-8d15-4b3211cb552a"
+        "31e58951-0112-401a-8d15-4b3211cb552a",
+        "b0c3ec39-25ea-4de4-b680-9e4019983251",
+        "4a54c2f1-bc59-4243-9dd3-4777ea73276e"
     ],
     "filterType": "GMScript",
     "folderName": "Abilities",

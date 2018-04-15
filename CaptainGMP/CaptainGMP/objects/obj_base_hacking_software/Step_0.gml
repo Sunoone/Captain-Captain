@@ -1,51 +1,81 @@
-/// @description Update regulators
-/*
-// exit event in case of hacked or quarantined node
-if( owner != original_owner || quarantine )
+/// @description Scanning
+
+	// in case of owner change
+if( owner != delta_owner )
+{
+		// clear the scan list
+	ds_list_clear(scan_list);
+	
+		// clear the active ability
+	scr_status_effect_reset_value( scan_current[1], var_ability_0_active );
+	
+		// interupt current scan
+	scan_current[0] = false;
+}
+
+// exit event if met with any of the conditions are met
+if( quarantine || owner < 0 || stat[var_ability_0_active,0] <= 0 )
 {
 	exit;
 }
 
-	// Hacking
-// add targets to childern
-var size = ds_list_size( owned_childern );
-var tar = ds_list_size( attack_id );
 
-if( size > 0 )
+// Get a refrence to the owner's ship
+var ship, core;
+
+ship = scr_ship_from_owner( owner );
+core = global.owner_core[owner];
+
+	// exit in case of ship or core no longer existing
+if( !instance_exists( ship ) || !instance_exists( core ) )
+	exit;
+
+	// check if there are parts to scan
+if( ds_list_empty(scan_list) && scan_current[0] == false )
+	exit;
+
+	// preform new scan
+if( scan_current[0] == false )
 {
-	if( tar > 0 ) // attack hacked targets
-	{		
-		for( var i = 0; i < size; i++ )
+	var node;
+	
+	for( var i = ds_list_size( scan_list )-1; i >= 0; i-- )
+	{
+		node = scan_list[|i];
+		ds_list_delete( scan_list, i );
+		
+		if( instance_exists( node ) )
 		{
-			ds_list_clear( owned_childern[|i].attack_id );
-			
-			var pos = i mod min(size, tar);
-			ds_list_add( owned_childern[|i].attack_id, attack_id[| pos ] );
+			if( scr_object_apparent_owner_get( node, owner ) == owner )
+			{
+				if( scr_ability_excecute_script( 0, ability_0_script, node, core ) )
+				{
+					scan_current[0] = true;		// scan active
+					scan_current[1] = node;		// scan target
+					
+					scan_current[2] = scr_ability_initiate( 
+						core, 
+						node, 
+						ability_0_script,
+						scr_ability_excecute_script( 2, ability_0_script, node, core ),
+						scr_ability_excecute_script( 1, ability_0_script, node, core ),
+						scan_icon,
+						-4
+					);
+					
+					break;
+				}
+			}
 		}
 	}
+	
+		// not found a suitable scan target
+	if( scan_current[0] == false )
+		exit;
 }
 
-
-	// Defence
-//Scan or Defend
-
-// add targets to childern
-size = ds_list_size( owned_childern );
-if( size > 0 )
+	// scan target finished?
+if( ds_list_find_index( core.running_abilities_index, scan_current[2] ) == -1 )
 {
-	if( ds_list_size( defend_id ) > 0 ) // attack hacked targets
-	{
-		scanning = false;
-		
-		for( var i = 0; i < size; i++ )
-		{
-			ds_list_clear( owned_childern[|i].defend_id );
-			
-			ds_list_add( owned_childern[|i].defend_id, defend_id[|0] );
-		}
-	}
-	else	// resume scanning
-	{
-		scanning = true;
-	}
+	scan_current[0] = false;	
 }

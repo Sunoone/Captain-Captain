@@ -1,10 +1,11 @@
-/// @description scr_ability_initiate( core, target_id, script, time, cost, icon )
+/// @description scr_ability_initiate( core, target_id, script, time, cost, icon, sound )
 /// @param core
 /// @param target_id
 /// @param script
 /// @param time
 /// @param cost
 /// @param icon
+/// @param sound
 
 
 var core, node;
@@ -24,7 +25,10 @@ if( instance_exists( core ) && instance_exists( node ) )
 		ds_list_add( running_abilities_maxTime,	argument3 );
 		ds_list_add( running_abilities_cost,	argument4 );
 		ds_list_add( running_abilities_icon,	argument5 );
+		ds_list_add( running_abilities_sound,	argument6 );
 	}
 	
 	scr_ability_register_node( node, core, index, argument5 );
+	
+	return( index );
 }

@@ -50,6 +50,8 @@ if( scr_obj_check_parentage( i, obj_base_core ) )
 			// is this the player core?
 		if( i.owner == global.player )
 			global.player_core = i;
+		else
+			scr_create_AI( i );		
 	}
 }
 

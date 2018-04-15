@@ -11,14 +11,16 @@ select_type = -1;
 // check menu
 if( draw_menu && scr_screen_mouse_above( menu_screen_index ) )
 {	
-	var m_x, m_y, menu_item_count, angle_div, len_x, len_y;
+	var m_x, m_y, menu_item_count, angle_div, len_x, len_y, core;
 		
 	m_x = scr_screen_mouse_get_x( menu_screen_index );
 	m_y = scr_screen_mouse_get_y( menu_screen_index );
 		
 	menu_item_count = ds_list_size( menu_options ) / 4;
 	angle_div = 360 / menu_item_count;
-		
+	
+	core = global.player_core;
+	
 	for( var i = 0; i<menu_item_count; i++ )
 	{	
 		len_x = 78 + lengthdir_x( 51, angle_div * i );
@@ -27,19 +29,24 @@ if( draw_menu && scr_screen_mouse_above( menu_screen_index ) )
 		if( point_distance( len_x, len_y, m_x, m_y ) < 52 )
 		{				
 			var script = menu_options[| i * 4 + 1 ];
+			var cost = scr_ability_excecute_script( 1, script, menu_id, core );
 			
-			// run ability
-			scr_ability_initiate( 
-				global.player_core, 
-				menu_id, 
-				script,
-				scr_ability_excecute_script( 2, script, menu_id, global.player_core ),
-				scr_ability_excecute_script( 1, script, menu_id, global.player_core ),
-				menu_options[| 4 * i ]
-			);
-			
-			audio_play_sound( snd_interface_ping, 3, false );
-			break;
+			if( core.cpu_available >= cost )
+			{
+				// run ability
+				scr_ability_initiate( 
+					core, 
+					menu_id, 
+					script,
+					scr_ability_excecute_script( 2, script, menu_id, core ),
+					cost,
+					menu_options[| 4 * i ],
+					snd_interface_confirm
+				);
+				
+				audio_play_sound( snd_interface_ping, 3, false );
+				break;
+			}
 		}
 	}
 }

@@ -11,12 +11,12 @@ core = argument2;
 
 if( instance_exists( node ) && instance_exists( core ) ) // check object existance
 {
-	if( core.owner == node.owner && scr_object_apparent_owner_get( node, core.owner ) == core.owner) // conditions
+	if( core.owner == node.owner && scr_object_apparent_owner_get( node, core.owner ) == core.owner && core.scan_level > 0 ) // conditions
 	{
 		var cost, time;
 		
 		cost = 100 * core.scan_level;
-		time = scr_cost_node_abs( node ) / cost;
+		time = ( scr_cost_node_abs( node ) / cost );
 		
 		switch( argument0 ) // mode switch
 		{

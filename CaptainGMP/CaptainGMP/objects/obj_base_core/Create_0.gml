@@ -46,4 +46,7 @@ running_abilities_target = ds_list_create();
 running_abilities_icon = ds_list_create();
 running_abilities_cost = ds_list_create();
 running_abilities_maxTime = ds_list_create();
+running_abilities_sound = ds_list_create();
 
+// AI
+AI = -4;

@@ -12,4 +12,3 @@ type = 2; // declare as component
 stat[var_cpu_cost, 1] = 100;
 
 
-	// internal variables

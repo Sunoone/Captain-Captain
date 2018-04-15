@@ -73,3 +73,4 @@
 #macro var_regen 2
 #macro var_cpu_cost 3
 #macro var_security_level 4
+#macro var_ability_0_active 5
