@@ -88,7 +88,9 @@ for( var i = 0; i<max_rings; i++)
 				draw_sprite_ext( spr_baseNode, 0, ele_x, ele_y, 1, 1, 0, col, 1);
 				
 				// draw node data
-				var m_text = ele_id.interface_data;
+				var m_text, icon_spr;
+				m_text = ele_id.interface_data;
+				icon_spr = -4;
 				
 				if( m_text > 0 )
 				{
@@ -107,6 +109,8 @@ for( var i = 0; i<max_rings; i++)
 						{
 							scr_draw_sprite_loading( spr_baseNode, 0, ele_x, ele_y, col, make_color_rgb(255,25,25), 100-p);
 						}
+						
+						icon_spr = ele_id.ability_running[ player_index, 2 ];
 					}
 				}
 				
@@ -129,6 +133,10 @@ for( var i = 0; i<max_rings; i++)
 					{
 						draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_gray, 1 );
 					}
+					
+					// Diaplay currently running ability
+					if( sprite_exists( icon_spr ) )
+						draw_sprite_ext( icon_spr, 0, ele_x, ele_y, 1, 1, 0, c_white, 0.5 );
 				}
 			}
 		}

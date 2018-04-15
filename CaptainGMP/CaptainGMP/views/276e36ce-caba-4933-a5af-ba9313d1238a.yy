@@ -18,7 +18,7 @@
         "0bb03247-9f7b-4768-9a39-c0b8ac60241f"
     ],
     "filterType": "GMScript",
-    "folderName": "Tools",
+    "folderName": "Framework",
     "isDefaultView": false,
     "localisedFolderName": ""
 }
