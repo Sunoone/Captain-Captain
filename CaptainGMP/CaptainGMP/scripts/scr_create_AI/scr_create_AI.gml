@@ -1,12 +1,19 @@
-/// @description scr_create_AI( core, AI )
+/// @description scr_create_AI( core, AI, AI*, ... )
 /// @param core
 /// @param AI
+/// @param AI*
+/// @param ...
 
-// This script binds an AI to a core
+// This script creates and binds one or several AI to a core
 
-var AI = instance_create_depth( 0, 0, 100, argument1)
+var core = argument[0];
 
-argument0.AI = AI;
+for( var i = 1; i < argument_count; i++ )
+{
+	var AI = instance_create_depth( 0, 0, 100, argument[i])
 
-AI.core = argument0;
-AI.owner = argument0.owner;
+	core.AI[i-1] = AI;
+
+	AI.core = core;
+	AI.owner = core.owner;
+}

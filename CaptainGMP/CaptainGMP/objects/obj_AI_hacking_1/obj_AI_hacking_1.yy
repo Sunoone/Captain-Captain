@@ -2,7 +2,7 @@
     "id": "2d4449ec-5bf1-429f-bbd6-11604ba85188",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_AI_hacking",
+    "name": "obj_AI_hacking_1",
     "eventList": [
         {
             "id": "7129ddbe-2d39-430e-9067-b70bee495002",

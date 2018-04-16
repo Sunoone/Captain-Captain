@@ -1,8 +1,5 @@
 /// @description Ini vars
 
-// Inherit the parent event
-event_inherited();
-
 core = -4;
 owner = -4;
 player_owner = global.player;

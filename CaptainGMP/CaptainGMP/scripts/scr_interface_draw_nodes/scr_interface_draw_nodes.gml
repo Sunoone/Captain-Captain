@@ -117,25 +117,20 @@ for( var i = 0; i<max_rings; i++)
 					}
 				}
 				
+				// display apparent secret owner
+				var app_own = scr_object_apparent_owner_get( ele_id, player_index);
+						
+				if( app_own == player_index )
+					draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );
+				else
+					draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_red, 1 );
+				
 				if( grid[# j, e_visible] == 1 || player_owned )
 				{
 					// display node icon
 					draw_sprite_ext( ele_spr, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );				
 					
-					// display apparent secret owner
-					if( scr_object_apparent_owner_known( ele_id, player_index ) )
-					{
-						var app_own = ele_id.apparent_owner[player_index];
-						
-						if( app_own == player_index )
-							draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );
-						else
-							draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_red, 1 );
-					}
-					else
-					{
-						draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_gray, 1 );
-					}
+					
 					
 					// Diaplay currently running ability
 					if( sprite_exists( icon_spr ) )

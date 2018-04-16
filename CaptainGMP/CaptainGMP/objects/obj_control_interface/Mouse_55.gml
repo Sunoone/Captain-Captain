@@ -1,5 +1,9 @@
 /// @description Drag Element
 
+// clear menu
+scr_screen_surface_set_active( menu_screen_index, false );
+draw_menu = false;
+
 // ini vars
 var m_x, m_y
 

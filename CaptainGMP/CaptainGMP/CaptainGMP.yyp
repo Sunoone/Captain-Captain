@@ -458,7 +458,7 @@
             "Key": "2d4449ec-5bf1-429f-bbd6-11604ba85188",
             "Value": {
                 "id": "03c85b2b-3dde-45fb-9a1c-e33ed66ef8a2",
-                "resourcePath": "objects\\obj_AI_hacking\\obj_AI_hacking.yy",
+                "resourcePath": "objects\\obj_AI_hacking_1\\obj_AI_hacking_1.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1367,6 +1367,14 @@
             }
         },
         {
+            "Key": "899cd158-9448-40cd-952b-2c88a529b3b7",
+            "Value": {
+                "id": "48415a56-0516-415c-b718-aee19197b61b",
+                "resourcePath": "objects\\obj_AI_base\\obj_AI_base.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "89af915b-8dc2-4e6b-9729-93db34e4d003",
             "Value": {
                 "id": "db4f5f93-6cc1-4db2-9667-1a9863aa1507",
@@ -1700,6 +1708,14 @@
                 "id": "d7e00080-9c0f-4343-9500-a6ed05f2b058",
                 "resourcePath": "sounds\\snd_impact_1\\snd_impact_1.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "b354325c-8b11-4e8c-b032-83ef0e69d2e7",
+            "Value": {
+                "id": "049e3790-5607-432d-9d9c-b773789b0bc4",
+                "resourcePath": "objects\\obj_AI_defence_1\\obj_AI_defence_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
