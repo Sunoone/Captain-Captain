@@ -32,7 +32,6 @@ i.secret_owner = i.owner; // set the secret owner
 i.apparent_owner[i.owner] = i.owner; // set the appearent owner
 i.interface = owned_interface[ ship.owner ]; // id of interface object;
 
-
 // is the object a core?
 if( scr_obj_check_parentage( i, obj_base_core ) ) 
 {
@@ -50,9 +49,16 @@ if( scr_obj_check_parentage( i, obj_base_core ) )
 			// is this the player core?
 		if( i.owner == global.player )
 			global.player_core = i;
-		else
+		else // DEBUG
+		{	
 			scr_create_AI( i, obj_AI_hacking_1, obj_AI_defence_1 );
+		}
 	}
+}
+else if( instance_exists(ship.ship_core) )
+{
+	// if core exists, register with core
+	i.core = ship.ship_core;
 }
 
 

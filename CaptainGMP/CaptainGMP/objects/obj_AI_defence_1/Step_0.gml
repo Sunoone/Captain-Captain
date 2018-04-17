@@ -1,22 +1,12 @@
 /// @description hack targets
 
-var player_index = player_owner;
-	
-// Get a refrence to the players ship
-var ship;
 
-ship = scr_ship_from_owner( player_index );
-
-	// exit in case of ship no longer existing
-if( !instance_exists( ship ) )
-	exit;
-	
-	// check if there are parts to hack
+	// check if there are parts to defend
 if( ds_list_empty(defence_target_list) && defence_current[0] == false )
 	exit;
 	
-	// preform new hack
-if( defence_current[0] == false && core.cpu_available > 100 )
+	// iniciate antivirus
+if( defence_current[0] == false && core.cpu_available > AI_CPU_limit )
 {
 	var node;
 	
@@ -45,7 +35,7 @@ if( defence_current[0] == false && core.cpu_available > 100 )
 							9,
 							scr_ability_excecute_script( 2, defence_script, node, core ),
 							cost,
-							spr_action_basic_hack,
+							spr_action_antivirus,
 							-4
 						);
 					
@@ -57,19 +47,19 @@ if( defence_current[0] == false && core.cpu_available > 100 )
 		}
 	}
 	
-		// not found a suitable scan target
+		// not found a hacked node
 	if( defence_current[0] == false )
 		exit;
 }
 
-	// Can we scan again?
+	// can we re-iniciate antivirus?
 if( action_delay > 0 )
 {
 	action_delay -= global.DeltaTime;
 	if( action_delay <= 0 )
 		defence_current[0] = false;	
 }
-else if( ds_list_find_index( core.running_abilities_index, defence_current[2] ) == -1 ) // scan target finished?
+else if( ds_list_find_index( core.running_abilities_index, defence_current[2] ) == -1 ) // antivirus target finished?
 {
 	action_delay = AI_timedelay + (random( AI_inaccuracy * 2 ) - AI_inaccuracy);
 }

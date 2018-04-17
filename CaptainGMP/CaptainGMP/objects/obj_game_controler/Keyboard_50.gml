@@ -1,9 +1,12 @@
-/// @description Player 1
+/// @description Switch to Player 1
 
-// Player
-global.player = 1;	// declares the player to be owner 1;
-
-for( var i = 0; i < array_length_1d( global.interface_select_id ); i++ )
+if( instance_exists( global.owner_core[0] ) )
 {
-	global.interface_select_id[i] = -4;
+	// Player
+	global.player = 1;	// declares the player to be owner 1;
+
+	for( var i = 0; i < array_length_1d( global.interface_select_id ); i++ )
+	{
+		global.interface_select_id[i] = -4;
+	}
 }

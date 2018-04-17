@@ -1,14 +1,7 @@
 /// @description hack targets
 
-var player_index = player_owner;
-	
-// Get a refrence to the players ship
-var ship;
-
-ship = scr_ship_from_owner( player_index );
-
 	// exit in case of ship no longer existing
-if( !instance_exists( ship ) )
+if( !instance_exists( target_ship ) || !instance_exists( target_core ) )
 	exit;
 	
 	// check if there are parts to hack
@@ -16,7 +9,7 @@ if( ds_list_empty(hacking_target_list) && hacking_current[0] == false )
 	exit;
 	
 	// preform new hack
-if( hacking_current[0] == false && core.cpu_available > 100 )
+if( hacking_current[0] == false && core.cpu_available > AI_CPU_limit )
 {
 	var node;
 	

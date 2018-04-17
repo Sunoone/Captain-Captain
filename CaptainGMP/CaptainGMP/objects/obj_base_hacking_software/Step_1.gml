@@ -5,20 +5,17 @@ if( owner < 0 )
 
 if( kickstart )
 {
-	scr_status_effect_add( id, global.owner_core[owner], 0, var_ability_0_active, 1 );
-	kickstart = false;
+	if( instance_exists( core ) )
+	{
+		scr_status_effect_add( id, core, 0, var_ability_0_active, 1 );
+		kickstart = false;
+	}
 }
-
-// Get a refrence to the owner's ship
-var ship, core;
-
-ship = scr_ship_from_owner( owner );
-core = global.owner_core[owner];
 
 	// get the current part & software list
 if( ds_list_empty(scan_list) )
 {
-		// method 1
+		// method 1 ( cheaper )
 	/*
 	ds_list_copy( scan_list, ship.hackable_parts_list );
 	scr_ds_list_merge( scan_list, core.software );

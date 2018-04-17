@@ -10,3 +10,5 @@ defence_script = 9;
 defence_current[0] = false;
 defence_current[1] = -4;
 defence_current[2] = -4;
+
+AI_CPU_limit = 0;

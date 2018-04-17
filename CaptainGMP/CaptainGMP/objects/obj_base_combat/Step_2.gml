@@ -12,6 +12,24 @@ if( update_variables )
 	update_variables = false;	
 }
 
+// Owner change
+if( owner != delta_owner ) // owner has changed
+{	
+	if( owner >= 0 && owner < array_length_1d(global.owner_core) )
+	{	
+		if( instance_exists( global.owner_core[ owner ] ) )
+		{
+			core = global.owner_core[ owner ];
+			delta_owner = owner;
+			register_abilities = true;
+		}
+	}
+}
+
+// Update Active
+if( !instance_exists( core ) )
+	active = false;
+
 // Check HP
 if( stat[var_HP,0] <= 0 )
 {
@@ -54,20 +72,6 @@ if( animation_speed != 0)
 		{
 			if( animation_count > max_animation ) animation_count = 0;
 			if( animation_count < 0 ) animation_count = max_animation;
-		}
-	}
-}
-
-// Owner change
-if( owner != delta_owner ) // owner has changed
-{
-	if( owner >= 0 && owner < array_height_2d(global.owner_core) )
-	{	
-		if( instance_exists( global.owner_core[ owner ] ) )
-		{
-			core =  global.owner_core[ owner ];
-			delta_owner = owner;
-			register_abilities = true;
 		}
 	}
 }
@@ -150,7 +154,7 @@ if( instance_exists( parent ) && !quarantine )
 {
 		// base CPU cost
 	if( instance_exists( core ) && active )
-	{	
+	{			
 		core.cpu_budget += stat[var_cpu_cost,0];
 	}
 	

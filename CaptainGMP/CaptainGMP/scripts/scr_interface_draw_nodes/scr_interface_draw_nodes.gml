@@ -98,17 +98,19 @@ for( var i = 0; i<max_rings; i++)
 					
 					if( m != 0 )
 					{
-						var p = (ele_id.interface_number_list[|0] / m ) * 100;
+						var p, own_col;
 						
-							// Overdraw
+							// get percentage
+						p = (ele_id.interface_number_list[|0] / m ) * 100;
+						
+							// get owner colour
 						if( player_owned )
-						{
-							scr_draw_sprite_loading( spr_baseNode, 0, ele_x, ele_y, col, make_color_rgb(25,255,25), 100-p );
-						}
+							own_col = make_color_rgb(25,255,25);
 						else
-						{
-							scr_draw_sprite_loading( spr_baseNode, 0, ele_x, ele_y, col, make_color_rgb(255,25,25), 100-p);
-						}
+							own_col = make_color_rgb(255,25,25);
+						
+							// Overdraw loading node
+						scr_draw_sprite_loading( spr_baseNode, 0, ele_x, ele_y, col, own_col, 100-p);
 						
 							// get the icon of the running ability
 						if( array_height_2d( ele_id.ability_running) > player_index )
@@ -125,17 +127,13 @@ for( var i = 0; i<max_rings; i++)
 				else
 					draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_red, 1 );
 				
+				// Display node icon
 				if( grid[# j, e_visible] == 1 || player_owned )
-				{
-					// display node icon
-					draw_sprite_ext( ele_spr, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );				
-					
-					
-					
-					// Diaplay currently running ability
-					if( sprite_exists( icon_spr ) )
-						draw_sprite_ext( icon_spr, 0, ele_x, ele_y, 1, 1, 0, c_white, 0.5 );
-				}
+					draw_sprite_ext( ele_spr, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );									
+				
+				// Display currently running ability
+				if( sprite_exists( icon_spr ) )
+					draw_sprite_ext( icon_spr, 0, ele_x, ele_y, 1, 1, 0, c_white, 0.5 );
 			}
 		}
 	}
