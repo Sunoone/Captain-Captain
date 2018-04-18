@@ -11,7 +11,7 @@ hacking_current[0] = false;
 hacking_current[1] = -4;
 hacking_current[2] = -4;
 
-AI_CPU_limit = 500;
+AI_CPU_limit = 250;
 
 target_index = global.player;
 target_ship = scr_ship_from_owner( target_index );
