@@ -172,7 +172,10 @@ for( var i = 0; i<max_rings; i++)
 							for( var n = 0; n < s; n++ )
 							{
 								if( draw_list[| n * 5 + 4] > prio )
+								{
 									in = n;
+									prio = draw_list[| n * 5 + 4];
+								}
 							}
 							
 							if( in >= 0 )

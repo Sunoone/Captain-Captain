@@ -59,8 +59,8 @@ quarantine = false; // is the node in quarantine / inventory?
 	// Abilities
 scr_ability_create_structure( id );
 register_abilities = false;
-ability_off = scr_ability_register( spr_action_off, 2, 0, true, "Shut down, disables cpu cost.", 30 );
-ability_on = scr_ability_register( spr_action_on, 3, 0, false, "Turn on, re-enables cpu cost.", 30 );
+ability_off = scr_ability_register( spr_action_off, 2, 0, true, "Shut down, disables cpu cost.", 50 );
+ability_on = scr_ability_register( spr_action_on, 3, 0, false, "Turn on, re-enables cpu cost.", 50 );
 switch_active = false;
 
 ability_running[0,0] = -4;

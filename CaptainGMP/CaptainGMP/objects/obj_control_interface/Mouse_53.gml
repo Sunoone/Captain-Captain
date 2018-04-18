@@ -94,7 +94,10 @@ else if( scr_screen_mouse_above( screen_index ) ) // select node
 						for( var n = 0; n < s; n++ )
 						{
 							if( draw_list[| n * 5 + 4] > prio )
+							{
 								in = n;
+								prio = draw_list[| n * 5 + 4];
+							}
 						}
 							
 						if( in >= 0 )

@@ -28,10 +28,10 @@ scan_level = 3;
 // Abilities
 scr_ability_register( spr_action_basic_hack, 0, 1, true, "Hack this node", 100 );
 
-scr_ability_register( spr_action_scan,		 6, 2, true, "Scan this node", 70 );
+scr_ability_register( spr_action_scan,		 6, 2, true, "Scan this node", 40 );
 
 scr_ability_register( spr_action_disrupt,	 1, 3, true, "Disrupt this node", 50 );
-scr_ability_register( spr_action_exit,		 8, 3, true, "Exit Node, removes Status Effects", 40 );
+scr_ability_register( spr_action_exit,		 8, 3, true, "Exit Node, removes Status Effects", 20 );
 
 scr_ability_register( spr_action_antivirus,	 9, 4, true, "Antivirus - Regain control of this node", 100 );
 
