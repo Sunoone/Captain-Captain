@@ -158,35 +158,19 @@ for( var i = 0; i<max_rings; i++)
 						if( instance_exists( player_core ) )
 						{
 							var draw_list = ds_list_create();
-						
-							// fetch menu
-							scr_interface_fetch_menu( draw_list, ele_id, player_core, id );
 							
+								// fetch menu
+							scr_interface_fetch_priority( ele_id, player_core, draw_list, id );
 							
-							//filter highest priority ability
-							var in, prio, s;
-							prio = 0;
-							in = -1;
-							s = ds_list_size( draw_list ) / 5;
-							
-							for( var n = 0; n < s; n++ )
-							{
-								if( draw_list[| n * 5 + 4] > prio )
-								{
-									in = n;
-									prio = draw_list[| n * 5 + 4];
-								}
-							}
-							
-							if( in >= 0 )
+							if( ds_list_size( draw_list ) > 0 )
 							{
 								// draw ability icon
 								var ability_col = c_white;
 								
-								if( draw_list[| in * 5 + 2] > player_core.cpu_available )
+								if( draw_list[|2] > player_core.cpu_available )
 									ability_col = c_black;
 								
-								draw_sprite_ext( draw_list[| in * 5], 0, ele_x, ele_y, 1, 1, 0, ability_col, 0.75 );
+								draw_sprite_ext( draw_list[|0], 0, ele_x, ele_y, 1, 1, 0, ability_col, 0.75 );
 							}
 							
 							ds_list_destroy( draw_list );

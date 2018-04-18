@@ -83,31 +83,16 @@ else if( scr_screen_mouse_above( screen_index ) ) // select node
 						var draw_list = ds_list_create();
 						
 						// fetch menu
-						scr_interface_fetch_menu( draw_list, select_id, player_core, id );
-						
-						//filter highest priority ability
-						var in, prio, s;
-						prio = 0;
-						in = -1;
-						s = ds_list_size( draw_list ) / 5;
+						scr_interface_fetch_priority( select_id, player_core, draw_list, id );
 							
-						for( var n = 0; n < s; n++ )
+						if( ds_list_size( draw_list ) > 0 )
 						{
-							if( draw_list[| n * 5 + 4] > prio )
+							if( draw_list[|2] <= player_core.cpu_available )
 							{
-								in = n;
-								prio = draw_list[| n * 5 + 4];
-							}
-						}
-							
-						if( in >= 0 )
-						{
-							if( draw_list[| in * 5 + 2] <= player_core.cpu_available )
-							{
-								var time = scr_ability_excecute_script( 2, draw_list[| in*5 + 1 ], select_id, player_core );
+								var time = scr_ability_excecute_script( 2, draw_list[|1], select_id, player_core );
 							
 								// execute ability								
-								scr_ability_initiate( player_core, select_id, draw_list[| in*5 + 1 ], time, draw_list[| in*5 + 2 ], draw_list[| in*5 ], snd_interface_ping );
+								scr_ability_initiate( player_core, select_id, draw_list[|1], time, draw_list[|2], draw_list[|0], snd_interface_ping );
 							
 								audio_play_sound( snd_interface_ping, 3, false );
 							}

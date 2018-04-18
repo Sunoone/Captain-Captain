@@ -1,4 +1,4 @@
-/// @description hack targets
+/// @description Antivirus
 
 
 	// check if there are parts to defend
@@ -17,7 +17,7 @@ if( defence_current[0] == false && core.cpu_available > AI_CPU_limit )
 		
 		if( instance_exists( node ) )
 		{
-			if( scr_object_apparent_owner_get( node, owner ) != owner )
+			if( scr_object_apparent_owner_get( node, owner ) != owner || node.owner != owner )
 			{
 				if( scr_ability_excecute_script( 0, defence_script, node, core ) )
 				{
