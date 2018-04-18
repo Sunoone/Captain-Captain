@@ -13,4 +13,5 @@ if( i >= 0 )
 	ds_list_delete( ability_active, i );
 	ds_list_delete( ability_tooltip, i );
 	ds_list_delete( ability_index, i );
+	ds_list_delete( ability_priority, i );
 }

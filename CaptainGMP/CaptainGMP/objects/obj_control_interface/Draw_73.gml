@@ -11,6 +11,7 @@ if( drag_hold )
 		if( !scr_screen_mouse_above( screen_index ) )
 			a = 0.5;
 		
+		/*
 		if( inventory_index != -4 && a = 0.5 )
 		{
 			if( !scr_screen_mouse_above( inventory_index ) )
@@ -18,6 +19,7 @@ if( drag_hold )
 			else
 				a = 1;
 		}
+		*/
 		
 		var col = c_white;
 		if( index != drag_id.owner ) 
@@ -30,8 +32,10 @@ if( drag_hold )
 		
 		if( scr_screen_mouse_above( screen_index ) )
 			node = scr_interface_get_node( id, scr_screen_mouse_get_x( screen_index ) , scr_screen_mouse_get_y( screen_index )  );
+		/*
 		else if( scr_screen_mouse_above( inventory_index ) )
 			node = ds_grid_get( inventory, scr_screen_mouse_get_y( inventory_index ) / inventory_width, e_id );
+		*/
 		
 		if( instance_exists( node ) && node != drag_id )
 		{

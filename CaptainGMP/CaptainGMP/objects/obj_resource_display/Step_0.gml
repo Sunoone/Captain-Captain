@@ -17,8 +17,10 @@ if( surface_exists(CPU_surface) && CPU_max > 0 )
 			// set the right colour
 		if( CPU_max - ( CPU_cost + CPU_use ) < 0 )
 			CPU_col_cost = make_color_rgb( 202, 0, 5 );
-		else
+		else if( CPU_cost > 0 )
 			CPU_col_cost = c_purple;
+		else
+			CPU_col_cost = CPU_col_gain;
 		
 		var h_u = CPU_surface_height * ( CPU_cost / CPU_max ); // the height of the cost display
 		var u_y =  CPU_surface_height - h_b; // the y of the use bar

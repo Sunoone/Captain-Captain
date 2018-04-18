@@ -53,12 +53,14 @@ if( scan_current[0] == false )
 					scan_current[0] = true;		// scan active
 					scan_current[1] = node;		// scan target
 					
+					var cost = scr_ability_excecute_script( 1, ability_0_script, node, core );
+					
 					scan_current[2] = scr_ability_initiate( 
 						core, 
 						node, 
 						ability_0_script,
 						scr_ability_excecute_script( 2, ability_0_script, node, core ),
-						scr_ability_excecute_script( 1, ability_0_script, node, core ),
+						cost,
 						scan_icon,
 						-4
 					);
@@ -71,7 +73,9 @@ if( scan_current[0] == false )
 	
 		// not found a suitable scan target
 	if( scan_current[0] == false )
+	{
 		exit;
+	}
 }
 
 	// scan target finished?

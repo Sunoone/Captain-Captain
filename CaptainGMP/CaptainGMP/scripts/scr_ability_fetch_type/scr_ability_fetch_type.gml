@@ -22,11 +22,12 @@ if( instance_exists( argument0 ) ) // check if argument0 is a single id
 					//check if the ability is valid
 					if( scr_ability_excecute_script( 0, ability_script[|i], argument4, argument3 ) )
 						ds_list_add( 
-							argument2, 
-							ability_graphic[|i],
-							ability_script[|i],
-							scr_ability_excecute_script( 1, ability_script[|i], argument4, argument3 ),
-							ability_tooltip[|i] 
+							argument2,																		// ds_list
+							ability_graphic[|i],															// 0 - sprite
+							ability_script[|i],																// 1 - script
+							scr_ability_excecute_script( 1, ability_script[|i], argument4, argument3 ),		// 2 - cost
+							ability_tooltip[|i],															// 3 - tooltip
+							ability_priority[|i]															// 4 - priority
 						);
 				}
 			}

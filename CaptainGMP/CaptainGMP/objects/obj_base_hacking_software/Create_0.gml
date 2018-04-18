@@ -25,5 +25,8 @@ scan_icon = spr_action_scan;
 kickstart = true;
 
 	// register activate scanning ability
-scr_ability_register( spr_action_scan_on, 10, 0, true, "Activate Scanning" );
-scr_ability_register( spr_action_scan_off, 11, 0, true, "De-activate Scanning" );
+scr_ability_register( spr_action_scan_on, 10, 0, true, "Activate Scanning", 80 );
+scr_ability_register( spr_action_scan_off, 11, 0, true, "De-activate Scanning", 80 );
+
+// ability cost
+CPU_reserve = 300;

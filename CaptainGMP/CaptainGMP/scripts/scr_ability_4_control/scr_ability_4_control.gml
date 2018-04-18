@@ -11,33 +11,36 @@ core = argument2;
 
 if( instance_exists( node ) && instance_exists( core ) ) // check object existance
 {
-	if( node.secret_owner == core.owner && node.owner != core.owner ) // conditions
+	if( node.active ) // Node active?
 	{
-		var cost, time;
-		cost = scr_cost_node_abs( node );
-		time = cost / (power( node.hack_level, 2 ) * 10 + 1);
-		
-		switch( argument0 ) // mode switch
+		if( node.secret_owner == core.owner && node.owner != core.owner ) // conditions
 		{
-			case 0: // test
-				return true;
+			var cost, time;
+			cost = scr_cost_node_abs( node );
+			time = cost / (power( node.hack_level, 2 ) * 10 + 1);
 		
-			case 1: // cost
-				return cost;
-			
-			case 2: // time in sec
-				return time;
-			
-			case 3: // real
+			switch( argument0 ) // mode switch
 			{
-				node.owner = core.owner;
-				node.register_abilities = true;
+				case 0: // test
+					return true;
+		
+				case 1: // cost
+					return cost;
+			
+				case 2: // time in sec
+					return time;
+			
+				case 3: // real
+				{
+					node.owner = core.owner;
+					node.register_abilities = true;
 				
-					// remove all bufs
-				// scr_status_effect_remove( node, -1 );
+						// remove all bufs
+					// scr_status_effect_remove( node, -1 );
 				
-					// set apparent owner
-				scr_object_apparent_owner_set( node, core.owner );
+						// set apparent owner
+					scr_object_apparent_owner_set( node, core.owner );
+				}
 			}
 		}
 	}

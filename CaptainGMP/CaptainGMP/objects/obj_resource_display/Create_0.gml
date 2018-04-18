@@ -17,3 +17,4 @@ CPU_surface = -4;
 
 CPU_col = make_color_rgb( 46, 255, 40 );
 CPU_col_cost = c_red;
+CPU_col_gain = make_color_rgb(255,255,60);

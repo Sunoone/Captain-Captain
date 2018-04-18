@@ -4,6 +4,12 @@
 
 // Call from interface object only
 
+
+
+var m_x, m_y;
+m_x = scr_screen_mouse_get_x( screen_index );
+m_y = scr_screen_mouse_get_y( screen_index );
+
 draw_set_halign( fa_center );
 
 var i_grey, j_grey;
@@ -12,6 +18,7 @@ else { i_grey = -1; j_grey = -1; }
 
 var player_index = global.player;
 var player_owned = ( index == player_index );
+var player_core = global.player_core;
 
 
 for( var i = 0; i<max_rings; i++)
@@ -50,12 +57,14 @@ for( var i = 0; i<max_rings; i++)
 					col_b = 255;
 				}
 				
+				/*
 					// draw yellow for selected nodes
 				if( i == select_type && j == select_pos ) 
 				{
 					col_b = 0;
 					col_g = 100;
 				}
+				*/
 			
 					// draw red for hacked nodes
 				if( index != ele_id.owner && access == 1) 
@@ -74,6 +83,13 @@ for( var i = 0; i<max_rings; i++)
 					col_b -= 124;
 					col_g -= 124;
 					col_r -= 124;
+					
+					if( player_owned == false )
+					{
+						col_b = 124;
+						col_g = 124;
+						col_r = 124;
+					}
 				}
 				
 				col_r = max( 0, col_r );
@@ -121,7 +137,7 @@ for( var i = 0; i<max_rings; i++)
 				
 				// display apparent secret owner
 				var app_own = scr_object_apparent_owner_get( ele_id, player_index);
-						
+				
 				if( app_own == player_index )
 					draw_sprite_ext( spr_hacked_node, 0, ele_x, ele_y, 1, 1, 0, c_white, 1 );
 				else
@@ -134,6 +150,46 @@ for( var i = 0; i<max_rings; i++)
 				// Display currently running ability
 				if( sprite_exists( icon_spr ) )
 					draw_sprite_ext( icon_spr, 0, ele_x, ele_y, 1, 1, 0, c_white, 0.5 );
+				else
+				{
+					// Draw Highest priority ability icon
+					if( point_distance( ele_x, ele_y, m_x, m_y ) < 25 && draw_menu == false )
+					{
+						if( instance_exists( player_core ) )
+						{
+							var draw_list = ds_list_create();
+						
+							// fetch menu
+							scr_interface_fetch_menu( draw_list, ele_id, player_core, id );
+							
+							
+							//filter highest priority ability
+							var in, prio, s;
+							prio = 0;
+							in = -1;
+							s = ds_list_size( draw_list ) / 5;
+							
+							for( var n = 0; n < s; n++ )
+							{
+								if( draw_list[| n * 5 + 4] > prio )
+									in = n;
+							}
+							
+							if( in >= 0 )
+							{
+								// draw ability icon
+								var ability_col = c_white;
+								
+								if( draw_list[| in * 5 + 2] > player_core.cpu_available )
+									ability_col = c_black;
+								
+								draw_sprite_ext( draw_list[| in * 5], 0, ele_x, ele_y, 1, 1, 0, ability_col, 0.75 );
+							}
+							
+							ds_list_destroy( draw_list );
+						}
+					}
+				}
 			}
 		}
 	}

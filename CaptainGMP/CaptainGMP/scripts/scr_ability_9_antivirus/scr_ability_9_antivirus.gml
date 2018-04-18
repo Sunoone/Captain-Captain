@@ -11,40 +11,43 @@ core = argument2;
 
 if( instance_exists( node ) && instance_exists( core ) ) // check object existance
 {
-	if( scr_object_apparent_owner_get( node, core.owner) != core.owner ) // conditions
+	if( node.active ) // Node active?
 	{
-		var cost, time;
-		cost = scr_cost_antivirus( core.hacking_level );
-		if( node.owner != core.owner )
-			cost += scr_cost_node_abs( node );
-		
-		time = ( node.hack_level / core.hacking_level ) * 2;
-		
-		switch( argument0 ) // mode switch
+		if( scr_object_apparent_owner_get( node, core.owner) != core.owner || node.owner != core.owner ) // conditions
 		{
-			case 0: // test conditions
-				return true;
+			var cost, time;
+			cost = scr_cost_antivirus( core.hacking_level );
+			if( node.owner != core.owner )
+				cost += scr_cost_node_abs( node );
 		
-			case 1: // cost
-				return cost;
-			
-			case 2: // time in sec
-				return time;
-			
-			case 3: // real
+			time = ( node.hack_level / core.hacking_level ) * 2;
+		
+			switch( argument0 ) // mode switch
 			{
-				// Hacking code
-				node.secret_owner = core.owner;
-				node.owner = core.owner;
-				node.hack_level = 0;
+				case 0: // test conditions
+					return true;
+		
+				case 1: // cost
+					return cost;
+			
+				case 2: // time in sec
+					return time;
+			
+				case 3: // real
+				{
+					// Hacking code
+					node.secret_owner = core.owner;
+					node.owner = core.owner;
+					node.hack_level = 0;
 				
-				node.register_abilities = true;
+					node.register_abilities = true;
 				
-					// remove all bufs
-				scr_status_effect_remove( node, -1 );
+						// remove all bufs
+					scr_status_effect_remove( node, -1 );
 				
-					// set apparent owner
-				scr_object_apparent_owner_set( node, core.owner );
+						// set apparent owner
+					scr_object_apparent_owner_set( node, core.owner );
+				}
 			}
 		}
 	}

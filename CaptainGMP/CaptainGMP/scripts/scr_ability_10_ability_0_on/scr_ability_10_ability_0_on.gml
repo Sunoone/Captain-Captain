@@ -11,27 +11,30 @@ core = argument2;
 
 if( instance_exists( node ) && instance_exists( core ) ) // check object existance
 {
-	if( core.owner == node.owner && node.stat[var_ability_0_active, 0] == 0 ) // conditions
+	if( node.active ) // Node active?
 	{
-		var cost, time;
-		
-		cost = scr_ability_excecute_script( 1, node.ability_0_script, node.ability_0_target, core );
-		time = 0;
-		
-		switch( argument0 ) // mode switch
+		if( core.owner == node.owner && node.stat[var_ability_0_active, 0] == 0 ) // conditions
 		{
-			case 0: // test
-				return true;
+			var cost, time;
 		
-			case 1: // cost
-				return cost;
-			
-			case 2: // time in sec
-				return time;
-			
-			case 3: // real
+			cost = scr_ability_excecute_script( 1, node.ability_0_script, node.ability_0_target, core );
+			time = 0;
+		
+			switch( argument0 ) // mode switch
 			{
-				scr_status_effect_add( node, core, 0, var_ability_0_active, 1 );
+				case 0: // test
+					return true;
+		
+				case 1: // cost
+					return cost;
+			
+				case 2: // time in sec
+					return time;
+			
+				case 3: // real
+				{
+					scr_status_effect_add( node, core, 0, var_ability_0_active, 1 );
+				}
 			}
 		}
 	}

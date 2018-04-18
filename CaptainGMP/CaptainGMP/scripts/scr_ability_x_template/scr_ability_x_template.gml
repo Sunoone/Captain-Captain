@@ -11,7 +11,7 @@ core = argument2;
 
 if( instance_exists( node ) && instance_exists( core ) ) // check object existance
 {
-	if( true ) // conditions for the ability
+	if( node.active ) // conditions for the ability
 	{
 		var cost, time;
 		cost = 0;	// Cost calculation

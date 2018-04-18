@@ -150,10 +150,10 @@ if( light_up > 0 ) light_up -= DeltaTime;
 
 
 // CPU cost -----------------------------------------------------------------------------------------------------------------------------
-if( instance_exists( parent ) && !quarantine )
+if( instance_exists( parent ) && active )
 {
 		// base CPU cost
-	if( instance_exists( core ) && active )
+	if( instance_exists( core ) )
 	{			
 		core.cpu_budget += stat[var_cpu_cost,0];
 	}

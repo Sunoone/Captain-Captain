@@ -21,7 +21,10 @@ app_own = scr_object_apparent_owner_get( node, player_index );
 // clear the ds_list
 ds_list_clear( menu_options );
 
-	
+if( array_height_2d( node.ability_running ) > core.owner )
+	if( node.ability_running[core.owner, 0] >= 0 )
+		exit;
+
 switch( interface.access )
 {
 	case 0: // Hostile interface
@@ -53,7 +56,7 @@ switch( interface.access )
 			// collect node abilities
 			scr_ability_fetch_type( node, 0, menu_options, core, node );
 				
-			if( app_own != player_index )
+			if( app_own != player_index || node.owner != player_index )
 			{
 				// collect antivirus tools
 				scr_ability_fetch_type_list( core.core_ability_id, 4, menu_options, core, node );

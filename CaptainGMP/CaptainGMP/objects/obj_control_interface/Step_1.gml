@@ -14,6 +14,9 @@ if( global.player == index && access != 1 ) // this is a FRIENDLY interface and 
 	select_pos = -1;
 	select_type = -1;
 	
+	inventory_width = 0;
+	
+	/*
 	if( inventory_index == -4 )
 	{
 		inventory_index = scr_screen_surface_create( inventory_width, f_height,f_x, f_y  ,true);
@@ -24,6 +27,7 @@ if( global.player == index && access != 1 ) // this is a FRIENDLY interface and 
 	}
 	
 	scr_screen_surface_set_xy( screen_index, f_x + inventory_width, f_y );
+	*/
 	
 	global.player_core = core;
 }

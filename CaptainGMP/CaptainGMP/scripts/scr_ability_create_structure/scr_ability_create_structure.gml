@@ -12,4 +12,5 @@ with( argument0 )
 	ability_script = ds_list_create();
 	ability_tooltip = ds_list_create();
 	ability_index = ds_list_create();
+	ability_priority = ds_list_create();
 }

@@ -67,6 +67,8 @@ switch( access )
 					}
 				}
 			}
+			
+			/*
 			else if( scr_screen_mouse_above( inventory_index ) ) // inventory
 			{
 				var m_y, pos;
@@ -113,6 +115,7 @@ switch( access )
 				}
 				
 			}
+			*/
 			
 			if( node == -4 )
 			{

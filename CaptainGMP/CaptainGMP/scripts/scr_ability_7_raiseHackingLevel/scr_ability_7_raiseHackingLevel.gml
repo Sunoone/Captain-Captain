@@ -11,26 +11,29 @@ core = argument2;
 
 if( instance_exists( node ) && instance_exists( core ) ) // check object existance
 {
-	if( node.secret_owner == core.owner && node.owner >= 0 && node.hack_level < core.hacking_level + 2 ) // conditions
+	if( node.active ) // Node active?
 	{
-		var cost, time;
-		cost = scr_cost_hacking( core.hacking_level + 2 ) - scr_cost_hacking( core.hacking_level ) ;
-		time = scr_cost_node_abs( node ) / cost;
-		
-		switch( argument0 ) // mode switch
+		if( node.secret_owner == core.owner && node.owner >= 0 && node.hack_level < core.hacking_level + 2 ) // conditions
 		{
-			case 0: // test
-				return true;
+			var cost, time;
+			cost = scr_cost_hacking( core.hacking_level + 2 ) - scr_cost_hacking( core.hacking_level ) ;
+			time = scr_cost_node_abs( node ) / cost;
 		
-			case 1: // cost
-				return cost;
-			
-			case 2: // time in sec
-				return time;
-			
-			case 3: // real
+			switch( argument0 ) // mode switch
 			{
-				node.hack_level = core.hacking_level + 2;
+				case 0: // test
+					return true;
+		
+				case 1: // cost
+					return cost;
+			
+				case 2: // time in sec
+					return time;
+			
+				case 3: // real
+				{
+					node.hack_level = core.hacking_level + 2;
+				}
 			}
 		}
 	}

@@ -64,6 +64,7 @@ switch( access )
 				if(drag_hold) break;
 			}
 		}
+		/*
 		else if( scr_screen_mouse_above( inventory_index ) ) // check inventory
 		{
 			m_x = scr_screen_mouse_get_x( inventory_index );
@@ -91,6 +92,7 @@ switch( access )
 				}
 			}
 		}
+		*/
 	}
 	break;
 

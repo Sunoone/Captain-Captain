@@ -59,7 +59,7 @@ surface_reset_target();
 
 
 // Draw inventory
-scr_interface_draw_inventory();
+//scr_interface_draw_inventory();
 
 
 // Draw menu
