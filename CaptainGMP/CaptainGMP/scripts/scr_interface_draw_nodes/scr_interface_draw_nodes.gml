@@ -56,15 +56,6 @@ for( var i = 0; i<max_rings; i++)
 					col_g = 255;  
 					col_b = 255;
 				}
-				
-				/*
-					// draw yellow for selected nodes
-				if( i == select_type && j == select_pos ) 
-				{
-					col_b = 0;
-					col_g = 100;
-				}
-				*/
 			
 					// draw red for hacked nodes
 				if( index != ele_id.owner && access == 1) 
@@ -164,13 +155,14 @@ for( var i = 0; i<max_rings; i++)
 							
 							if( ds_list_size( draw_list ) > 0 )
 							{
-								// draw ability icon
 								var ability_col = c_white;
-								
 								if( draw_list[|2] > player_core.cpu_available )
 									ability_col = c_black;
-								
+									
+									// draw ability icon
 								draw_sprite_ext( draw_list[|0], 0, ele_x, ele_y, 1, 1, 0, ability_col, 0.75 );
+									// draw cost
+								scr_resource_display_cost( player_core, draw_list[|2] );
 							}
 							
 							ds_list_destroy( draw_list );
