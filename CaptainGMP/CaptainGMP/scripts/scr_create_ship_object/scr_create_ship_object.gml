@@ -49,10 +49,6 @@ if( scr_obj_check_parentage( i, obj_base_core ) )
 			// is this the player core?
 		if( i.owner == global.player )
 			global.player_core = i;
-		else // DEBUG
-		{	
-			scr_create_AI( i, obj_AI_hacking_1, obj_AI_defence_1 );
-		}
 	}
 }
 else if( instance_exists(ship.ship_core) )

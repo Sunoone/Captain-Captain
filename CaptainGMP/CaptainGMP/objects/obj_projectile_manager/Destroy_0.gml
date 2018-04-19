@@ -13,8 +13,7 @@ projectile = 0;
 
 
 // destroy collision target data
-for( var i = 0; i < col_data; i++ )
+for( var i = 0; i < pro_mod + 1; i++ )
 {
 	ds_list_destroy( collision_target[i] );
 }
-collision_target = 0;

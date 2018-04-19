@@ -13,7 +13,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 {
 	if( node.active ) // Node active?
 	{
-		if( node.secret_owner != core.owner && core.hacking_level > 0 ) // conditions
+		if( scr_object_apparent_owner_get( node, core.owner ) != core.owner && core.hacking_level > 0 ) // conditions
 		{
 			if( node.can_be_hacked || node.can_be_hacked_parent )
 			{

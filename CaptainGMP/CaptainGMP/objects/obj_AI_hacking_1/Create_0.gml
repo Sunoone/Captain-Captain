@@ -3,16 +3,18 @@
 // Inherit the parent event
 event_inherited();
 
-hacking_target_list = ds_list_create();	 // part list of ship
-
 hacking_script = 0;
+hacking_sprite = spr_action_basic_hack;
 
-hacking_current[0] = false;
-hacking_current[1] = -4;
-hacking_current[2] = -4;
+advanced_script = 1;
+advanced_sprite = spr_action_disrupt;
 
 AI_CPU_limit = 250;
+AI_timedelay = 1.5;		// time in sec
 
 target_index = global.player;
 target_ship = scr_ship_from_owner( target_index );
 target_core = global.owner_core[ target_index ];
+
+	// Raize the number of actions
+scr_AI_set_actions( 1 );

@@ -3,12 +3,11 @@
 // Inherit the parent event
 event_inherited();
 
-defence_target_list = ds_list_create();	 // part list of ship
 
 defence_script = 9;
+defence_sprite = spr_action_antivirus;
 
-defence_current[0] = false;
-defence_current[1] = -4;
-defence_current[2] = -4;
+AI_CPU_limit = 50;
+AI_timedelay = 1;
 
-AI_CPU_limit = 0;
+kickstart = true;

@@ -51,13 +51,13 @@ for( var i = ds_list_size( running_abilities_time ) -1; i >=0; i-- )
 	exist = instance_exists( running_abilities_target[|i] );
 
 	if( running_abilities_time[|i] <= 0 || !exist )
-	{
+	{		
 		if( exist )
 		{
 			scr_ability_deregister_node( running_abilities_target[|i], id );
 			scr_ability_excecute_script( 3, running_abilities_script[|i], running_abilities_target[|i], id );
 			
-			if( owner == global.player && audio_exists( running_abilities_sound[|i] ) )
+			if( audio_exists( running_abilities_sound[|i] ) )
 				audio_play_sound( running_abilities_sound[|i], 10, false );
 		}
 		
