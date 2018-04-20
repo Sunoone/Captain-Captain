@@ -74,3 +74,13 @@
 #macro var_cpu_cost 3
 #macro var_security_level 4
 #macro var_ability_0_active 5
+#macro var_ability_1_active 6
+#macro var_ability_2_active 7
+#macro var_ability_3_active 8
+#macro var_maxThrust 9
+#macro var_mass 10
+#macro var_drag 11
+
+
+
+

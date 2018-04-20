@@ -1,43 +1,43 @@
 {
-    "id": "afb186e4-dc2e-49e8-be65-d3a5391356e3",
+    "id": "a748bc38-1060-47ad-aea0-782024df3c82",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_base_truster_component",
+    "name": "obj_keyhandeler",
     "eventList": [
         {
-            "id": "a6ab60f3-b726-40cd-9e5b-f0c4dc9b587b",
+            "id": "20b30b15-d0b4-41a4-8f8e-b0ca9c8a3faa",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "afb186e4-dc2e-49e8-be65-d3a5391356e3"
+            "m_owner": "a748bc38-1060-47ad-aea0-782024df3c82"
         },
         {
-            "id": "6614b03a-cc15-4291-8a95-07e3e91c3c92",
+            "id": "3e06b145-6889-419f-8fde-493c4c361ee2",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 1,
             "eventtype": 3,
-            "m_owner": "afb186e4-dc2e-49e8-be65-d3a5391356e3"
+            "m_owner": "a748bc38-1060-47ad-aea0-782024df3c82"
         },
         {
-            "id": "ddc451fe-0a73-439a-90af-4b63438d0d89",
+            "id": "b11dd5d3-afbb-43c8-a9d9-c349b9a985e3",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 8,
-            "m_owner": "afb186e4-dc2e-49e8-be65-d3a5391356e3"
+            "m_owner": "a748bc38-1060-47ad-aea0-782024df3c82"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "9ed86855-f20f-4f69-9076-c14c7b874b81",
+    "parentObjectId": "00000000-0000-0000-0000-000000000000",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,

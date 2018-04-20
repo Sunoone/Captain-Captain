@@ -7,6 +7,9 @@
 // create the timekeeper object, CREATE BEFORE ANY OTHER OBJECTS!
 global.time = instance_create_depth( 0,0,0, obj_timekeeper );
 
+// create the keyhandeler, CREATE AS SECOND OBJECT!
+global.keyhandeler = instance_create_depth( 0,0,0, obj_keyhandeler );
+
 // create the array keeper object / data object
 global.data = instance_create_depth(0,0,0,obj_data);
 

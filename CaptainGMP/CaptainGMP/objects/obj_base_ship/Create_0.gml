@@ -46,5 +46,20 @@ draw_top = false;
 // hacking
 hackable_parts_list = ds_list_create();
 
+// stats
+stat[var_mass, 1] = 100000;
+stat[var_drag, 1] = 0.25;		// 25% drag per sec
+
 // internal variables
 object_surface = -4;
+
+
+// Movement
+inertia = vector_create( 0, 0 );
+torque = 0;
+movement = ds_list_create();
+rotation = ds_list_create();
+
+// DEBUG
+screen_offset_x = scr_screen_surface_get_x( global.combat_screen_index );
+screen_offset_y = scr_screen_surface_get_y( global.combat_screen_index );

@@ -21,3 +21,7 @@ scr_3d_array_destroy( ship_grid );
 scr_ds_list_remove_value( global.registry, id );
 
 ds_list_destroy(hackable_parts_list);
+
+// Destroy movement data structues
+ds_list_destroy(movement);
+ds_list_destroy(rotation);

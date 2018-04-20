@@ -8,4 +8,5 @@ if( !instance_exists( target_ship ) || !instance_exists( target_core ) )
 scr_AI_preform_action( 0, hacking_script, core, hacking_sprite, AI_action_limit, -4 );
 
 // preform advanced hack
-scr_AI_preform_action( 1, advanced_script, core, advanced_sprite, AI_action_limit, snd_interface_warning_2 );
+if( core.cpu_available >= 300 )
+	scr_AI_preform_action( 1, advanced_script, core, advanced_sprite, AI_action_limit, snd_interface_warning_2 );

@@ -34,10 +34,9 @@ stat[var_HP_max, 1] = 100;				// max HP of object
 stat[var_regen, 1] = 0.025;				// every sec, 2.5% hp is regained
 stat[var_cpu_cost, 1] = 100;			// base cost of object
 stat[var_security_level, 1] = 1;		// resistance to hacking
-stat[var_ability_0_active, 1] = 0;		// object ability 0 active
-	ability_0_script = -4;					// ability 0 script
-	ability_0_target = id;					// ability 0 target
-
+stat[var_maxThrust, 1] = 0;				// Max Trust
+stat[var_mass, 1] = 100;				// Mass
+stat[var_drag, 1] = 0;					// Drag for object
 
 
 	// Status Effects
@@ -57,6 +56,20 @@ quarantine = false; // is the node in quarantine / inventory?
 
 
 	// Abilities
+stat[var_ability_0_active, 1] = 0;		// object ability 0 active
+	ability_0_script = -4;					// ability 0 script
+	ability_0_target = id;					// ability 0 target
+stat[var_ability_1_active, 1] = 0;		// object ability 0 active
+	ability_1_script = -4;					// ability 0 script
+	ability_1_target = id;					// ability 0 target
+stat[var_ability_2_active, 1] = 0;		// object ability 0 active
+	ability_2_script = -4;					// ability 0 script
+	ability_2_target = id;					// ability 0 target
+stat[var_ability_3_active, 1] = 0;		// object ability 0 active
+	ability_3_script = -4;					// ability 0 script
+	ability_3_target = id;					// ability 0 target
+	
+	
 scr_ability_create_structure( id );
 register_abilities = false;
 ability_off = scr_ability_register( spr_action_off, 2, 0, true, "Shut down, disables cpu cost.", 50 );

@@ -1,4 +1,6 @@
-/// @description update draw grids, check out of bounds
+/// @description update 
+
+// calculate movement, check out of bounds, draw grids, 
 
 // Update CPU
 if( instance_exists( ship_core ) )
@@ -6,7 +8,34 @@ if( instance_exists( ship_core ) )
 else
 	cpu = 0;
 
-// fix out of bounds
+// Movement ------------------------------------------------------------------
+var vector_delta;
+var dampen = 1000 / (stat[var_mass, 0] / global.DeltaTime);
+
+for( var i = ds_list_size( movement )-1; i >= 0; i-- )
+{
+	vector_delta = movement[|i];
+	vector_delta[0] *= dampen;
+	vector_delta[1] *= dampen;
+	
+	inertia = vector_add( inertia, vector_delta );
+	
+	ds_list_delete( movement, i );
+}
+
+	// Apply drag
+if( inertia[0] != 0 || inertia[1] != 0 )
+{
+	inertia[0] -= (inertia[0] * stat[var_drag, 0] * global.DeltaTime);
+	inertia[1] -= (inertia[1] * stat[var_drag, 0] * global.DeltaTime);
+}
+
+	// Move ship
+x += inertia[0];
+y += inertia[1];
+
+
+// fix out of bounds - DEBUG
 if( surface_exists( global.combat_screen ) )
 {
 	var s_x,s_y,s_w,s_h;
@@ -29,7 +58,7 @@ if( surface_exists( global.combat_screen ) )
 
 
 
-	// recheck the hull draw grid 
+	// recheck the hull draw grid  ---------------------------------------------------------------------
 if( draw_grid_hull_recheck )
 {
 	draw_grid_hull_index = 0;
