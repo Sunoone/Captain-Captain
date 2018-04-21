@@ -1,8 +1,6 @@
 /// @description set target for owned children
 // Overwrite me!
 
-exit;
-
 if( global.player == owner )
 {
 	// make globals local

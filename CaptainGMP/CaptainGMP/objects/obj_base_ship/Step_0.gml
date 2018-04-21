@@ -48,7 +48,7 @@ x += inertia[0];
 y += inertia[1];
 
 	// Rotate the ship
-direction += ( torque / stat[var_mass, 0] ) * global.DeltaTime;
+direction += ( torque / ( stat[var_mass, 0] * 0.75 ) ) * global.DeltaTime;
 
 // fix out of bounds - DEBUG
 if( surface_exists( global.combat_screen ) )

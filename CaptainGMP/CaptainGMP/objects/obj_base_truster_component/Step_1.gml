@@ -15,8 +15,8 @@ if( owner == global.player )
 		var dir = angle_difference( thrust_direction, global.input_direction[1] );
 		if( dir < 90 && dir > -90 )
 		{
-			//thrust = cos( dir / 180 * pi ) * stat[ var_maxThrust, 0];
-			thrust = stat[ var_maxThrust, 0];
+			thrust = cos( dir / 180 * pi ) * stat[ var_maxThrust, 0];
+			//thrust = stat[ var_maxThrust, 0];
 			
 			thrust_vector[0] = lengthdir_x( thrust, direction + 180 );
 			thrust_vector[1] = lengthdir_y( thrust, direction + 180  );

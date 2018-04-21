@@ -1,7 +1,7 @@
 /// @description fire childeren
 // 
 
-/*
+
 
 if( global.player == owner )
 {

@@ -1,8 +1,6 @@
 /// @description Aim owned childern
 // Overwite this code
 
-exit;
-
 if( is_string(target_x) == false && is_string(target_y) == false )
 {
 	

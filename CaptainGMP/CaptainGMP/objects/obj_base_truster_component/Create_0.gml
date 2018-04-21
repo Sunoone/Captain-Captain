@@ -8,7 +8,7 @@ type = 2;
 name = "Base Truster Component";
 
 	// Stats
-stat[ var_maxThrust, 1] = 200;	// Max Trust
+stat[ var_maxThrust, 1] = 500;	// Max Trust
 
 	// Internal vars
 screen_offset_x = scr_screen_surface_get_x( global.combat_screen_index );

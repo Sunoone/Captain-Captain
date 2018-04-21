@@ -48,7 +48,7 @@ hackable_parts_list = ds_list_create();
 
 // stats
 stat[var_mass, 1] = 100000;
-stat[var_drag, 1] = 0.25;		// 25% drag per sec
+stat[var_drag, 1] = 0.5;		// 25% drag per sec
 scr_stat_update( id );			// updates all stats
 
 // internal variables

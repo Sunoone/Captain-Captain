@@ -2,13 +2,15 @@
 
 if( thrust != 0 )
 {
-	var x1,y1,x2,y2;
+	var x1,y1,x2,y2, thr_dis;
+	
+	thr_dis = (thrust / stat[ var_maxThrust, 0]) * 100;
 	
 	x1 = x + screen_offset_x;
 	y1 = y + screen_offset_y;
 	
-	x2 = x1 + lengthdir_x( thrust * 0.5, direction );
-	y2 = y1 + lengthdir_y( thrust * 0.5, direction );
+	x2 = x1 + lengthdir_x( thr_dis , direction );
+	y2 = y1 + lengthdir_y( thr_dis , direction );
 	
 	draw_line_width_color( x1,y1,x2,y2, 5, DEBUG_colour, c_black );
 	
