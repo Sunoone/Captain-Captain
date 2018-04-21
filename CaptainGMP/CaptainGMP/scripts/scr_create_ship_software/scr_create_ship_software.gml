@@ -47,4 +47,7 @@ i.off_d = 0;
 i.off_l = 0;
 i.parent_direction = p.direction;
 
-return i;
+// updates all stats on the object
+scr_stat_update( i );			
+
+return( i );

@@ -5,10 +5,7 @@ globalvar DeltaTime;
 // Update all stats
 if( update_variables )
 {
-	for( var i = array_height_2d( stat ) -1; i >= 0; i-- )
-	{
-		scr_status_effect_update( id, i );
-	}
+	scr_stat_update( id );
 	update_variables = false;	
 }
 

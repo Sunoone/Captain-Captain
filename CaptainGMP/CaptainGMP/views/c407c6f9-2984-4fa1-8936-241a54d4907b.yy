@@ -14,7 +14,8 @@
         "d8a9d952-062c-44aa-82d3-23e0dd6058fc",
         "07ee37f4-b5b7-4751-a184-691864ead252",
         "2cd6cca5-2956-4033-82be-1bf0b3c39b69",
-        "f8e23953-d427-49cd-a9d1-110f85684d3e"
+        "f8e23953-d427-49cd-a9d1-110f85684d3e",
+        "ca858fbb-3028-428c-9a08-e77f0f71501e"
     ],
     "filterType": "GMScript",
     "folderName": "Tools",

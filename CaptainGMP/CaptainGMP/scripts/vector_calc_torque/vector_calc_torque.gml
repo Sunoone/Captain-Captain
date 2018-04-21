@@ -1,8 +1,8 @@
-/// @description vector_subtract(centerOfMass, pointOfApplication, force, opt: inertia);
+/// @description vector_calc_torque(centerOfMass, pointOfApplication, force, inertia*);
 /// @param centerOfMass
 /// @param pointOfApplication
 /// @param force
-/// @param inertia
+/// @param inertia*
 
 if( argument_count <3 || argument_count > 4) show_error("vector_subtract argument count is incorrect", true);
 

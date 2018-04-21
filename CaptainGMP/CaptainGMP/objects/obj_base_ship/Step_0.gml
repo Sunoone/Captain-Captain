@@ -12,6 +12,7 @@ else
 var vector_delta;
 var dampen = 1000 / (stat[var_mass, 0] / global.DeltaTime);
 
+	// add force to inertia from thrusters
 for( var i = ds_list_size( movement )-1; i >= 0; i-- )
 {
 	vector_delta = movement[|i];
@@ -19,21 +20,35 @@ for( var i = ds_list_size( movement )-1; i >= 0; i-- )
 	vector_delta[1] *= dampen;
 	
 	inertia = vector_add( inertia, vector_delta );
-	
-	ds_list_delete( movement, i );
 }
+ds_list_clear( movement );
 
-	// Apply drag
+	// add force to torque from thrusters
+for( var i = ds_list_size( rotation )-1; i >= 0; i-- )
+{
+	torque += rotation[|i]
+}
+ds_list_clear( rotation );
+
+	// Apply drag on inertia
 if( inertia[0] != 0 || inertia[1] != 0 )
 {
 	inertia[0] -= (inertia[0] * stat[var_drag, 0] * global.DeltaTime);
 	inertia[1] -= (inertia[1] * stat[var_drag, 0] * global.DeltaTime);
 }
 
+	// Apply drag on torque
+if( inertia[0] != 0 || inertia[1] != 0 )
+{
+	torque -= (torque * stat[var_drag, 0] * global.DeltaTime);
+}
+
 	// Move ship
 x += inertia[0];
 y += inertia[1];
 
+	// Rotate the ship
+direction += ( torque / stat[var_mass, 0] ) * global.DeltaTime;
 
 // fix out of bounds - DEBUG
 if( surface_exists( global.combat_screen ) )

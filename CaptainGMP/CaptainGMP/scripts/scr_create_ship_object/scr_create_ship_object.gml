@@ -87,3 +87,8 @@ i.direction = i.parent_direction + i.self_direction;
 // add the created object to the ship_grid
 scr_3d_array_set( ship.ship_grid, argument[2], argument[3], ship_object, i );
 ship.draw_grid_object_recheck = true;
+
+// updates all stats on the object
+scr_stat_update( i );			
+
+return( i );
