@@ -1,5 +1,17 @@
 /// @description check surface
 
+if( screen_index != -4 && !surface_exists( background ) )
+{
+	background = scr_screen_surface_get_id( screen_index );
+	b_width = surface_get_width( background );
+	b_height = surface_get_height( background );
+	
+	d_x2 = b_width - 10;
+	d_y1 = debug_height + 10;
+	d_x1 = d_x2 - 100;
+	d_y2 = d_y1 + 100;
+}
+
 if( !surface_exists( background ) )
 {
 	background = surface_create(b_width, b_height);
@@ -7,18 +19,17 @@ if( !surface_exists( background ) )
 
 surface_set_target( background );
 	
-draw_clear( make_color_rgb( 132, 187, 232 ) );
+draw_clear( make_color_hsv( 128, 158, 182 ) );
 	
 var spr, col, u_min, v_min, u_max, v_max, u_off, v_off, x1,y1,x2,y2;
 
 spr = spr_cloud;
 col = c_white;
 
-
 x1 = draw_left;
 y1 = draw_top;
-x2 = room_width;
-y2 = room_height;
+x2 = b_width;
+y2 = b_height;
 
 u_off = x1 + background_x + x_offset;
 v_off = y1 + background_y + y_offset;

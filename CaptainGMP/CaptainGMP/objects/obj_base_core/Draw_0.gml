@@ -1,5 +1,5 @@
 /// @description Debug Draw
-
+/*
 if( global.player == original_owner )
 {
 	draw_set_halign(fa_right);

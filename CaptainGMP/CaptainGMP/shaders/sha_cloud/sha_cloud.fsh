@@ -23,11 +23,11 @@ float noise(vec2 k, float freq )
 	vec2 mx = mod(k,unit)/unit;
 	//xy = 3.*xy*xy-2.*xy*xy*xy;
 	mx = 0.5*(1.0-cos(PI*mx));
-	float e = rand((ij+vec2(0.0,0.0)));
+	float j = rand((ij+vec2(0.0,0.0)));
 	float h = rand((ij+vec2(1.0,0.0)));
 	float c = rand((ij+vec2(0.0,1.0)));
 	float d = rand((ij+vec2(1.0,1.0)));
-	float x1 = mix(e, h, mx.x);
+	float x1 = mix(j, h, mx.x);
 	float x2 = mix(c, d, mx.x);
 	return mix(x1, x2, mx.y);
 }
@@ -72,38 +72,13 @@ void main()
 	normal *= vec3( 0.5, 0.5, 0.5 );
 	normal = normalize( normal );
 	
-	/*
-	float n_r = clamp(( p_r-p_l + 2.0 ) * 0.25, 0.0, 1.0);
-	float n_g = clamp(( p_d-p_u + 2.0 ) * 0.25, 0.0, 1.0);
-	float n_b = 1.0 - max( abs(n_r - 0.5), abs(n_g - 0.5) );
-	
-	vec3 normal = normalize( vec3( n_r, n_g, n_b ) );
-	*/
-	
-	
-	vec3 light = normalize( light_direction );	
+	vec3 light = normalize( light_direction );
 	vec3 cloud_colour = vec3( 1.0, 1.0, 1.0 );
-	vec3 output_colour = clamp(dot( normal, light ), 0.0, 1.0) * cloud_colour * light_colour;
+	float cosTheta = clamp(dot( normal, light ), 0.0, 1.0);
+	
+	vec3 output_colour = pow(cosTheta, 2.0 )* cloud_colour * light_colour;
 	
 	gl_FragColor = v_vColour * vec4( output_colour, p_a );
-	
-	/*
-	if( floor( v_vTexcoord.x ) == floor( v_vTexcoord.x + 0.5 ) ^^ floor( v_vTexcoord.y ) == floor( v_vTexcoord.y + 0.5 ))
-	{
-		
-		//float mn = 1.0;
-		//normal *= vec3( mn, mn, 1.0 );
-		//normal = normalize( normal );
-		
-		gl_FragColor = v_vColour * vec4( normal, 1.0 );
-		
-		//gl_FragColor = v_vColour * vec4( p_u, p_d, 0.0, 1.0 );
-	}
-	else
-	{
-		//gl_FragColor = v_vColour * vec4( p_a, p_a, p_a, 1.0 );
-		gl_FragColor = v_vColour * vec4( output_colour, p_a );
-	}
-	*/
+	//gl_FragColor = v_vColour * vec4( normal, 1.0 );
 }
 
