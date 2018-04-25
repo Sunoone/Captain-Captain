@@ -15,6 +15,3 @@ ship_hallign = 5;
 ship_vallign = 5;
 
 ship_vallign_off = 0.5;
-
-// debug turning
-turning = 0;

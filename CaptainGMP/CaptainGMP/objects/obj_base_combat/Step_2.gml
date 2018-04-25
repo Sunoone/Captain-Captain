@@ -150,7 +150,7 @@ if( light_up > 0 ) light_up -= DeltaTime;
 if( instance_exists( parent ) && active )
 {
 		// base CPU cost
-	if( instance_exists( core ) )
+	if( instance_exists( core ) && type >= 0 && type <= 3 )
 	{			
 		core.cpu_budget += stat[var_cpu_cost,0];
 	}
