@@ -17,8 +17,12 @@ var room_hh = room_height * 0.5;
 global.combat_screen_index = scr_screen_surface_create( room_width - room_hh - 20, room_height, room_hh + 20, 0, true ); 
 global.combat_screen = scr_screen_surface_get_id( global.combat_screen_index );
 
-clouds = instance_create_depth( 0,0, 5000, obj_clouds );
-clouds.screen_index = global.combat_screen_index;
+for( var i = 0; i < 4; i++ )
+{
+	clouds[i] = instance_create_depth( 0,0, 5000, obj_clouds );
+	clouds[i].screen_index = global.combat_screen_index;
+	clouds[i].scale = 6.5-i*2;
+}
 
 	// Owners
 // Player

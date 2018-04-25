@@ -19,7 +19,7 @@ if( !surface_exists( background ) )
 
 surface_set_target( background );
 	
-draw_clear( make_color_hsv( 128, 158, 182 ) );
+// draw_clear( make_color_hsv( 128, 158, 182 ) );
 	
 var spr, col, u_min, v_min, u_max, v_max, u_off, v_off, x1,y1,x2,y2;
 
