@@ -1,45 +1,72 @@
-/// @description move clouds & debug
+/// @description check surface
 
-
-background_x += c_move[0] * ( delta_time*0.000001 );
-background_y += c_move[1] * ( delta_time*0.000001 );
-
-
-
-
-if( debug_enabled && surface_exists( background ) )
+if( screen_index != -4 && !surface_exists( background ) )
 {
-	surface_set_target( background );
+	background = scr_screen_surface_get_id( screen_index );
+	b_width = surface_get_width( background );
+	b_height = surface_get_height( background );
 	
-	// draw_rectangle_color( 0,0, b_width, debug_height, c_black, c_black, c_black, c_black, false );
-	
-		// Light direction
-	var a, l_x, l_y;
-	
-	l_x = d_x1 + 10 + 80 * light_direction[0];
-	l_y = d_y1 + 10 + 80 * light_direction[1];
-	a = 0.7;
-	
-	draw_primitive_begin( pr_trianglestrip );
-	
-	draw_vertex_color( d_x1,d_y1, d_col2, a );
-	draw_vertex_color( d_x1,d_y2, d_col2, a );
-	draw_vertex_color( d_x2,d_y1, d_col2, a );
-	draw_vertex_color( d_x2,d_y2, d_col2, a );
-	
-	draw_primitive_end();
-	
-	draw_rectangle_color( d_x1,d_y1,d_x2,d_y2, d_col1, d_col1, d_col1, d_col1, true );
-	draw_circle_color( l_x, l_y, 8, d_col1, d_col1, true );
-	
-		// Light temperature
-	draw_rectangle_color( d_x1 - 10, d_y1, d_x1 - 40, d_y2, d_col3, d_col3, d_col4, d_col4, false );
-	draw_rectangle_color( d_x1 - 10, d_y1, d_x1 - 40, d_y2, d_col1, d_col1, d_col1, d_col1, true );
-	
-	var l_h = ((d_kelvin - 4000) / 40 );
-	
-	draw_line_color( d_x1 - 45, d_y1 + l_h, d_x1 - 5, d_y1 + l_h,  d_col2, d_col2 );
-	
-	surface_reset_target();
+	d_x2 = b_width - 10;
+	d_y1 = debug_height + 10;
+	d_x1 = d_x2 - 100;
+	d_y2 = d_y1 + 100;
 }
+
+if( !surface_exists( background ) )
+{
+	background = surface_create(b_width, b_height);
+}
+
+surface_set_target( background );
 	
+// draw_clear( make_color_hsv( 128, 158, 182 ) );
+	
+var spr, col, u_min, v_min, u_max, v_max, u_off, v_off, x1,y1,x2,y2;
+
+spr = spr_cloud;
+col = c_white;
+
+x1 = draw_left;
+y1 = draw_top;
+x2 = b_width;
+y2 = b_height;
+
+u_off = x1 + background_x + x_offset;
+v_off = y1 + background_y + y_offset;
+
+
+u_min = u_off;
+v_min = v_off;
+
+u_max = u_off + (x2 - x1)*scale;
+v_max = v_off + (y2 - y1)*scale;
+
+uv_scale = vector_create( (1/50)*scale , (1/50)*scale );
+
+shader_set( sha_cloud );
+
+	// set shader uniforms
+shader_set_uniform_i( iteration_uniform, iterations );
+shader_set_uniform_f_array( light_direction_uniform, light_direction );
+shader_set_uniform_f_array( light_colour_uniform, light_colour );
+shader_set_uniform_f_array( uv_scale_uniform, uv_scale );
+
+
+
+draw_primitive_begin_texture( pr_trianglelist, sprite_get_texture( spr, 0 ) );
+
+
+draw_vertex_texture_color( x1, y1, u_min, v_min, col, 1 );
+draw_vertex_texture_color( x1, y2, u_min, v_max, col, 1 );
+draw_vertex_texture_color( x2, y1, u_max, v_min, col, 1 );
+
+draw_vertex_texture_color( x1, y2, u_min, v_max, col, 1 );
+draw_vertex_texture_color( x2, y1, u_max, v_min, col, 1 );
+draw_vertex_texture_color( x2, y2, u_max, v_max, col, 1 );
+
+
+draw_primitive_end();
+	
+shader_reset();
+	
+surface_reset_target();
