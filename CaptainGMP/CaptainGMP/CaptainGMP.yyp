@@ -975,6 +975,14 @@
             }
         },
         {
+            "Key": "59f954a7-ccf7-4e1c-addc-85927f639600",
+            "Value": {
+                "id": "f1b982f1-d67d-4892-b7f3-7510519d6728",
+                "resourcePath": "objects\\obj_background\\obj_background.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "5a1b2f14-7cc2-4862-ba2a-0ebbbbdfe88a",
             "Value": {
                 "id": "259e8627-ba9a-4f18-85c9-28fedf2c8bec",
@@ -1655,6 +1663,14 @@
             }
         },
         {
+            "Key": "a45d382b-65e0-4d56-847b-b65c43120488",
+            "Value": {
+                "id": "85f9c73f-a0a1-4e61-a811-2df3d37dc09b",
+                "resourcePath": "views\\a45d382b-65e0-4d56-847b-b65c43120488.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "a4997661-9402-4edd-b16d-ebd508757335",
             "Value": {
                 "id": "a31da6a5-3998-47ec-b7de-767f7862e2ad",
@@ -1668,6 +1684,14 @@
                 "id": "034f6d0b-d0c6-4c31-9e55-2c2a1e6ffbb1",
                 "resourcePath": "scripts\\scr_create_array1\\scr_create_array1.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "a65b4f23-bac6-4a6c-9a40-d732e9b0ca3d",
+            "Value": {
+                "id": "ae4dc99d-c66c-4ef3-8381-62c8e3487fda",
+                "resourcePath": "sprites\\spr_farmland\\spr_farmland.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1852,14 +1876,6 @@
                 "id": "8a9860e5-2b83-4b08-90b7-fc4ee6428598",
                 "resourcePath": "scripts\\scr_ability_10_ability_0_on\\scr_ability_10_ability_0_on.yy",
                 "resourceType": "GMScript"
-            }
-        },
-        {
-            "Key": "b220dd98-30c7-4ec6-a960-edf0ad6f220b",
-            "Value": {
-                "id": "5144276a-aa70-4309-a684-666599c72412",
-                "resourcePath": "rooms\\Farmland\\Farmland.yy",
-                "resourceType": "GMRoom"
             }
         },
         {
