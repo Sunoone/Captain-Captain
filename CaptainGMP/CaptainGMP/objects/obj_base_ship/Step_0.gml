@@ -44,8 +44,8 @@ if( inertia[0] != 0 || inertia[1] != 0 )
 }
 
 	// Move ship
-x += inertia[0];
-y += inertia[1];
+//x += inertia[0];
+//y += inertia[1];
 
 	// Rotate the ship
 direction += ( torque / ( stat[var_mass, 0] * 0.5 ) ) * global.DeltaTime;

@@ -69,13 +69,45 @@ if( draw_grid_object_active )
 	}
 }
 
+// DEBUG
+/*
+var d_x1, d_y1, d_x2, d_y2, d_x3, d_y3;
+
+d_x1 = 1;
+d_y1 = 1;
+d_x2 = surface_get_width(object_surface)-2;
+d_y2 = surface_get_height(object_surface)-2;
+
+draw_rectangle_color( d_x1,d_y1,d_x2, d_y2,c_red, c_red,c_red,c_red,true );
+draw_line_colour( d_x1,d_y1,d_x2, d_y2 ,c_red, c_red);
+draw_line_colour( d_x2,d_y1,d_x1, d_y2 ,c_red, c_red);
+
+d_x3 = ((ship_hallign + ship_hallign_off) * ship_grid_size);
+d_y3 = ((ship_vallign + ship_vallign_off) * ship_grid_size);
+
+draw_line_colour( d_x3+100,d_y3,d_x3-100, d_y3 ,c_blue, c_blue);
+draw_line_colour( d_x3,d_y3+100,d_x3, d_y3-100 ,c_blue, c_blue);
+*/
 // reset the draw target
 surface_reset_target();
 
 
 
 
-// draw ship
+// draw ship --------------------------------------------------------------
+var h_width, h_height, l_l, l_d, l_x, l_y;
+
+h_width = surface_get_width(object_surface) * 0.5 - ((ship_hallign + ship_hallign_off) * ship_grid_size);
+h_height = surface_get_height(object_surface) * 0.5 - ((ship_vallign + ship_vallign_off) * ship_grid_size);
+
+l_l = pyt( h_width, h_height );
+l_d = (direction - point_direction( 0,0,h_width,h_height )) mod 360;
+
+l_x = lengthdir_x( l_l, l_d );
+l_y = lengthdir_y( l_l, l_d );
+
+scr_camera_draw_surface( global.combat_camera, object_surface, x + l_x, y + l_y, direction );
+/*
 var combat_screen = global.combat_screen;
 
 if( surface_exists( combat_screen ) )
