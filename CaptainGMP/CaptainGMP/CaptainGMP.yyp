@@ -855,6 +855,14 @@
             }
         },
         {
+            "Key": "522ee3ec-d789-4ec8-8100-61f62a0dd8b9",
+            "Value": {
+                "id": "304a8ee4-f3aa-47b9-b6c4-c9dfeb528cf2",
+                "resourcePath": "scripts\\scr_camera_get_mouse_x\\scr_camera_get_mouse_x.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "52f0535a-c67f-43ef-b753-c343ab184588",
             "Value": {
                 "id": "e2ddbcad-f117-4337-b481-3e34418e22c7",
@@ -1100,6 +1108,14 @@
                 "id": "180cd63d-aa4e-4d55-8134-f1dd9e35c784",
                 "resourcePath": "objects\\obj_armor_1\\obj_armor_1.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "64b56f69-f33d-44b8-bf88-c41dcd3cb50c",
+            "Value": {
+                "id": "0ef821fd-98c9-4d41-b393-76b0503b7867",
+                "resourcePath": "scripts\\scr_camera_draw_sprite\\scr_camera_draw_sprite.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1699,6 +1715,14 @@
             "Value": {
                 "id": "a31da6a5-3998-47ec-b7de-767f7862e2ad",
                 "resourcePath": "scripts\\scr_ability_fetch_type\\scr_ability_fetch_type.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "a4afe7c8-910d-4137-b0ec-1d2abd57f9b7",
+            "Value": {
+                "id": "c6d92b49-350f-47dd-a298-5cca769b087f",
+                "resourcePath": "scripts\\scr_camera_get_mouse_y\\scr_camera_get_mouse_y.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -2757,7 +2781,10 @@
         "aa15cedb-be3d-4d23-8d61-265a7ba43bef",
         "9fed7639-5ad6-4e23-af10-7c30784f48b5",
         "5872a8bc-6d06-4563-b5a9-1bb7ef534771",
+        "64b56f69-f33d-44b8-bf88-c41dcd3cb50c",
         "b31909e1-7d23-4b49-8ded-620b250fac87",
+        "522ee3ec-d789-4ec8-8100-61f62a0dd8b9",
+        "a4afe7c8-910d-4137-b0ec-1d2abd57f9b7",
         "e28030f0-9db0-4af9-801d-a65431285601",
         "d489d977-a52a-45dc-8af2-5a91902a5ecd",
         "62271473-7d86-40aa-8970-8f2a728531a5",

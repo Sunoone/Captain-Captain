@@ -7,10 +7,11 @@ if( surface_exists( combat_screen ) )
 	
 	surface_set_target(combat_screen);
 	
-	var size, time, frame;
+	var size, time, frame, camera;
 	
 	size = ds_list_size( projectile[0] );
 	time = get_timer() * timerate_animation_speed;
+	camera = global.combat_camera;
 	
 	for( var i = 0; i < size; i++ )
 	{
@@ -21,12 +22,14 @@ if( surface_exists( combat_screen ) )
 				if( list_ttl[|i] < 0 )
 				{
 					frame = floor( abs( list_ttl[|i] * animation_speed) mod sprite_get_number( list_imp[|i] ) );
-					draw_sprite_ext( list_imp[|i], frame, list_x[|i], list_y[|i], 1, 1, list_dir[|i], c_white, 1 );
+					//draw_sprite_ext( list_imp[|i], frame, list_x[|i], list_y[|i], 1, 1, list_dir[|i], c_white, 1 );
+					scr_camera_draw_sprite( camera, list_imp[|i], frame, list_x[|i], list_y[|i], list_dir[|i]);
 				}
 				else
 				{
 					frame = floor( (list_id[|i] + time) mod sprite_get_number( list_spr[|i] ) );
-					draw_sprite_ext( list_spr[|i], frame, list_x[|i], list_y[|i], 1, 1, list_dir[|i], c_white, 1 );
+					//draw_sprite_ext( list_spr[|i], frame, list_x[|i], list_y[|i], 1, 1, list_dir[|i], c_white, 1 );
+					scr_camera_draw_sprite( camera, list_spr[|i], frame, list_x[|i], list_y[|i], list_dir[|i]);
 				}
 			}
 			break;	
@@ -50,12 +53,14 @@ if( surface_exists( combat_screen ) )
 				if( list_ttl[|i] < 0 )
 				{
 					frame = floor( abs( list_ttl[|i] * animation_speed) mod sprite_get_number( list_imp[|i] ) );
-					draw_sprite_ext( list_imp[|i], frame, list_x[|i], list_y[|i], 1, 1, p_dir, c_white, 1 );
+					//draw_sprite_ext( list_imp[|i], frame, list_x[|i], list_y[|i], 1, 1, p_dir, c_white, 1 );
+					scr_camera_draw_sprite( camera, list_imp[|i], frame, list_x[|i], list_y[|i], list_dir[|i]);
 				}
 				else
 				{
 					frame = floor( (list_id[|i] + time) mod sprite_get_number( list_spr[|i] ) );
-					draw_sprite_ext( list_spr[|i], frame, list_x[|i], list_y[|i], 1, 1, p_dir, c_white, 1 );
+					//draw_sprite_ext( list_spr[|i], frame, list_x[|i], list_y[|i], 1, 1, p_dir, c_white, 1 );
+					scr_camera_draw_sprite( camera, list_spr[|i], frame, list_x[|i], list_y[|i], list_dir[|i]);
 				}
 			}
 			break;	
