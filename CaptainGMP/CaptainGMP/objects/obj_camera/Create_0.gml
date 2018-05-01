@@ -20,3 +20,5 @@ p[3,1] = 0;
 t = 0;
 
 screen_index = -4;
+
+focus = -4;

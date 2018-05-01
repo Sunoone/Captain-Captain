@@ -24,12 +24,19 @@ global.combat_camera = scr_camera_create( global.combat_screen_index );
 back = instance_create_depth( 0,0, 4000, obj_background );
 back.screen_index = global.combat_screen_index;
 */
-for( var i = 0; i < 4; i++ )
-{
-	clouds[i] = instance_create_depth( 0,0, 5000-i, obj_clouds );
-	clouds[i].camera = global.combat_camera;
-	clouds[i].scale = 6.5-i*2;
-}
+
+clouds[0] = instance_create_depth( 0,0, 5000, obj_clouds );
+clouds[0].camera = global.combat_camera;
+clouds[0].scale = 3;
+/*
+clouds[1] = instance_create_depth( 0,0, 4999, obj_clouds );
+clouds[1].camera = global.combat_camera;
+clouds[1].scale = 2;
+*/
+clouds[2] = instance_create_depth( 0,0, 4998, obj_clouds );
+clouds[2].camera = global.combat_camera;
+clouds[2].scale = 1;
+
 
 
 	// Owners
@@ -49,6 +56,7 @@ global.owner_core[0] = -4;
 debug_ship_0 = scr_create_ship_small_ship( 0, 600, 750 );
 debug_ship_0.direction = 90;
 
+global.combat_camera.focus = debug_ship_0;
 
 	// red ship -> AI ship
 debug_ship_1 = scr_create_ship_small_ship( 1, 600, 250 );

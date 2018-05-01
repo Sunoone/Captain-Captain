@@ -31,7 +31,7 @@ scale = 1;
 camera_zoom = 1;
 
 	// cloud movement
-c_move = vector_create( 20, -40 );
+c_move = vector_create( 0, 0 );
 
 	// Debug
 debug_enabled = false;

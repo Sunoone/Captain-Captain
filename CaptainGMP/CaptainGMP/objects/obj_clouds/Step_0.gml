@@ -30,10 +30,13 @@ y1 = draw_top;
 x2 = b_width;
 y2 = b_height;
 
+var paralax_x = camera.x - camera.x * (1/power(scale,scale));
+var paralax_y = camera.y - camera.y * (1/power(scale,scale));
+
 for( var i = 0; i<4; i++)
 {
-	p[i,0] = camera.x + (camera.p[i,0] - camera.x) * scale + background_x;
-	p[i,1] = camera.y + (camera.p[i,1] - camera.y) * scale + background_y;
+	p[i,0] = camera.p[i,0] * scale + background_x - paralax_x;
+	p[i,1] = camera.p[i,1] * scale + background_y - paralax_y;
 }
 
 uv_scale = vector_create( (scale/50)*camera_zoom , (scale/50)*camera_zoom );
