@@ -23,14 +23,14 @@ global.combat_camera = scr_camera_create( global.combat_screen_index );
 /*
 back = instance_create_depth( 0,0, 4000, obj_background );
 back.screen_index = global.combat_screen_index;
-
-for( var i = 2; i < 4; i++ )
+*/
+for( var i = 0; i < 4; i++ )
 {
 	clouds[i] = instance_create_depth( 0,0, 5000-i, obj_clouds );
-	clouds[i].screen_index = global.combat_screen_index;
+	clouds[i].camera = global.combat_camera;
 	clouds[i].scale = 6.5-i*2;
 }
-*/
+
 
 	// Owners
 // Player

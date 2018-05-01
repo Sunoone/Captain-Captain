@@ -1,17 +1,11 @@
 /// @description debug options
 
-if( debug_enabled )
+if( debug_enabled && instance_exists(camera) )
 {
 	var m_x, m_y;
 	
-	m_x = mouse_x;
-	m_y = mouse_y;
-	
-	if( screen_index != -4 )
-	{
-		m_x = scr_screen_mouse_get_x( screen_index );
-		m_y = scr_screen_mouse_get_y( screen_index );
-	}
+	m_x = scr_screen_mouse_get_x( camera.screen_index )
+	m_y = scr_screen_mouse_get_y( camera.screen_index )
 	
 	if( m_x > d_x1 + 10 &&  m_x < d_x1 + 90 && m_y > d_y1 + 10 &&  m_y < d_y1 + 90 )	
 	{

@@ -39,6 +39,9 @@ if( debug_enabled && surface_exists( background ) )
 	
 	draw_line_color( d_x1 - 45, d_y1 + l_h, d_x1 - 5, d_y1 + l_h,  d_col2, d_col2 );
 	
+	// DEBUG
+	//draw_text_color( 10, 10, "Zoom: " + string(scale * camera_zoom), c_red,c_red,c_red,c_red,1 );
+	
 	surface_reset_target();
 }
 	

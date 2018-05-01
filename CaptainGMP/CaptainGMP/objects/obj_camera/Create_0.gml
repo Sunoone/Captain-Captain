@@ -12,6 +12,7 @@ vx = x - (x2*0.5);
 vy = y - (y2*0.5);
 
 scale = 1;
+scale_target = 2.5;
 
 rot = 0;
 
