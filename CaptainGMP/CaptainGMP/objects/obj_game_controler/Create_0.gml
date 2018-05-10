@@ -20,10 +20,8 @@ global.combat_screen = scr_screen_surface_get_id( global.combat_screen_index );
 //create combat camera
 global.combat_camera = scr_camera_create( global.combat_screen_index );
 
-/*
 back = instance_create_depth( 0,0, 4000, obj_background );
-back.screen_index = global.combat_screen_index;
-*/
+back.camera = global.combat_camera;
 
 clouds[0] = instance_create_depth( 0,0, 5000, obj_clouds );
 clouds[0].camera = global.combat_camera;

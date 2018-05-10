@@ -19,10 +19,16 @@ if( scr_3d_array_get( array, argument2, argument3, ship_valid ) == false ) retur
 var type = scr_3d_array_get( array, argument2, argument3, ship_type );
 if( type == sh_none ) 
 {
-	var obj_type = object_get_parent( argument1 );
-	if( obj_type == sh_combat_component || obj_type == sh_truster_component || obj_type == sh_core ) return false;
+	if( scr_object_check_parentage( argument1, sh_combat_component ) ) 
+		return false;
+	
+	if( scr_object_check_parentage( argument1, sh_truster_component ) ) 
+		return false;
+		
+	if( scr_object_check_parentage( argument1, sh_core ) ) 
+		return false;
 }
-else if( type != object_get_parent( argument1 ) ) return false;
+else if( !scr_object_check_parentage( argument1, type ) ) return false;
 
 
 	// check if space is not already occupied

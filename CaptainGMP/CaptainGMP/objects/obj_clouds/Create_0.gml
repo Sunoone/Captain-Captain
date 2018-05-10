@@ -31,7 +31,7 @@ scale = 1;
 camera_zoom = 1;
 
 	// cloud movement
-c_move = vector_create( 0, 0 );
+c_move = vector_create( 20, -40 );
 
 	// Debug
 debug_enabled = false;
@@ -48,7 +48,7 @@ d_col1 = c_white;
 d_col2 = c_black;
 d_col3 = scr_kelvin2rgb( 4000 ); d_col3 = make_color_rgb( d_col3[0]*255,d_col3[1]*255,d_col3[2]*255 );
 d_col4 = scr_kelvin2rgb( 8000 ); d_col4 = make_color_rgb( d_col4[0]*255,d_col4[1]*255,d_col4[2]*255 );
-d_kelvin = 5500;
+d_kelvin = 6500;
 
 	// Shader uniforms
 iterations = 6;

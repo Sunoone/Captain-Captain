@@ -42,6 +42,8 @@ stat[var_drag, 1] = 0;					// Drag for object
 	// Status Effects
 modification = ds_grid_create( 1, 5 );
 
+	// Buffs
+//buff = ds_grid_create( 1, 5 );
 
 	// hacking
 hack_level = 0;	// keeps track of the level of the hack

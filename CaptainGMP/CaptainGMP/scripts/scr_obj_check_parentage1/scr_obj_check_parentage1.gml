@@ -2,9 +2,9 @@
 /// @param id
 /// @param parent
 
-// this script checks if the given object is of the type parent or has the object as one of it's parents
+// this script checks if the given id is of the type parent or has the object as one of it's parents
 
-var index = argument0;
+var index = argument0.object_index;
 
 if( index == argument1 ) return true;
 

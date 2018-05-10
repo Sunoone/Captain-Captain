@@ -6,7 +6,7 @@ globalvar DeltaTime;
 if( update_variables )
 {
 	scr_stat_update( id );
-	update_variables = false;	
+	update_variables = false;
 }
 
 // Owner change

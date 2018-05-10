@@ -1,10 +1,10 @@
 /// @description draw background tiles
 
-if( screen_index == -4 )
+if( camera == -4 )
 	exit;
 	
 var b_surface, b_width, b_height;
-b_surface = scr_screen_surface_get_id( screen_index );
+b_surface = scr_screen_surface_get_id( camera.screen_index );
 b_width = surface_get_width(b_surface);
 b_height = surface_get_height(b_surface);
 
@@ -26,7 +26,7 @@ for( var i = -1; i <= b_width + spr_width; i+= spr_width )
 	{
 		seed = i * (b_height + spr_height) + j;
 		random_set_seed( seed );
-		draw_sprite_ext( background_sprite, irandom( spr_count ), i,j, scale, scale, 90*irandom(3), c_white, 1 );
+		draw_sprite_ext( background_sprite, irandom( spr_count ), i,j, scale, scale, 90*irandom(3) /*+ camera.rot*/, c_white, 1 );
 	}
 }
 

@@ -8,10 +8,13 @@
 
 var core = argument[0];
 
+if( core == -4 )
+	return -4;
+
 for( var i = 1; i < argument_count; i++ )
 {
 	var AI = instance_create_depth( 0, 0, 100, argument[i])
-
+	
 	core.AI[i-1] = AI;
 
 	AI.core = core;

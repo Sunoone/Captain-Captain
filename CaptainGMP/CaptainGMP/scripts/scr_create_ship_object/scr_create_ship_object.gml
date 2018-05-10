@@ -33,7 +33,7 @@ i.apparent_owner[i.owner] = i.owner; // set the appearent owner
 i.interface = owned_interface[ ship.owner ]; // id of interface object;
 
 // is the object a core?
-if( scr_obj_check_parentage( i, obj_base_core ) ) 
+if( scr_id_check_parentage( i, obj_base_core ) ) 
 {
 	if( ship.ship_core == -4 )
 	{

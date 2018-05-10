@@ -60,7 +60,7 @@
 
 	// Ship Object Index Type
 #macro sh_none -1	
-#macro sh_combat_component obj_base_turret_component	
+#macro sh_combat_component obj_base_external
 #macro sh_truster_component obj_base_truster_component
 #macro sh_core obj_base_core
 
@@ -80,6 +80,15 @@
 #macro var_maxThrust 9
 #macro var_mass 10
 #macro var_drag 11
+
+	// Core Object Variables
+#macro var_core_cpu 0
+#macro var_core_cpu_bonus 1
+#macro var_core_cpu_budget 2
+#macro var_core_cpu_available 3
+#macro var_core_sensor_range 4
+#macro var_core_hacking_level 5
+#macro var_core_scan_level 6
 
 
 

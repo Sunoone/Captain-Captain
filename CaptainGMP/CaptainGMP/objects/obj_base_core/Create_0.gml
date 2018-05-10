@@ -15,6 +15,16 @@ stat[var_cpu_cost, 1] = 0;
 
 software = ds_list_create();
 
+	// core stats
+core_stat[var_core_cpu, 1] = 5000;
+core_stat[var_core_cpu_bonus, 1] = 0;
+core_stat[var_core_cpu_budget, 1] = 0;
+core_stat[var_core_cpu_available, 1] = 0;
+core_stat[var_core_sensor_range, 1] = 1000;
+core_stat[var_core_hacking_level, 1] = 3;
+core_stat[var_core_scan_level, 1] = 3;
+
+
 // CPU
 cpu = 5000;
 cpu_bonus = 0;
