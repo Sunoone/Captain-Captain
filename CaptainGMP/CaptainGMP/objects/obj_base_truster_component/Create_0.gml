@@ -22,6 +22,5 @@ torque = 0;
 parent_position = vector_create(0,0);
 application_point = vector_create(0,0);
 
-
 // DEBUG
-DEBUG_colour = make_color_rgb(50,100,255);
+//DEBUG_colour = make_color_rgb(50,100,255);

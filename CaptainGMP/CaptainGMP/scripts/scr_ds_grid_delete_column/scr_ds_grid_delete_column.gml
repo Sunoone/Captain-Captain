@@ -12,7 +12,7 @@ height = ds_grid_height( argument0 );
 // copy information
 if( argument1 < width - 1 )
 {
-	ds_grid_add_grid_region( argument0, argument0, argument1 + 1, 0, width-1, height-1, argument1, 0 );
+	ds_grid_set_grid_region( argument0, argument0, argument1 + 1, 0, width-1, height-1, argument1, 0 );
 }
 
 // resize grid

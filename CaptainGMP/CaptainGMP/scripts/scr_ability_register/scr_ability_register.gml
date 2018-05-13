@@ -11,7 +11,7 @@
 
 ds_list_add( ability_graphic, argument0 );
 ds_list_add( ability_script, argument1 );
-ds_list_add( ability_type, argument2 );
+ds_list_add( ability_type, argument2 ); // what sort of ability is this, is it cast on self, other, smae owner, diffrent owner?
 ds_list_add( ability_active, argument3 );
 ds_list_add( ability_tooltip, argument4 );
 ds_list_add( ability_priority, argument5 );

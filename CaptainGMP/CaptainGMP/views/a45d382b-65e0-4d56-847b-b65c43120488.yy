@@ -8,7 +8,7 @@
         "59f954a7-ccf7-4e1c-addc-85927f639600"
     ],
     "filterType": "GMObject",
-    "folderName": "background",
+    "folderName": "Background",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

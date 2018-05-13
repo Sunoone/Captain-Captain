@@ -38,11 +38,13 @@ if( instance_exists(argument0) )
 				scr_status_effect_update( argument0, w );
 			}
 			
+			scr_ds_grid_delete_column( modification, argument1 );
+			/*
 			if( i < s-1 )
-				ds_grid_add_grid_region( modification, modification, i + 1, 0, s - 1, 4, i, 0 );
+				ds_grid_set_grid_region( modification, modification, i + 1, 0, s - 1, 4, i, 0 );
 			
 			ds_grid_resize( modification, s - 1, 5 );
+			*/
 		}
 	}
 }
-

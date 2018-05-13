@@ -2,6 +2,19 @@
 
 globalvar DeltaTime;
 
+// Update Buffs
+for( var i = ds_grid_width( buff ) -1; i>0; i-- )
+{
+	if( buff[# i, 1] > 0 ) // check if buff is timed
+	{
+		buff[# i, 1] -= DeltaTime;
+		if( buff[# i, 1] <= 0 )
+		{
+			scr_buff_remove( id, i );	
+		}
+	}
+}
+
 // Update all stats
 if( update_variables )
 {
@@ -12,6 +25,15 @@ if( update_variables )
 // Owner change
 if( owner != delta_owner ) // owner has changed
 {	
+	// remove buffs
+	scr_buff_remove( id, -1 );
+	for( var i = ds_grid_width( buff_profider ) - 1; i > 0; i-- )
+	{
+		if( instance_exists( buff_profider[# i, 0] ) )
+			scr_buff_remove( buff_profider[# i, 0], buff_profider[# i, 1] );
+	}
+	
+	// change core?
 	if( owner >= 0 && owner < array_length_1d(global.owner_core) )
 	{	
 		if( instance_exists( global.owner_core[ owner ] ) )

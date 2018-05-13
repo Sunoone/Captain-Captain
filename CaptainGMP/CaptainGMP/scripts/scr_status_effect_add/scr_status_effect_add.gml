@@ -26,7 +26,7 @@ if( instance_exists(argument0) && instance_exists(argument1) )
 		{
 			var l = array_length_2d( stat, argument3 );
 			
-			for( var i = 2; i < max_int; i++ )
+			for( var i = 2; i < max_int; i++ ) // max_int is literaly the max value that an interger can take in GM
 			{
 				if( i >= l ) stat[argument3,i] = 0;
 			

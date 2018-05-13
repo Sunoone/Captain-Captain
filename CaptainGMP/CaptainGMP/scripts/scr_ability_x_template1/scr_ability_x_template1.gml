@@ -1,4 +1,4 @@
-/// @description scr_ability_x_template( mode, target_id, core )
+/// @description scr_ability_18_thruster_boost_1( mode, target_id, core )
 /// @param mode
 /// @param target_id
 /// @param owner

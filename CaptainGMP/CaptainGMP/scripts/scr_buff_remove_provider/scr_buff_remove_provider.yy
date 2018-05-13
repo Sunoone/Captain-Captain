@@ -1,8 +1,8 @@
 {
-    "id": "763e7fe9-754a-4db9-9228-891b436c6dc7",
+    "id": "710736e7-e376-4288-a267-df11dbdbcbe2",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "scr_status_effect_update1",
+    "name": "scr_buff_remove_provider",
     "IsCompatibility": false,
     "IsDnD": false
 }

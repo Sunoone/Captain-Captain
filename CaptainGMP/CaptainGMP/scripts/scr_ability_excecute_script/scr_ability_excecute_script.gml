@@ -52,6 +52,27 @@ switch( argument1 )
 	case 11:
 		return scr_ability_11_ability_0_off( argument0, argument2, argument3 );
 	
+	case 12:
+		return false; // reserved for ability_1_on
+		
+	case 13:
+		return false; // reserved for ability_1_off
+	
+	case 14:
+		return false; // reserved for ability_2_on
+		
+	case 15:
+		return false; // reserved for ability_2_off
+	
+	case 16:
+		return false; // reserved for ability_3_on
+		
+	case 17:
+		return false; // reserved for ability_3_off
+	
+	case 18:
+		return scr_ability_18_thruster_boost_1( argument0, argument2, argument3 );
+	
 	default:
 		return false;
 }

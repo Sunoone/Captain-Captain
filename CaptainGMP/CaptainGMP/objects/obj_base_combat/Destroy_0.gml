@@ -21,9 +21,20 @@ if(instance_exists( int ) )
 	}
 }
 
+// destroy buffs
+scr_buff_remove( id, -1 );
+for( var i = ds_grid_width( buff_profider ) - 1; i > 0; i-- )
+{
+	if( instance_exists( buff_profider[# i, 0] ) )
+		scr_buff_remove( buff_profider[# i, 0], buff_profider[# i, 1] );
+}
+ds_grid_destroy(buff);
+ds_grid_destroy(buff_profider);
+
+
 if( instance_exists( parent ) && type != 0 ) 
 {
-		// destroy self out off the ship grid
+		// remove self out off the ship grid
 	scr_3d_array_set( parent.ship_grid, grid_x, grid_y, ship_object, -1 );
 	parent.draw_grid_object_recheck = true;	
 }
@@ -39,3 +50,7 @@ ds_list_destroy(interface_number_list);
 
 	// destroy abilities
 scr_ability_destroy_structure( id );
+
+// destroy ds grids
+ds_grid_destroy(modification);
+
