@@ -5,7 +5,7 @@
 // This script removes a buff from a node
 // Pass -1 in index to remove all buffs
 
-if( instance_exists(argument0) )
+if( instance_exists(argument0) && argument0 > 0 )
 {
 	with( argument0 )
 	{
@@ -63,12 +63,6 @@ if( instance_exists(argument0) )
 			}
 			
 			scr_ds_grid_delete_column( buff, argument1 );
-			/*
-			if( i < s-1 )
-				ds_grid_set_grid_region( buff, buff, i + 1, 0, s - 1, 6, i, 0 );
-			
-			ds_grid_resize( buff, s - 1, 7 );
-			*/
 		}
 	}
 }

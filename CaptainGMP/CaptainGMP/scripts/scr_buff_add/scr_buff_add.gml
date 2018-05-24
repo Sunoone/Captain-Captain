@@ -99,12 +99,12 @@ if( instance_exists(argument0) && instance_exists(argument1) )
 	{
 		var g_w, p;
 		
-		g_w = ds_grid_width( buff_profider );
+		g_w = ds_grid_width( buff_provider );
 		p = -1;
 		
 		for( var i = 1; i < g_w; i++ )
 		{
-			if( buff_profider[# i, 0] == 0 )
+			if( buff_provider[# i, 0] == 0 )
 			{
 				p = i;
 				exit;
@@ -113,12 +113,12 @@ if( instance_exists(argument0) && instance_exists(argument1) )
 		
 		if( p == -1 )
 		{
-			ds_grid_resize( buff_profider, g_w + 1, 2 );
+			ds_grid_resize( buff_provider, g_w + 1, 2 );
 			p = g_w;
 		}
 		
-		buff_profider[# p, 0] = argument0;	// target node
-		buff_profider[# p, 1] = s;			// buff index
+		buff_provider[# p, 0] = argument0;	// target node
+		buff_provider[# p, 1] = s;			// buff index
 	}
 	
 	return s;
