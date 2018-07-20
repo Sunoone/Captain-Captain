@@ -17,6 +17,7 @@ if( !surface_exists( background ) )
 	d_y2 = d_y1 + 100;
 }
 
+// disable cloud rendering from here
 surface_set_target( background );
 
 	

@@ -23,18 +23,19 @@ global.combat_camera = scr_camera_create( global.combat_screen_index );
 back = instance_create_depth( 0,0, 4000, obj_background );
 back.camera = global.combat_camera;
 
+/*
 clouds[0] = instance_create_depth( 0,0, 5000, obj_clouds );
 clouds[0].camera = global.combat_camera;
 clouds[0].scale = 3;
-/*
+
 clouds[1] = instance_create_depth( 0,0, 4999, obj_clouds );
 clouds[1].camera = global.combat_camera;
 clouds[1].scale = 2;
-*/
+
 clouds[2] = instance_create_depth( 0,0, 4998, obj_clouds );
 clouds[2].camera = global.combat_camera;
 clouds[2].scale = 1;
-
+*/
 
 
 	// Owners

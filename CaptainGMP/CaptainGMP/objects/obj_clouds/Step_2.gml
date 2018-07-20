@@ -44,4 +44,3 @@ if( debug_enabled && surface_exists( background ) )
 	
 	surface_reset_target();
 }
-	

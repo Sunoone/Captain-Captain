@@ -631,6 +631,22 @@
             }
         },
         {
+            "Key": "37f6d522-cf96-4264-8f72-f91198d576d0",
+            "Value": {
+                "id": "27e3d200-c8fa-4277-bd80-53aa6325f537",
+                "resourcePath": "shaders\\sha_composite\\sha_composite.yy",
+                "resourceType": "GMShader"
+            }
+        },
+        {
+            "Key": "391f2844-9d3c-4e3f-a8a2-7da414492e47",
+            "Value": {
+                "id": "3bcad79a-314f-42b7-bba4-f00e34ef0f43",
+                "resourcePath": "shaders\\sha_desert\\sha_desert.yy",
+                "resourceType": "GMShader"
+            }
+        },
+        {
             "Key": "39b83c66-ab7d-4508-aa19-9585cca8b7df",
             "Value": {
                 "id": "4ffa056d-bc92-49ad-8814-ae29bc80a49a",
@@ -1519,6 +1535,14 @@
             }
         },
         {
+            "Key": "7c3ecf38-ec43-4116-b4bb-38f4a547c277",
+            "Value": {
+                "id": "93f43f22-1f5b-426f-b26d-e15b27004bae",
+                "resourcePath": "objects\\obj_shader_test\\obj_shader_test.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "7e5e9bad-994f-469d-a8ed-6314aba90658",
             "Value": {
                 "id": "3574b277-eb28-4fbb-8593-ebb3d0f64f83",
@@ -1671,11 +1695,27 @@
             }
         },
         {
+            "Key": "9381e2f9-e3a3-4de3-949b-1fae497986b2",
+            "Value": {
+                "id": "a149775b-a55a-4fd8-b7d2-b66fb8ee69bb",
+                "resourcePath": "shaders\\sha_smooth\\sha_smooth.yy",
+                "resourceType": "GMShader"
+            }
+        },
+        {
             "Key": "96abd05c-803c-400f-9295-fa5fa0ad1644",
             "Value": {
                 "id": "e0284d33-4bde-4e16-90ea-d4493bd2eddb",
                 "resourcePath": "scripts\\scr_ds_list_value_exist\\scr_ds_list_value_exist.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "98893d67-50ae-48cd-945b-6727b1a12141",
+            "Value": {
+                "id": "b5ef058d-bbe8-44e6-89ef-5e4bba640148",
+                "resourcePath": "rooms\\ShaderRoom\\ShaderRoom.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
@@ -2615,6 +2655,14 @@
             }
         },
         {
+            "Key": "e33089c4-3928-477d-9417-cec2eae8687e",
+            "Value": {
+                "id": "b3edc902-7f0f-4aca-bcdf-e197e2f9eedd",
+                "resourcePath": "views\\e33089c4-3928-477d-9417-cec2eae8687e.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "e339c190-dc5d-4a49-b486-e19002408327",
             "Value": {
                 "id": "2f773c8b-09dc-4b68-9001-c58cd56d2dd1",
@@ -2644,6 +2692,14 @@
                 "id": "84b0d4d9-df9b-4d59-974e-256de6752e8d",
                 "resourcePath": "sprites\\spr_cloud\\spr_cloud.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e64b7fee-5954-43a2-ac48-f8d3c1c75949",
+            "Value": {
+                "id": "b8fc6ada-d3a4-4132-b1ca-8881a3ee9fee",
+                "resourcePath": "shaders\\sha_height_to_normal\\sha_height_to_normal.yy",
+                "resourceType": "GMShader"
             }
         },
         {
