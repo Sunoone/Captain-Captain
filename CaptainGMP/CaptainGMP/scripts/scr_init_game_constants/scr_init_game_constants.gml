@@ -89,6 +89,7 @@
 #macro var_core_sensor_range 4
 #macro var_core_hacking_level 5
 #macro var_core_scan_level 6
+#macro var_core_camera_mode 7
 
 
 

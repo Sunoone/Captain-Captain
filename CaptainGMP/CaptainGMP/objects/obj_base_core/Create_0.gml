@@ -23,6 +23,7 @@ core_stat[var_core_cpu_available, 1] = 0;
 core_stat[var_core_sensor_range, 1] = 1000;
 core_stat[var_core_hacking_level, 1] = 3;
 core_stat[var_core_scan_level, 1] = 3;
+core_stat[var_core_camera_mode, 1] = 0;
 
 
 // CPU

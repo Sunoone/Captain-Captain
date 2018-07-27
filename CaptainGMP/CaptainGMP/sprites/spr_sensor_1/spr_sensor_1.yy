@@ -2,7 +2,7 @@
     "id": "fc5e5c9b-376c-4593-bad4-52dbad64014e",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "spr_subProcessor1",
+    "name": "spr_sensor_1",
     "For3D": false,
     "HTile": false,
     "VTile": false,

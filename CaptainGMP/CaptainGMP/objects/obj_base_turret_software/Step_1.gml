@@ -1,6 +1,7 @@
 /// @description set target for owned children
 // Overwrite me!
 
+	// aim code to mouse
 if( global.player == owner )
 {
 	if( scr_screen_mouse_above( global.combat_screen_index ) )

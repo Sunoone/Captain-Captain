@@ -2103,6 +2103,14 @@
             }
         },
         {
+            "Key": "b352a71e-059c-4dee-b9d1-d166d007e286",
+            "Value": {
+                "id": "d2ad7bf2-d012-4d7f-8035-33c059bf78a5",
+                "resourcePath": "objects\\obj_sensors_1\\obj_sensors_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "b354325c-8b11-4e8c-b032-83ef0e69d2e7",
             "Value": {
                 "id": "049e3790-5607-432d-9d9c-b773789b0bc4",
@@ -2900,6 +2908,14 @@
                 "id": "0eb3509e-addf-4d31-8bd7-811fac794d20",
                 "resourcePath": "scripts\\scr_ability_7_raiseHackingLevel\\scr_ability_7_raiseHackingLevel.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "fc5e5c9b-376c-4593-bad4-52dbad64014e",
+            "Value": {
+                "id": "98fbc242-b2b3-4c96-b77c-22105e7cd31a",
+                "resourcePath": "sprites\\spr_sensor_1\\spr_sensor_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

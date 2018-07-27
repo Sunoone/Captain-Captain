@@ -49,7 +49,7 @@ float pNoise(vec2 l, int rep )
 		iCount++;
 	}
 	float nf = n/normK;
-	return 1.0 - clamp(nf*nf*nf*nf*2.0, 0.0, 1.0);
+	return clamp(nf*nf*nf*nf*2.0, 0.0, 1.0);
 }
 
 void main()
