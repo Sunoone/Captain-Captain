@@ -6,23 +6,31 @@
 
 with( argument0 )
 {
-	var stw = scr_ds_grid_find_value_width( status_effect_out, argument1, 1 );
+	var stw, target; 
 	
+	stw = scr_ds_grid_find_value_width( status_effect_out, argument1, 1 );	
 	if( stw == -1 ) exit;
 	
-	/*
-	switch( status_effect_out[# stw, 0 ] ) // remove status effect from target
+	target =  status_effect_out[# stw, 0 ];
+	
+	switch( target ) // remove status effect from target
 	{
 		case 0:	// childern
-		break;
+			break;
 		
 		case 1:	// core
-		break;
+			break;
 		
 		case 2:	// global
+			break;
+		
+		default: // object?
+		if( object_exists( target ) )
+		{
+			
+		}	
 		break;
 	}
-	*/
 	
 	scr_ds_grid_delete_row( status_effect_out, stw );
 }

@@ -8,16 +8,19 @@ event_inherited();
 modification = ds_grid_create( 1, 5 );	// a list of all modifications applied to this object
 
 	// New status effect system
-status_effect_out = ds_grid_create( 1, 6 );
+status_effect_out = ds_grid_create( 1, 9 );
 
-// 0 = target ( 0 = childern, 1 = core, 2 = global)
+// 0 = target ( 0 = childern, 1 = core, 2 = global, object_id)
 // 1 = id
 // 2 = value
 // 3 = stat index
 // 4 = filter (filter on inherited objects)
 // 5 = use core stats
+// 6 = name
+// 7 = icon
+// 8 = cost
 
-status_effect_in = ds_grid_create( 1, 6 );
+status_effect_in = ds_grid_create( 1, 9 );
 
 // 0 = owner
 // 1 = id
@@ -25,8 +28,9 @@ status_effect_in = ds_grid_create( 1, 6 );
 // 3 = value
 // 4 = stat index
 // 5 = stat height
-
-
+// 6 = name
+// 7 = icon
+// 8 = cost
 
 	// Buffs
 buff = ds_grid_create( 1, 7 );			// keeps track of the buffs that are applied to this object

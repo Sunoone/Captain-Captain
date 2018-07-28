@@ -1,5 +1,5 @@
-/// @description scr_ds_grid_find_value_width( id, value, height )
-/// @param id
+/// @description scr_ds_grid_find_value_width( ds_grid, value, height )
+/// @param ds_grid
 /// @param value
 /// @param height
 

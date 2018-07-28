@@ -76,8 +76,7 @@ if( switch_active != active )
 
 if( register_abilities )
 	scr_ability_update();
-	
-	
+
 // CPU cost -----------------------------------------------------------------------------------------------------------------------------
 if( instance_exists( parent ) && active )
 {	
