@@ -33,7 +33,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 			
 				case 3: // real
 				{
-					scr_status_effect_reset_value( node, var_ability_0_active );
+					//scr_status_effect_reset_value( node, var_ability_0_active );
 				}
 			}
 		}

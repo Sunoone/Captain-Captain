@@ -7,7 +7,7 @@ if( kickstart )
 {
 	if( instance_exists( core ) )
 	{
-		scr_status_effect_add( id, core, 0, var_ability_0_active, 1 );
+		// scr_status_effect_add( id, core, 0, var_ability_0_active, 1 );
 		kickstart = false;
 	}
 }

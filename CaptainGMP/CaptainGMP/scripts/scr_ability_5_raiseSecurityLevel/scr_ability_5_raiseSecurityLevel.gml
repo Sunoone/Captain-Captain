@@ -35,7 +35,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 				case 3: // real
 				{
 					// raise security level
-					scr_status_effect_add( node, core, cost, var_security_level, delta );
+					// scr_status_effect_add( node, core, cost, var_security_level, delta );
 				}
 			}
 		}

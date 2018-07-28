@@ -1,4 +1,4 @@
-/// @description scr_status_effect_add( node, core, cost, index, value )
+/// @description scr_status_effect_add_1( node, core, cost, index, value )
 /// @param node
 /// @param core
 /// @param cost

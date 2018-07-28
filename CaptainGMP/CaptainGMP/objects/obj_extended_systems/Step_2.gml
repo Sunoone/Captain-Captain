@@ -90,6 +90,8 @@ if( instance_exists( parent ) && active )
 		if( instance_exists( effect_owner ) ) // check if the owner core exists
 			effect_owner.cpu_budget += modification[# i, 1];
 		else
-			scr_status_effect_remove(id, i);
+		{
+			//scr_status_effect_remove(id, i);
+		}
 	}
 }
