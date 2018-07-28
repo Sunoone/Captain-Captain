@@ -10,7 +10,7 @@
         "5ba04795-920d-4023-bea6-83be659025da"
     ],
     "filterType": "GMScript",
-    "folderName": "Status Effects",
+    "folderName": "Status Effects (depricated)",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

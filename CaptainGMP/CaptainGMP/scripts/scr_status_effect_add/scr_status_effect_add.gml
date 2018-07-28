@@ -42,7 +42,7 @@ if( instance_exists(argument0) && instance_exists(argument1) )
 					modification[# s, 1] = argument2;	// cost
 					modification[# s, 2] = argument3;	// w
 					modification[# s, 3] = i;			// h
-				
+					
 					scr_status_effect_update( argument0, argument3 );
 				
 					return s;
