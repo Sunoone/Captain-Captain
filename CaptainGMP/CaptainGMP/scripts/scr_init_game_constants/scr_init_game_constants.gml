@@ -80,6 +80,7 @@
 #macro var_maxThrust 9
 #macro var_mass 10
 #macro var_drag 11
+#macro var_rotation_max 12
 
 	// Core Object Variables
 #macro var_core_cpu 0

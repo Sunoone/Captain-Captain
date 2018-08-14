@@ -18,3 +18,4 @@ stat[var_ability_0_active, 1] = 0;		// object ability 0 active
 stat[var_ability_1_active, 1] = 0;		// object ability 1 active
 stat[var_ability_2_active, 1] = 0;		// object ability 2 active
 stat[var_ability_3_active, 1] = 0;		// object ability 3 active
+stat[var_rotation_max,1] = 0;			// max turret rotation speed

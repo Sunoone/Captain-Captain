@@ -12,40 +12,22 @@ if(argument_count > 3 )
 
 with( argument[0] )
 {
-	switch( corestat )
+	
+	var ar;
+	if( corestat ) ar = core_stat;
+	else ar = stat;
+	
+	var m, i;
+	m = array_length_2d( ar, argument[1] );
+	
+	for( i = 2; i < m; i++ )
 	{
-		case true:
+		if( ar[ argument[1], i] == 0 )
 		{
-			var m, i;
-			m = array_length_2d( core_stat, argument[1] );
-			for( i = 2; i < m; i++ )
-			{
-				if( core_stat[ argument[1], i] == 0 )
-				{
-					break;
-				}
-			}
-			core_stat[@  argument[1], i] = argument[2];
-			scr_status_effect_update( argument[0], argument[1], true );
-			return i;
+			break;
 		}
-		break;
-		
-		default:
-		{
-			var m, i;
-			m = array_length_2d( stat, argument[1] );
-			for( i = 2; i < m; i++ )
-			{
-				if( stat[ argument[1], i] == 0 )
-				{
-					break;
-				}
-			}
-			stat[@  argument[1], i] = argument[2];
-			scr_status_effect_update( argument[0], argument[1] );
-			return i;
-		}
-		break;
 	}
+	ar[@  argument[1], i] = argument[2];
+	scr_stat_update( argument[0], argument[1], corestat );
+	return i;
 }

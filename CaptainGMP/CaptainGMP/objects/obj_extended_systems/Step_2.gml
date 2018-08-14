@@ -25,6 +25,26 @@ for( var i = ds_grid_width( buff ) -1; i>0; i-- )
 	}
 }
 
+// update new status effects and remove old
+if( update_status_effects )
+{
+	// re-check current status effects
+	scr_status_effect_check(id);
+	
+	// request child status effects
+	for( var c = ds_list_size( owned_childern ) -1; c>= 0; c--  )
+	{
+		if( instance_exists( owned_childern[| c] ) )
+			scr_status_effect_request( id, owned_childern[| c], 3 );
+	}
+	
+	// request root status effects
+	if( instance_exists( root ) )
+		scr_status_effect_request( id, root, 0 );
+	
+	update_status_effects = false;
+}
+
 // inherent the system objects end steps --------------------------------------------------------------------------------------------------------
 event_inherited();
 

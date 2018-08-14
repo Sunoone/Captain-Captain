@@ -15,12 +15,12 @@ status_effect_out = ds_grid_create( 1, 9 );
 // 2 = value
 // 3 = stat index
 // 4 = filter (filter on inherited objects)
-// 5 = use core stats
+// 5 = use core stat
 // 6 = name
 // 7 = icon
 // 8 = cost
 
-status_effect_in = ds_grid_create( 1, 9 );
+status_effect_in = ds_grid_create( 1, 11 );
 
 // 0 = owner
 // 1 = id
@@ -31,6 +31,10 @@ status_effect_in = ds_grid_create( 1, 9 );
 // 6 = name
 // 7 = icon
 // 8 = cost
+// 9 = use core stat
+// 10 = target
+
+update_status_effects = true;
 
 	// Buffs
 buff = ds_grid_create( 1, 7 );			// keeps track of the buffs that are applied to this object

@@ -15,10 +15,9 @@ var gw;
 
 with( argument0 )
 {
-	gw = ds_grid_width( status_effect_out );
-	ds_grid_resize( status_effect_out, gw+1, 9 );
-	
-	status_effect_out[# gw, 0] = argument1;		// 0 = target ( 0 = childern, 1 = core, 2 = global, object_id)
+	gw = scr_ds_grid_add_column(status_effect_out);
+		
+	status_effect_out[# gw, 0] = argument1;		// 0 = target ( 0 = childern, 1 = core, 2 = global, 3 = root, object_id)
 	status_effect_out[# gw, 1] = get_timer();	// 1 = id
 	status_effect_out[# gw, 2] = argument5;		// 2 = value
 	status_effect_out[# gw, 3] = argument2;		// 3 = stat index
@@ -29,8 +28,5 @@ with( argument0 )
 	status_effect_out[# gw, 8] = argument8;		// 8 = cost
 }
 
-
-
-
-
-
+// call push fuction
+scr_status_effect_push( argument0, gw );

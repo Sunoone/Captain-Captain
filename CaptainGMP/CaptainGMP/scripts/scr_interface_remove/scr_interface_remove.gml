@@ -53,6 +53,9 @@ if( type + 1 < int.max_rings )
 		if( instance_exists( child ) )
 		{
 			scr_ds_list_remove_value( obj.children , child );
+			
+			// force status effect recheck in child
+			child.update_status_effects = true;
 		}
 	}
 }
@@ -74,4 +77,14 @@ grid[# pos, e_width ] = -4;
 if( instance_exists( p ) )
 {
 	scr_ds_list_remove_value( p.children, obj );
+	
+	// force status effect update in partent
+	p.update_status_effects = true;
 }
+
+// remove status effects
+obj.update_status_effects = true;
+
+// remove root
+int.root = -4;
+

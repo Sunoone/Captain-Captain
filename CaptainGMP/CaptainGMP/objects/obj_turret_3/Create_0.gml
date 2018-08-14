@@ -17,7 +17,7 @@ turret_speed = 500;	// speed added to the projectile by turret bonuses
 turret_damage = 0;	// damage added to the projectile by turret bonuses
 
 	// rotation
-rotation_max = 0;	// max rotation speed, degrees per second
+stat[var_rotation_max,1] = 0;	// max rotation speed, degrees per second
 max_angle = -1;		// max angle for the turret
 min_angle = -1;		// min angle for the turret
 

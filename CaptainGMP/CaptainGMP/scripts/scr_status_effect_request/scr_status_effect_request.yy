@@ -1,8 +1,8 @@
 {
-    "id": "57496e5b-2462-43e8-9a5e-48081dd82d3e",
+    "id": "d6b9196a-acd4-4779-a750-2ebaef1746a5",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "scr_status_effect_new1",
+    "name": "scr_status_effect_request",
     "IsCompatibility": false,
     "IsDnD": false
 }

@@ -10,7 +10,7 @@ globalvar owned_interface
 
 var int, type, obj, pos;
 
-int = owned_interface[ argument0 ];	// interface id referance
+int = owned_interface[ argument0 ];	// interface id reference
 obj = argument1;	// object id
 type = argument2;	// combat object type
 pos = argument3;	// position on the ring
@@ -70,6 +70,12 @@ if( type + 1 < int.max_rings )
 				scr_ds_list_add_unique( obj.children , child );
 				tmp_grid[# k, e_link] = obj;
 			}
+			
+			// root child to this object
+			child.root = obj;
+			
+			// request status effects from child
+			scr_status_effect_request( obj, child, 3 );
 		}
 	}
 }
@@ -116,5 +122,16 @@ if( instance_exists( p ) && type != 0 )
 			}
 		}
 	}
+	
+	// add root
+	obj.root = p;
+	
+	// request status effects from parent
+	scr_status_effect_request( obj, p, 0 );
+	
+	// force a status effect recheck
+	obj.update_status_effects = true;
 }
 
+// push status effects
+scr_status_effect_push( obj );

@@ -9,7 +9,7 @@ var DeltaTime = global.DeltaTime;
 // Rotate the Turret
 if(rotation_speed != 0 && rotation_lock == false)
 {
-	var r_max_delta = rotation_max * DeltaTime;
+	var r_max_delta = stat[var_rotation_max,0] * DeltaTime;
 	if( rotation_speed > r_max_delta ) rotation_speed = r_max_delta;
 	if( rotation_speed < r_max_delta * -1 ) rotation_speed = r_max_delta * -1;
 	

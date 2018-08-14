@@ -35,7 +35,7 @@ if( scr_interface_register( i.owner, i, i.type ) == false )
 // register software with the core
 i.core = core;
 ds_list_add( core.software, i );
-
+i.root = core;
 
 // Parent the object
 var p = ship;
