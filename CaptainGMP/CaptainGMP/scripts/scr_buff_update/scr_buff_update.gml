@@ -5,6 +5,7 @@
 
 // This script updates the stats array under the given index
 
+/*
 if( instance_exists(argument0) )
 {
 	switch( argument2 )

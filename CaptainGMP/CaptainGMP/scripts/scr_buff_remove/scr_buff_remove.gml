@@ -5,6 +5,7 @@
 // This script removes a buff from a node
 // Pass -1 in index to remove all buffs
 
+/*
 if( instance_exists(argument0) && argument0 > 0 )
 {
 	with( argument0 )

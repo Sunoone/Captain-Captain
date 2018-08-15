@@ -14,7 +14,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 	if( core.owner == node.original_owner && node.owner == node.original_owner && node.active == false) // conditions
 	{
 		var cost, time;
-		cost = node.stat[var_cpu_cost,0] + ds_grid_get_sum( node.modification, 0, 1, ds_grid_width( node.modification ), 1 );
+		cost = node.stat[var_cpu_cost,0]; // + ds_grid_get_sum( node.modification, 0, 1, ds_grid_width( node.modification ), 1 );
 		time = 1;
 		
 		switch( argument0 ) // mode switch

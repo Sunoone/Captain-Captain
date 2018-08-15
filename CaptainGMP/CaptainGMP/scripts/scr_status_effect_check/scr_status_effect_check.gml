@@ -29,7 +29,8 @@ with( argument[0] )
 						break;
 						
 						case 1:	// core
-							continue;
+							if( scr_core_connected( o ) )
+								continue;
 		
 						case 2:	// global
 							continue; // not implemented yet

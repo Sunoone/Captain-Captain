@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+/*
 if( owner != delta_owner ) // owner has changed
 {	
 	// remove buffs
@@ -24,6 +25,7 @@ for( var i = ds_grid_width( buff ) -1; i>0; i-- )
 		}
 	}
 }
+*/
 
 // update new status effects and remove old
 if( update_status_effects )
@@ -52,6 +54,7 @@ event_inherited();
 // Active change -> Does not belong in active
 if( switch_active != active )
 {
+	/*
 	// Buffs
 	if( !active )
 	{
@@ -83,6 +86,7 @@ if( switch_active != active )
 		
 		core_buffed = true;
 	}
+	*/
 	
 	// Abilities
 		// Change the active stage of all abilities
@@ -100,7 +104,8 @@ if( register_abilities )
 // CPU cost -----------------------------------------------------------------------------------------------------------------------------
 if( instance_exists( parent ) && active )
 {	
-		// Status Effect Cost
+	/*
+	// Status Effect Cost
 	var effect_owner;
 	for( var i = ds_grid_width( modification ) - 1; i > 0; i-- )
 	{	
@@ -113,4 +118,5 @@ if( instance_exists( parent ) && active )
 			//scr_status_effect_remove(id, i);
 		}
 	}
+	*/
 }

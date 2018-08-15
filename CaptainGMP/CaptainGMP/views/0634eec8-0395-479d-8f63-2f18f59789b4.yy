@@ -9,7 +9,7 @@
         "62271473-7d86-40aa-8970-8f2a728531a5"
     ],
     "filterType": "GMScript",
-    "folderName": "Inventory",
+    "folderName": "Inventory ( deprecated )",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

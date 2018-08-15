@@ -5,6 +5,7 @@
 
 // This script removes a buff from the provider list
 
+/*
 if( instance_exists( argument0 ) && instance_exists( argument1 ) )
 {
 	with( argument0 )

@@ -3,6 +3,7 @@
 /// @param index
 
 // this script destroys a buff based on provider reference
+/*
 with( argument0 )
 {
 	if( instance_exists( buff_provider[# argument1, 0] ) )

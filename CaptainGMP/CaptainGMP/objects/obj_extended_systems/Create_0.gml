@@ -5,9 +5,9 @@ event_inherited();
 
 
 	// Modifications
-modification = ds_grid_create( 1, 5 );	// a list of all modifications applied to this object
+// modification = ds_grid_create( 1, 5 );	// a list of all modifications applied to this object
 
-	// New status effect system
+	// Status Effect system
 status_effect_out = ds_grid_create( 1, 9 );
 
 // 0 = target ( 0 = childern, 1 = core, 2 = global, object_id)
@@ -36,7 +36,9 @@ status_effect_in = ds_grid_create( 1, 11 );
 
 update_status_effects = true;
 
+
 	// Buffs
+/*
 buff = ds_grid_create( 1, 7 );			// keeps track of the buffs that are applied to this object
 buff_provider = ds_grid_create( 1, 2 );	// keeps track of buffs that this object provides
 
@@ -46,7 +48,7 @@ buffed_childern_list = ds_list_create(); // list that keeps track of which child
 
 buff_core = ds_grid_create( 1, 4 );		// permanent buffs that this object provides to it's core	 -> 0 = index, 1 = value, 2 = icon, 3 = use_core_stat
 core_buffed = false;
-
+*/
 
 	// Abilities
 ability_0_script = -4;					// ability 0 script

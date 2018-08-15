@@ -88,3 +88,9 @@ obj.update_status_effects = true;
 // remove root
 int.root = -4;
 
+// update core status effects
+if( instance_exists( obj.core ) )
+	obj.core.update_status_effects = true;
+	
+// retract all status effects that the object grants
+scr_status_effect_retract( obj );

@@ -10,6 +10,7 @@
 // This script adds a buff to a node
 // pass a value of < 0 for inf duration buff
 
+/*
 if( instance_exists(argument0) && instance_exists(argument1) )
 {
 	if( argument0.owner != argument1.owner )

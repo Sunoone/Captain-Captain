@@ -18,7 +18,6 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 			var cost, time;
 		
 			cost = -1 * scr_cost_hacking( node.hack_level );
-			cost -= scr_cost_status_effects( node, core );
 			if( node.owner == core.owner )
 				cost -= node.stat[var_cpu_cost,0];
 		

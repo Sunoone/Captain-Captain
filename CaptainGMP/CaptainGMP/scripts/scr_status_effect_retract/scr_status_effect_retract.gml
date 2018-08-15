@@ -1,11 +1,13 @@
-/// @description scr_status_effect_push( object_id, index* )
+/// @description scr_status_effect_retract( object_id, index* )
 /// @param object_id
 /// @param index*
 
-// This script (re)applies all status effects that the object grants
+// This script retracts a specific or all status effects that the object grants
 
 with( argument[0] )
 {
+	if( !ds_exists( status_effect_out, ds_type_grid ) ) exit;
+	
 	var target, target_list, bufftarget;
 	target_list = ds_list_create();
 	
@@ -22,14 +24,14 @@ with( argument[0] )
 		{
 			case 0:	// childern
 			{	
-				ds_list_copy( target_list, owned_childern );
+				if( ds_exists( owned_childern, ds_type_list ) )
+					ds_list_copy( target_list, owned_childern );
 			}
 			break;
 		
 			case 1:	// core
 			{
-				if( scr_core_connected( argument[0] ) )
-					ds_list_add( target_list, core );
+				ds_list_add( target_list, core );
 			}
 			break;
 		
@@ -56,21 +58,19 @@ with( argument[0] )
 		{
 			bufftarget = target_list[|t];
 			
+				// check if the target exists
 			if( !instance_exists(bufftarget) ) continue;
 			
-			// check if object fits filter
-			if( !instance_exists( status_effect_out[# i, 4] ) || scr_id_check_parentage( bufftarget, status_effect_out[# i, 4] ) )
-			{
-				// check id
-				if( scr_ds_grid_find_value_width( bufftarget.status_effect_in, status_effect_out[# i, 1], 1 ) != -1 ) continue;
-				
-				// check owner
-				if( scr_object_apparent_owner_get( argument[0], original_owner ) == scr_object_apparent_owner_get( bufftarget, bufftarget.original_owner ) )
-				{
-					// add status effect
-					scr_status_effect_set( bufftarget, argument[0], status_effect_out[# i,1] );
-				}
-			}
+				// check if the buff is applied
+			var w = scr_ds_grid_find_value_width( bufftarget.status_effect_in, status_effect_out[# i, 1], 1 );
+			
+			if( w == -1 ) 
+				continue;
+			
+				// remove the status effect
+			scr_status_effect_remove_in( bufftarget, status_effect_out[# i, 1], w );
+			
+			bufftarget.update_status_effects = true;
 		}
 		ds_list_clear(target_list);
 	}
