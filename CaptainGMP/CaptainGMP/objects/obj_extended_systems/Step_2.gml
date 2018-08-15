@@ -54,39 +54,11 @@ event_inherited();
 // Active change -> Does not belong in active
 if( switch_active != active )
 {
-	/*
-	// Buffs
+	// Status effects
 	if( !active )
-	{
-		// remove all buffs that this object provides
-		for( var i = ds_grid_width( buff_provider )-1; i>0; i-- )
-			scr_buff_provider_destroy_buff(id, i );
-			
-		// clear list of buffed childern
-		ds_list_clear(buffed_childern_list);
-		
-		// set core buffed to false
-		core_buffed = false;
-	}
-	else // object is active
-	{
-		// re-enables all standart buffs that this object provides
-			// buff owned childern
-		for( var i = ds_list_size(owned_childern)-1; i >= 0; i-- )
-		{
-			for( var j = ds_grid_width( buff_childern )-1; j > 0; j-- )
-				scr_buff_add( owned_childern[|i], id, -1, false, buff_childern[# j, 0], buff_childern[# j, 1], buff_childern[# j, 2] );
-			
-			scr_ds_list_add_unique( buffed_childern_list, owned_childern[|i] );
-		}
-			
-			// buff core
-		for( var i = ds_grid_width( buff_core )-1; i > 0; i-- )
-			scr_buff_add( core, id, -1, buff_core[# i, 3], buff_core[# i, 0], buff_core[# i, 1], buff_core[# i, 2] );
-		
-		core_buffed = true;
-	}
-	*/
+		scr_status_effect_retract( id );
+	else
+		scr_status_effect_push( id );
 	
 	// Abilities
 		// Change the active stage of all abilities

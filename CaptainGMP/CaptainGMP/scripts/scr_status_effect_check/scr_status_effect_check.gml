@@ -17,33 +17,37 @@ with( argument[0] )
 		
 		if( instance_exists( o ) )
 		{
-			if( status_effect_in[# i, 0] == apparent_owner[owner] )
+			if( o.active )
 			{
-				if( status_effect_in[# i, 0] == o.apparent_owner[owner] )
+				
+				if( status_effect_in[# i, 0] == scr_object_apparent_owner_get( id, owner ) )
 				{
-					switch( status_effect_in[# i,10] ) // status effect origin type
+					if( status_effect_in[# i, 0] == scr_object_apparent_owner_get( o, owner ) )
 					{
-						case 0:	// root
-							if( root == o )
-								continue;
-						break;
+						switch( status_effect_in[# i,10] ) // status effect origin type
+						{
+							case 0:	// root
+								if( root == o )
+									continue;
+							break;
 						
-						case 1:	// core
-							if( scr_core_connected( o ) )
-								continue;
+							case 1:	// core
+								if( scr_core_connected( o ) )
+									continue;
 		
-						case 2:	// global
-							continue; // not implemented yet
+							case 2:	// global
+								continue; // not implemented yet
 			
-						case 3:	// child
-							if( ds_list_find_index( owned_childern, o ) != -1 )
-								continue;
-						break;
+							case 3:	// child
+								if( ds_list_find_index( owned_childern, o ) != -1 )
+									continue;
+							break;
 			
-						default: // object
-							if( instance_exists( status_effect_in[# i,10] ) )
-								continue;
-						break;
+							default: // object
+								if( instance_exists( status_effect_in[# i,10] ) )
+									continue;
+							break;
+						}
 					}
 				}
 			}

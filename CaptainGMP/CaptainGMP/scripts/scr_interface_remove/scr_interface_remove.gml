@@ -86,7 +86,7 @@ if( instance_exists( p ) )
 obj.update_status_effects = true;
 
 // remove root
-int.root = -4;
+obj.root = -4;
 
 // update core status effects
 if( instance_exists( obj.core ) )

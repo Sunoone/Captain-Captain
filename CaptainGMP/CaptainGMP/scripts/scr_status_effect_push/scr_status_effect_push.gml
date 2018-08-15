@@ -6,6 +6,10 @@
 
 with( argument[0] )
 {
+		// do not push status effects if object is not active
+	if( argument[0].active == false )
+		exit;
+	
 	var target, target_list, bufftarget;
 	target_list = ds_list_create();
 	

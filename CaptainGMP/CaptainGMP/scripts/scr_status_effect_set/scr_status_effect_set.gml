@@ -10,6 +10,9 @@ var s = scr_ds_grid_find_value_width( argument1.status_effect_out, argument2, 1 
 
 with( argument0 )
 {
+	if( scr_ds_grid_find_value_width( status_effect_in, argument2, 1 ) != -1 ) 
+		exit;
+	
 	var i = scr_ds_grid_add_column( status_effect_in )
 	
 	status_effect_in[# i,0] = scr_object_apparent_owner_get( argument1, original_owner );	// owner

@@ -5,6 +5,9 @@
 
 // this script requests an object for out status effects for the target
 
+if( !argument1.active )
+	exit;
+
 with( argument1 )
 {
 	for( var i = ds_grid_width(status_effect_out)-1; i>0; i-- )
