@@ -27,6 +27,13 @@ for( var i = ds_grid_width( buff ) -1; i>0; i-- )
 }
 */
 
+if( owner != delta_owner ) // owner has changed
+{	
+	scr_status_effect_retract(id);
+	scr_status_effect_push(id);
+	update_status_effects = true;
+}
+
 // update new status effects and remove old
 if( update_status_effects )
 {
@@ -49,7 +56,6 @@ if( update_status_effects )
 
 // inherent the system objects end steps --------------------------------------------------------------------------------------------------------
 event_inherited();
-
 
 // Active change -> Does not belong in active
 if( switch_active != active )

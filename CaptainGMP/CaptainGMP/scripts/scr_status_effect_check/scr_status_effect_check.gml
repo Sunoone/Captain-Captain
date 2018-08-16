@@ -8,12 +8,16 @@
 
 with( argument[0] )
 {
+	var m = 0;
+	if( argument_count > 1 )
+		m = argument[1] -1;
 	
-	for( var i = ds_grid_width(status_effect_in) -1; i>0; i-- )
+	for( var i = ds_grid_width(status_effect_in) -1; i>m; i-- )
 	{
-		var o;
-			
-		o = status_effect_in[# i, 2]; // origin
+		if( argument_count > 1 )
+			i = argument[1];
+		
+		var o = status_effect_in[# i, 2]; // origin
 		
 		if( instance_exists( o ) )
 		{

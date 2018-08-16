@@ -25,6 +25,12 @@ core_stat[var_core_hacking_level, 1] = 3;
 core_stat[var_core_scan_level, 1] = 3;
 core_stat[var_core_camera_mode, 1] = 0;
 
+// core stat percentages
+for( var i = array_height_2d( core_stat ) -1; i>= 0; i-- )
+{
+	core_stat_p[i,0] = 1;
+	core_stat_p[i,1] = 1;
+}
 
 // CPU
 cpu = 5000;

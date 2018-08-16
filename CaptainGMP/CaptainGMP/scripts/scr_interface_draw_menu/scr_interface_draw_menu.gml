@@ -1,7 +1,5 @@
 /// @description scr_interface_draw_menu()
 
-// this script draws drag indication lines when draging an element
-
 
 if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 {	
@@ -60,5 +58,9 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 		draw_sprite_ext( menu_options[| 5 * i ], 0, len_x, len_y, 1, 1, 0, col, 1 );
 	}
 	
+		// draw node status effects
+	
+	
+		// reset drawing surface
 	surface_reset_target();
 }

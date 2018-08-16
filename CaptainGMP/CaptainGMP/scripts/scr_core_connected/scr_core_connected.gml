@@ -21,8 +21,17 @@ for( var i = argument0.type; i>0; i-- )
 	if( !instance_exists( r ) )
 		return false;
 	
+	if( r.owner != own )
+		return false;
+	
 	r = r.root;
 }
+
+if( !instance_exists( r ) )
+	return false;
+	
+if( r.owner != own )
+	return false;
 
 if( r == c )
 	return true;

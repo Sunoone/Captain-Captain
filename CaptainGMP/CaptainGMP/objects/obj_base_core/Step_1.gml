@@ -1,6 +1,9 @@
 /// @description Update
 
 
+// update core stats
+scr_stat_update( id, -1, true );
+
 
 // Update CPU counter
 
@@ -12,12 +15,11 @@ for( var i = ds_list_size( running_abilities_cost ) -1; i >=0; i-- )
 	ability_cost += running_abilities_cost[|i];
 }
 
-
-cpu_available = cpu + cpu_bonus - cpu_budget - ability_cost;
+cpu_available = cpu + core_stat[var_core_cpu_bonus, 0] - cpu_budget - ability_cost;
 
 if( owner == global.player )
 {
-	global.resource_display.CPU_max = cpu + cpu_bonus;
+	global.resource_display.CPU_max = cpu + core_stat[var_core_cpu_bonus, 0];
 	global.resource_display.CPU_use = cpu_budget + ability_cost;
 }
 cpu_budget = 0;

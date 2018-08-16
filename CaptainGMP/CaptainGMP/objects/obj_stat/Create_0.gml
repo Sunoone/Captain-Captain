@@ -19,3 +19,10 @@ stat[var_ability_1_active, 1] = 0;		// object ability 1 active
 stat[var_ability_2_active, 1] = 0;		// object ability 2 active
 stat[var_ability_3_active, 1] = 0;		// object ability 3 active
 stat[var_rotation_max,1] = 0;			// max turret rotation speed
+
+// stat percentages
+for( var i = array_height_2d( stat ) -1; i>= 0; i-- )
+{
+	stat_p[i,0] = 1;
+	stat_p[i,1] = 1;
+}

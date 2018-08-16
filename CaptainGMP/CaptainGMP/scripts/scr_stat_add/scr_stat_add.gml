@@ -1,8 +1,9 @@
-/// @description scr_stat_add( object_id, stat_index, value, use_core_stat* )
+/// @description scr_stat_add( object_id, stat_index, value, use_core_stat*, percentage* )
 /// @param object_id
 /// @param stat_index
 /// @param value
 /// @param use_core_stat*
+/// @param percentage*
 
 // this script adds a stat and returns the position
 
@@ -10,12 +11,14 @@ var corestat = false;
 if(argument_count > 3 )
 	corestat = argument[3];
 
+var percentage = false;
+if( argument_count > 4 )
+	percentage = argument[4];
+
 with( argument[0] )
 {
-	
-	var ar;
-	if( corestat ) ar = core_stat;
-	else ar = stat;
+		// get the right stat array
+	var ar = scr_stat_get_array( argument[0], corestat, percentage );
 	
 	var m, i;
 	m = array_length_2d( ar, argument[1] );
