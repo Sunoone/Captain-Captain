@@ -8,7 +8,7 @@ event_inherited();
 // modification = ds_grid_create( 1, 5 );	// a list of all modifications applied to this object
 
 	// Status Effect system
-status_effect_out = ds_grid_create( 1, 9 );
+status_effect_out = ds_grid_create( 1, 10 );
 
 // 0 = target ( 0 = childern, 1 = core, 2 = global, object_id)
 // 1 = id
@@ -19,8 +19,9 @@ status_effect_out = ds_grid_create( 1, 9 );
 // 6 = name
 // 7 = icon
 // 8 = cost
+// 9 = is_percentage
 
-status_effect_in = ds_grid_create( 1, 11 );
+status_effect_in = ds_grid_create( 1, 12 );
 
 // 0 = owner
 // 1 = id
@@ -33,6 +34,7 @@ status_effect_in = ds_grid_create( 1, 11 );
 // 8 = cost
 // 9 = use core stat
 // 10 = target
+// 11 = is_percentage
 
 update_status_effects = true;
 

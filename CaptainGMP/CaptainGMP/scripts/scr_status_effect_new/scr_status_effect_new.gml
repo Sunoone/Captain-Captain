@@ -1,4 +1,4 @@
-/// @description scr_status_effect_new( object_id, target, stat, use_core_stat, filter, value, name, icon, cost )
+/// @description scr_status_effect_new( object_id, target, stat, use_core_stat, filter, value, name, icon, cost, is_percentage )
 /// @param object_id
 /// @param target
 /// @param stat
@@ -8,6 +8,7 @@
 /// @param name
 /// @param icon
 /// @param cost
+/// @param is_percentage
 
 // This script creates a new status effect that the object sends out to valid targets
 
@@ -26,6 +27,7 @@ with( argument0 )
 	status_effect_out[# gw, 6] = argument6;		// 6 = name
 	status_effect_out[# gw, 7] = argument7;		// 7 = icon
 	status_effect_out[# gw, 8] = argument8;		// 8 = cost
+	status_effect_out[# gw, 9] = argument9;		// 9 = is_percentage
 }
 
 // call push fuction

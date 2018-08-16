@@ -22,4 +22,4 @@ scr_ability_register( spr_action_buff, 5, 2, true, "Raise Security Level", -20 )
 scr_ability_register( spr_action_stealth, 7, 3, true, "Rootkit - Hack Level +2", -20 );
 
 	// create new status effect
-scr_status_effect_new( id, 1, var_core_cpu_bonus, true, obj_base_core, 500, "Auxiliary Processor", sprite_index, 0 );
+scr_status_effect_new( id, 1, var_core_cpu_bonus, true, obj_base_core, 500, "Auxiliary Processor", sprite_index, 0, false );

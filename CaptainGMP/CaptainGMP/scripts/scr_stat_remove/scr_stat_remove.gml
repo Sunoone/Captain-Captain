@@ -3,6 +3,7 @@
 /// @param stat_index
 /// @param stat_height
 /// @param use_core_stat*
+/// @param percentage*
 
 // this script removes a stat (sets it to 0)
 
