@@ -27,13 +27,6 @@ for( var i = ds_grid_width( buff ) -1; i>0; i-- )
 }
 */
 
-if( owner != delta_owner ) // owner has changed
-{	
-	scr_status_effect_retract(id);
-	scr_status_effect_push(id);
-	update_status_effects = true;
-}
-
 // update new status effects and remove old
 if( update_status_effects )
 {
@@ -44,14 +37,28 @@ if( update_status_effects )
 	for( var c = ds_list_size( owned_childern ) -1; c>= 0; c--  )
 	{
 		if( instance_exists( owned_childern[| c] ) )
-			scr_status_effect_request( id, owned_childern[| c], 3 );
+			scr_status_effect_request( id, owned_childern[|c] );
 	}
 	
 	// request root status effects
 	if( instance_exists( root ) )
-		scr_status_effect_request( id, root, 0 );
+		scr_status_effect_request( id, root );
+	
+	// force update childern
+	for( var i = ds_list_size(owned_childern)-1; i>=0; i--)
+	{
+		if( instance_exists(owned_childern[|i]) )
+			owned_childern[|i].update_status_effects = true;
+	}
 	
 	update_status_effects = false;
+}
+
+if( owner != delta_owner ) // owner has changed
+{	
+	scr_status_effect_retract(id);
+	scr_status_effect_push(id);
+	update_status_effects = true;
 }
 
 // inherent the system objects end steps --------------------------------------------------------------------------------------------------------

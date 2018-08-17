@@ -75,7 +75,7 @@ if( type + 1 < int.max_rings )
 			child.root = obj;
 			
 			// request status effects from child
-			scr_status_effect_request( obj, child, 3 );
+			scr_status_effect_request( obj, child );
 		}
 	}
 }
@@ -127,7 +127,7 @@ if( instance_exists( p ) && type != 0 )
 	obj.root = p;
 	
 	// request status effects from parent
-	scr_status_effect_request( obj, p, 0 );
+	scr_status_effect_request( obj, p );
 	
 	// force a status effect recheck
 	obj.update_status_effects = true;

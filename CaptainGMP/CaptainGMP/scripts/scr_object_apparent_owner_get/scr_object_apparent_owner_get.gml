@@ -10,6 +10,8 @@ node = argument0;
 owner = argument1;
 w = array_length_1d( node.apparent_owner );
 
+if( owner < 0 ) return owner;
+
 if( owner >= 0 )
 {
 	if( owner < w)

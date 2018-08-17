@@ -59,6 +59,63 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 	}
 	
 		// draw node status effects
+	var sei, sdw, sdh, dw, dh, sp;
+	sdw = surface_get_width( menu_surface ) - 10;
+	sdh = 10;
+	
+	for( var i = 1; i < ds_grid_width( menu_id.status_effect_in ); i++ )
+	{
+		sp = menu_id.status_effect_in[# i,7];
+		
+			// with and height of icons
+		dw = 50;
+		dh = 50;
+		
+			// draw status effect icon
+		draw_rectangle_color( sdw - dw, sdh, sdw, sdh + 50, c_black, c_black, c_black, c_black, false );
+		draw_sprite( sp, 0, sdw - round( dw * 0.5 ), sdh + round( dh * 0.5 ) );
+		
+			// mouse over this icon?
+		if( m_x > sdw - dw && m_x < sdw && m_y > sdh && m_y < sdh + dh )
+		{
+			draw_set_valign(fa_middle);
+			
+				// draw name
+			draw_text_colour( 160, 10, menu_id.status_effect_in[# i,6] , c_yellow,  c_yellow,  c_yellow,  c_yellow,  1 );
+			
+			// draw origin
+			if( instance_exists(menu_id.status_effect_in[# i,2]) )
+				draw_text_colour( 160, 30, menu_id.status_effect_in[# i,2].name, c_gray,  c_gray,  c_gray,  c_gray,  1 );
+			
+				// get value
+			var v, sv;
+			
+			v = menu_id.status_effect_in[# i,3];
+			if( menu_id.status_effect_in[# i,11] )
+				sv = string( v * 100 ) + "%";
+			else
+				sv = string(v);
+			
+			if( v > 0 )
+				sv = "+" + sv;
+			
+				// get stat value name
+			var n = scr_stat_get_name( menu_id.status_effect_in[# i,4], menu_id.status_effect_in[# i,9] ) + " ";
+			
+				// draw value
+			draw_text_colour( 160, 50, n + sv , c_white,  c_white,  c_white,  c_white,  1 );
+			
+			draw_set_valign(fa_top);
+		}
+		
+			// check for next icon space
+		sdh += 10 + dh;
+		if( sdh > surface_get_height( menu_surface ) - 10 - dh )
+		{
+			sdh = 10;
+			sdw -= 10 + dw;
+		}
+	}
 	
 	
 		// reset drawing surface

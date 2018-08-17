@@ -5,10 +5,11 @@
     "name": "d9fc242d-bfd7-4e2b-a4a1-fca3ba5ed1ba",
     "children": [
         "50f266cd-ca36-43ca-92dc-90896255d212",
-        "73918768-7e4f-475f-90e0-f9c0a932b730"
+        "73918768-7e4f-475f-90e0-f9c0a932b730",
+        "ca858fbb-3028-428c-9a08-e77f0f71501e"
     ],
     "filterType": "GMScript",
-    "folderName": "Status Effects",
+    "folderName": "Stats",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

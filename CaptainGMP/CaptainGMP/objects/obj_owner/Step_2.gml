@@ -9,7 +9,7 @@ if( owner != delta_owner ) // owner has changed
 		if( instance_exists( global.owner_core[ owner ] ) )
 		{
 			core = global.owner_core[ owner ];
-			delta_owner = owner;
+			//delta_owner = owner;
 			register_abilities = true;
 		}
 	}
@@ -25,3 +25,4 @@ if( instance_exists( secret_core ) )
 // inherent the system objects end steps
 event_inherited();
 
+delta_owner = owner;
