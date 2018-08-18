@@ -1,31 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-/*
-if( owner != delta_owner ) // owner has changed
-{	
-	// remove buffs
-	scr_buff_remove( id, -1 );
-	for( var i = ds_grid_width( buff_provider ) - 1; i > 0; i-- )
-	{
-		if( instance_exists( buff_provider[# i, 0] ) )
-			scr_buff_remove( buff_provider[# i, 0], buff_provider[# i, 1] );
-	}
-}
-
-// Update Buffs
-for( var i = ds_grid_width( buff ) -1; i>0; i-- )
-{
-	if( buff[# i, 1] > 0 ) // check if buff is timed
-	{
-		buff[# i, 1] -= global.DeltaTime;
-		if( buff[# i, 1] <= 0 )
-		{
-			scr_buff_remove( id, i );	
-		}
-	}
-}
-*/
 
 // update new status effects and remove old
 if( update_status_effects )
@@ -50,7 +25,6 @@ if( update_status_effects )
 		if( instance_exists(owned_childern[|i]) )
 			owned_childern[|i].update_status_effects = true;
 	}
-	
 	update_status_effects = false;
 }
 
@@ -87,21 +61,17 @@ if( register_abilities )
 	scr_ability_update();
 
 // CPU cost -----------------------------------------------------------------------------------------------------------------------------
-if( instance_exists( parent ) && active )
+if( active )
 {	
-	/*
-	// Status Effect Cost
-	var effect_owner;
-	for( var i = ds_grid_width( modification ) - 1; i > 0; i-- )
-	{	
-		effect_owner = modification[# i, 0];
-		
-		if( instance_exists( effect_owner ) ) // check if the owner core exists
-			effect_owner.cpu_budget += modification[# i, 1];
-		else
+	if( instance_exists( parent ) && instance_exists(core) )
+	{
+			// Status Effect Cost
+		for( var i = array_height_2d(status_effect_out) - 1; i>0; i-- )
 		{
-			//scr_status_effect_remove(id, i);
+			if( status_effect_out[# i,8 ] != 0 )
+			{
+				core.cpu_budget += status_effect_out[# i,8 ];
+			}
 		}
 	}
-	*/
 }

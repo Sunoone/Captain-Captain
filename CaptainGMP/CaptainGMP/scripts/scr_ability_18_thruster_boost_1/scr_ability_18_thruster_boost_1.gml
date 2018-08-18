@@ -32,7 +32,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 			case 3: // real
 			{
 				// add a buff to the thruster
-				scr_buff_add( node, node, 5, false, var_maxThrust, stat[var_maxThrust, 1] * 2, spr_action_buff );
+				//scr_buff_add( node, node, 5, false, var_maxThrust, stat[var_maxThrust, 1] * 2, spr_action_buff );
 			}
 		}
 	}

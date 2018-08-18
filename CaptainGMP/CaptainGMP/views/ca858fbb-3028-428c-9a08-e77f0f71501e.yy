@@ -11,7 +11,7 @@
         "83ddce28-0804-476c-85d7-c8e1b8584938"
     ],
     "filterType": "GMScript",
-    "folderName": "stat",
+    "folderName": "Stat",
     "isDefaultView": false,
     "localisedFolderName": ""
 }
