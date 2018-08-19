@@ -14,7 +14,14 @@ with( argument0 )
 		exit;
 	
 	var i = scr_ds_grid_add_column( status_effect_in )
-		
+	
+		//debug
+	if( argument1.status_effect_out[# s, 9] == true )
+	{
+		var debug = true;
+	}
+	
+	
 	status_effect_in[# i,0] = argument1.owner;												// owner
 	status_effect_in[# i,1] = argument2;													// id
 	status_effect_in[# i,2] = argument1;													// origin
@@ -23,8 +30,7 @@ with( argument0 )
 	status_effect_in[# i,5] = scr_stat_add(													// stat height
 								argument0, 
 								status_effect_in[# i, 4], 
-								status_effect_in[# i, 3], 
-								argument1.status_effect_out[# s, 5], 
+								status_effect_in[# i, 3],  
 								argument1.status_effect_out[# s, 9]); 
 	status_effect_in[# i,6] = argument1.status_effect_out[# s, 6];							// name
 	status_effect_in[# i,7] = argument1.status_effect_out[# s, 7];							// icon

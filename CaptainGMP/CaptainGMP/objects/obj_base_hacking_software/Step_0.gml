@@ -6,9 +6,6 @@ if( owner != delta_owner )
 		// clear the scan list
 	ds_list_clear(scan_list);
 	
-		// clear the active ability
-	// scr_status_effect_reset_value( scan_current[1], var_ability_0_active );
-	
 		// interupt current scan
 	scan_current[0] = false;
 }
