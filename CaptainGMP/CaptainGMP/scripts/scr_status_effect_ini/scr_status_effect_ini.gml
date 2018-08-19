@@ -19,4 +19,10 @@ with( global.data )
 	
 		// hacking security
 	scr_status_effect_load( "Raise Security Level", spr_action_buff, 6, var_security_level, 2, false, obj_base_combat, 0 );
+	
+		// Abilities
+	scr_status_effect_load( "Ability 0 Active", spr_action_buff, 6, var_ability_0_active, 1, false, obj_base_combat, 0 );
+	scr_status_effect_load( "Ability 1 Active", spr_action_buff, 6, var_ability_1_active, 1, false, obj_base_combat, 0 );
+	scr_status_effect_load( "Ability 2 Active", spr_action_buff, 6, var_ability_2_active, 1, false, obj_base_combat, 0 );
+	scr_status_effect_load( "Ability 3 Active", spr_action_buff, 6, var_ability_3_active, 1, false, obj_base_combat, 0 );
 }

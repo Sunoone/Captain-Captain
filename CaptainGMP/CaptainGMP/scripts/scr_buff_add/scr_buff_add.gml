@@ -6,7 +6,7 @@
 /// @param time*
 /// @param cost*
 
-// this script adds a buff to an object
+// this script adds a buff to an object and retuns the index
 
 with( global.data )
 {
@@ -49,5 +49,7 @@ with( global.data )
 			var s = scr_ds_grid_find_value_width( obj.status_effect_out, obj.Buff[# b, 4], 1 );
 			obj.status_effect_out[# s,8] = argument[4];
 		}
+		
+		return b;
 	}
 }

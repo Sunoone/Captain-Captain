@@ -18,7 +18,7 @@ with( argument[0] )
 	if( stw >= 0 && stw < ds_grid_width( status_effect_in ) )
 	{
 		// remove from stat array
-		scr_stat_remove( argument[0], status_effect_in[# stw, 4], status_effect_in[# stw, 9], status_effect_in[# stw, 11] );
+		scr_stat_remove( argument[0], status_effect_in[# stw, 4], status_effect_in[# stw, 5], status_effect_in[# stw, 11] );
 		
 		// remove from status_effect_in
 		scr_ds_grid_delete_column( status_effect_in, stw );

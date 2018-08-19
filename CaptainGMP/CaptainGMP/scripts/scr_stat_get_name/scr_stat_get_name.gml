@@ -22,16 +22,16 @@ switch( argument0 )
 		return "Security Level";
 			
 	case var_ability_0_active:
-		return "Ability 0 active";
+		return "Ability 0 Active";
 			
 	case var_ability_1_active:
-		return "Ability 1 active";
+		return "Ability 1 Active";
 			
 	case var_ability_2_active:
-		return "Ability 2 active";
+		return "Ability 2 Active";
 			
 	case var_ability_3_active:
-		return "Ability 3 active";
+		return "Ability 3 Active";
 			
 	case var_maxThrust:
 		return "Max Thrust";
