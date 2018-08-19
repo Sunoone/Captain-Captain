@@ -9,22 +9,19 @@ if( update_status_effects )
 	scr_status_effect_check(id);
 	
 	// request child status effects
-	for( var c = ds_list_size( owned_childern ) -1; c>= 0; c--  )
+	for( var c = ds_list_size( children ) -1; c>= 0; c--  )
 	{
-		if( instance_exists( owned_childern[| c] ) )
-			scr_status_effect_request( id, owned_childern[|c] );
+		if( instance_exists( children[| c] ) )
+		{
+			scr_status_effect_request( id, children[| c] );
+			children[| c].update_status_effects = true;
+		}
 	}
 	
 	// request root status effects
 	if( instance_exists( root ) )
 		scr_status_effect_request( id, root );
 	
-	// force update childern
-	for( var i = ds_list_size(owned_childern)-1; i>=0; i--)
-	{
-		if( instance_exists(owned_childern[|i]) )
-			owned_childern[|i].update_status_effects = true;
-	}
 	update_status_effects = false;
 }
 

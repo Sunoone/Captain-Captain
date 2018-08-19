@@ -24,8 +24,8 @@ with( argument[0] )
 		{
 			case 0:	// childern
 			{	
-				if( ds_exists( owned_childern, ds_type_list ) )
-					ds_list_copy( target_list, owned_childern );
+				if( ds_exists( children, ds_type_list ) )
+					ds_list_copy( target_list, children );
 			}
 			break;
 		
@@ -49,8 +49,8 @@ with( argument[0] )
 			
 			case 4:	// all linked
 			{
-				if( ds_exists( owned_childern, ds_type_list ) )
-					ds_list_copy( target_list, owned_childern );
+				if( ds_exists( children, ds_type_list ) )
+					ds_list_copy( target_list, children );
 				
 				ds_list_add( target_list, root );
 			}
@@ -58,8 +58,8 @@ with( argument[0] )
 			
 			case 5:	// all linked, including self
 			{
-				if( ds_exists( owned_childern, ds_type_list ) )
-					ds_list_copy( target_list, owned_childern );
+				if( ds_exists( children, ds_type_list ) )
+					ds_list_copy( target_list, children );
 				
 				ds_list_add( target_list, root );
 				ds_list_add( target_list, id );

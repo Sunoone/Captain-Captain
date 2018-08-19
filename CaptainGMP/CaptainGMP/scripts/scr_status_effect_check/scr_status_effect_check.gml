@@ -24,9 +24,9 @@ with( argument[0] )
 			if( o.active )
 			{
 				
-				if( status_effect_in[# i, 0] == scr_object_apparent_owner_get( id, original_owner ) )
+				if( status_effect_in[# i, 0] == id.owner )
 				{
-					if( status_effect_in[# i, 0] == scr_object_apparent_owner_get( o, original_owner ) )
+					if( status_effect_in[# i, 0] == o.owner )
 					{
 						switch( status_effect_in[# i,10] ) // status effect origin type
 						{
@@ -43,17 +43,17 @@ with( argument[0] )
 								continue; // not implemented yet
 			
 							case 3:	// child
-								if( ds_list_find_index( owned_childern, o ) != -1 )
+								if( ds_list_find_index( children, o ) != -1 )
 									continue;
 							break;
 							
 							case 4:	// root or child
-								if( ds_list_find_index( owned_childern, o ) != -1 || root == o )
+								if( ds_list_find_index( children, o ) != -1 || root == o )
 									continue;
 							break;
 							
 							case 5:	// root or child or self
-								if( ds_list_find_index( owned_childern, o ) != -1 || root == o || id == o )
+								if( ds_list_find_index( children, o ) != -1 || root == o || id == o )
 									continue;
 							break;
 							

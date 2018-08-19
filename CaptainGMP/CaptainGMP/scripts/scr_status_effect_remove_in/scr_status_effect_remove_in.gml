@@ -22,6 +22,9 @@ with( argument[0] )
 		
 		// remove from status_effect_in
 		scr_ds_grid_delete_column( status_effect_in, stw );
+		
+		// update status effects
+		update_status_effects = true;
 	}
 }
 

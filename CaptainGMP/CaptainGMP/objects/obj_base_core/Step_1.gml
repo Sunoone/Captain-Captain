@@ -1,11 +1,11 @@
 /// @description Update
 
 
-// update core stats
-scr_stat_update( id, -1, true );
+// update stats
+scr_stat_update( id );
 
 
-// Update CPU counter
+// Update CPU --------------------------------------------------------------------------------------------
 
 	// calculate running ability cost
 var ability_cost = 0;
@@ -15,11 +15,12 @@ for( var i = ds_list_size( running_abilities_cost ) -1; i >=0; i-- )
 	ability_cost += running_abilities_cost[|i];
 }
 
-cpu_available = cpu + stat[var_core_cpu_bonus, 0] - cpu_budget - ability_cost;
+cpu_available = stat[var_core_cpu, 0]  + stat[var_core_cpu_bonus, 0] - cpu_budget - ability_cost;
 
+	// update CPU counter
 if( owner == global.player )
 {
-	global.resource_display.CPU_max = cpu + stat[var_core_cpu_bonus, 0];
+	global.resource_display.CPU_max = stat[var_core_cpu, 0] + stat[var_core_cpu_bonus, 0];
 	global.resource_display.CPU_use = cpu_budget + ability_cost;
 }
 cpu_budget = 0;
@@ -33,7 +34,9 @@ if( cpu_available < 0 )
 }
 
 
-// Update core abilities & feeder list
+// Abilities --------------------------------------------------------------------------------------------
+
+	// Update core abilities & feeder list
 for( var i = ds_list_size( core_ability_id ) -1; i>= 0; i-- )
 {
 	if( instance_exists( core_ability_id[|i] ) == false )
@@ -43,7 +46,7 @@ for( var i = ds_list_size( core_ability_id ) -1; i>= 0; i-- )
 }
 
 
-// Update running abilities
+	// Update running abilities
 var exist, DeltaTime;
 DeltaTime = global.DeltaTime;
 

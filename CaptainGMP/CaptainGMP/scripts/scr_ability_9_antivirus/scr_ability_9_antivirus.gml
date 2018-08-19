@@ -16,11 +16,11 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 		if( scr_object_apparent_owner_get( node, core.owner) != core.owner || node.owner != core.owner ) // conditions
 		{
 			var cost, time;
-			cost = scr_cost_antivirus( core.hacking_level );
+			cost = scr_cost_antivirus( core.stat[var_core_hacking_level, 0] );
 			if( node.owner != core.owner )
 				cost += scr_cost_node_abs( node );
 		
-			time = ( node.hack_level / core.hacking_level ) * 2;
+			time = ( node.hack_level / core.stat[var_core_hacking_level, 0] ) * 2;
 		
 			switch( argument0 ) // mode switch
 			{

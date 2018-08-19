@@ -13,7 +13,7 @@ with( argument0 )
 	var i = argument2;
 		
 	// owner check
-	if( scr_object_apparent_owner_get( argument0, original_owner ) == scr_object_apparent_owner_get( argument1, original_owner ) )
+	if( owner == argument1.owner )
 	
 	// id check
 	if( scr_ds_grid_find_value_width( argument1.status_effect_in, status_effect_out[# i, 1], 1 ) == -1 )
@@ -28,8 +28,8 @@ with( argument0 )
 		{
 			case 0:	// childern
 			{	
-				for( var i = ds_list_size(owned_childern)-1; i>=0; i--)
-					if( owned_childern[|i] == argument1 )
+				for( var i = ds_list_size(children)-1; i>=0; i--)
+					if( children[|i] == argument1 )
 						return true;
 			}
 			break;
@@ -55,8 +55,8 @@ with( argument0 )
 				if( root == argument1 )
 					return true;
 					
-				for( var i = ds_list_size(owned_childern)-1; i>=0; i--)
-					if( owned_childern[|i] == argument1 )
+				for( var i = ds_list_size(children)-1; i>=0; i--)
+					if( children[|i] == argument1 )
 						return true;
 			}
 			break;
@@ -69,8 +69,8 @@ with( argument0 )
 				if( id == argument1 )
 					return true;
 				
-				for( var i = ds_list_size(owned_childern)-1; i>=0; i--)
-					if( owned_childern[|i] == argument1 )
+				for( var i = ds_list_size(children)-1; i>=0; i--)
+					if( children[|i] == argument1 )
 						return true;
 			}
 			break;

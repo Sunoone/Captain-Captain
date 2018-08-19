@@ -18,11 +18,11 @@ with( argument0 )
 		case 0:	// childern
 		{
 			var filter = status_effect_out[# stw, 4];
-			for( var c = ds_list_size( owned_childern ) -1; c>=0; c-- )
+			for( var c = ds_list_size( children ) -1; c>=0; c-- )
 			{
-				if( !object_exists( filter ) || scr_id_check_parentage( owned_childern[| c], filter ) )
+				if( !object_exists( filter ) || scr_id_check_parentage( children[| c], filter ) )
 				{
-					owned_childern[| c].update_status_effects = true;
+					children[| c].update_status_effects = true;
 				}
 			}
 		}
@@ -51,13 +51,37 @@ with( argument0 )
 			root.update_status_effects = true;
 			
 			var filter = status_effect_out[# stw, 4];
-			for( var c = ds_list_size( owned_childern ) -1; c>=0; c-- )
+			for( var c = ds_list_size( children ) -1; c>=0; c-- )
 			{
-				if( !object_exists( filter ) || scr_id_check_parentage( owned_childern[| c], filter ) )
+				if( !object_exists( filter ) || scr_id_check_parentage( children[| c], filter ) )
 				{
-					owned_childern[| c].update_status_effects = true;
+					children[| c].update_status_effects = true;
 				}
 			}
+		}
+		break;
+		
+		case 5:	// all linked, including self
+		if( instance_exists( root ) )
+		{
+			root.update_status_effects = true;
+			update_status_effects = true;
+			
+			var filter = status_effect_out[# stw, 4];
+			for( var c = ds_list_size( children ) -1; c>=0; c-- )
+			{
+				if( !object_exists( filter ) || scr_id_check_parentage( children[| c], filter ) )
+				{
+					children[| c].update_status_effects = true;
+				}
+			}
+		}
+		break;
+		
+		case 6:	// self
+		if( instance_exists( root ) )
+		{
+			update_status_effects = true;
 		}
 		break;
 		

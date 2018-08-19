@@ -14,12 +14,12 @@ stat[var_regen, 1] = 0.05;			// every sec, 2.5% hp is regained
 stat[var_cpu_cost, 1] = 0;
 
 	// stat - core specific
-stat[var_core_cpu, 1] = 5000;
+stat[var_core_cpu, 1] = 500000000;
 stat[var_core_cpu_bonus, 1] = 0;
 stat[var_core_cpu_budget, 1] = 0;
 stat[var_core_cpu_available, 1] = 0;
 stat[var_core_sensor_range, 1] = 1000;
-stat[var_core_hacking_level, 1] = 3;
+stat[var_core_hacking_level, 1] = 300;	//debug
 stat[var_core_scan_level, 1] = 3;
 stat[var_core_camera_mode, 1] = 0;
 

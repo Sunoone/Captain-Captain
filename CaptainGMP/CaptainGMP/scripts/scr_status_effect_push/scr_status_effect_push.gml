@@ -26,7 +26,7 @@ with( argument[0] )
 		{
 			case 0:	// childern
 			{	
-				ds_list_copy( target_list, owned_childern );
+				ds_list_copy( target_list, children );
 			}
 			break;
 		
@@ -51,14 +51,14 @@ with( argument[0] )
 			
 			case 4:	// all linked
 			{
-				ds_list_copy( target_list, owned_childern );
+				ds_list_copy( target_list, children );
 				ds_list_add( target_list, root );
 			}
 			break;
 			
 			case 5:	// all linked, including self
 			{
-				ds_list_copy( target_list, owned_childern );
+				ds_list_copy( target_list, children );
 				ds_list_add( target_list, root );
 				ds_list_add( target_list, id );
 			}
@@ -90,7 +90,7 @@ with( argument[0] )
 				if( scr_ds_grid_find_value_width( bufftarget.status_effect_in, status_effect_out[# i, 1], 1 ) != -1 ) continue;
 				
 				// check owner
-				if( scr_object_apparent_owner_get( argument[0], original_owner ) == scr_object_apparent_owner_get( bufftarget, bufftarget.original_owner ) )
+				if( argument[0].owner == bufftarget.owner )
 				{
 					// add status effect
 					scr_status_effect_set( bufftarget, argument[0], status_effect_out[# i,1] );
