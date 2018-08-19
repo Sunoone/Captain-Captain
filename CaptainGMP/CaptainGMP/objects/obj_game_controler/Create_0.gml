@@ -63,7 +63,7 @@ debug_ship_1 = scr_create_ship_small_ship( 1, 600, 250 );
 debug_ship_1.ship_sprite = spr_ship_3;
 debug_ship_1.direction = 270;
 
-scr_AI_create( debug_ship_1.ship_core, obj_AI_hacking_1, obj_AI_defence_1 );
+//scr_AI_create( debug_ship_1.ship_core, obj_AI_hacking_1, obj_AI_defence_1 );
 
 
 

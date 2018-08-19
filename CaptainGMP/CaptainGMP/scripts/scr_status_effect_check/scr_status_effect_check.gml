@@ -24,9 +24,9 @@ with( argument[0] )
 			if( o.active )
 			{
 				
-				if( status_effect_in[# i, 0] == scr_object_apparent_owner_get( id, owner ) )
+				if( status_effect_in[# i, 0] == scr_object_apparent_owner_get( id, original_owner ) )
 				{
-					if( status_effect_in[# i, 0] == scr_object_apparent_owner_get( o, owner ) )
+					if( status_effect_in[# i, 0] == scr_object_apparent_owner_get( o, original_owner ) )
 					{
 						switch( status_effect_in[# i,10] ) // status effect origin type
 						{
@@ -46,6 +46,21 @@ with( argument[0] )
 								if( ds_list_find_index( owned_childern, o ) != -1 )
 									continue;
 							break;
+							
+							case 4:	// root or child
+								if( ds_list_find_index( owned_childern, o ) != -1 || root == o )
+									continue;
+							break;
+							
+							case 5:	// root or child or self
+								if( ds_list_find_index( owned_childern, o ) != -1 || root == o || id == o )
+									continue;
+							break;
+							
+							case 6:	// self
+								if( id == o )
+									continue;
+							break;
 			
 							default: // object
 								if( instance_exists( status_effect_in[# i,10] ) )
@@ -58,6 +73,6 @@ with( argument[0] )
 		}
 		
 		// remove status effect
-		scr_status_effect_remove_in( argument[0], status_effect_in[# i, 1], i );			
+		scr_status_effect_remove_in( argument[0], status_effect_in[# i, 1], i );
 	}
 }

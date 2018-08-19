@@ -45,6 +45,22 @@ with( argument0 )
 		}
 		break;
 		
+		case 4:	// all linked
+		if( instance_exists( root ) )
+		{
+			root.update_status_effects = true;
+			
+			var filter = status_effect_out[# stw, 4];
+			for( var c = ds_list_size( owned_childern ) -1; c>=0; c-- )
+			{
+				if( !object_exists( filter ) || scr_id_check_parentage( owned_childern[| c], filter ) )
+				{
+					owned_childern[| c].update_status_effects = true;
+				}
+			}
+		}
+		break;
+		
 		default: // object?
 		if( object_exists( target ) )
 		{

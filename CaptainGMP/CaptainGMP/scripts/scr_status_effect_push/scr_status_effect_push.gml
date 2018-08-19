@@ -49,6 +49,27 @@ with( argument[0] )
 			}
 			break;
 			
+			case 4:	// all linked
+			{
+				ds_list_copy( target_list, owned_childern );
+				ds_list_add( target_list, root );
+			}
+			break;
+			
+			case 5:	// all linked, including self
+			{
+				ds_list_copy( target_list, owned_childern );
+				ds_list_add( target_list, root );
+				ds_list_add( target_list, id );
+			}
+			break;
+			
+			case 6:	// self
+			{
+				ds_list_add( target_list, id );
+			}
+			break;
+			
 			default: // object
 			{
 				ds_list_add( target_list, target );

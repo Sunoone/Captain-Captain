@@ -12,7 +12,10 @@
         "acca64e4-d95d-4769-ba92-b63530bc468d",
         "038495c3-f83a-46c2-8403-6f6f39dd9024",
         "d6b9196a-acd4-4779-a750-2ebaef1746a5",
-        "b43fbe2b-aa41-4130-889f-659fbfe72cd9"
+        "b43fbe2b-aa41-4130-889f-659fbfe72cd9",
+        "0a73b022-5762-4c5f-859a-d07297ce2db6",
+        "e8a90d23-da65-435f-b244-a9a2ca50eb66",
+        "750e56cd-b55c-4513-892c-84d9018687e4"
     ],
     "filterType": "GMScript",
     "folderName": "Status Effects",

@@ -11,7 +11,7 @@ if( !instance_exists(argument0) || !instance_exists(argument1) )
 with( argument0 )
 {
 	var i = argument2;
-	
+		
 	// owner check
 	if( scr_object_apparent_owner_get( argument0, original_owner ) == scr_object_apparent_owner_get( argument1, original_owner ) )
 	
@@ -48,6 +48,38 @@ with( argument0 )
 			case 3:	// root
 				if( root == argument1 )
 					return true;
+			break;
+			
+			case 4:	// all linked
+			{
+				if( root == argument1 )
+					return true;
+					
+				for( var i = ds_list_size(owned_childern)-1; i>=0; i--)
+					if( owned_childern[|i] == argument1 )
+						return true;
+			}
+			break;
+			
+			case 5:	// all linked, including self
+			{
+				if( root == argument1 )
+					return true;
+				
+				if( id == argument1 )
+					return true;
+				
+				for( var i = ds_list_size(owned_childern)-1; i>=0; i--)
+					if( owned_childern[|i] == argument1 )
+						return true;
+			}
+			break;
+			
+			case 6:	// self
+			{
+				if( id == argument1 )
+					return true;
+			}
 			break;
 			
 			default: // object

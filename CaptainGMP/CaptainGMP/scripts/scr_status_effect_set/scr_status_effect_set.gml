@@ -14,8 +14,8 @@ with( argument0 )
 		exit;
 	
 	var i = scr_ds_grid_add_column( status_effect_in )
-	
-	status_effect_in[# i,0] = scr_object_apparent_owner_get( argument1, original_owner );	// owner
+		
+	status_effect_in[# i,0] = scr_object_apparent_owner_get( argument1, argument1.original_owner );	// owner
 	status_effect_in[# i,1] = argument2;													// id
 	status_effect_in[# i,2] = argument1;													// origin
 	status_effect_in[# i,3] = argument1.status_effect_out[# s, 2];							// value
