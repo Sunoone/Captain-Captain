@@ -13,18 +13,17 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 {
 	if( node.active ) // Node active?
 	{
-		if( core.owner == node.owner && node.stat[var_security_level,0] < core.hacking_level && node.active && scr_object_apparent_owner_get( node, core.owner ) == core.owner ) // conditions
+		if( core.owner == node.owner && node.active && scr_object_apparent_owner_get( node, core.owner ) == core.owner ) // conditions
 		{
-			var cost, time, delta;
+			var cost, time;
 		
-			delta = core.hacking_level - node.stat[var_security_level,0];
-			cost = delta * 100;
-			time = delta * 2;
+			cost = 250;
+			time = 2.5;
 		
 			switch( argument0 ) // mode switch
 			{
 				case 0: // test
-					return true;
+					return scr_buff_valid( node, "Raise Security Level", core.owner );
 		
 				case 1: // cost
 					return cost;
@@ -36,6 +35,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 				{
 					// raise security level
 					// scr_status_effect_add( node, core, cost, var_security_level, delta );
+					scr_buff_add( core.owner, node, "Raise Security Level", 20, cost );
 				}
 			}
 		}

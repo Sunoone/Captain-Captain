@@ -1,9 +1,10 @@
-/// @description scr_buff_load( buff_name, status_effect_name, default_time, filter )
+/// @description scr_buff_load( buff_name, status_effect_name, default_time, filter, buff_type )
 
 /// @param buff_name
 /// @param status_effect_name
 /// @param default_time
 /// @param filter
+/// @param buff_type
 
 // this script loads a buff in global.data
 
@@ -17,5 +18,5 @@ with( global.data )
 	data_buff[i,2] = argument2; // default time
 	data_buff[i,3] = argument3; // buff filter
 	data_buff[i,4] = get_timer(); // buff id
-		
+	data_buff[i,5] = argument4; // buff type, 0 = friendly, 1 = enemy, 2 = both
 }

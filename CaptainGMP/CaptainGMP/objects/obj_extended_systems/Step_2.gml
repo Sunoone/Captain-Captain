@@ -14,7 +14,6 @@ for( var i = ds_grid_width( Buff ) -1; i>0; i-- )
 	}
 }
 
-
 // update new status effects and remove old
 if( update_status_effects )
 {
@@ -51,10 +50,9 @@ event_inherited();
 // Active change -> Does not belong in active
 if( switch_active != active )
 {
-	// Status effects
-	if( !active )
+	if( !active )	 // retract status effects	
 		scr_status_effect_retract( id );
-	else
+	else			// push status effects
 		scr_status_effect_push( id );
 	
 	// Abilities

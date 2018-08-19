@@ -13,5 +13,10 @@ with( global.data )
 	
 	
 	// Buffs --------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		// thrusters
 	scr_status_effect_load( "Boost", spr_action_buff, 6, var_maxThrust, 1, true, obj_base_truster_component, 100 );
+	
+		// hacking security
+	scr_status_effect_load( "Raise Security Level", spr_action_buff, 6, var_security_level, 2, false, obj_base_combat, 0 );
 }

@@ -116,7 +116,7 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 					{
 						var t = o.Buff[# b,3];
 						if( t >= 0 )
-							draw_text_colour( 160, 70, "time: " + string( ceil( t ) ), c_red,  c_red,  c_red,  c_red,  1 );
+							draw_text_colour( 160, 70, "Time: " + string( ceil( t ) ), c_red,  c_red,  c_red,  c_red,  1 );
 					}
 				}
 				

@@ -36,13 +36,15 @@ update_status_effects = true;
 
 
 	// Buffs
-Buff = ds_grid_create( 1, 5 );
+Buff = ds_grid_create( 1, 7 );
 
 // 0 = name
 // 1 = status_effect_id
 // 2 = buff id
 // 3 = time
 // 4 = status effect id
+// 5 = owner
+// 6 = buff type, 0 = friendly, 1 = enemy, 2 = both
 
 
 	// Abilities

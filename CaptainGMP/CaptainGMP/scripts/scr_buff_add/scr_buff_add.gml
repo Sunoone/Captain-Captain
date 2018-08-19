@@ -1,10 +1,10 @@
-/// @description scr_buff_add( object_id, buff, time*, cost* )
+/// @description scr_buff_add( buff_owner, object_id, buff, time*, cost* )
 
+/// @param buff_owner
 /// @param object_id
 /// @param buff
 /// @param time*
 /// @param cost*
-
 
 // this script adds a buff to an object
 
@@ -12,14 +12,14 @@ with( global.data )
 {
 	var key, i, obj;
 	
-	key = string_lower( argument[1] );
+	key = string_lower( argument[2] );
 	if( ds_map_exists( data_buff_index, key ) )
 		 i = ds_map_find_value( data_buff_index, key )
 	else show_error( "Unable to find status effect '" + key + "' in global.data.data_buff_index.", true ) ;
 	
-	obj = argument[0];
+	obj = argument[1];
 	
-	if( scr_buff_valid( obj, i ) )
+	if( scr_buff_valid( obj, i, argument[0] ) )
 	{
 		// add buff to object
 		
@@ -28,8 +28,8 @@ with( global.data )
 		b = scr_ds_grid_add_column( obj.Buff );
 		
 			// get time
-		if( argument_count > 2 )
-			time = argument[2];
+		if( argument_count > 3 )
+			time = argument[3];
 		else
 			time = data_buff[i,2];
 		
@@ -37,16 +37,17 @@ with( global.data )
 		obj.Buff[# b, 1] = data_buff[i,1];	// status effect
 		obj.Buff[# b, 2] = data_buff[i,4];	// buff id
 		obj.Buff[# b, 3] = time;			// time
-		
-			// add status effect to obj
 		obj.Buff[# b, 4] = scr_status_effect_add( obj, data_buff[i,1], data_buff[i,4] ); // status effect id		
+		obj.Buff[# b, 5] = argument[0];	// owner
+		obj.Buff[# b, 6] = data_buff[i,5]; // buff type
+		
 		
 		// extra info to status effect		
 			// set custom cost
-		if( argument_count > 3 )
+		if( argument_count > 4 )
 		{
 			var s = scr_ds_grid_find_value_width( obj.status_effect_out, obj.Buff[# b, 4], 1 );
-			obj.status_effect_out[# s,8] = argument[3];
+			obj.status_effect_out[# s,8] = argument[4];
 		}
 	}
 }

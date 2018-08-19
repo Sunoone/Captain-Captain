@@ -21,7 +21,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 		switch( argument0 ) // mode switch
 		{
 			case 0: // test conditions
-				return scr_buff_valid( node, "Boost" );
+				return scr_buff_valid( node, "Boost", core.owner );
 		
 			case 1: // cost
 				return cost;
@@ -32,7 +32,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 			case 3: // real
 			{
 				// add a buff to the thruster
-				scr_buff_add( node, "Boost", 6, cost );
+				scr_buff_add( core.owner, node, "Boost", 6, cost );
 			}
 		}
 	}

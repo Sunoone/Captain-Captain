@@ -36,9 +36,6 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 				
 					node.owner = rand;
 					scr_object_apparent_owner_set( node, core.owner );
-				
-					// cost-inducing status effect
-					// scr_status_effect_add( node, core, 100, -4, -4 );
 				}
 			}
 		}
