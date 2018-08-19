@@ -100,7 +100,7 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 				sv = "+" + sv;
 			
 				// get stat value name
-			var n = scr_stat_get_name( menu_id.status_effect_in[# i,4], menu_id.status_effect_in[# i,9] ) + " ";
+			var n = scr_stat_get_name( menu_id.status_effect_in[# i,4] ) + " ";
 			
 				// draw value
 			draw_text_colour( 160, 50, n + sv , c_white,  c_white,  c_white,  c_white,  1 );

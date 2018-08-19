@@ -1,26 +1,20 @@
-/// @description scr_stat_update( obj, index*, use_core_stat* )
+/// @description scr_stat_update( obj, index* )
 /// @param obj
 /// @param index*
-/// @param use_core_stat*
 
 // This script updates the (core) stat array
 // if no argument for index or an negative value for index is passed, the entire array will be updated
-// use_core_stat* is by default set to false and can be optionally passed
 // percentage* is by default set to false and is used to set percentage change over stat, 1.0 = 100%
 
 var ind = -1;
 if( argument_count > 1 )
 	ind = argument[1];
 
-var corestat = false;
-if( argument_count > 2 )
-	corestat = argument[2];
-
 with( argument[0] )
 {	
 		// get the right stat array
-	var ar = scr_stat_get_array( argument[0], corestat, false );
-	var ar_p = scr_stat_get_array( argument[0], corestat, true );
+	var ar = scr_stat_get_array( argument[0], false );
+	var ar_p = scr_stat_get_array( argument[0], true );
 	
 		// update everything?
 	if( ind < 0 )

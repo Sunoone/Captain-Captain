@@ -1,5 +1,5 @@
 {
-    "id": "f05ee884-e261-4f19-8b5b-360a22b54d66",
+    "id": "03d76b5c-83da-43dc-bee6-9991d164e03f",
     "modelName": "GMScript",
     "mvc": "1.0",
     "name": "scr_buff_add",

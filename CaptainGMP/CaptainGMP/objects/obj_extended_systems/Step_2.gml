@@ -57,6 +57,7 @@ if( switch_active != active )
 	
 }
 
+// register abilities?
 if( register_abilities )
 	scr_ability_update();
 

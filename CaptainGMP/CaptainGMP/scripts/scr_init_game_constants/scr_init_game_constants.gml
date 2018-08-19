@@ -81,16 +81,14 @@
 #macro var_mass 10
 #macro var_drag 11
 #macro var_rotation_max 12
-
-	// Core Object Variables
-#macro var_core_cpu 0
-#macro var_core_cpu_bonus 1
-#macro var_core_cpu_budget 2
-#macro var_core_cpu_available 3
-#macro var_core_sensor_range 4
-#macro var_core_hacking_level 5
-#macro var_core_scan_level 6
-#macro var_core_camera_mode 7
+#macro var_core_cpu 13
+#macro var_core_cpu_bonus 14
+#macro var_core_cpu_budget 15
+#macro var_core_cpu_available 16
+#macro var_core_sensor_range 17
+#macro var_core_hacking_level 18
+#macro var_core_scan_level 19
+#macro var_core_camera_mode 20
 
 
 

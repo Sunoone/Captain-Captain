@@ -1,8 +1,7 @@
-/// @description scr_status_effect_new( object_id, target, stat, use_core_stat, filter, value, name, icon, cost, is_percentage )
+/// @description scr_status_effect_new( object_id, target, stat, filter, value, name, icon, cost, is_percentage )
 /// @param object_id
 /// @param target
 /// @param stat
-/// @param use_core_stat
 /// @param filter
 /// @param value
 /// @param name
@@ -20,14 +19,13 @@ with( argument0 )
 		
 	status_effect_out[# gw, 0] = argument1;		// 0 = target ( 0 = childern, 1 = core, 2 = global, 3 = root, object_id)
 	status_effect_out[# gw, 1] = get_timer();	// 1 = id
-	status_effect_out[# gw, 2] = argument5;		// 2 = value
+	status_effect_out[# gw, 2] = argument4;		// 2 = value
 	status_effect_out[# gw, 3] = argument2;		// 3 = stat index
-	status_effect_out[# gw, 4] = argument4;		// 4 = filter (filter on inherited objects)
-	status_effect_out[# gw, 5] = argument3;		// 5 = use core stats (bool)
-	status_effect_out[# gw, 6] = argument6;		// 6 = name
-	status_effect_out[# gw, 7] = argument7;		// 7 = icon
-	status_effect_out[# gw, 8] = argument8;		// 8 = cost
-	status_effect_out[# gw, 9] = argument9;		// 9 = is_percentage
+	status_effect_out[# gw, 4] = argument3;		// 4 = filter (filter on inherited objects)
+	status_effect_out[# gw, 6] = argument5;		// 6 = name
+	status_effect_out[# gw, 7] = argument6;		// 7 = icon
+	status_effect_out[# gw, 8] = argument7;		// 8 = cost
+	status_effect_out[# gw, 9] = argument8;		// 9 = is_percentage
 }
 
 // call push fuction

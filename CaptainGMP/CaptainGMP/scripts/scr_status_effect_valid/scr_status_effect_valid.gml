@@ -20,9 +20,6 @@ with( argument0 )
 	
 	// filter check
 	if( scr_id_check_parentage( argument1, status_effect_out[# i, 4] ) )
-	
-	// core / valid stat array check
-	if( !status_effect_out[# i, 5] || scr_id_check_parentage( argument1, obj_base_core ) )
 	{
 		
 		// target check

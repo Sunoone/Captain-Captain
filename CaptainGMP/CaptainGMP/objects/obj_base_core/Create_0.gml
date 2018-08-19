@@ -13,24 +13,17 @@ stat[var_HP_max, 1] = 500;			// max HP of object
 stat[var_regen, 1] = 0.05;			// every sec, 2.5% hp is regained
 stat[var_cpu_cost, 1] = 0;
 
+	// stat - core specific
+stat[var_core_cpu, 1] = 5000;
+stat[var_core_cpu_bonus, 1] = 0;
+stat[var_core_cpu_budget, 1] = 0;
+stat[var_core_cpu_available, 1] = 0;
+stat[var_core_sensor_range, 1] = 1000;
+stat[var_core_hacking_level, 1] = 3;
+stat[var_core_scan_level, 1] = 3;
+stat[var_core_camera_mode, 1] = 0;
+
 software = ds_list_create();
-
-	// core stats
-core_stat[var_core_cpu, 1] = 5000;
-core_stat[var_core_cpu_bonus, 1] = 0;
-core_stat[var_core_cpu_budget, 1] = 0;
-core_stat[var_core_cpu_available, 1] = 0;
-core_stat[var_core_sensor_range, 1] = 1000;
-core_stat[var_core_hacking_level, 1] = 3;
-core_stat[var_core_scan_level, 1] = 3;
-core_stat[var_core_camera_mode, 1] = 0;
-
-// core stat percentages
-for( var i = array_height_2d( core_stat ) -1; i>= 0; i-- )
-{
-	core_stat_p[i,0] = 1;
-	core_stat_p[i,1] = 1;
-}
 
 // CPU
 cpu = 5000;

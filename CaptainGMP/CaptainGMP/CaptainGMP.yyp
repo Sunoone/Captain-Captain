@@ -63,6 +63,14 @@
             }
         },
         {
+            "Key": "03d76b5c-83da-43dc-bee6-9991d164e03f",
+            "Value": {
+                "id": "2eb363d3-bb84-4c10-8d00-17b9d5959034",
+                "resourcePath": "scripts\\scr_buff_add\\scr_buff_add.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "048d66e3-d883-4988-8215-bf102315448c",
             "Value": {
                 "id": "91603c98-9b80-4ce2-a969-18be24f1d473",
@@ -228,6 +236,14 @@
                 "id": "13937f31-ba1f-4268-b0c7-ac45a2285cd7",
                 "resourcePath": "objects\\obj_base_hacking_software\\obj_base_hacking_software.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "0ca3feb1-5f9c-41a4-8b7c-63ffe0781c91",
+            "Value": {
+                "id": "bf709f12-ec15-40e8-942f-e7aae1b6c9a5",
+                "resourcePath": "views\\0ca3feb1-5f9c-41a4-8b7c-63ffe0781c91.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -3154,7 +3170,8 @@
         "dafecf5a-43ed-4029-b993-23c5b9fa31b7",
         "e50a72d0-04a8-4ee8-9da0-68d0fcf6b789",
         "d45bfe1b-e4f1-4b58-a138-427954db6e56",
-        "83ddce28-0804-476c-85d7-c8e1b8584938"
+        "83ddce28-0804-476c-85d7-c8e1b8584938",
+        "03d76b5c-83da-43dc-bee6-9991d164e03f"
     ],
     "tutorial": ""
 }

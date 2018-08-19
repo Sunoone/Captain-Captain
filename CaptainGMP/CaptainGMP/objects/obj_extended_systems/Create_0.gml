@@ -3,10 +3,6 @@
 // inherent the parent event
 event_inherited();
 
-
-	// Modifications
-// modification = ds_grid_create( 1, 5 );	// a list of all modifications applied to this object
-
 	// Status Effect system
 status_effect_out = ds_grid_create( 1, 10 );
 
@@ -15,7 +11,7 @@ status_effect_out = ds_grid_create( 1, 10 );
 // 2 = value
 // 3 = stat index
 // 4 = filter (filter on inherited objects)
-// 5 = use core stat
+// 5 = not used
 // 6 = name
 // 7 = icon
 // 8 = cost
@@ -32,7 +28,7 @@ status_effect_in = ds_grid_create( 1, 12 );
 // 6 = name
 // 7 = icon
 // 8 = cost (not used)
-// 9 = use core stat
+// 9 = not used
 // 10 = target
 // 11 = is_percentage
 
@@ -40,17 +36,19 @@ update_status_effects = true;
 
 
 	// Buffs
-/*
-buff = ds_grid_create( 1, 7 );			// keeps track of the buffs that are applied to this object
-buff_provider = ds_grid_create( 1, 2 );	// keeps track of buffs that this object provides
+Buff = ds_grid_create( 1, 4 );
 
-buff_childern = ds_grid_create( 1, 3 ); // permanent buffs that this object provides to its childern -> 0 = index, 1 = value, 2 = icon
-buffed_childern_list = ds_list_create(); // list that keeps track of which childern are buffed
-// ^^^^^^^^^^^^^^^^^ do something with this list, keep track of which noded must be buffed and which nodes debufed
+// 0 = type
+// 1 = time
+	// 0 = stat
+	// 2 = stat_p
+	// 3 = status effect
+	// 4 = status effect p
+// 2 = stat index
+// 3 = stat height
 
-buff_core = ds_grid_create( 1, 4 );		// permanent buffs that this object provides to it's core	 -> 0 = index, 1 = value, 2 = icon, 3 = use_core_stat
-core_buffed = false;
-*/
+
+
 
 	// Abilities
 ability_0_script = -4;					// ability 0 script
