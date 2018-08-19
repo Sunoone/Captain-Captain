@@ -1,69 +1,14 @@
-/// @description scr_buff_remove( node, index )
-/// @param node
-/// @param index
+/// @description scr_buff_remove( object_id, buff_index )
 
-// This script removes a buff from a node
-// Pass -1 in index to remove all buffs
+/// @param object_id
+/// @param buff_index
 
-/*
-if( instance_exists(argument0) && argument0 > 0 )
+with( argument0 )
 {
-	with( argument0 )
-	{
-		if( argument1 < 0 ) // remove all buffs
-		{
-			var w;
-			for( var i = ds_grid_width( buff ) -1; i > 0; i-- )
-			{
-				w = buff[# i, 3]; // index
-				
-				if( w >= 0 )
-				{
-					// remove from buff provider
-					scr_buff_remove_provider( buff[# i, 0], argument0, i );
-					
-					// remove buff
-					if( buff[# i, 2] )
-					{
-						core_stat[ w, buff[# i, 4] ] = 0;
-						scr_buff_update( argument0, w, true );
-					}
-					else
-					{
-						stat[ w, buff[# i, 4] ] = 0;
-						scr_buff_update( argument0, w, false );
-					}
-				}
-			}
-			ds_grid_resize( buff, 1, 7 );
-		}
-		else
-		{
-			var i, s, w;
-			
-			s = ds_grid_width( buff );
-			i = argument1;
-			w = buff[# i, 3];
-			
-			if( w >= 0 )
-			{
-				// remove from buff provider
-				scr_buff_remove_provider( buff[# i, 0], argument0, i );
-				
-				// remove buff
-				if( buff[# i, 2] )
-				{
-					core_stat[ w, buff[# i, 4] ] = 0;
-					scr_buff_update( argument0, w, true );
-				}
-				else
-				{
-					stat[ w, buff[# i, 4] ] = 0;
-					scr_buff_update( argument0, w, false );
-				}
-			}
-			
-			scr_ds_grid_delete_column( buff, argument1 );
-		}
-	}
+	var buff_index = argument1;
+	if( is_string(buff_index) )
+		buff_index = scr_ds_grid_find_value_width( Buff, string_lower( buff_index ), 0 );
+	
+	scr_status_effect_remove_out( argument0, Buff[# buff_index, 4 ] );
+	scr_ds_grid_delete_column( Buff, buff_index );
 }

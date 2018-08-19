@@ -11,7 +11,7 @@ status_effect_out = ds_grid_create( 1, 10 );
 // 2 = value
 // 3 = stat index
 // 4 = filter (filter on inherited objects)
-// 5 = not used
+// 5 = buff id (if from buff)
 // 6 = name
 // 7 = icon
 // 8 = cost
@@ -27,7 +27,7 @@ status_effect_in = ds_grid_create( 1, 12 );
 // 5 = stat height
 // 6 = name
 // 7 = icon
-// 8 = cost (not used)
+// 8 = buff id (if from buff)
 // 9 = not used
 // 10 = target
 // 11 = is_percentage
@@ -36,18 +36,13 @@ update_status_effects = true;
 
 
 	// Buffs
-Buff = ds_grid_create( 1, 4 );
+Buff = ds_grid_create( 1, 5 );
 
-// 0 = type
-// 1 = time
-	// 0 = stat
-	// 2 = stat_p
-	// 3 = status effect
-	// 4 = status effect p
-// 2 = stat index
-// 3 = stat height
-
-
+// 0 = name
+// 1 = status_effect_id
+// 2 = buff id
+// 3 = time
+// 4 = status effect id
 
 
 	// Abilities

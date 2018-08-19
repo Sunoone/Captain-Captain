@@ -34,7 +34,7 @@ with( argument0 )
 								argument1.status_effect_out[# s, 9]); 
 	status_effect_in[# i,6] = argument1.status_effect_out[# s, 6];							// name
 	status_effect_in[# i,7] = argument1.status_effect_out[# s, 7];							// icon
-	status_effect_in[# i,8] = argument1.status_effect_out[# s, 8];							// cost
+	status_effect_in[# i,8] = argument1.status_effect_out[# s, 5];							// buff id
 	status_effect_in[# i,10] = argument1.status_effect_out[# s, 0];							// target
 	status_effect_in[# i,11] = argument1.status_effect_out[# s, 9];							// is_percentage
 }

@@ -4,6 +4,6 @@
 
 with( global.data )
 {
-	var i = 0;
-	data_buff[i,0] = -4
+		// Thrusters
+	scr_buff_load( "Boost", "Boost", 6, obj_base_truster_component );
 }

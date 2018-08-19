@@ -19,53 +19,60 @@ with( argument[0] )
 		
 		var o = status_effect_in[# i, 2]; // origin
 		
+			// check if instance exists
 		if( instance_exists( o ) )
 		{
+				// check active
 			if( o.active )
 			{
-				
-				if( status_effect_in[# i, 0] == id.owner )
+					// check if status effect exists
+				if( scr_ds_grid_find_value_width( o.status_effect_out, status_effect_in[# i,1], 1 ) != -1 )
 				{
-					if( status_effect_in[# i, 0] == o.owner )
+						// check self owner
+					if( status_effect_in[# i, 0] == id.owner )
 					{
-						switch( status_effect_in[# i,10] ) // status effect origin type
+							// check other owner
+						if( status_effect_in[# i, 0] == o.owner )
 						{
-							case 0:	// root
-								if( root == o )
-									continue;
-							break;
+							switch( status_effect_in[# i,10] ) // status effect origin type
+							{
+								case 0:	// root
+									if( root == o )
+										continue;
+								break;
 						
-							case 1:	// core
-								if( scr_core_connected( o ) )
-									continue;
+								case 1:	// core
+									if( scr_core_connected( o ) )
+										continue;
 		
-							case 2:	// global
-								continue; // not implemented yet
+								case 2:	// global
+									continue; // not implemented yet
 			
-							case 3:	// child
-								if( ds_list_find_index( children, o ) != -1 )
-									continue;
-							break;
+								case 3:	// child
+									if( ds_list_find_index( children, o ) != -1 )
+										continue;
+								break;
 							
-							case 4:	// root or child
-								if( ds_list_find_index( children, o ) != -1 || root == o )
-									continue;
-							break;
+								case 4:	// root or child
+									if( ds_list_find_index( children, o ) != -1 || root == o )
+										continue;
+								break;
 							
-							case 5:	// root or child or self
-								if( ds_list_find_index( children, o ) != -1 || root == o || id == o )
-									continue;
-							break;
+								case 5:	// root or child or self
+									if( ds_list_find_index( children, o ) != -1 || root == o || id == o )
+										continue;
+								break;
 							
-							case 6:	// self
-								if( id == o )
-									continue;
-							break;
+								case 6:	// self
+									if( id == o )
+										continue;
+								break;
 			
-							default: // object
-								if( instance_exists( status_effect_in[# i,10] ) )
-									continue;
-							break;
+								default: // object
+									if( instance_exists( status_effect_in[# i,10] ) )
+										continue;
+								break;
+							}
 						}
 					}
 				}

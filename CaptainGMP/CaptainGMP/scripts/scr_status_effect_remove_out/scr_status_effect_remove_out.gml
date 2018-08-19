@@ -79,10 +79,7 @@ with( argument0 )
 		break;
 		
 		case 6:	// self
-		if( instance_exists( root ) )
-		{
 			update_status_effects = true;
-		}
 		break;
 		
 		default: // object?
@@ -93,7 +90,7 @@ with( argument0 )
 		break;
 	}
 	
-	scr_ds_grid_delete_row( status_effect_out, stw );
+	scr_ds_grid_delete_column( status_effect_out, stw );
 }
 
 

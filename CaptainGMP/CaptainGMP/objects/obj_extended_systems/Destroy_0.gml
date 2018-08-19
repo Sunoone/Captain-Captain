@@ -1,5 +1,8 @@
 /// @description Clean
 
+	// remove buffs
+ds_grid_destroy( Buff );
+
 	// destroy abilities
 scr_ability_destroy_structure( id );
 

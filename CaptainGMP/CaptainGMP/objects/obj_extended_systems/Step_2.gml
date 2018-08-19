@@ -1,6 +1,19 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+// update buffs
+for( var i = ds_grid_width( Buff ) -1; i>0; i-- )
+{
+	if( Buff[# i,3] >= 0 )
+	{
+		Buff[# i,3] -= global.DeltaTime;
+		if( Buff[# i,3] < 0 )
+		{
+			scr_buff_remove( id, i );
+		}
+	}
+}
+
 
 // update new status effects and remove old
 if( update_status_effects )

@@ -80,16 +80,16 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 		{
 			draw_set_valign(fa_middle);
 			
-				// draw name
+			// draw name -----------
 			draw_text_colour( 160, 10, menu_id.status_effect_in[# i,6] , c_yellow,  c_yellow,  c_yellow,  c_yellow,  1 );
 			
-			// draw origin
+			// draw origin ---------
 			if( instance_exists(menu_id.status_effect_in[# i,2]) )
 				draw_text_colour( 160, 30, menu_id.status_effect_in[# i,2].name, c_gray,  c_gray,  c_gray,  c_gray,  1 );
 			
 				// get value
 			var v, sv;
-			
+
 			v = menu_id.status_effect_in[# i,3];
 			if( menu_id.status_effect_in[# i,11] )
 				sv = string( v * 100 ) + "%";
@@ -102,8 +102,26 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 				// get stat value name
 			var n = scr_stat_get_name( menu_id.status_effect_in[# i,4] ) + " ";
 			
-				// draw value
+				// draw value ------
 			draw_text_colour( 160, 50, n + sv , c_white,  c_white,  c_white,  c_white,  1 );
+			
+				// draw time -------
+			if( menu_id.status_effect_in[# i,8] > 0 )
+			{
+				var o = menu_id.status_effect_in[# i,2];
+				if( instance_exists(o) )
+				{
+					var b = scr_ds_grid_find_value_width( o.Buff, menu_id.status_effect_in[# i,8], 2 );
+					if( b != -1 )
+					{
+						var t = o.Buff[# b,3];
+						if( t >= 0 )
+							draw_text_colour( 160, 70, "time: " + string( ceil( t ) ), c_red,  c_red,  c_red,  c_red,  1 );
+					}
+				}
+				
+			}
+			
 			
 			draw_set_valign(fa_top);
 		}
