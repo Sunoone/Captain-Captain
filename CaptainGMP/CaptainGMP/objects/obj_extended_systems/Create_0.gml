@@ -6,7 +6,7 @@ event_inherited();
 	// Status Effect system
 status_effect_out = ds_grid_create( 1, 11 );
 
-// 0 = target ( 0 = childern, 1 = core, 2 = global, 3 = root, 4 = all linked, 5 = all linked, including self, 6 = self, object_id)
+// 0 = target ( 0 = children, 1 = core, 2 = global, 3 = root, 4 = all linked, 5 = all linked, including self, 6 = self, 7 = ship, object_id)
 // 1 = id
 // 2 = value
 // 3 = stat index

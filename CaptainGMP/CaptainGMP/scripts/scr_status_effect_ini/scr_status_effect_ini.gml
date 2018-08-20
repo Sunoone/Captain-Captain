@@ -12,6 +12,9 @@ with( global.data )
 	scr_status_effect_load( "Aiming Assistance", spr_combat_regulator, 0, var_rotation_max, 0.5, true, obj_base_turret_component, 0, false );
 	
 	
+		// HP global Buff
+	scr_status_effect_load( "Structural Integrity Field", spr_cell, 2, var_HP_max, 0.15, true, obj_base_combat, 0, false );
+	
 	// Buffs --------------------------------------------------------------------------------------------------------------------------------------------------
 		
 		// thrusters

@@ -39,7 +39,15 @@ with( argument[0] )
 		
 			case 2:	// global
 			{
-				// not implemented yet, take ship as a global repository?
+				if( instance_exists( parent ) )
+					ds_list_copy( target_list, parent.hackable_parts_list );
+				
+				if( instance_exists(core) )
+					for( var s = ds_list_size( core.software )-1; s>= 0; s-- )
+						ds_list_add( target_list, core.software[| s] );
+				
+				ds_list_add( target_list, parent );
+				ds_list_add( target_list, core );
 			}
 			break;
 			
@@ -69,6 +77,14 @@ with( argument[0] )
 				ds_list_add( target_list, id );
 			}
 			break;
+			
+			case 7: // ship
+			{
+				if( instance_exists( parent ) )
+				{
+					ds_list_add( target_list, parent );
+				}	
+			}
 			
 			default: // object
 			{

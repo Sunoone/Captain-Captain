@@ -36,7 +36,26 @@ with( argument0 )
 		break;
 		
 		case 2:	// global
-		break; // not implemented yet
+		{
+			if( instance_exists( parent ) )
+			{
+				parent.update_status_effects = true;
+				
+				for( var i = ds_list_size(parent.hackable_parts_list); i>= 0; i-- )
+					if( instance_exists( parent.hackable_parts_list[| i] ) )
+						parent.hackable_parts_list[| i].update_status_effects = true;
+			}
+			
+			
+			if( instance_exists(core) )
+			{
+				core.update_status_effects = true;
+					
+				for( var i = ds_list_size( core.software )-1; i>= 0; i-- )
+					core.software[| i].update_status_effects = true;
+			}
+		}
+		break;
 			
 		case 3:	// root
 		if( instance_exists( root ) )
@@ -81,6 +100,12 @@ with( argument0 )
 		case 6:	// self
 			update_status_effects = true;
 		break;
+		
+		case 7: // ship
+		{
+			if( instance_exists( parent ) )
+				parent.update_status_effects = true;
+		}
 		
 		default: // object?
 		if( object_exists( target ) )

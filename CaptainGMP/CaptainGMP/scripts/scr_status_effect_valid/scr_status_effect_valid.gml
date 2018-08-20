@@ -41,7 +41,17 @@ with( argument0 )
 		
 			case 2:	// global
 			{
-				// not implemented, reserved for global target
+				if( instance_exists( parent ) )
+				{
+					if( parent == argument1 )
+						return true;
+					
+					for( var i = ds_list_size(parent.hackable_parts_list); i>= 0; i-- )
+						if( parent.hackable_parts_list[| i] == argument1 )
+							return true;
+				}
+				if( core == argument1 )
+					return true;
 			}
 			break;
 			
@@ -80,6 +90,12 @@ with( argument0 )
 				if( id == argument1 )
 					return true;
 			}
+			break;
+			
+			case 7: // ship
+				if( instance_exists( parent ) )
+					if( parent == argument1 )
+						return true;
 			break;
 			
 			default: // object

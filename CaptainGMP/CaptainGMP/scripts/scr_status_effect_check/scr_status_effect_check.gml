@@ -46,8 +46,23 @@ with( argument[0] )
 										continue;
 		
 								case 2:	// global
-									continue; // not implemented yet
-			
+								{
+									if( parent == o )
+										continue;
+									else if( core == o )
+										continue;
+									else if( instance_exists( parent ) ) // this is an object on the ship
+										if( ds_list_find_index( parent.hackable_parts_list, o ) != -1 )
+											continue;
+									else if( instance_exists(core) )
+										if( ds_list_find_index( core.software, o ) != -1 )
+											continue;
+									else if( ds_exists( hackable_parts_list, ds_type_list ) ) // this is the ship
+										if( ds_list_find_index( hackable_parts_list, o ) != -1 )
+											continue;
+								}
+								break;
+								
 								case 3:	// child
 									if( ds_list_find_index( children, o ) != -1 )
 										continue;
@@ -62,10 +77,16 @@ with( argument[0] )
 									if( ds_list_find_index( children, o ) != -1 || root == o || id == o )
 										continue;
 								break;
-							
+								
 								case 6:	// self
 									if( id == o )
 										continue;
+								break;
+								
+								case 7: // ship
+									if( ds_exists( hackable_parts_list, ds_type_list ) ) // is this the ship?
+										if( ds_list_find_index( hackable_parts_list, o ) != -1 )
+											continue;
 								break;
 			
 								default: // object

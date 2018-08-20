@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_sensors_1",
     "eventList": [
-        
+        {
+            "id": "3942e826-d388-45f8-a308-04d83d734ca6",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "b352a71e-059c-4dee-b9d1-d166d007e286"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

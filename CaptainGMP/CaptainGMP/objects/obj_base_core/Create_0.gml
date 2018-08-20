@@ -6,6 +6,7 @@ event_inherited();
 
 type = -2;
 name = "Base Core";
+core = id; // this makes a lot of scripting easier
 
 	// stats
 stat[var_HP, 1] = 500;				// current HP of object
