@@ -32,7 +32,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 			case 3: // real
 			{
 				// add a buff to the thruster
-				scr_buff_add( core.owner, node, "Boost", 6, cost );
+				scr_buff_add( core.owner, node, "Boost", -4, cost );
 			}
 		}
 	}

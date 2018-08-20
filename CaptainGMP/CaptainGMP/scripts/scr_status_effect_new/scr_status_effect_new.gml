@@ -1,4 +1,4 @@
-/// @description scr_status_effect_new( object_id, target, stat, filter, value, name, icon, cost, is_percentage, id*, buff_id* )
+/// @description scr_status_effect_new( object_id, target, stat, filter, value, name, icon, cost, is_percentage, id*, buff_id*, invisible* )
 /// @param object_id
 /// @param target
 /// @param stat
@@ -10,6 +10,7 @@
 /// @param is_percentage
 /// @param id*
 /// @param buff_id*
+/// @param invisible*
 
 // This script creates a new status effect that the object sends out to valid targets
 
@@ -27,7 +28,11 @@ with( argument[0] )
 	if( argument_count>10 ) buff_id = argument[10];
 	else buff_id = -1;
 	
-	status_effect_out[# gw, 0] = argument[1];		// 0 = target ( 0 = childern, 1 = core, 2 = global, 3 = root, object_id)
+	var inv;
+	if( argument_count>11 ) inv = argument[11];
+	else inv = false;
+	
+	status_effect_out[# gw, 0] = argument[1];		// 0 = target
 	status_effect_out[# gw, 1] = se_id;				// 1 = status effect id
 	status_effect_out[# gw, 2] = argument[4];		// 2 = value
 	status_effect_out[# gw, 3] = argument[2];		// 3 = stat index
@@ -37,6 +42,7 @@ with( argument[0] )
 	status_effect_out[# gw, 7] = argument[6];		// 7 = icon
 	status_effect_out[# gw, 8] = argument[7];		// 8 = cost
 	status_effect_out[# gw, 9] = argument[8];		// 9 = is_percentage
+	status_effect_out[# gw, 10] = inv;				// 10 = invisible to interface
 }
 
 // call push fuction

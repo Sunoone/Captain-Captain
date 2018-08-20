@@ -58,80 +58,93 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 		draw_sprite_ext( menu_options[| 5 * i ], 0, len_x, len_y, 1, 1, 0, col, 1 );
 	}
 	
-		// draw node status effects
+		// draw status effect icons
 	var sei, sdw, sdh, dw, dh, sp;
 	sdw = surface_get_width( menu_surface ) - 10;
 	sdh = 10;
 	
 	for( var i = 1; i < ds_grid_width( menu_id.status_effect_in ); i++ )
 	{
-		sp = menu_id.status_effect_in[# i,7];
-		
-			// with and height of icons
-		dw = 50;
-		dh = 50;
-		
-			// draw status effect icon
-		draw_rectangle_color( sdw - dw, sdh, sdw, sdh + 50, c_black, c_black, c_black, c_black, false );
-		draw_sprite( sp, 0, sdw - round( dw * 0.5 ), sdh + round( dh * 0.5 ) );
-		
-			// mouse over this icon?
-		if( m_x > sdw - dw && m_x < sdw && m_y > sdh && m_y < sdh + dh )
+		if( !menu_id.status_effect_in[# i,9] ) // is the stastus effect visible for the interface?
 		{
-			draw_set_valign(fa_middle);
-			
-			// draw name -----------
-			draw_text_colour( 160, 10, menu_id.status_effect_in[# i,6] , c_yellow,  c_yellow,  c_yellow,  c_yellow,  1 );
-			
-			// draw origin ---------
-			if( instance_exists(menu_id.status_effect_in[# i,2]) )
-				draw_text_colour( 160, 30, menu_id.status_effect_in[# i,2].name, c_gray,  c_gray,  c_gray,  c_gray,  1 );
-			
-				// get value
-			var v, sv;
-
-			v = menu_id.status_effect_in[# i,3];
-			if( menu_id.status_effect_in[# i,11] )
-				sv = string( v * 100 ) + "%";
-			else
-				sv = string(v);
-			
-			if( v > 0 )
-				sv = "+" + sv;
-			
-				// get stat value name
-			var n = scr_stat_get_name( menu_id.status_effect_in[# i,4] ) + " ";
-			
-				// draw value ------
-			draw_text_colour( 160, 50, n + sv , c_white,  c_white,  c_white,  c_white,  1 );
-			
-				// draw time -------
-			if( menu_id.status_effect_in[# i,8] > 0 )
+			sp = menu_id.status_effect_in[# i,7];
+		
+				// with and height of icons
+			dw = 50;
+			dh = 50;
+		
+				// draw status effect icon
+			draw_rectangle_color( sdw - dw, sdh, sdw, sdh + 50, c_black, c_black, c_black, c_black, false );
+			draw_sprite( sp, 0, sdw - round( dw * 0.5 ), sdh + round( dh * 0.5 ) );
+		
+				// mouse over this icon?
+			if( m_x > sdw - dw && m_x < sdw && m_y > sdh && m_y < sdh + dh )
 			{
-				var o = menu_id.status_effect_in[# i,2];
-				if( instance_exists(o) )
-				{
-					var b = scr_ds_grid_find_value_width( o.Buff, menu_id.status_effect_in[# i,8], 2 );
-					if( b != -1 )
+				draw_set_valign(fa_middle);
+			
+				var i_h = 10;
+			
+				// draw name -----------
+				draw_text_colour( 160, i_h, menu_id.status_effect_in[# i,6] , c_yellow,  c_yellow,  c_yellow,  c_yellow,  1 );
+			
+				// draw origin ---------
+				if( instance_exists(menu_id.status_effect_in[# i,2]) )
+					if( menu_id.status_effect_in[# i,2] != menu_id )
 					{
-						var t = o.Buff[# b,3];
-						if( t >= 0 )
-							draw_text_colour( 160, 70, "Time: " + string( ceil( t ) ), c_red,  c_red,  c_red,  c_red,  1 );
+						i_h += 20;
+						draw_text_colour( 160, i_h, menu_id.status_effect_in[# i,2].name, c_gray,  c_gray,  c_gray,  c_gray,  1 );
 					}
-				}
+			
+					// get value
+				var v, sv;
+
+				v = menu_id.status_effect_in[# i,3];
+				if( menu_id.status_effect_in[# i,11] )
+					sv = string( v * 100 ) + "%";
+				else
+					sv = string(v);
+			
+				if( v > 0 )
+					sv = "+" + sv;
+			
+					// get stat value name
+				var n = scr_stat_get_name( menu_id.status_effect_in[# i,4] ) + " ";
+			
+					// draw value ------
+				i_h += 20;
+				draw_text_colour( 160, i_h, n + sv , c_white,  c_white,  c_white,  c_white,  1 );
+			
+					// draw time -------
+				if( menu_id.status_effect_in[# i,8] > 0 )
+				{
+					var o = menu_id.status_effect_in[# i,2];
+					if( instance_exists(o) )
+					{
+						var b = scr_ds_grid_find_value_width( o.Buff, menu_id.status_effect_in[# i,8], 2 );
+						if( b != -1 )
+						{
+							var t = o.Buff[# b,3];
+							if( t >= 0 )
+							{
+								i_h += 20;
+								draw_text_colour( 160, i_h, "Time: " + string( ceil( t ) ), c_red,  c_red,  c_red,  c_red,  1 );
+							}
+						}
+					}
 				
+				}
+			
+			
+				draw_set_valign(fa_top);
 			}
-			
-			
-			draw_set_valign(fa_top);
-		}
 		
-			// check for next icon space
-		sdh += 10 + dh;
-		if( sdh > surface_get_height( menu_surface ) - 10 - dh )
-		{
-			sdh = 10;
-			sdw -= 10 + dw;
+				// check for next icon space
+			sdh += 10 + dh;
+			if( sdh > surface_get_height( menu_surface ) - 10 - dh )
+			{
+				sdh = 10;
+				sdw -= 10 + dw;
+			}
 		}
 	}
 	

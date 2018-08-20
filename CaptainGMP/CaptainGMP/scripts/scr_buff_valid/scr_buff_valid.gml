@@ -13,6 +13,9 @@ with(global.data)
 	if( is_string( argument1 ) )
 		buff_index = ds_map_find_value( data_buff_index, string_lower( argument1 ) );
 	
+		// check buff index
+	if( buff_index >= 0 && buff_index < array_height_2d(data_buff) )
+	
 		// check object
 	if( instance_exists(argument0) )
 		

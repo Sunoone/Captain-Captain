@@ -30,7 +30,8 @@ with( global.data )
 		data_status_effect[i,7],
 		data_status_effect[i,5],
 		data_status_effect[i,8],
-		buff_id
+		buff_id,
+		data_status_effect[i,9]
 	);
 	
 	return data_status_effect[i,8];

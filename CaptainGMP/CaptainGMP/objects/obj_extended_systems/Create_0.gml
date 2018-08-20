@@ -4,7 +4,7 @@
 event_inherited();
 
 	// Status Effect system
-status_effect_out = ds_grid_create( 1, 10 );
+status_effect_out = ds_grid_create( 1, 11 );
 
 // 0 = target ( 0 = childern, 1 = core, 2 = global, 3 = root, 4 = all linked, 5 = all linked, including self, 6 = self, object_id)
 // 1 = id
@@ -16,6 +16,7 @@ status_effect_out = ds_grid_create( 1, 10 );
 // 7 = icon
 // 8 = cost
 // 9 = is_percentage
+// 10 = invisible to interface
 
 status_effect_in = ds_grid_create( 1, 12 );
 
@@ -28,7 +29,7 @@ status_effect_in = ds_grid_create( 1, 12 );
 // 6 = name
 // 7 = icon
 // 8 = buff id (if from buff)
-// 9 = not used
+// 9 = invisible to interface
 // 10 = target
 // 11 = is_percentage
 

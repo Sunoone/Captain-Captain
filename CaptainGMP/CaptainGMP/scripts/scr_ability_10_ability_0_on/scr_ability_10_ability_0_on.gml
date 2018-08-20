@@ -33,16 +33,7 @@ if( instance_exists( node ) && instance_exists( core ) ) // check object existan
 			
 				case 3: // real
 				{
-					var b = scr_buff_add( core.owner, node, "Ability 0 Active", -1, cost );
-					
-						// set the ability 0 info
-					/*
-					var s = scr_ds_grid_find_value_width( node.status_effect_out, node.Buff[# b, 4], 1 );
-					node.status_effect_out[# s,7] = node.ability_graphic[|0]; // icon
-					node.status_effect_out[# s,6] = node.ability_tooltip[|0]; // name
-					scr_status_effect_retract( node, s );
-					scr_status_effect_push( node, s );
-					*/
+					var b = scr_buff_add( core.owner, node, "Ability 0 Active" );
 				}
 			}
 		}

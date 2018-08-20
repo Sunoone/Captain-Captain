@@ -72,15 +72,11 @@ if( register_abilities )
 // CPU cost -----------------------------------------------------------------------------------------------------------------------------
 if( active )
 {	
-	if( instance_exists( parent ) && instance_exists(core) )
+	if( instance_exists(core) )
 	{
 			// Status Effect Cost
-		for( var i = array_height_2d(status_effect_out) - 1; i>0; i-- )
-		{
+		for( var i = ds_grid_width(status_effect_out) - 1; i>0; i-- )			
 			if( status_effect_out[# i,8 ] != 0 )
-			{
 				core.cpu_budget += status_effect_out[# i,8 ];
-			}
-		}
 	}
 }

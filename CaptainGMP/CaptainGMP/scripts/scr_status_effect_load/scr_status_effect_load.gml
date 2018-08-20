@@ -1,4 +1,4 @@
-/// @desciption scr_status_effect_load( name, icon, target, stat, value, percentage, filter, cost )
+/// @desciption scr_status_effect_load( name, icon, target, stat, value, percentage, filter, cost, invisible )
 /// @param name
 /// @param icon
 /// @param target
@@ -7,6 +7,7 @@
 /// @param percentage
 /// @param filter
 /// @param cost
+/// @param invisible
 
 // this script loads a status effect into global.data
 
@@ -24,4 +25,5 @@ with( global.data )
 	data_status_effect[i,6] = argument6;	// filter
 	data_status_effect[i,7] = argument7;	// cost
 	data_status_effect[i,8] = get_timer();	// id
+	data_status_effect[i,9] = argument8;	// invisible to interface
 }

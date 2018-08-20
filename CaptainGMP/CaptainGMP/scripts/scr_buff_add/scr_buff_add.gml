@@ -7,15 +7,20 @@
 /// @param cost*
 
 // this script adds a buff to an object and retuns the index
+// using -4 with time* will use the default time of the Buff 
 
 with( global.data )
 {
 	var key, i, obj;
 	
-	key = string_lower( argument[2] );
-	if( ds_map_exists( data_buff_index, key ) )
-		 i = ds_map_find_value( data_buff_index, key )
-	else show_error( "Unable to find status effect '" + key + "' in global.data.data_buff_index.", true ) ;
+	if( is_string( argument[2] ) )
+	{
+		key = string_lower( argument[2] );
+		if( ds_map_exists( data_buff_index, key ) )
+			 i = ds_map_find_value( data_buff_index, key )
+		else show_error( "Unable to find status effect '" + key + "' in global.data.data_buff_index.", true );
+	}
+	else i = argument[2];
 	
 	obj = argument[1];
 	
@@ -32,6 +37,7 @@ with( global.data )
 			time = argument[3];
 		else
 			time = data_buff[i,2];
+		if( time == -4 ) time = data_buff[i,2];
 		
 		obj.Buff[# b, 0] = string_lower( data_buff[i,0] );	// name	
 		obj.Buff[# b, 1] = data_buff[i,1];	// status effect
