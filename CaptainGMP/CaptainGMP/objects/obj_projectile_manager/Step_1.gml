@@ -41,7 +41,7 @@ for( var i = 0; i < size; i++ )
 	// update projectiles here
 	switch( list_type[|i] )
 	{
-		case 0:		// simple projectile -----------------------------------------------------------------------
+		case 0:		// arcing projectile -----------------------------------------------------------------------
 		{
 			list_ttl[|i ] -= DeltaTime;
 			
@@ -68,6 +68,7 @@ for( var i = 0; i < size; i++ )
 		
 		case 1:		// beam projectile -------------------------------------------------------------------------
 		{
+			/*
 			list_ttl[|i ] -= DeltaTime;
 			
 			if( list_ttl[|i ] <= 0 )
@@ -79,11 +80,13 @@ for( var i = 0; i < size; i++ )
 				// check where the beam ends
 				scr_beam_check_collision( i );
 			}
+			*/
 		}
 		break;		
 		
 		case 2:		// missiles ---------------------------------------------------------------------------------
 		{
+			/*
 			list_ttl[|i ] -= DeltaTime;
 			
 			if( list_ttl[|i ] <= 0 )
@@ -121,6 +124,7 @@ for( var i = 0; i < size; i++ )
 					list_y[| i ] += v1;
 				}
 			}
+			*/
 		}
 		break;
 		

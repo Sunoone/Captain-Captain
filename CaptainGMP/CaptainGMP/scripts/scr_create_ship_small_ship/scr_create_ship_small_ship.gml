@@ -29,19 +29,19 @@ r = 3; c = 2;
 scr_create_ship_object( ship, obj_turret_1, r, c );
 
 r = 9; c = 5;
-scr_create_ship_object( ship, obj_sensors_1, r, c );
+//scr_create_ship_object( ship, obj_sensors_1, r, c );
 
 r = 3; c = 8;
 scr_create_ship_object( ship, obj_turret_1, r, c );
 
 r = 4; c = 6;
-scr_create_ship_object( ship, obj_turret_3, r, c );
+//scr_create_ship_object( ship, obj_turret_3, r, c );
 
 r = 4; c = 4;
-scr_create_ship_object( ship, obj_turret_3, r, c );
+//scr_create_ship_object( ship, obj_turret_3, r, c );
 
 r = 6; c = 5;
-scr_create_ship_object( ship, obj_turret_2, r, c );
+//scr_create_ship_object( ship, obj_turret_2, r, c );
 
 	// hacking
 scr_create_ship_software( ship, obj_hacking_software_1 );	

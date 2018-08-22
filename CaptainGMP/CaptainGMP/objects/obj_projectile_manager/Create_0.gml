@@ -33,9 +33,9 @@ list_trail	=	projectile[pro_trail];
 list_a_imp	=	projectile[pro_a_imp];
 list_a_amb	=	projectile[pro_a_amb];
 
-list_mod	=	projectile[pro_mod]; // unused - will do something with shielding
+list_mod	=	projectile[pro_mod]; // unused - might do something with shielding
 
-animation_speed = 30;	// animation speed in frames per second for projectiles and explosions
+animation_speed = room_speed;	// animation speed in frames per second for projectiles and explosions
 timerate_animation_speed = animation_speed * 0.000001;	// animation_speed ajdusted for time rate
 
 // projectile collision

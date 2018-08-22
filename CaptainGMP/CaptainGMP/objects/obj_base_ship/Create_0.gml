@@ -61,6 +61,15 @@ torque = 0;
 movement = ds_list_create();
 rotation = ds_list_create();
 
+
+// Flight Model
+drag_coefficient = 0.031; // this is the drag coefficient of a 747
+drag_area = 16; // this is the cross-sectional area of a 747
+air_density = scr_air_density( 1000, 15 ); // this need to be recalculated each level
+
+for( var s = 0; s < 40; s++)
+	drag[s] = scr_calculate_drag( drag_coefficient, air_density, s*10, drag_area );
+
 // DEBUG
 screen_offset_x = scr_screen_surface_get_x( global.combat_screen_index );
 screen_offset_y = scr_screen_surface_get_y( global.combat_screen_index );
