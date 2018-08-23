@@ -10,46 +10,81 @@ else
 
 // Movement ------------------------------------------------------------------
 var vector_delta;
-var dampen = 1000 / (stat[var_mass, 0] / global.DeltaTime);
+var dampen = stat[var_mass, 0] * global.DeltaTime;
 
 	// add force to inertia from thrusters
 for( var i = ds_list_size( movement )-1; i >= 0; i-- )
 {
 	vector_delta = movement[|i];
-	vector_delta[0] *= dampen;
-	vector_delta[1] *= dampen;
+	vector_delta[0] /= dampen;
+	vector_delta[1] /= dampen;
 	
 	inertia = vector_add( inertia, vector_delta );
 }
 ds_list_clear( movement );
 
+
 	// add force to torque from thrusters
 for( var i = ds_list_size( rotation )-1; i >= 0; i-- )
 {
-	torque += rotation[|i]
+	torque += rotation[|i] / dampen;
 }
 ds_list_clear( rotation );
 
-	// Apply drag on inertia
-if( inertia[0] != 0 || inertia[1] != 0 )
+
+	// Calculate & Apply Drag
+if( inertia[0] != 0 || inertia[1] != 0 || torque != 0)
 {
-	inertia[0] -= (inertia[0] * stat[var_drag, 0] * global.DeltaTime);
-	inertia[1] -= (inertia[1] * stat[var_drag, 0] * global.DeltaTime);
+	var velocity = point_distance(0,0,inertia[0],inertia[1]);
+	var m_dir = point_direction( 0,0,inertia[0],inertia[1] ) + 180;
+	
+	d_dir = direction - m_dir;
+	mod_dir = d_dir mod 180;
+	d_dir += 180;
+	m_area = abs( sin( degtorad( mod_dir ) ) );
+	
+	area = mix( drag_area_front, drag_area_side, m_area );
+	
+	drag = ( scr_calculate_drag( drag_coefficient, air_density, velocity, area ) ) / dampen;
+	
+	var d_v0 = lengthdir_x( drag, m_dir );
+	var d_v1 = lengthdir_y( drag, m_dir );
+	
+	inertia[0] += d_v0;
+	inertia[1] += d_v1;
+	
+	// torque from drag area
+	if( area != drag_area_front )
+	{		
+		torque_drag = sin( degtorad( d_dir ) ) * (area - drag_area_front) * drag * -500 * global.DeltaTime;
+		
+		torque += torque_drag;
+	}
+	
+	// Aerodynamic drag on torque
+	if( torque != 0 )
+	{
+		//torque *= (torque - ( torque * global.DeltaTime)) / torque;
+		
+		aero_torque_drag = scr_calculate_drag( drag_coefficient, air_density, (-torque / dampen), drag_area_front * 2 + drag_area_side * 2 );
+		
+		torque *= (torque - ( torque * aero_torque_drag)) / torque;
+	}
 }
 
-	// Apply drag on torque
-if( inertia[0] != 0 || inertia[1] != 0 )
-{
-	torque -= (torque * stat[var_drag, 0] * global.DeltaTime);
-}
+
+
 
 	// Move ship
 x += inertia[0];
 y += inertia[1];
 
-	// Rotate the ship
-direction += ( torque / ( stat[var_mass, 0] * 0.5 ) ) * global.DeltaTime;
 
+	// Rotate the ship
+direction += torque / dampen;
+
+	// debug
+//direction = point_direction( 1360, 540, mouse_x, mouse_y );
 
 	// recheck the hull draw grid  ---------------------------------------------------------------------
 if( draw_grid_hull_recheck )

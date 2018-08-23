@@ -47,7 +47,7 @@ draw_top = false;
 hackable_parts_list = ds_list_create();
 
 // stats
-stat[var_mass, 1] = 100000;
+stat[var_mass, 1] = 400000;		// weight of an average 747
 stat[var_drag, 1] = 0.5;		// 25% drag per sec
 scr_stat_update( id );			// updates all stats
 
@@ -64,11 +64,19 @@ rotation = ds_list_create();
 
 // Flight Model
 drag_coefficient = 0.031; // this is the drag coefficient of a 747
-drag_area = 16; // this is the cross-sectional area of a 747
-air_density = scr_air_density( 1000, 15 ); // this need to be recalculated each level
+drag_area_front = 16; // this is the front cross-sectional area of a 747
+drag_area_side = 24; // this is the side cross-sectional area
+air_density = scr_air_density( 1000, 35 ); // this need to be recalculated each level
 
-for( var s = 0; s < 40; s++)
-	drag[s] = scr_calculate_drag( drag_coefficient, air_density, s*10, drag_area );
+drag = 0;
+d_dir = 0;
+mod_dir = 0;
+m_area = 0;
+area = 16;
+torque_drag = 0;
+aero_torque_drag = 0;
+
+aero_control = 5000;
 
 // DEBUG
 screen_offset_x = scr_screen_surface_get_x( global.combat_screen_index );
