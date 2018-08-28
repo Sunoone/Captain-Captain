@@ -5,13 +5,6 @@
 if( !instance_exists( core ) )
 	active = false;
 
-// Check HP
-if( stat[var_HP,0] <= 0 )
-{
-	instance_destroy(id);
-	exit;
-}
-
 // inherent the system objects end steps ------------------------------------------------------------------------------------------------
 event_inherited();
 

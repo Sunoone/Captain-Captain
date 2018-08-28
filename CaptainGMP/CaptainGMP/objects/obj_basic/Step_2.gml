@@ -1,26 +1,4 @@
-/// @description HP, active, xy & animation
-
-// Natural HP regen
-if( stat[var_HP,0] < stat[var_HP_max,0] )
-{
-	var r = stat[var_HP_max,0] * stat[var_regen,0] * global.DeltaTime;
-	stat[var_HP,0] += r;
-	if( stat[var_HP,0] > stat[var_HP_max,0] ) stat[var_HP,0] = stat[var_HP_max,0];
-}
-
-// Update position
-if( instance_exists( parent ) )
-{	
-	// rotate with parent
-	
-		// if the rotation of the component is locked, rotate with parent
-	if(rotation_lock) direction = self_direction + parent.direction;
-		//note: non-rotation locked objects must provide their own rotation code 
-	
-	//move with parent	
-	x = parent.x + lengthdir_x(off_l, parent.direction + off_d);
-	y = parent.y + lengthdir_y(off_l, parent.direction + off_d);
-}
+/// @description animation
 
 // Update animation
 if( animation_speed != 0)

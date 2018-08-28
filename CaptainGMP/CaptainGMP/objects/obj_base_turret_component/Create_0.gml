@@ -7,7 +7,6 @@ name = "Base Turret Component";
 
 // Unlock the rotation for the turret
 rotation_lock = false;
-type = 2; // register as a component
 
 delta_x = x;
 delta_y = y;

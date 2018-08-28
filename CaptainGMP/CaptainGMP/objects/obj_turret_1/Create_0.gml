@@ -34,6 +34,6 @@ projectile_ttl = 3;
 
 	// projectile stats
 projectile_speed = 750; // pixels per sec
-projectile_damage = 45;
+projectile_damage = 450;
 
 // --------------------------------------------------------------------------------------------------------

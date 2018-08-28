@@ -41,7 +41,7 @@ ship_vallign = 0;
 ship_hallign_off = 0;
 ship_vallign_off = 0;
 
-draw_top = false;
+draw_top = true;
 
 // hacking
 hackable_parts_list = ds_list_create();

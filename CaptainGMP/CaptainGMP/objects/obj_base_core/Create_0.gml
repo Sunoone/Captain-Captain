@@ -9,8 +9,7 @@ name = "Base Core";
 core = id; // this makes a lot of scripting easier
 
 	// stats
-stat[var_HP, 1] = 500;				// current HP of object
-stat[var_HP_max, 1] = 500;			// max HP of object 
+stat[var_HP_max, 1] = 250;			// max HP of object 
 stat[var_regen, 1] = 0.05;			// every sec, 2.5% hp is regained
 stat[var_cpu_cost, 1] = 0;
 
@@ -23,6 +22,8 @@ stat[var_core_sensor_range, 1] = 1000;
 stat[var_core_hacking_level, 1] = 3;
 stat[var_core_scan_level, 1] = 3;
 stat[var_core_camera_mode, 1] = 0;
+
+scr_stat_update(id);
 
 software = ds_list_create();
 

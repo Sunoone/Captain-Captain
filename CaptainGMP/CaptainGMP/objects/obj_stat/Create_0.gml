@@ -6,8 +6,7 @@ event_inherited();
 	// stats
 update_variables = true;
 
-stat[var_HP, 1] = 100;					// current HP of object
-stat[var_HP_max, 1] = 100;				// max HP of object 
+stat[var_HP_max, 1] = 1;				// max HP of object 
 stat[var_regen, 1] = 0.025;				// every sec, 2.5% hp is regained
 stat[var_cpu_cost, 1] = 100;			// base cost of object
 stat[var_security_level, 1] = 1;		// resistance to hacking

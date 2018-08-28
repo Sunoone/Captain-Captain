@@ -66,7 +66,7 @@ if( inertia[0] != 0 || inertia[1] != 0 || torque != 0)
 	{
 		//torque *= (torque - ( torque * global.DeltaTime)) / torque;
 		
-		aero_torque_drag = scr_calculate_drag( drag_coefficient, air_density, (-torque / dampen), drag_area_front * 2 + drag_area_side * 2 );
+		aero_torque_drag = scr_calculate_drag( drag_coefficient, air_density, (-torque / dampen), drag_area_front + drag_area_side );
 		
 		torque *= (torque - ( torque * aero_torque_drag)) / torque;
 	}

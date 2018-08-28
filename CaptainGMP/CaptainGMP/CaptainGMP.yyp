@@ -399,14 +399,6 @@
             }
         },
         {
-            "Key": "1c2d02d5-98a1-4a58-965c-75d70c4d67e5",
-            "Value": {
-                "id": "364e3941-b148-4e06-b2eb-8131b2278eca",
-                "resourcePath": "views\\1c2d02d5-98a1-4a58-965c-75d70c4d67e5.yy",
-                "resourceType": "GMFolder"
-            }
-        },
-        {
             "Key": "1cfa2858-8a6b-45c2-983d-003c54680df6",
             "Value": {
                 "id": "0f6aae6e-5bc9-4c90-8ee2-392b66303af8",
@@ -775,11 +767,27 @@
             }
         },
         {
+            "Key": "462714e2-bae5-4e83-a552-d65e53e6b524",
+            "Value": {
+                "id": "0497bba3-ec1d-42ee-aca1-796158b14285",
+                "resourcePath": "views\\462714e2-bae5-4e83-a552-d65e53e6b524.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "4680e2e6-9bee-42e1-8920-c6835ec47e26",
             "Value": {
                 "id": "03600339-9848-40ea-9046-13290aca45d8",
                 "resourcePath": "rooms\\LeroysRoom\\LeroysRoom.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "47ed1563-dc58-420b-a5ab-f61f755da73b",
+            "Value": {
+                "id": "68031401-8f19-468b-9c65-e79d42ad6dfc",
+                "resourcePath": "sprites\\spr_shield_generator_1\\spr_shield_generator_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1191,11 +1199,27 @@
             }
         },
         {
+            "Key": "6132b966-d8da-49bc-b4de-80651a7e3b8d",
+            "Value": {
+                "id": "8dae5903-a20d-454c-b8db-9777c639a04e",
+                "resourcePath": "objects\\obj_base_physical_object\\obj_base_physical_object.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "62271473-7d86-40aa-8970-8f2a728531a5",
             "Value": {
                 "id": "cf42150b-845e-47c6-9548-190cdbc3f75d",
                 "resourcePath": "scripts\\scr_interface_inventory_remove\\scr_interface_inventory_remove.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "624174de-5ea9-495b-baa7-912ef39d6018",
+            "Value": {
+                "id": "7e079f11-03d9-45e3-84e6-a9b990b3829c",
+                "resourcePath": "objects\\obj_base_regulator\\obj_base_regulator.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -2290,7 +2314,7 @@
             "Key": "bd1402c3-afd2-4334-875e-d4acfefb025e",
             "Value": {
                 "id": "79b4e6e2-657b-43ae-bc45-1a124a2c33ab",
-                "resourcePath": "objects\\obj_base_external\\obj_base_external.yy",
+                "resourcePath": "objects\\obj_base_external_component\\obj_base_external_component.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -2620,6 +2644,14 @@
                 "id": "fd562f1f-0d2c-4b85-b865-56c54a065ae5",
                 "resourcePath": "scripts\\scr_AI_create\\scr_AI_create.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "d66e9cf1-9acb-41a4-9f4f-c5f7b396a2d4",
+            "Value": {
+                "id": "1a3c9079-755c-4298-85fb-3c78f31684dc",
+                "resourcePath": "objects\\obj_base_component\\obj_base_component.yy",
+                "resourceType": "GMObject"
             }
         },
         {

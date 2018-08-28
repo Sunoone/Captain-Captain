@@ -10,7 +10,4 @@
 
 var m = clamp( argument2, 0, 1 );
 
-var a1 = argument0 * (1-m);
-var a2 =  argument1 * m;
-
-return( a1 + a2 );
+return( argument0 * (1-m) + argument1 * m );

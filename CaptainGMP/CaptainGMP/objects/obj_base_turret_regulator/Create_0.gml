@@ -3,7 +3,6 @@
 // Inherit the parent event
 event_inherited();
 
-type = 1;
 interface_width = 1;
 
 target_x = "0";

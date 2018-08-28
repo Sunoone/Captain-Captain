@@ -4,7 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-type = 2;
 name = "Base Truster Component";
 
 	// Stats
