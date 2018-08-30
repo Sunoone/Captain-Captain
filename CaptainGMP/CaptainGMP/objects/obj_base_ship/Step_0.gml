@@ -190,3 +190,23 @@ if( draw_grid_object_recheck )
 	draw_grid_object_recheck = false;
 	draw_grid_object_active = true;
 }
+
+
+// shield system -------------------------------------------------------------------------------------------------
+shield = 0;
+
+for( var i = ds_list_size( shield_list ) - 1; i >= 0; i-- )
+{
+	shield += shield_list[|i].shield_buffer;
+}
+
+if( shield > 0 )
+{
+	// draw shield?
+	
+	
+}
+
+
+
+ds_list_clear( shield_list );

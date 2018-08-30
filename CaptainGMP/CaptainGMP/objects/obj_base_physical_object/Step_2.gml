@@ -5,6 +5,7 @@ event_inherited();
 
 
 // HP --------------------------------------------------------------------------------------
+scr_stat_update( id, var_HP_max );
 
 	// Check HP for death
 if( HP <= 0 )

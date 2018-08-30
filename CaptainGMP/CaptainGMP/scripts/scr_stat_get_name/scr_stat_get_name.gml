@@ -5,10 +5,7 @@
 
 
 switch( argument0 )
-{
-	case var_HP:
-		return "HP";
-			
+{		
 	case var_HP_max:
 		return "Max HP";
 			

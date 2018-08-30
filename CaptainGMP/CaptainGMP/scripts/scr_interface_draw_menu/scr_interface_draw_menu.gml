@@ -21,12 +21,14 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 	m_x = scr_screen_mouse_get_x( menu_screen_index );
 	m_y = scr_screen_mouse_get_y( menu_screen_index );
 	
-	var menu_item_count, angle_div, len_x, len_y, cost, col, player_core;
+	var menu_item_count, angle_div, len_x, len_y, cost, col, player_core, option;
 	
 	menu_item_count = ds_list_size( menu_options ) / 5;
 	angle_div = 360 / menu_item_count;
 	
 	player_core = global.player_core;
+	
+	option = false; // tracks if the mouse is over an option
 	
 	for( var i = 0; i<menu_item_count; i++ )
 	{	
@@ -42,6 +44,7 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 		
 		if( point_distance( len_x,len_y,m_x,m_y ) < 26 ) // mouse is over this option
 		{
+			option = true;
 			draw_sprite_ext( spr_baseNode, 0, len_x, len_y, 1, 1, 0, c_black, 1 );
 			
 			draw_set_valign(fa_middle);
@@ -80,6 +83,8 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 				// mouse over this icon?
 			if( m_x > sdw - dw && m_x < sdw && m_y > sdh && m_y < sdh + dh )
 			{
+				option = true;
+				
 				draw_set_valign(fa_middle);
 			
 				var i_h = 10;
@@ -146,6 +151,17 @@ if( draw_menu && instance_exists( menu_id ) && instance_exists( core ) )
 				sdw -= 10 + dw;
 			}
 		}
+	}
+	
+	if( !option && scr_object_apparent_owner_get( menu_id, global.player ) == global.player ) // the mouse is not above a menu option, display standart info
+	{
+			// draw name
+		draw_text_colour( 160, 10, menu_id.name , c_white,  c_white,  c_white,  c_white,  1 );
+		
+			// draw hp
+		if( variable_instance_exists( menu_id, "HP" ) )
+			draw_text_colour( 160, 30, "HP: " + string( menu_id.HP ), c_white,  c_white,  c_white,  c_white,  1 );
+			
 	}
 	
 	

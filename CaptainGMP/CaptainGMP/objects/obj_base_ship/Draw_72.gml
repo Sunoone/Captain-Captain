@@ -3,7 +3,49 @@
 
 	// probably more efficient to keep a list with objects to draw
 
-if( surface_exists( object_surface ) == false ) object_surface = surface_create( ship_grid_width * ship_grid_size, ship_grid_height * ship_grid_size );
+if( !surface_exists( object_surface ) ) 
+	object_surface = surface_create( ( ship_grid_width + 1 ) * ship_grid_size, ( ship_grid_height ) * ship_grid_size ); // this is a hack, center of the surface needs to be bound to the center of the grid, surface needs to be calculated based on ship sprite
+
+
+	// Shield Surface
+if( !surface_exists( Shield_surface ) )
+{
+	Shield_surface = surface_create( surface_get_width( object_surface ) + shield_surface_size_increase, surface_get_height( object_surface ) + shield_surface_size_increase );
+	
+	surface_set_target(Shield_surface);
+	draw_clear_alpha( c_white, 0 );
+	
+	shader_set(sha_shield);
+		
+	var c_x, c_y;
+	c_x = surface_get_width( Shield_surface ) * 0.5;
+	c_y = surface_get_height( Shield_surface ) * 0.5;
+	
+	
+	shader_set_uniform_f( shield_height_uniform, shield_height );
+	shader_set_uniform_f_array( shield_center_point_uniform, vec2( c_x, c_y ) );
+	shield_height = 30;
+
+		// Shaders
+
+	scr_bezier_draw( c_x, c_y, SB0, 10, c_black, c_white, 1 );
+	scr_bezier_draw( c_x, c_y, SB1, 10, c_black, c_white, 1 );
+	scr_bezier_draw( c_x, c_y, SB2, 10, c_black, c_white, 1 );
+	scr_bezier_draw( c_x, c_y, SB3, 10, c_black, c_white, 1 );
+	
+	shader_reset();
+	
+	// DEBUG shield surface border
+	//draw_rectangle_color( 1,1,surface_get_width(Shield_surface)-2, surface_get_height(Shield_surface)-2, c_red,c_red,c_red,c_red,true );
+
+	surface_reset_target();	
+}
+
+	// Masking Surface
+if( !surface_exists( Shield_mask_surface ) )
+{
+	Shield_mask_surface = surface_create( surface_get_width( Shield_surface ) , surface_get_height( Shield_surface ) );
+}
 
 
 surface_set_target( object_surface );
@@ -12,7 +54,6 @@ draw_clear_alpha( c_black, 0 );
 
 var d_pos_off;
 d_pos_off = ship_grid_size * 0.5;
-//d_pos_off = 0;
 
 //draw ship bottom
 if( sprite_exists( ship_sprite ) )
@@ -69,25 +110,10 @@ if( draw_grid_object_active )
 	}
 }
 
-// DEBUG
-/*
-var d_x1, d_y1, d_x2, d_y2, d_x3, d_y3;
 
-d_x1 = 1;
-d_y1 = 1;
-d_x2 = surface_get_width(object_surface)-2;
-d_y2 = surface_get_height(object_surface)-2;
+// DEBUG object surface border
+//draw_rectangle_color( 1,1,surface_get_width(object_surface)-2, surface_get_height(object_surface)-2, c_green,c_green,c_green,c_green,true );
 
-draw_rectangle_color( d_x1,d_y1,d_x2, d_y2,c_red, c_red,c_red,c_red,true );
-draw_line_colour( d_x1,d_y1,d_x2, d_y2 ,c_red, c_red);
-draw_line_colour( d_x2,d_y1,d_x1, d_y2 ,c_red, c_red);
-
-d_x3 = ((ship_hallign + ship_hallign_off) * ship_grid_size);
-d_y3 = ((ship_vallign + ship_vallign_off) * ship_grid_size);
-
-draw_line_colour( d_x3+100,d_y3,d_x3-100, d_y3 ,c_blue, c_blue);
-draw_line_colour( d_x3,d_y3+100,d_x3, d_y3-100 ,c_blue, c_blue);
-*/
 // reset the draw target
 surface_reset_target();
 
@@ -107,35 +133,16 @@ l_x = lengthdir_x( l_l, l_d );
 l_y = lengthdir_y( l_l, l_d );
 
 scr_camera_draw_surface( global.combat_camera, object_surface, x + l_x, y + l_y, direction );
-/*
-var combat_screen = global.combat_screen;
 
-if( surface_exists( combat_screen ) )
+// Draw shield
+if( shield > 0 )
 {
-	surface_set_target( combat_screen );
 	
-	// fix rotation on center point
-	var XX, YY, rotate_x, rotate_y, h_width, h_height, inherent_direction;
-		
+	l_l = pyt( h_width - shield_surface_size_increase * 0.5, h_height - shield_surface_size_increase * 0.5 );
+	l_d = (direction - point_direction( 0,0,h_width, h_height )) mod 360;
+
+	l_x = lengthdir_x( l_l, l_d );
+	l_y = lengthdir_y( l_l, l_d );
 	
-	//choose centerpoint based on sprite allignment
-	h_width = (ship_hallign + ship_hallign_off) * ship_grid_size;
-	h_height = (ship_vallign + ship_vallign_off) * ship_grid_size;
-	
-	var len = sqrt( sqr(h_width) + sqr(h_height) );
-	var dir = point_direction(0,0,h_width,h_height);
-	
-	inherent_direction = direction;
-	
-	rotate_x = lengthdir_x(len, inherent_direction + dir);
-	rotate_y = lengthdir_y(len, inherent_direction + dir);
-	
-	XX = x - h_width + (h_width - rotate_x);
-	YY = y - h_height + (h_height - rotate_y);
-	
-	// draw surface with offset for rotation
-	
-	draw_surface_ext( object_surface, XX, YY, 1, 1, inherent_direction, c_white, 1 );
-	
-	surface_reset_target();
+	scr_camera_draw_surface( global.combat_camera, Shield_surface, x + l_x, y + l_y, direction );
 }

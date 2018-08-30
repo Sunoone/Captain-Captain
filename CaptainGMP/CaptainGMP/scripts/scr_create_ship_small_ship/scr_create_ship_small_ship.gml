@@ -90,6 +90,13 @@ r = 2; c = 9;
 scr_create_ship_object( ship, obj_truster_1, r, c, 270 );
 
 
+// create shield generators
+r = 3; c = 1;
+scr_create_ship_object( ship, obj_shield_component_1, r, c, 90 );
+
+r = 3; c = 9;
+scr_create_ship_object( ship, obj_shield_component_1, r, c, 90 );
+
 
 // fill all unused ship grid spaces with armor
 var armor = obj_armor_1;

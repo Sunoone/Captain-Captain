@@ -25,3 +25,13 @@ ds_list_destroy(hackable_parts_list);
 // Destroy movement data structues
 ds_list_destroy(movement);
 ds_list_destroy(rotation);
+
+// destroy surfaces
+if( !surface_exists(object_surface) )
+	surface_free(object_surface);
+	
+if( !surface_exists(Shield_surface) )
+	surface_free(Shield_surface);
+	
+if( !surface_exists(Shield_mask_surface) )
+	surface_free(Shield_mask_surface);

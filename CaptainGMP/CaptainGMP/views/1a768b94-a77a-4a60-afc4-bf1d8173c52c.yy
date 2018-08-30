@@ -15,7 +15,8 @@
         "e5426de8-da6a-49bf-a080-a47a1e109db1",
         "d0398afa-8e5f-43a4-a38b-19a0bbcd6441",
         "b5f1d01f-9534-46eb-824a-d11da968d5a8",
-        "b352a71e-059c-4dee-b9d1-d166d007e286"
+        "b352a71e-059c-4dee-b9d1-d166d007e286",
+        "35ed1e45-c190-49cb-82b9-3b7186d8ce90"
     ],
     "filterType": "GMObject",
     "folderName": "Combat Objects",
