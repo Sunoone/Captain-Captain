@@ -1,5 +1,6 @@
-/// @description DEBUG draw
+/// @description Shield & Debug Draw
 
+// DEBUG
 if( owner == global.player )
 {
 	var dw = 500;

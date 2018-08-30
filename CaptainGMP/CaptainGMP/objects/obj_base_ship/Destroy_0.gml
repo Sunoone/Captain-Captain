@@ -26,6 +26,9 @@ ds_list_destroy(hackable_parts_list);
 ds_list_destroy(movement);
 ds_list_destroy(rotation);
 
+// Destroy Shielding Data structures
+ds_list_destroy(shield_list);
+
 // destroy surfaces
 if( !surface_exists(object_surface) )
 	surface_free(object_surface);
@@ -35,3 +38,7 @@ if( !surface_exists(Shield_surface) )
 	
 if( !surface_exists(Shield_mask_surface) )
 	surface_free(Shield_mask_surface);
+	
+if( !surface_exists(Shield_drawing_surface) )
+	surface_free(Shield_drawing_surface);
+	

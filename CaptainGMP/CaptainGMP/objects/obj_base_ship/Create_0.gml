@@ -49,10 +49,10 @@ shield = 0; // ship shield value ( value is added by shield )
 shield_list = ds_list_create(); // a list of all shield generator components that are adding to the shield
 
 	// Shape
-SB0 = scr_bezier_create( vec2( 130, 0 ), vec2(130, 40), vec2( 40, 115 ), vec2( -100, 115) );
+SB0 = scr_bezier_create( vec2( 120, 0 ), vec2(120, 40), vec2( 40, 115 ), vec2( -100, 115) );
 SB1 = scr_bezier_create( vec2( -100, 115), vec2( -120,115 ), vec2( -180, 110 ), vec2( -180, 0 ) );
 SB2 = scr_bezier_create( vec2( -100, -115), vec2( -120,-115 ), vec2( -180, -110 ), vec2( -180, 0 ) );
-SB3 = scr_bezier_create( vec2( 130, 0 ), vec2(130, -40), vec2( 40, -115 ), vec2( -100, -115) );
+SB3 = scr_bezier_create( vec2( 120, 0 ), vec2(120, -40), vec2( 40, -115 ), vec2( -100, -115) );
 
 shield_height = 30;
 
@@ -67,13 +67,14 @@ mask_shader_texture_scale_uniform = shader_get_uniform( sha_mask, "texture_scale
 	// Surface
 Shield_surface = -4;
 Shield_mask_surface = -4;
+Shield_drawing_surface = -4;
 
 // Hacking
 hackable_parts_list = ds_list_create();
 
 // stats
 stat[var_mass, 1] = 400000;		// weight of an average 747
-stat[var_drag, 1] = 0.5;		// 25% drag per sec
+//stat[var_drag, 1] = 0.5;		// 25% drag per sec
 scr_stat_update( id );			// updates all stats
 
 // internal variables

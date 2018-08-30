@@ -200,13 +200,4 @@ for( var i = ds_list_size( shield_list ) - 1; i >= 0; i-- )
 	shield += shield_list[|i].shield_buffer;
 }
 
-if( shield > 0 )
-{
-	// draw shield?
-	
-	
-}
-
-
-
 ds_list_clear( shield_list );
