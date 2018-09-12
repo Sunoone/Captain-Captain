@@ -16,7 +16,7 @@ float hexagon( vec2 P, float h )
 	P.y += mod(floor(P.x), 2.0)*0.5;
 	P = abs((mod(P, 1.0) - 0.5));
 	
-	float S = 1.0 - 0.25 * ( 1.0 + h * 0.2 );
+	float S = 1.0 - 0.35 * ( 1.0 + h * 0.2 );
 	
 	return smoothstep( S, 1.0, 1.0 - abs(max(P.x*1.5 + P.y, P.y*2.0) - 1.0) );
 }
@@ -39,6 +39,8 @@ void main()
 	
 	vec4 col = mix( vec4( 0.5, 0.75, 1.0, 1 ), vec4( hex * 0.5, hex * 0.75, hex, hex ), hex );
 	
-	gl_FragColor = col ;
+	gl_FragColor = col;
+	
+	//gl_FragColor = vec4( 1.0,1.0,1.0,1.0 );
 }
 

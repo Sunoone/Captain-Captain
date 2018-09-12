@@ -22,3 +22,5 @@ if( owner == global.player )
 
 	draw_text_color( 10, 50, "S: " + string( shield ), dc,dc,dc,dc,1 );
 }
+
+scr_camera_draw_sprite( global.combat_camera, spr_allign, 0, x, y, 0 );

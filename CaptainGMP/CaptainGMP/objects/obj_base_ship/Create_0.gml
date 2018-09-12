@@ -29,7 +29,6 @@ draw_grid_hull_active = false;
 draw_grid_object[0,0] = -1;
 draw_grid_object_index = 0;
 draw_grid_object_recheck = true;
-draw_grid_object_active = false;
 
 draw_grid_turret[0,0] = -1;
 draw_grid_turret_index = 0;
@@ -54,9 +53,14 @@ SB1 = scr_bezier_create( vec2( -100, 115), vec2( -120,115 ), vec2( -180, 110 ), 
 SB2 = scr_bezier_create( vec2( -100, -115), vec2( -120,-115 ), vec2( -180, -110 ), vec2( -180, 0 ) );
 SB3 = scr_bezier_create( vec2( 120, 0 ), vec2(120, -40), vec2( 40, -115 ), vec2( -100, -115) );
 
+SHAPE[0] = SB0;
+SHAPE[1] = SB1;
+SHAPE[2] = SB2;
+SHAPE[3] = SB3;
+
 shield_height = 30;
 
-shield_surface_size_increase = 100;
+shield_surface_size_increase = 0;
 
 	// Shaders
 shield_height_uniform = shader_get_uniform( sha_shield, "max_height" );
@@ -103,6 +107,20 @@ torque_drag = 0;
 aero_torque_drag = 0;
 
 aero_control = 5000;
+
+// Collision
+collision_radius = 0;
+var b;
+for( var i = 0; i < array_length_1d(SHAPE); i++ )
+{	
+	b = SHAPE[i];
+	
+	if( vector_length( vec2( b[0], b[1] ) ) > collision_radius )
+		collision_radius = vector_length( vec2( b[0], b[1] ) );
+	
+	if( vector_length( vec2( b[6], b[7] ) ) > collision_radius )
+		collision_radius = vector_length( vec2( b[6], b[7] ) );
+}
 
 // DEBUG
 screen_offset_x = scr_screen_surface_get_x( global.combat_screen_index );

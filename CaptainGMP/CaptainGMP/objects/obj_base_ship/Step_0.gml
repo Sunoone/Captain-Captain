@@ -12,6 +12,11 @@ else
 var vector_delta;
 var dampen = stat[var_mass, 0] * global.DeltaTime;
 
+	// shield causes aditional drag (much more)
+var area_multiply = 1;
+if(shield > 0) 
+	area_multiply = 5;
+
 	// add force to inertia from thrusters
 for( var i = ds_list_size( movement )-1; i >= 0; i-- )
 {
@@ -34,7 +39,7 @@ ds_list_clear( rotation );
 
 	// Calculate & Apply Drag
 if( inertia[0] != 0 || inertia[1] != 0 || torque != 0)
-{
+{	
 	var velocity = point_distance(0,0,inertia[0],inertia[1]);
 	var m_dir = point_direction( 0,0,inertia[0],inertia[1] ) + 180;
 	
@@ -45,7 +50,7 @@ if( inertia[0] != 0 || inertia[1] != 0 || torque != 0)
 	
 	area = mix( drag_area_front, drag_area_side, m_area );
 	
-	drag = ( scr_calculate_drag( drag_coefficient, air_density, velocity, area ) ) / dampen;
+	drag = ( scr_calculate_drag( drag_coefficient * area_multiply, air_density, velocity, area * area_multiply ) ) / dampen;
 	
 	var d_v0 = lengthdir_x( drag, m_dir );
 	var d_v1 = lengthdir_y( drag, m_dir );
@@ -56,6 +61,7 @@ if( inertia[0] != 0 || inertia[1] != 0 || torque != 0)
 	// torque from drag area
 	if( area != drag_area_front )
 	{		
+			// this is wrong
 		torque_drag = sin( degtorad( d_dir ) ) * (area - drag_area_front) * drag * -500 * global.DeltaTime;
 		
 		torque += torque_drag;
@@ -188,7 +194,6 @@ if( draw_grid_object_recheck )
 	}
 	
 	draw_grid_object_recheck = false;
-	draw_grid_object_active = true;
 }
 
 

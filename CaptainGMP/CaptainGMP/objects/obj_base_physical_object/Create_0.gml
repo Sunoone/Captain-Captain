@@ -4,7 +4,6 @@
 event_inherited();
 
 // This object holds the HP system
-
 scr_stat_update( id, var_HP_max );
 HP = stat[ var_HP_max, 0 ];
 
